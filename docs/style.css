@@ -385,7 +385,7 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
 }
 
 #chapter-dialog {
-  width: min(620px, calc(100% - 24px));
+  width: min(740px, calc(100% - 24px));
   padding: 0;
   overflow: hidden;
   text-align: left;
@@ -409,22 +409,38 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   overflow-y: auto;
   overscroll-behavior-y: contain;
   touch-action: pan-y pinch-zoom;
-  padding: clamp(16px, 4vw, 32px);
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.6;
-  scrollbar-color: #8a7294 transparent;
+  padding: clamp(22px, 5vw, 42px) clamp(18px, 5vw, 44px);
+  color-scheme: light;
+  background: #fff;
+  color: #242029;
+  font: clamp(17px, 1rem + .2vw, 19px)/1.65 Georgia, serif;
+  overflow-wrap: anywhere;
+  scrollbar-color: #8b7d90 transparent;
+}
+.chapter-detail-body > * {
+  max-width: 64ch;
+  margin-inline: auto;
 }
 .chapter-detail-body > :first-child { margin-top: 0; }
 .chapter-detail-body > :last-child { margin-bottom: 0; }
-.chapter-detail-body p { margin: 0 0 14px; }
+.chapter-detail-body p { margin-block: 0 1em; }
 #chapter-dialog .chapter-detail-body h3 {
-  margin: 22px 0 4px;
-  color: var(--cover);
-  font: 400 25px/1.12 var(--display);
+  margin-block: 1.7em .38em;
+  color: #242029;
+  font: 700 18px/1.35 var(--sans);
 }
-.chapter-detail-body strong { color: var(--ink); }
-.chapter-detail-body a { color: var(--cover); text-underline-offset: 3px; }
+.chapter-detail-body a {
+  color: #503065;
+  text-underline-offset: .16em;
+}
+.chapter-detail-body:focus-visible,
+.chapter-detail-body a:focus-visible { outline-color: #503065; }
+.chapter-detail-body code {
+  padding: .1em .24em;
+  border-radius: 3px;
+  background: #f1edf4;
+  font-size: .82em;
+}
 .chapter-dialog-navigation {
   display: flex;
   justify-content: space-between;
