@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preset Game Bible tickets</title>
+<link rel="stylesheet" href="../../style.css">
+<style>
+main { max-width: 880px; margin: 24px auto; padding: 0 16px 32px; }
+h1 { font: 400 clamp(36px, 7vw, 64px)/1 var(--display); margin: 16px 0; }
+p { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+td, th { border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; padding: 8px; }
+td a { color: var(--lime); }
+@media (max-width: 520px) { td, th { padding: 5px; } table { font-size: 12px; } }
+</style>
+</head>
+<body><main>
+<a href="../../">← Game Bible</a>
+<h1>Preset Game Bible tickets</h1>
+<p>Fill in your game spec, then work through the tickets in dependency order. Select a ticket to download its Markdown file.</p>
+<p><a class="primary" href="../game-planning-kit.zip" download>Download spec and tickets</a></p>
+<table>
+<thead><tr><th scope="col">Chapter</th><th scope="col">Ticket</th><th scope="col">Blocked by</th><th scope="col">What to demonstrate</th></tr></thead>
+<tbody><tr><th scope="row">01</th><td><a href="01-vision-and-scope.md" download>Define the first release</a></td><td>None</td><td>The owner can explain the player promise, audience, target, and first playable.</td></tr>
+<tr><th scope="row">02</th><td><a href="02-game-design-document.md" download>Specify the game loop and scenes</a></td><td>01</td><td>The core loop has observable rules and a rough scene roadmap.</td></tr>
+<tr><th scope="row">03</th><td><a href="03-engine-and-assets.md" download>Run the first interaction on the target</a></td><td>02</td><td>A fresh checkout runs a representative interaction using its assets.</td></tr>
+<tr><th scope="row">04</th><td><a href="04-development-sandbox.md" download>Prove the mechanics in the sandbox</a></td><td>03</td><td>Required rules, inputs, and recovery can be exercised from known states.</td></tr>
+<tr><th scope="row">05</th><td><a href="05-scene-scripts-and-playtests.md" download>Assemble and playtest each scene</a></td><td>04</td><td>A player can enter, complete, and exit each in-scope scene.</td></tr>
+<tr><th scope="row">06</th><td><a href="06-player-manual-and-wiki.md" download>Write and verify player help</a></td><td>05</td><td>A fresh player can find and use help that matches the build.</td></tr>
+<tr><th scope="row">07</th><td><a href="07-release-pricing-and-marketing.md" download>Verify the release candidate</a></td><td>06</td><td>The exact candidate works from the planned delivery entry point.</td></tr>
+<tr><th scope="row">08</th><td><a href="08-contributor-training.md" download>Walk a new contributor through a change</a></td><td>07</td><td>A contributor can run, change, and verify the released workflow.</td></tr>
+<tr><th scope="row">09</th><td><a href="09-updates-and-dlc.md" download>Rehearse or deliver an update</a></td><td>08</td><td>One change goes through the affected checks and documentation.</td></tr>
+<tr><th scope="row">10</th><td><a href="10-intake-and-feedback.md" download>Review feedback and plan the next cycle</a></td><td>09</td><td>Feedback reaches an owner and produces a next-cycle scope decision.</td></tr>
+</tbody>
+</table>
+</main></body>
+</html>

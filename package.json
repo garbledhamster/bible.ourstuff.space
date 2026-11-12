@@ -1,0 +1,10 @@
+{
+  "name": "game-bible",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/render-chapters.mjs"
+  },
+  "devDependencies": {
+    "marked": "17.0.5"
+  }
+}
