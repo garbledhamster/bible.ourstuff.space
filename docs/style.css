@@ -82,6 +82,7 @@ body.game-bible {
 :is(#engine-and-assets, [data-chapter="engine-and-assets"]) { --cover: #b8cfb7; --cover-ink: #28382e; }
 :is(#development-sandbox, [data-chapter="development-sandbox"]) { --cover: #a9d6f7; --cover-ink: #172f4d; }
 :is(#scene-scripts-and-playtests, [data-chapter="scene-scripts-and-playtests"]) { --cover: #f6d481; --cover-ink: #432e12; }
+:is(#build-and-play-the-game, [data-chapter="build-and-play-the-game"]) { --cover: #91dce9; --cover-ink: #16383f; }
 :is(#player-manual-and-wiki, [data-chapter="player-manual-and-wiki"]) { --cover: #c9bcfa; --cover-ink: #30244e; }
 :is(#release-pricing-and-marketing, [data-chapter="release-pricing-and-marketing"]) { --cover: #f4acbb; --cover-ink: #4c2333; }
 :is(#contributor-training, [data-chapter="contributor-training"]) { --cover: #86d6ca; --cover-ink: #123e38; }
