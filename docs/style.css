@@ -88,6 +88,7 @@ body.game-bible {
 :is(#contributor-training, [data-chapter="contributor-training"]) { --cover: #86d6ca; --cover-ink: #123e38; }
 :is(#updates-and-dlc, [data-chapter="updates-and-dlc"]) { --cover: #dec5a9; --cover-ink: #443224; }
 :is(#intake-and-feedback, [data-chapter="intake-and-feedback"]) { --cover: #d9e894; --cover-ink: #303910; }
+:is(#island-post-example, [data-chapter="island-post-example"]) { --cover: #f5cba7; --cover-ink: #452b24; }
 .chapter {
   min-width: 0;
   min-height: 0;
@@ -149,6 +150,17 @@ body.game-bible {
   scrollbar-color: #8a7294 transparent;
 }
 .chapter-body { flex: 1; }
+.worked-example .chapter-body {
+  display: block;
+  padding: 16px 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.worked-example p { margin: 0 0 14px; }
+.worked-example ol { margin: 0; padding-inline-start: 24px; }
+.worked-example li + li { margin-top: 10px; }
+.worked-example strong { color: var(--ink); }
 .chapter-body:focus-visible, .chapter-detail-body:focus-visible { outline-offset: -3px; }
 .callout { padding: clamp(5px, 1.35vh, 11px) 11px; border: 1px solid #3f374d; border-radius: 9px; background: #2a2538; }
 .callout h4, .callout p { font-size: clamp(11px, 1.85vh, 13px); margin: 0; line-height: 1.35; }
@@ -233,7 +245,13 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
 
 @media (max-width: 600px) {
   body.game-bible { grid-template-rows: 58px minmax(0, 1fr) 44px; }
-  .rail { grid-auto-columns: calc(100% - 12px); gap: 10px; }
+  .rail {
+    grid-auto-columns: calc(100% - 12px);
+    gap: 10px;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+  }
+  .chapter { scroll-snap-align: start; }
   .chapter-cover { padding-inline: 14px; }
   .link-row a, .link-row button, .separator { font-size: 12px; }
   dialog { padding-inline: 12px; }

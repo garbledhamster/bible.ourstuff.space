@@ -1,4 +1,4 @@
-import { parseChapterGuide } from './chapter-content.js';
+import { parseChapterGuide, parseWorkedExample } from './chapter-content.js';
 
 const guideUrl = new URL('./resources/game-bible-guide.md', import.meta.url);
 let chapterRequest;
@@ -102,6 +102,8 @@ const chapters = [
   ]],
 ];
 
+const panels = [...chapters, ['Island Post (In-Progress)', 'island-post-example']];
+
 const rail = document.querySelector('#rail');
 const previous = document.querySelector('#prev');
 const next = document.querySelector('#next');
@@ -153,7 +155,7 @@ function moveOpenChapter(direction) {
   const index = openChapterIndex + direction;
   if (index < 0 || index >= chapters.length) return;
   renderOpenChapter(index);
-  showChapter(index);
+  showPanel(index);
 }
 
 chapterPrevious.addEventListener('click', () => moveOpenChapter(-1));
@@ -206,30 +208,49 @@ function appendChapterSections(container, sections) {
   }
 }
 
-for (const [number, [title, slug, sections]] of chapters.entries()) {
+for (const [number, [title, slug, sections]] of panels.entries()) {
+  const isExample = number === chapters.length;
   const card = document.createElement('article');
-  card.className = 'chapter';
+  card.className = isExample ? 'chapter worked-example' : 'chapter';
   card.id = slug;
-  const label = chapterLabel(number);
+  const label = isExample ? 'Example 1' : chapterLabel(number);
   card.innerHTML = `<header class="chapter-cover"><span class="chapter-number">${label}</span><h3>${title.replaceAll('&', '&amp;')}</h3><div class="chapter-actions"></div></header><div class="chapter-body"></div>`;
   const body = card.querySelector('.chapter-body');
   body.tabIndex = 0;
   body.setAttribute('role', 'region');
   body.setAttribute('aria-label', `${title} sections`);
-  appendChapterSections(body, sections);
-
-  const open = document.createElement('button');
-  open.type = 'button';
-  open.className = 'chapter-link';
-  open.textContent = 'Open Chapter';
-  open.setAttribute('aria-label', `Open Chapter ${number + 1} · ${title}`);
-  open.setAttribute('aria-haspopup', 'dialog');
-  open.addEventListener('click', () => {
-    renderOpenChapter(number);
-    chapterDialog.showModal();
-  });
   const actions = card.querySelector('.chapter-actions');
-  actions.append(open);
+  if (isExample) {
+    body.textContent = 'Loading example…';
+    const markdown = document.createElement('a');
+    markdown.className = 'chapter-link';
+    markdown.href = 'resources/island-post-example.md';
+    markdown.textContent = 'Read Markdown';
+    actions.append(markdown);
+    fetch(markdown.href, { cache: 'no-cache' })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Worked example request failed: ${response.status}`);
+        return response.text();
+      })
+      .then((source) => { body.innerHTML = parseWorkedExample(source); })
+      .catch((error) => {
+        body.textContent = 'The example couldn’t load. Use Read Markdown to open it.';
+        console.error(error);
+      });
+  } else {
+    appendChapterSections(body, sections);
+    const open = document.createElement('button');
+    open.type = 'button';
+    open.className = 'chapter-link';
+    open.textContent = 'Open Chapter';
+    open.setAttribute('aria-label', `Open Chapter ${number + 1} · ${title}`);
+    open.setAttribute('aria-haspopup', 'dialog');
+    open.addEventListener('click', () => {
+      renderOpenChapter(number);
+      chapterDialog.showModal();
+    });
+    actions.append(open);
+  }
   if (slug === 'intake-and-feedback') {
     const restart = document.createElement('a');
     restart.className = 'chapter-link';
@@ -238,7 +259,7 @@ for (const [number, [title, slug, sections]] of chapters.entries()) {
     restart.addEventListener('click', (event) => {
       event.preventDefault();
       history.replaceState(null, '', restart.href);
-      showChapter(0);
+      showPanel(0);
       const heading = rail.children[0].querySelector('h3');
       heading.tabIndex = -1;
       heading.focus();
@@ -260,7 +281,7 @@ for (const [number, [title, slug, sections]] of chapters.entries()) {
     event.preventDefault();
     history.replaceState(null, '', choice.href);
     drawer.close();
-    showChapter(number);
+    showPanel(number);
     const heading = card.querySelector('h3');
     heading.tabIndex = -1;
     heading.focus({preventScroll: true});
@@ -268,19 +289,22 @@ for (const [number, [title, slug, sections]] of chapters.entries()) {
   chapterChoices.append(choice);
 }
 
-function renderChapter() {
-  position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`;
+function renderPanelPosition() {
+  position.textContent = current < chapters.length
+    ? `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`
+    : 'Example 1';
   previous.disabled = current === 0;
-  next.disabled = current === chapters.length - 1;
+  next.disabled = current === panels.length - 1;
+  next.setAttribute('aria-label', current === chapters.length - 1 ? 'Go to Island Post example' : 'Next chapter');
 }
 
-function showChapter(number) {
-  current = Math.min(chapters.length - 1, Math.max(0, number));
-  rail.scrollTo({left: chapterScrollLeft(current), behavior: 'instant'});
-  renderChapter();
+function showPanel(number) {
+  current = Math.min(panels.length - 1, Math.max(0, number));
+  rail.scrollTo({left: panelScrollLeft(current), behavior: 'instant'});
+  renderPanelPosition();
 }
 
-function chapterScrollLeft(number) {
+function panelScrollLeft(number) {
   const start = rail.children[0].offsetLeft;
   const end = rail.scrollWidth - rail.clientWidth;
   return Math.min(end, rail.children[number].offsetLeft - start);
@@ -306,21 +330,21 @@ document.addEventListener('wheel', (event) => {
 rail.addEventListener('scroll', () => {
   cancelAnimationFrame(scrollFrame);
   scrollFrame = requestAnimationFrame(() => {
-    if (Math.abs(chapterScrollLeft(current) - rail.scrollLeft) < 3) return;
+    if (Math.abs(panelScrollLeft(current) - rail.scrollLeft) < 3) return;
     const end = rail.scrollWidth - rail.clientWidth;
     if (end - rail.scrollLeft < 3) {
-      current = chapters.length - 1;
+      current = panels.length - 1;
     } else {
       const start = rail.children[0].offsetLeft;
       const distance = (card) => Math.abs(card.offsetLeft - start - rail.scrollLeft);
       const cards = [...rail.children];
       current = cards.indexOf(cards.reduce((nearest, card) => distance(card) < distance(nearest) ? card : nearest));
     }
-    renderChapter();
+    renderPanelPosition();
   });
 }, {passive:true});
-previous.addEventListener('click', () => showChapter(current - 1));
-next.addEventListener('click', () => showChapter(current + 1));
+previous.addEventListener('click', () => showPanel(current - 1));
+next.addEventListener('click', () => showPanel(current + 1));
 function updateReferenceSeparators() {
   for (const bullet of drawer.querySelectorAll('.separator')) {
     const top = bullet.getBoundingClientRect().top;
@@ -349,7 +373,7 @@ rail.addEventListener('keydown', (event) => {
   if (event.target !== rail) return;
   if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
     event.preventDefault();
-    showChapter(current + (event.key === 'ArrowLeft' ? -1 : 1));
+    showPanel(current + (event.key === 'ArrowLeft' ? -1 : 1));
   }
 });
 
@@ -378,18 +402,18 @@ for (const [number, group] of [document.querySelector('.resources'), drawer].ent
   }
 }
 
-function showLinkedChapter() {
-  const number = chapters.findIndex(([, slug]) => location.hash === '#' + slug);
-  if (number !== -1) showChapter(number);
+function showLinkedPanel() {
+  const number = panels.findIndex(([, slug]) => location.hash === '#' + slug);
+  if (number !== -1) showPanel(number);
 }
 
 window.addEventListener('resize', () => {
-  renderChapter();
+  renderPanelPosition();
   if (drawer.open) updateReferenceSeparators();
 });
 document.fonts.ready.then(() => {
   if (drawer.open) updateReferenceSeparators();
 });
-window.addEventListener('hashchange', showLinkedChapter);
-renderChapter();
-showLinkedChapter();
+window.addEventListener('hashchange', showLinkedPanel);
+renderPanelPosition();
+showLinkedPanel();

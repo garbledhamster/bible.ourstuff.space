@@ -8,7 +8,10 @@ await Promise.all([
   copyFile(new URL('../node_modules/marked/LICENSE.md', import.meta.url), new URL('marked-LICENSE.md', vendor)),
 ]);
 
-const { parseChapterGuide } = await import('../docs/chapter-content.js');
+const { parseChapterGuide, parseWorkedExample } = await import('../docs/chapter-content.js');
 const guide = await readFile(new URL('../docs/resources/game-bible-guide.md', import.meta.url), 'utf8');
 const chapters = parseChapterGuide(guide);
 console.log(`Validated ${Object.keys(chapters).length} Markdown chapters.`);
+const example = await readFile(new URL('../docs/resources/island-post-example.md', import.meta.url), 'utf8');
+parseWorkedExample(example);
+console.log('Validated the Island Post worked example.');
