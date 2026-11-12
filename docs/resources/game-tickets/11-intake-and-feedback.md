@@ -1,7 +1,7 @@
-# 10 · Review feedback and plan the next cycle
+# 11 · Review feedback and plan the next cycle
 
-**Chapter** 10
-**Blocked by** 09
+**Chapter** 11
+**Blocked by** 10
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

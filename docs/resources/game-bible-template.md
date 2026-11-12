@@ -31,6 +31,11 @@ Next decision or check:
 - Mechanics and assets used:
 - Playtest criteria, observations, fixes, and result:
 
+## Build and Play the Game
+- Startup scene, build targets, source revision, and build or export steps:
+- Versioned installer, app package, or staged browser build:
+- Clean install or fresh launch, core playthrough, and results by target:
+
 ## Player Manual and Wiki
 - In-game How to Play outline:
 - Wiki topics and screenshots:

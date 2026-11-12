@@ -26,7 +26,7 @@ marked.walkTokens(tokens, (token) => {
   if (token.type === 'html') throw new Error('Chapter guide must use Markdown without raw HTML.');
 });
 
-if (sections.size !== 10) throw new Error(`Expected ten guide chapters, found ${sections.size}.`);
+if (sections.size !== 11) throw new Error(`Expected eleven guide chapters, found ${sections.size}.`);
 
 const content = Object.fromEntries(
   Array.from(sections, ([slug, chapter]) => [slug, marked.parser(chapter)])

@@ -110,6 +110,26 @@ Give a new player a task and watch what happens before offering help. Record wha
 
 **Island Post example.** Ask a first-time phone player to deliver to Mina. If they soak the parcel, watch where they look for Retry. Retest the change with someone who hasn’t seen the scene.
 
+## Build & Play the Game
+
+Once the scenes work on their own, put them together into a build someone can open and play. Start where a player starts and follow the game through a complete loop. This is where you find things that can be easy to miss while working on a scene, like an asset that didn’t make it into the export or a transition that sends the player to the wrong place.
+
+### Build targets and steps
+
+Choose the startup scene and the platforms in scope. Record the source revision, engine or tool version, and command or export settings you used to make the build. Include any setup someone else needs to repeat it.
+
+### Package and launch
+
+Compile or export the game for each target and include the assets and dependencies it needs. For an installable game, use the installer or app package on a clean target device or environment and launch it as a player would. For a browser game, serve the production build at a test URL and open it in a fresh browser profile.
+
+### Playthrough and evidence
+
+Start a new game from the player entry point. Use the intended controls to finish a core loop and check the transitions between scenes. Try a failure and recovery path if the game has one. If the game saves progress, close it, reopen it, and check that you can continue. Fix any failures and rebuild before repeating the affected checks.
+
+**Complete when** you can repeat the build, open or install it on each target in scope, and play through the core loop. Record the build ID or revision, package or test URL, target, and observed result. Use that build when writing the player manual and taking screenshots.
+
+**Island Post example.** Serve the production export and open it on a phone in a fresh browser profile. Start at the title screen, soak a parcel, retry, and deliver a fresh one to Mina. Follow the transition to Market Lane and check that its map and parcel icons load. Record the URL and build ID with the result.
+
 ## Player Manual & Wiki
 
 Write the help from the playable build so players can recognize what they see on screen and use it to decide what to do.

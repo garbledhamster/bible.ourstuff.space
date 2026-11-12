@@ -32,6 +32,7 @@ Give each story an ID so a ticket and a test can point to it. Add stories for re
 - Highest practical test seam: [game entry, sandbox scenario, or public interface that exposes the behavior]
 - Repeatable checks: [starting state, action, expected result, and command or steps]
 - Playtest and device checks: [task, target device or input, observer, and pass criteria]
+- Build and play check: [build or export steps, package or test URL, clean install or launch, and core playthrough by target]
 - Release check: [candidate ID, delivery path, and what a fresh player must complete]
 - Evidence record: [build or revision, target, check, observed result, status, and artifact link]
 
@@ -48,11 +49,12 @@ Replace the starter criteria with measurable checks for this game. Add the evide
 | 03 · Engine & Assets | Runnable project and assets for the next slice | A contributor can launch a clean checkout on the target and see one real interaction with its representative assets. | [link and status] |
 | 04 · Development Sandbox | Runnable cases and results for the mechanics and assets in scope | Each required case starts from a known state, can be repeated, and matches the design, including failure and recovery. | [link and status] |
 | 05 · Scene Scripts & Playtests | Scene scripts, playable scenes, and playtest notes | Each scene can be played from entry to outcome on its intended controls. Transitions and recovery pass, and a playtest checks the intended experience. | [link and status] |
-| 06 · Player Manual & Wiki | In-game help, wiki pages, and screenshots | A fresh player can find the help and use it to perform the key action. Screenshots and rules match the release build. | [link and status] |
-| 07 · Release, Pricing & Marketing | Release candidate, launch materials, and distribution decision | The exact candidate launches through the intended delivery path. Its listing or page describes the actual game, and the payment flow passes if the release requires one. | [link and status] |
-| 08 · Contributor Training | Setup, first change, and verification guide | Someone starting fresh can run the game and sandbox, make a representative change, and verify it using the guide. | [link and status] |
-| 09 · Updates & DLC | Update approach and an example change | An agreed update is rehearsed or delivered. Affected behavior, existing progress, and access are checked where relevant, and release notes and help reflect the change. | [link and status] |
-| 10 · Intake & Feedback | Intake channel, feedback review, and next scope decision | A real or rehearsal message can be received, recorded, and answered. The owner reviews available evidence and records what returns to Chapter 01, including a goal or a reason to hold scope. | [link and status] |
+| 06 · Build & Play the Game | Repeatable build steps, a versioned package or staged web build, and playthrough results | On each target in scope, a fresh player can install or open the build, start a new game, and complete the core loop across scenes. | [link and status] |
+| 07 · Player Manual & Wiki | In-game help, wiki pages, and screenshots | A fresh player can find the help and use it to perform the key action. Screenshots and rules match the release build. | [link and status] |
+| 08 · Release, Pricing & Marketing | Release candidate, launch materials, and distribution decision | The exact candidate launches through the intended delivery path. Its listing or page describes the actual game, and the payment flow passes if the release requires one. | [link and status] |
+| 09 · Contributor Training | Setup, first change, and verification guide | Someone starting fresh can run the game and sandbox, make a representative change, and verify it using the guide. | [link and status] |
+| 10 · Updates & DLC | Update approach and an example change | An agreed update is rehearsed or delivered. Affected behavior, existing progress, and access are checked where relevant, and release notes and help reflect the change. | [link and status] |
+| 11 · Intake & Feedback | Intake channel, feedback review, and next scope decision | A real or rehearsal message can be received, recorded, and answered. The owner reviews available evidence and records what returns to Chapter 01, including a goal or a reason to hold scope. | [link and status] |
 
 ## Turn this spec into tickets
 

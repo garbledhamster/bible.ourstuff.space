@@ -38,6 +38,13 @@ const chapters = [
     ['Playtest criteria, observations, fixes, and result', 'Set the player task before the test. Watch what happens, fix what blocks the experience, and record the retest.'],
     ['Island Post', 'Ask a first-time phone player to deliver to Mina. Watch whether they can find Retry after soaking a parcel.'],
   ]],
+  ['Build & Play the Game', 'build-and-play-the-game', [
+    ['Summary', 'Turn the assembled scenes into a game a player can install or open, then play through the build on its target.'],
+    ['Build targets and steps', 'Record the startup scene, target, build or export command, and settings so someone else can make the same build.'],
+    ['Package and launch', 'Package the required assets and dependencies. Test the installer or app package on a clean target, or open a staged web build in a fresh browser profile.'],
+    ['Playthrough and evidence', 'Start from the player entry point and play the core loop across scenes. Record the build, target, steps, and result so the manual can use the verified build.'],
+    ['Island Post', 'Open the staged browser build on a phone, start from the title screen, deliver to Mina, and continue to Market Lane.'],
+  ]],
   ['Player Manual & Wiki', 'player-manual-and-wiki', [
     ['Summary', 'Help players learn the game and look up details from the build they actually play.'],
     ['In-game How to Play', 'Outline the controls, feedback, and first useful actions. Check that a new player can find the help and use it.'],

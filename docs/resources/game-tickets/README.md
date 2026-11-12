@@ -9,11 +9,12 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | 03 | [Run the first interaction on the target](03-engine-and-assets.md) | 02 | A fresh checkout runs a representative interaction using its assets. |
 | 04 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 03 | Required rules, inputs, and recovery can be exercised from known states. |
 | 05 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 04 | A player can enter, complete, and exit each in-scope scene. |
-| 06 | [Write and verify player help](06-player-manual-and-wiki.md) | 05 | A fresh player can find and use help that matches the build. |
-| 07 | [Verify the release candidate](07-release-pricing-and-marketing.md) | 06 | The exact candidate works from the planned delivery entry point. |
-| 08 | [Walk a new contributor through a change](08-contributor-training.md) | 07 | A contributor can run, change, and verify the released workflow. |
-| 09 | [Rehearse or deliver an update](09-updates-and-dlc.md) | 08 | One change goes through the affected checks and documentation. |
-| 10 | [Review feedback and plan the next cycle](10-intake-and-feedback.md) | 09 | Feedback reaches an owner and produces a next-cycle scope decision. |
+| 06 | [Build and play the game](06-build-and-play-the-game.md) | 05 | A player can install or open the build on the target and complete the core loop. |
+| 07 | [Write and verify player help](07-player-manual-and-wiki.md) | 06 | A fresh player can find and use help that matches the build. |
+| 08 | [Verify the release candidate](08-release-pricing-and-marketing.md) | 07 | The exact candidate works from the planned delivery entry point. |
+| 09 | [Walk a new contributor through a change](09-contributor-training.md) | 08 | A contributor can run, change, and verify the released workflow. |
+| 10 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 09 | One change goes through the affected checks and documentation. |
+| 11 | [Review feedback and plan the next cycle](11-intake-and-feedback.md) | 10 | Feedback reaches an owner and produces a next-cycle scope decision. |
 
 Start with the earliest ticket whose blockers are complete. Some preparation can start sooner. Draft the help outline during design and open an intake channel before a playtest or launch. Treat that preparation as a separate task. Start each chapter ticket after its listed blocker is complete.
 
@@ -26,4 +27,4 @@ Start with the earliest ticket whose blockers are complete. Some preparation can
 - **Evidence:** record the build or revision, target, verification steps and result, and links to observations or outputs.
 - **Handoff:** link to the finished work, note any unresolved items, and name the next unblocked ticket.
 
-When Chapter 10 changes the game, open a new Chapter 01 for the next cycle and link back to the evidence. Keep each release’s dependency list in order.
+When Chapter 11 changes the game, open a new Chapter 01 for the next cycle and link back to the evidence. Keep each release’s dependency list in order.

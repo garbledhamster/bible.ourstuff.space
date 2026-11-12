@@ -5,7 +5,7 @@ Use these links from the resource index on the Game Bible site. If you received 
 - [Game Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Game Bible guide](game-bible-guide.md) — full chapter text, completion checks, and examples.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
-- [Preset ticket list](game-tickets/README.md) — browse ten starter tickets with blockers, acceptance checks, and evidence.
+- [Preset ticket list](game-tickets/README.md) — browse eleven starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
 - [Game Development Playbook](game-development-playbook.md) — draft workflow.
 - [Island Post worked example](island-post-example.md) — illustrative game bible entries.
