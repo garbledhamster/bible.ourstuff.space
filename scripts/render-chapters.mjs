@@ -1,35 +1,14 @@
-import { readFile, writeFile } from 'node:fs/promises';
-import { marked } from 'marked';
+import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 
-const guidePath = new URL('../docs/resources/game-bible-guide.md', import.meta.url);
-const outputPath = new URL('../docs/chapter-content.js', import.meta.url);
-const guide = await readFile(guidePath, 'utf8');
-const tokens = marked.lexer(guide);
-const sections = new Map();
-let currentSection;
+const vendor = new URL('../docs/vendor/', import.meta.url);
+const marked = await readFile(new URL('../node_modules/marked/lib/marked.esm.js', import.meta.url), 'utf8');
+await mkdir(vendor, { recursive: true });
+await Promise.all([
+  writeFile(new URL('marked.esm.js', vendor), marked.replace(/\/\/# sourceMappingURL=.*\n?$/, '')),
+  copyFile(new URL('../node_modules/marked/LICENSE.md', import.meta.url), new URL('marked-LICENSE.md', vendor)),
+]);
 
-for (const token of tokens) {
-  if (token.type === 'heading' && token.depth === 2) {
-    const slug = token.text.toLowerCase()
-      .replaceAll('&', 'and')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-|-$/g, '');
-    if (sections.has(slug)) throw new Error(`Duplicate chapter heading: ${token.text}`);
-    currentSection = [];
-    sections.set(slug, currentSection);
-  } else if (currentSection) {
-    currentSection.push(token);
-  }
-}
-
-marked.walkTokens(tokens, (token) => {
-  if (token.type === 'html') throw new Error('Chapter guide must use Markdown without raw HTML.');
-});
-
-if (sections.size !== 11) throw new Error(`Expected eleven guide chapters, found ${sections.size}.`);
-
-const content = Object.fromEntries(
-  Array.from(sections, ([slug, chapter]) => [slug, marked.parser(chapter)])
-);
-await writeFile(outputPath, '// Generated from resources/game-bible-guide.md by npm run build.\n' +
-  `export const chapterContent = ${JSON.stringify(content, null, 2)};\n`);
+const { parseChapterGuide } = await import('../docs/chapter-content.js');
+const guide = await readFile(new URL('../docs/resources/game-bible-guide.md', import.meta.url), 'utf8');
+const chapters = parseChapterGuide(guide);
+console.log(`Validated ${Object.keys(chapters).length} Markdown chapters.`);

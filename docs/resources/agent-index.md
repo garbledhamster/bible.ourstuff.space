@@ -1,9 +1,9 @@
 # Game Bible agent resource index
 
-Use these links from the resource index on the Game Bible site. If you received a download, open the Game Bible site and resolve the relative links from its resources folder. Start with the Bible template for a new game. For a game in progress, locate its filled-in Bible and read its current stage and evidence. After a playtest or release, review Intake and Feedback for evidence to bring into the next Vision and Scope pass.
+Give your agent the [Game Bible skill](https://bible.ourstuff.space/resources/game-bible/SKILL.md) to work through a chapter. The skill reads the same published Markdown as the chapter reader. If you downloaded this index, resolve the relative links from the site's resources folder.
 
 - [Game Bible template](game-bible-template.md) — reusable outline with chapter prompts.
-- [Game Bible guide](game-bible-guide.md) — full chapter text, completion checks, and examples.
+- [Game Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
 - [Preset ticket list](game-tickets/README.md) — browse eleven starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.

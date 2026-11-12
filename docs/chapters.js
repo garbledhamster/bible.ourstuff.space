@@ -1,4 +1,21 @@
-import { chapterContent } from './chapter-content.js';
+import { parseChapterGuide } from './chapter-content.js';
+
+const guideUrl = new URL('./resources/game-bible-guide.md', import.meta.url);
+let chapterRequest;
+
+function loadChapterContent() {
+  chapterRequest ??= fetch(guideUrl, { cache: 'no-cache' })
+    .then((response) => {
+      if (!response.ok) throw new Error(`Chapter guide request failed: ${response.status}`);
+      return response.text();
+    })
+    .then(parseChapterGuide)
+    .catch((error) => {
+      chapterRequest = undefined;
+      throw error;
+    });
+  return chapterRequest;
+}
 
 const chapters = [
   ['Vision & Scope', 'vision-and-scope', [
@@ -105,19 +122,30 @@ function chapterLabel(index) {
   return `Chapter ${String(index + 1).padStart(2, '0')}`;
 }
 
-function renderOpenChapter(index) {
+async function renderOpenChapter(index) {
   const [title, slug] = chapters[index];
   const focused = document.activeElement;
   openChapterIndex = index;
   chapterDialog.dataset.chapter = slug;
   chapterDialogNumber.textContent = chapterLabel(index);
   chapterDialogTitle.textContent = title;
-  chapterDialogBody.innerHTML = chapterContent[slug];
-  chapterDialogBody.scrollTop = 0;
+  chapterDialogBody.textContent = 'Loading chapter…';
   chapterPrevious.disabled = index === 0;
   chapterNext.disabled = index === chapters.length - 1;
   if (focused === chapterPrevious && chapterPrevious.disabled) chapterNext.focus();
   if (focused === chapterNext && chapterNext.disabled) chapterPrevious.focus();
+
+  try {
+    const chapterContent = await loadChapterContent();
+    if (openChapterIndex !== index) return;
+    if (!Object.hasOwn(chapterContent, slug)) throw new Error(`Chapter missing from guide: ${slug}`);
+    chapterDialogBody.innerHTML = chapterContent[slug];
+    chapterDialogBody.scrollTop = 0;
+  } catch (error) {
+    if (openChapterIndex !== index) return;
+    chapterDialogBody.textContent = 'The chapter guide couldn’t load. Reopen the chapter to try again.';
+    console.error(error);
+  }
 }
 
 function moveOpenChapter(direction) {

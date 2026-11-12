@@ -1,6 +1,7 @@
 {
   "name": "game-bible",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "node scripts/render-chapters.mjs"
   },
