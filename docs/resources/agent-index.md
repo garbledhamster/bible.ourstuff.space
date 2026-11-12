@@ -1,7 +1,8 @@
 # Game Bible agent resource index
 
-Give your agent the [Game Bible skill](https://bible.ourstuff.space/resources/game-bible/SKILL.md) to work through a chapter. The skill reads the same published Markdown as the chapter reader. If you downloaded this index, resolve the relative links from the site's resources folder.
+Give your agent the [Game Bible skill](https://bible.ourstuff.space/resources/game-bible/SKILL.md) to work through the chapters for a game, app, or other software project. The skill reads the same published Markdown as the chapter reader. Open the [live index](https://bible.ourstuff.space/resources/agent-index.md) at the start of a project or when you pick up a chapter so you have the current files.
 
+- [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
 - [Game Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Game Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.

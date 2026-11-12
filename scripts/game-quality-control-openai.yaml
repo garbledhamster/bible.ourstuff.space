@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Quality Control"
+  short_description: "Game quality checks from first playable to release"
+  default_prompt: "Use $game-quality-control to review this game build and tell me what evidence we still need before advancing."

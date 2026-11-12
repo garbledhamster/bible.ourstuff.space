@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A chapter-by-chapter game development reference for you and your agents.">
+<meta name="description" content="Joe’s Builder’s Bible for games and software. Work through the chapters with your agents, from the first idea to release and feedback.">
 <title>Game Bible</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
 </main>
 <footer class="resources">
 <nav class="link-row" aria-label="Game Bible resources">
-<button id="quick" type="button" aria-haspopup="dialog" data-description="Browse the files, skills, plugins, and public game development resources.">Get Started</button>
+<button id="quick" type="button" aria-haspopup="dialog" data-description="Browse the chapters, templates, agent resources, and Joe’s Notes.">Get Started</button>
 <span class="separator" aria-hidden="true">  •  </span>
 <button type="button" data-info-dialog="template-info" aria-haspopup="dialog" data-description="See what the fill-in template includes and choose whether to download it.">Bible template</button>
 <span class="separator" aria-hidden="true">  •  </span>
@@ -34,6 +34,7 @@
 <form method="dialog"><button class="close" aria-label="Close Get Started" autofocus>×</button></form>
 <h2 id="reference-title">Get Started</h2>
 <div class="reference-intro">
+<p>This is my Builder’s Bible for games, apps, and other software. Start with the chapters here and work through them with your agent using the project you’re building.</p>
 <p>Define a game people can picture playing. Sketch the rules, pick an engine, and gather the art and sound. Prove the mechanics in a sandbox. Build and playtest each scene. Package the game and play it the way a player will open or install it. Then write the player guide and wiki. Plan the launch, price, and pitch. Teach contributors how to test changes and ship updates or expansions. Listen to players and prospects, then use their feedback to decide what comes next.</p>
 <ul>
 <li>Scroll sideways to browse the chapters and the Island Post example.</li>
@@ -72,6 +73,31 @@
 </p></section>
 </div>
 <div class="description-space"><div class="link-description" role="tooltip" hidden></div></div>
+<div class="link-row notes-link">
+<button type="button" data-info-dialog="joes-notes" aria-haspopup="dialog">Joe’s Notes</button>
+</div>
+</dialog>
+<dialog id="joes-notes" class="info-dialog" aria-labelledby="joes-notes-title">
+<h2 id="joes-notes-title">Joe’s Notes</h2>
+<div class="notes-body" role="region" aria-label="Design notes" tabindex="0">
+<!-- BEGIN NOTES -->
+<section>
+<h3>Use symbols and keywords in games</h3>
+<p>Build the interface around symbols, icons, and short keywords unless the game is text-based or relies on text to play. Let players hover, focus, or press and hold to see what something means. Put longer explanations in How to Play and in the descriptions for individual items.</p>
+</section>
+<section>
+<h3>Keep progress up front</h3>
+<p>Give players a way to track their progress right on the main interface. Show the resources, points, trophies, or categories that matter in that game so players can see where they stand while they play.</p>
+</section>
+<section>
+<h3>Vary the layout</h3>
+<p>Look at the white space, borders, and the way text and images sit together. Try an offset layout or a slight angle where it fits. A mobile screen can be a single page if everything fits. If a site scrolls sideways, snap to each panel and keep vertical scrolling inside dialogs or other contained panels that need it.</p>
+</section>
+<!-- END NOTES -->
+</div>
+<form method="dialog" class="template-actions">
+<button type="submit" class="primary" autofocus>Close</button>
+</form>
 </dialog>
 <dialog id="template-info" class="info-dialog" aria-labelledby="template-title" aria-describedby="template-description">
 <h2 id="template-title">Bible template</h2>
