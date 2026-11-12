@@ -6,6 +6,14 @@ Use this guide alongside the [Game Bible template](game-bible-template.md). The 
 
 Start with something you can show a player. A clear promise gives you a way to decide what belongs in the first release and what can wait.
 
+### Project folders and Git
+
+Choose the game’s project folder and set up Git while you’re working out the idea. Run `git status` there to see whether the project already uses Git. If it does, confirm the repository root with `git rev-parse --show-toplevel` and use the existing history. For a new project, run `git init` in the project folder.
+
+Put a short folder map in the README so you and an agent know where to find the same things. A starting layout can put scenes, objects, and UI in `src/`, original art and sound in `assets/`, and the Game Bible, design notes, and decisions in `docs/`. Give sandbox scenarios and tests a known location as they come into use. Reuse the same layout across games where the engine allows it. If the engine needs a different path or the project outgrows a folder, update the map and commit it with the change.
+
+Save the first Game Bible notes. Use `git add` to stage the README and notes, check the staged files, and use `git commit` to save the starting point. Keep credentials and local engine caches out of commits. If you host the project on GitHub, start with a **private** repository unless the owner wants it public. Connect it as the remote and verify its visibility before pushing. For a project that already has a remote, confirm it points to the intended repository. [GitHub’s setup walkthrough](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
+
 ### Player promise, audience, and platforms
 
 Describe what the player gets to do and why it could be worth their time. Name who you’re building for and how they’ll play. A phone browser with touch controls and a desktop browser with a keyboard can support the same promise, but you’ll need to check both.
@@ -18,9 +26,9 @@ Choose the smallest release that lets someone experience the promise from start 
 
 Record each unresolved question with an owner and the work it affects. If a decision needs a playable answer, write down what the prototype needs to demonstrate.
 
-**Complete when** you can tell someone who the game is for, what they’ll do in the first release, and how you’ll tell if it worked.
+**Complete when** someone can find the project’s Git repository and folder map, see the planning notes in its history, and tell who the game is for, what they’ll do in the first release, and how you’ll tell if it worked.
 
-**Island Post example.** The first preview lets a phone or desktop player take one parcel across the Dock and retry if it gets wet. Market Lane and the Hill Route can wait until players have tried that first delivery.
+**Island Post example.** Start a private GitHub repository and commit the first design notes in `docs/` with a README that names the code and asset folders. The first preview lets a phone or desktop player take one parcel across the Dock and retry if it gets wet. Market Lane and the Hill Route can wait until players have tried that first delivery.
 
 ## Game Design Document
 

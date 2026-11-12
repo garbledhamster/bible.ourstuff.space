@@ -5,6 +5,8 @@ Current stage:
 Next decision or check:
 
 ## Vision and Scope
+- Project folder and Git repository, including the remote and visibility if used:
+- README folder map and first saved planning commit:
 - Player promise, intended audience, and platforms:
 - First playable milestone and release scope:
 - Open decisions:

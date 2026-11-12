@@ -4,6 +4,7 @@ Copy this file when an idea is ready to become a build. Use the filled-in Game B
 
 - Game and release or iteration: [name]
 - Game Bible, decisions, and prior evidence: [links]
+- Project repository and README folder map: [links]
 - Owner and intended audience: [names or roles]
 - Tracker or local ticket folder: [location]
 - Current chapter and next decision: [chapter, decision]
@@ -44,7 +45,7 @@ Replace the starter criteria with measurable checks for this game. Add the evide
 
 | Chapter | Output for this release | Starter completion check | Evidence and status |
 | --- | --- | --- | --- |
-| 01 · Vision & Scope | Player promise, audience, target, smallest release | The owner can name who the game is for, what a player can complete, and what the release includes. Scope decisions that block design are resolved. | [link and status] |
+| 01 · Vision & Scope | Git repository, folder map, player promise, audience, target, smallest release | The planning notes are in Git and a contributor can find the source, assets, and docs. The owner can name who the game is for, what a player can complete, and what the release includes. Scope decisions that block design are resolved. | [link and status] |
 | 02 · Game Design Document | Core loop, rules, failure and recovery, scene roadmap | Each mechanic in scope has an observable expected result, and each planned scene names the rules and assets it needs. | [link and status] |
 | 03 · Engine & Assets | Runnable project and assets for the next slice | A contributor can launch a clean checkout on the target and see one real interaction with its representative assets. | [link and status] |
 | 04 · Development Sandbox | Runnable cases and results for the mechanics and assets in scope | Each required case starts from a known state, can be repeated, and matches the design, including failure and recovery. | [link and status] |

@@ -20,6 +20,7 @@ function loadChapterContent() {
 const chapters = [
   ['Vision & Scope', 'vision-and-scope', [
     ['Summary', 'Set the player promise and decide what the first release needs to deliver.'],
+    ['Project folders and Git', 'Set up or reuse Git and record where the code, assets, and planning documents live.'],
     ['Player promise, audience, and platforms', 'Say what players can do and why it matters to them. Name who it’s for and where they can play.'],
     ['First playable milestone and release scope', 'Name the smallest playable outcome that proves the idea. List what ships with it and what can wait.'],
     ['Open decisions', 'Record questions that still affect scope, who can answer them, and which work depends on the answers.'],

@@ -2,7 +2,7 @@
 
 Island Post is an illustrative browser puzzle game about delivering one parcel at a time on a rainy island.
 
-1. **Vision and scope.** Make the first delivery playable on phone and desktop. Players learn to read the ground and choose a dry route.
+1. **Vision and scope.** Start a private GitHub repository and record where the code, art, and design notes will live. Commit the plan for a first delivery on phone and desktop. Players learn to read the ground and choose a dry route.
 2. **Game design.** Unwrapped parcels become soaked when the courier steps in a puddle. The Dock teaches the basic rule, Market Lane adds wrapping, and the Hill Route adds two deliveries and an optional step goal.
 3. **Engine and assets.** Start with a small 2D Phaser map, courier and recipient sprites, puddle and boardwalk tiles, and parcel condition icons.
 4. **Sandbox.** Start on the same tile with a dry unwrapped parcel, then with a wrapped parcel. Cross the puddle and compare outcomes. Check pause, retry, and dialogue states.
