@@ -96,6 +96,8 @@ Someone can start the game from a clean checkout and show one real interaction w
 
 Before I build out a scene, I want a real sandbox where I can get right to the part I'm working on. If I'm changing the way a wet parcel looks, I want to get straight to the puddle. The same goes for a menu, a piece of dialogue, or an object the player can use. I want a place where I or an agent can pull up that part of the game, try it, change something, and try it again.
 
+I also want to use the sandbox to take screenshots for the wiki. If we can pull up a particular item, character, menu, or scene on its own, we can show what it looks like in the game without playing through a level to get there.
+
 ### Launch link or command
 
 Give the sandbox an entry point in the project and have it run the same game code the scene will use. I should be able to open a case, start from a known spot with the right items, and reset it without walking through a level. Keep the launch instructions where contributors already go to start the game.
@@ -186,7 +188,7 @@ Record where the manual and wiki live. Open them from the game the way a player 
 
 ### Island Post example
 
-How to Play can show the movement controls, the parcel icon, and where to find Retry. On the wiki, show what happens when you take the same puddle crossing with a wrapped and an unwrapped parcel in a build that includes wrapping. Link back to the recovery instructions for a player who's already stuck.
+How to Play can show the movement controls, the parcel icon, and where to find Retry. For the wiki, use the sandbox to take screenshots after crossing the same puddle with a wrapped parcel and an unwrapped parcel, so players can see what stays dry and what gets wet. Link back to the recovery instructions for a player who's already stuck.
 
 ### Complete when
 
