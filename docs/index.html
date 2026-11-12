@@ -95,10 +95,14 @@
 <dialog id="chapter-dialog" aria-labelledby="chapter-dialog-title">
 <header class="chapter-cover">
 <span class="chapter-number"></span>
-<h2 id="chapter-dialog-title"></h2>
+<h2 id="chapter-dialog-title" aria-live="polite"></h2>
 <form method="dialog"><button class="close" aria-label="Close chapter" autofocus>×</button></form>
 </header>
 <div class="chapter-detail-body" role="region" aria-label="Chapter text" tabindex="0"></div>
+<nav class="chapter-dialog-navigation" aria-label="Open chapter navigation">
+<button id="chapter-previous" type="button"><span aria-hidden="true">←</span> Previous chapter</button>
+<button id="chapter-next" type="button">Next chapter <span aria-hidden="true">→</span></button>
+</nav>
 </dialog>
 </body>
 </html>

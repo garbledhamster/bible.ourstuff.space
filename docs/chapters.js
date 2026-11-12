@@ -85,8 +85,77 @@ const drawer = document.querySelector('#references');
 const chapterChoices = document.querySelector('#chapter-choices');
 const chapterDialog = document.querySelector('#chapter-dialog');
 const chapterDialogBody = chapterDialog.querySelector('.chapter-detail-body');
+const chapterDialogTitle = chapterDialog.querySelector('h2');
+const chapterDialogNumber = chapterDialog.querySelector('.chapter-number');
+const chapterPrevious = document.querySelector('#chapter-previous');
+const chapterNext = document.querySelector('#chapter-next');
 let current = 0;
 let scrollFrame = 0;
+let openChapterIndex = 0;
+let chapterDrag;
+
+function chapterLabel(index) {
+  return `Chapter ${String(index + 1).padStart(2, '0')}`;
+}
+
+function renderOpenChapter(index) {
+  const [title, slug] = chapters[index];
+  const focused = document.activeElement;
+  openChapterIndex = index;
+  chapterDialog.dataset.chapter = slug;
+  chapterDialogNumber.textContent = chapterLabel(index);
+  chapterDialogTitle.textContent = title;
+  chapterDialogBody.innerHTML = chapterContent[slug];
+  chapterDialogBody.scrollTop = 0;
+  chapterPrevious.disabled = index === 0;
+  chapterNext.disabled = index === chapters.length - 1;
+  if (focused === chapterPrevious && chapterPrevious.disabled) chapterNext.focus();
+  if (focused === chapterNext && chapterNext.disabled) chapterPrevious.focus();
+}
+
+function moveOpenChapter(direction) {
+  const index = openChapterIndex + direction;
+  if (index < 0 || index >= chapters.length) return;
+  renderOpenChapter(index);
+  showChapter(index);
+}
+
+chapterPrevious.addEventListener('click', () => moveOpenChapter(-1));
+chapterNext.addEventListener('click', () => moveOpenChapter(1));
+chapterDialog.addEventListener('keydown', (event) => {
+  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+  event.preventDefault();
+  moveOpenChapter(event.key === 'ArrowLeft' ? -1 : 1);
+});
+chapterDialog.addEventListener('close', () => {
+  chapterDrag = undefined;
+  rail.children[openChapterIndex].querySelector('button.chapter-link').focus({ preventScroll: true });
+});
+
+chapterDialog.addEventListener('pointerdown', (event) => {
+  chapterDrag = undefined;
+  if (!event.isPrimary || event.button !== 0 || event.shiftKey ||
+      event.target === chapterDialog || event.target.closest('a, button')) return;
+  chapterDrag = { pointerId: event.pointerId, x: event.clientX, y: event.clientY };
+});
+window.addEventListener('pointercancel', (event) => {
+  if (chapterDrag?.pointerId === event.pointerId) chapterDrag = undefined;
+});
+window.addEventListener('blur', () => { chapterDrag = undefined; });
+window.addEventListener('pointerup', (event) => {
+  if (chapterDrag?.pointerId !== event.pointerId) return;
+  const dx = event.clientX - chapterDrag.x;
+  const dy = event.clientY - chapterDrag.y;
+  chapterDrag = undefined;
+  if (!chapterDialog.open || Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+
+  const previousIndex = openChapterIndex;
+  moveOpenChapter(dx < 0 ? 1 : -1);
+  if (event.pointerType === 'mouse' && openChapterIndex !== previousIndex) {
+    window.getSelection()?.removeAllRanges();
+  }
+});
 
 function appendChapterSections(container, sections) {
   for (const [title, summary] of sections) {
@@ -105,7 +174,7 @@ for (const [number, [title, slug, sections]] of chapters.entries()) {
   const card = document.createElement('article');
   card.className = 'chapter';
   card.id = slug;
-  const label = `Chapter ${String(number + 1).padStart(2, '0')}`;
+  const label = chapterLabel(number);
   card.innerHTML = `<header class="chapter-cover"><span class="chapter-number">${label}</span><h3>${title.replaceAll('&', '&amp;')}</h3><div class="chapter-actions"></div></header><div class="chapter-body"></div>`;
   const body = card.querySelector('.chapter-body');
   body.tabIndex = 0;
@@ -120,12 +189,8 @@ for (const [number, [title, slug, sections]] of chapters.entries()) {
   open.setAttribute('aria-label', `Open Chapter ${number + 1} · ${title}`);
   open.setAttribute('aria-haspopup', 'dialog');
   open.addEventListener('click', () => {
-    chapterDialog.dataset.chapter = slug;
-    chapterDialog.querySelector('.chapter-number').textContent = label;
-    chapterDialog.querySelector('h2').textContent = title;
-    chapterDialogBody.innerHTML = chapterContent[slug];
+    renderOpenChapter(number);
     chapterDialog.showModal();
-    chapterDialogBody.scrollTop = 0;
   });
   const actions = card.querySelector('.chapter-actions');
   actions.append(open);

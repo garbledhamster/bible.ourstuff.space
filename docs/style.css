@@ -388,8 +388,9 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   padding: 0;
   overflow: hidden;
   text-align: left;
+  touch-action: pan-y pinch-zoom;
 }
-#chapter-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+#chapter-dialog[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
 #chapter-dialog .chapter-cover { min-height: 0; padding: 16px 58px 16px 18px; }
 #chapter-dialog h2 { margin: 4px 0 0; font-size: clamp(33px, 6vw, 52px); }
 #chapter-dialog .close {
@@ -406,6 +407,7 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior-y: contain;
+  touch-action: pan-y pinch-zoom;
   padding: clamp(16px, 4vw, 32px);
   color: var(--muted);
   font-size: 15px;
@@ -422,6 +424,24 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
 }
 .chapter-detail-body strong { color: var(--ink); }
 .chapter-detail-body a { color: var(--cover); text-underline-offset: 3px; }
+.chapter-dialog-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px clamp(12px, 4vw, 24px);
+  border-top: 1px solid var(--line);
+}
+.chapter-dialog-navigation button {
+  min-height: 44px;
+  border: 0;
+  padding: 0 8px;
+  background: transparent;
+  color: var(--cover);
+  font-size: 13px;
+  font-weight: 650;
+}
+.chapter-dialog-navigation button:hover:not(:disabled) { text-decoration: underline; }
+.chapter-dialog-navigation button:disabled { opacity: .4; cursor: default; }
 @media (max-height: 520px) {
   .chapter-actions { margin-top: 5px; }
   #chapter-dialog .chapter-cover { padding-block: 10px; }
