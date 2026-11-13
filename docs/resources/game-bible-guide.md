@@ -10,6 +10,8 @@ When I'm picturing a game, I usually have more ideas than I can use in the first
 
 ### Project folders and Git
 
+Use the [project Bible setup instructions](https://bible.ourstuff.space/AGENTS.md) to keep a local copy of the shared guide, templates, and assets that you can update from the main Bible.
+
 I set up the project folder while the idea is still small. When I come back to it, or ask an agent to pick it up, I want us both looking at the same files and history. Run `git status` from the game folder. If Git is already set up, confirm the root with `git rev-parse --show-toplevel` and use that repository. For a new project, run `git init` in the game folder.
 
 Put a short folder map in the README. I might start with scenes, objects, and interface code in `src/`, original art and sound in `assets/`, and the Game Bible and decisions in `docs/`. Give the sandbox and tests a place in the map when you add them. If the engine puts things somewhere else, record where they actually live so the next person can find them.

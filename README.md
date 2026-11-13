@@ -1,5 +1,7 @@
 # Game Bible
 
+To use the Bible in a game repository, see [Set up and update a project Bible](docs/AGENTS.md).
+
 Edit the source in `docs/`. The site and the agent skill use the same chapter guide in `docs/resources/game-bible-guide.md`. Add design notes to `docs/resources/joes-notes.md`. Add new agent resources to `docs/resources/agent-index.md` so agents can find them from the live index.
 
 Run `npm ci` and `npm run build` with Node.js and Python 3. The build validates the chapter order and the index's local links, renders the notes, template and ticket list from Markdown, and rebuilds both ZIP downloads. Preview the result with `python3 -m http.server 8000 --directory dist`.
