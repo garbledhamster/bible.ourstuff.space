@@ -10,7 +10,7 @@ Use the [Project Bible template](game-bible-template.md) to keep the decisions f
 
 Start each new Project Bible with Vision & Scope. If you're working with an agent, use Project Bible and Grill with Docs together. Read the project notes and check the repository first, then use the chat pop-out to work through decisions in rounds. Put the recommended choice first and explain what each realistic option changes. Ask the next set of questions after the answers it depends on are in.
 
-Save agreed decisions in the project's Bible as you go. Keep a short glossary in `CONTEXT.md` as the project's terms settle. Once the owner confirms the player promise, audience, platforms, first playable, and how we'll check it, use that scope to start the Game Design Document. Keep the open decisions visible so the next person knows what still needs an answer.
+Save agreed decisions in the project's Bible as you go. Keep a short glossary in `CONTEXT.md` as the project's terms settle. Once the owner confirms the player promise, audience, platforms, first playable, and how we'll check it, use that scope to start the Design Document. Keep the open decisions visible so the next person knows what still needs an answer.
 
 
 When I'm picturing a game, I usually have more ideas than I can use in the first release. I want to get far enough with one of them that I can put the game in someone's hands and see what they do. That means agreeing on who we're making it for, what they'll get to do, and what we can finish well enough for them to try.
@@ -47,21 +47,21 @@ The first preview could be one delivery across the Dock. A player picks up a par
 
 I can find the repository, the folder map, and the scope notes in Git. From those notes, I can tell who we're building for, how they'll play, what belongs in the first release, and what we'd need to see to call it a good first try.
 
-## Game Design Document
+## Design Document
 
-Once I know what I want someone to get out of the game, I write down what they'll actually do. This is the Game Design Document. If I hand an agent the idea for a delivery game, it still has to guess when a parcel gets wet or what the player sees when that happens. We can work through those details on paper and then see how they feel in the sandbox.
+Once I know what I want someone to get out of a project, I write down what they'll actually do. For a website, that could mean finding a resource from the home page, opening it, and getting back to where they started. If I hand an agent the idea for a delivery game, it still has to guess when a parcel gets wet or what the player sees when that happens. We can work through those details on paper and then see how they feel in the sandbox.
 
-### Player loop and intended experience
+### Core workflow and intended experience
 
-Walk through one turn from where the player starts. In a delivery game, they get a parcel, choose a route, find out whether the parcel made it, and decide what to do next. I want to write down where the player gets to make a choice and what the game tells them along the way. Later I can watch someone take a route and see whether they picked it for the reason I thought they would.
+Walk through one complete task from where someone starts. In a delivery game, they get a parcel, choose a route, find out whether the parcel made it, and decide what to do next. I want to write down where the player gets to make a choice and what the game tells them along the way. Later I can watch someone take a route and see whether they picked it for the reason I thought they would.
 
-### Mechanics
+### Rules and behavior
 
 A mechanic is a rule we can put into play. I write down what the player starts with, what they do, what changes, and how they find out. If they can fail, the rule also needs to say what they can do after that. Add the touch and keyboard details where they differ. A person or agent building the rule should be able to try it and know what result to look for.
 
-### Scene roadmap and dependencies
+### Screens, scenes, and dependencies
 
-I give each scene a rough outline so I can see what it introduces and what the player should already know. The outline is also where I note which rules, art, and sounds that scene needs. When we sit down to assemble it, we can write the full scene script with its dialogue and transitions. By then we know which pieces we're putting together.
+For a site, outline the pages, what people can do on each one, and the content or systems they depend on. For a game, I give each scene a rough outline so I can see what it introduces and what the player should already know. The outline is also where I note which rules, art, and sounds that scene needs. When we sit down to assemble it, we can write the full scene script with its dialogue and transitions. By then we know which pieces we're putting together.
 
 ### Open design decisions
 
@@ -73,7 +73,7 @@ Say an unwrapped parcel gets wet the moment the courier enters a puddle. The par
 
 ### Complete when
 
-I can follow a turn through the document, take a rule into the sandbox and know what to look for, and find the scenes that depend on it. Each open decision has a way to get an answer.
+I can follow a task or turn through the document, try a rule and know what to look for, and find the screens or scenes that depend on it. Each open decision has a way to get an answer.
 
 ## Engine & Assets
 
@@ -159,7 +159,7 @@ Write the scene in the order the player experiences it. Where do they come in? W
 
 ### Mechanics and assets used
 
-Link the scene to its rules in the Game Design Document and to the art, sound, objects, and interface it uses. Pull up their sandbox cases before assembly. Then play the scene with those same pieces in place. I might see the wet icon in the sandbox and miss it in the scene because it sits too close to the dialogue. That's something I can only check with the pieces together.
+Link the scene to its rules in the Design Document and to the art, sound, objects, and interface it uses. Pull up their sandbox cases before assembly. Then play the scene with those same pieces in place. I might see the wet icon in the sandbox and miss it in the scene because it sits too close to the dialogue. That's something I can only check with the pieces together.
 
 ### Playtest criteria, observations, fixes, and result
 

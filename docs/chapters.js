@@ -27,11 +27,11 @@ const chapters = [
     ['Open decisions', 'Record questions that still affect scope, who can answer them, and which work depends on the answers.'],
     ['Island Post', 'For the first browser release, a player can deliver one parcel across a rainy dock using touch or a keyboard.'],
   ]],
-  ['Game Design Document', 'game-design-document', [
+  ['Design Document', 'design-document', [
     ['Summary', 'Describe the experience and rules in enough detail for someone to build and test them.'],
-    ['Player loop and intended experience', 'Follow one turn from entry through an action, its feedback, and the outcome. Say what should make the player want another turn.'],
-    ['Mechanics', 'For each rule, describe the input, feedback, success, failure, and how the player recovers.'],
-    ['Scene roadmap and dependencies', 'Outline what each scene introduces and which rules, art, and prior scenes it needs.'],
+    ['Core workflow and intended experience', 'Follow a player or visitor from their starting point through an action, feedback, and the outcome.'],
+    ['Rules and behavior', 'Describe each action, what the project does in response, and how someone recovers if it fails.'],
+    ['Screens, scenes, and dependencies', 'Outline what each screen or scene does and what it needs to work.'],
     ['Open design decisions', 'Record unanswered design questions and decide which need a prototype or playtest.'],
     ['Island Post', 'The Dock teaches dry routes. Market Lane adds wrapping. The Hill Route adds two deliveries and an optional step goal.'],
   ]],
@@ -407,7 +407,8 @@ for (const [number, group] of [document.querySelector('.resources'), drawer].ent
 }
 
 function showLinkedPanel() {
-  const number = panels.findIndex(([, slug]) => location.hash === '#' + slug);
+  const fragment = location.hash === '#game-design-document' ? '#design-document' : location.hash;
+  const number = panels.findIndex(([, slug]) => fragment === '#' + slug);
   if (number !== -1) showPanel(number);
 }
 

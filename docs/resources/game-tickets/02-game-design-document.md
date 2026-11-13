@@ -1,4 +1,4 @@
-# 02 · Specify the game loop and scenes
+# 02 · Specify the workflow and rules
 
 **Chapter** 02
 **Blocked by** 01
@@ -6,13 +6,13 @@
 
 ## What to build
 
-Describe the first release so an agent can build the loop and verify each rule.
+Describe the first release so a contributor can build the workflow and verify each rule.
 
 ## Acceptance checks
 
-- [ ] Describe the loop, inputs, feedback, success, failure, and recovery.
-- [ ] Give each in-scope mechanic an observable pass criterion.
-- [ ] List each scene and the mechanics and assets it needs.
+- [ ] Describe the workflow, inputs, feedback, success, failure, and recovery.
+- [ ] Give each rule in scope an observable pass criterion.
+- [ ] List the screens or scenes and what each needs to work.
 
 ## Evidence and handoff
 

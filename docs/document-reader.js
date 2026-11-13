@@ -81,8 +81,10 @@ export async function startReader() {
     download.href = source.href;
     download.hidden = false;
     if (reader.hash) {
-      const id = CSS.escape(decodeURIComponent(reader.hash.slice(1)));
-      article.querySelector(`#${id}`)?.scrollIntoView();
+      const fragment = decodeURIComponent(reader.hash.slice(1));
+      const heading = article.querySelector(`#${CSS.escape(fragment)}`)
+        ?? (fragment === 'game-design-document' ? article.querySelector('#design-document') : null);
+      heading?.scrollIntoView();
     }
   } catch {
     article.textContent = 'This file couldn’t open. Check the link or go back to the Bible.';

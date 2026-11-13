@@ -11,10 +11,10 @@ Next decision or check:
 - First playable milestone and release scope:
 - Open decisions:
 
-## Game Design Document
-- Player loop and intended experience:
-- For each mechanic: input, rule, feedback, success, failure, and recovery:
-- Rough scene roadmap and dependencies:
+## Design Document
+- Core workflow and intended experience:
+- For each rule or interaction: input, rule, feedback, success, failure, and recovery:
+- Screens or scenes and their dependencies:
 - Open design decisions:
 
 ## Engine and Assets

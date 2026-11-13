@@ -5,7 +5,7 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | ID | Chapter ticket | Blocked by | What the agent can demonstrate |
 | --- | --- | --- | --- |
 | 01 | [Define the first release](01-vision-and-scope.md) | None | The owner can show the Git repository and folder map and explain the first playable. |
-| 02 | [Specify the game loop and scenes](02-game-design-document.md) | 01 | The core loop has observable rules and a rough scene roadmap. |
+| 02 | [Specify the workflow and rules](02-game-design-document.md) | 01 | The core workflow has observable rules and a map of the screens or scenes. |
 | 03 | [Run the first interaction on the target](03-engine-and-assets.md) | 02 | A fresh checkout runs a representative interaction using its assets. |
 | 04 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 03 | A contributor can play and reset the release’s required cases in one dedicated development scene before player-scene assembly. |
 | 05 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 04 | A player can enter, complete, and exit each in-scope scene. |
