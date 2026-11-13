@@ -38,7 +38,12 @@ const [intro, ...chapters] = (await read('resources/game-bible-template.md')).tr
 const sections = chapters.map(chapter => {
   const tokens = marked.lexer(chapter);
   const slug = tokens[0].text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  const legacyAnchor = slug === 'design-document' ? '<span id="game-design-document"></span>' : '';
+  const previousSlugs = {
+    'design-document': 'game-design-document',
+    'demo-manual-and-wiki': 'player-manual-and-wiki',
+  };
+  const previousSlug = previousSlugs[slug];
+  const legacyAnchor = previousSlug ? `<span id="${previousSlug}"></span>` : '';
   return { slug, html: `<section id="${slug}">${legacyAnchor}\n${marked.parser(tokens)}</section>\n` };
 });
 if (Object.keys(guide).join() !== sections.map(section => section.slug).join()) {

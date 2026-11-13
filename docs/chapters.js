@@ -72,12 +72,12 @@ const chapters = [
     ['Playthrough and evidence', 'Start from the player entry point and play the core loop across scenes. Record the build, target, steps, and result so the manual can use the verified build.'],
     ['Island Post', 'Open the staged browser build on a phone, start from the title screen, deliver to Mina, and continue to Market Lane.'],
   ]],
-  ['Player Manual & Wiki', 'player-manual-and-wiki', [
-    ['Summary', 'Help players learn the game and look up details from the build they actually play.'],
-    ['In-game How to Play', 'Outline the controls, feedback, and first useful actions. Check that a new player can find the help and use it.'],
-    ['Wiki topics and screenshots', 'Explain mechanics, items, and scenes with examples and screenshots from the release build.'],
-    ['Published references', 'Record where the manual and wiki live. Check their links and confirm they match the current release.'],
-    ['Island Post', 'Show the controls in How to Play. In the wiki, compare dry and wrapped parcels crossing the same puddle.'],
+  ['Demo, Manual & Wiki', 'demo-manual-and-wiki', [
+    ['Summary', 'Show what the project can do with a hands-on demo drawn from tested sandbox behavior.'],
+    ['Demo', 'Use the project’s real controls and visuals to teach one complete workflow.'],
+    ['Manual and wiki', 'Link the walkthrough and lookup pages to the places where people can practice.'],
+    ['Capture', 'Record the verified demo for a trailer or walkthrough and give viewers a link to try it.'],
+    ['Island Post', 'Try the Dock delivery, recover from a wet parcel, and capture the dry delivery.'],
   ]],
   ['Release, Pricing & Marketing', 'release-pricing-and-marketing', [
     ['Summary', 'Decide how people get the game, verify the release, and show what players will actually do.'],
@@ -413,7 +413,11 @@ for (const [number, group] of [document.querySelector('.resources'), drawer].ent
 }
 
 function showLinkedPanel() {
-  const fragment = location.hash === '#game-design-document' ? '#design-document' : location.hash;
+  const renamedChapters = {
+    '#game-design-document': '#design-document',
+    '#player-manual-and-wiki': '#demo-manual-and-wiki',
+  };
+  const fragment = renamedChapters[location.hash] ?? location.hash;
   const number = panels.findIndex(([, slug]) => fragment === '#' + slug);
   if (number !== -1) showPanel(number);
 }

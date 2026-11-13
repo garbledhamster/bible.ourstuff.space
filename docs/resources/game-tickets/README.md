@@ -11,7 +11,7 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | 05 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 04 | A contributor can play and reset the release’s required cases in one dedicated development scene before player-scene assembly. |
 | 06 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 05 | A player can enter, complete, and exit each in-scope scene. |
 | 07 | [Build and play the game](06-build-and-play-the-game.md) | 06 | A player can install or open the build on the target and complete the core loop. |
-| 08 | [Write and verify player help](07-player-manual-and-wiki.md) | 07 | A fresh player can find and use help that matches the build. |
+| 08 | [Build and verify the demo, manual, and wiki](07-player-manual-and-wiki.md) | 07 | A first-time user can complete the demo and use its help. The verified demo is ready to capture. |
 | 09 | [Verify the release candidate](08-release-pricing-and-marketing.md) | 08 | The exact candidate works from the planned delivery entry point. |
 | 10 | [Walk a new contributor through a change](09-contributor-training.md) | 09 | A contributor can run, change, and verify the released workflow. |
 | 11 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 10 | One change goes through the affected checks and documentation. |

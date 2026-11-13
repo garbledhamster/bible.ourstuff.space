@@ -11,7 +11,7 @@ When an idea is ready to build, fill in the [game spec template](game-spec-templ
 3. During preparation, build one dedicated development sandbox scene with a direct way for contributors to open it. Put the release’s mechanics, assets, controls, objects, and outcomes within reach. Play the cases in the scene by using objects and controls that run the actual game rules. Give each case a named starting state, a reset, and an observable pass criterion. Cover every release mechanic, every dialogue branch through the NPC roster picker when the game has NPCs, and the other checks that apply in the [Development Sandbox chapter](game-bible-guide.md#development-sandbox). Record the results before assembling the player scenes.
 4. Script, assemble, and playtest one scene at a time. Use Game Quality Control to record what players can do.
 5. Compile or export the assembled game. Install the package or open the staged browser build on each target in scope, then play the core loop across scenes and record the result.
-6. Complete player help, the wiki, and release material using the actual game. Record distribution, pricing, and launch checks.
+6. Build a public demo from passing sandbox cases. Connect the manual and wiki to it and capture the verified workflow for release material. Record distribution, pricing, and launch checks.
 7. Show contributors how to start the game, use the sandbox, and verify changes. Run updates and DLC through the affected steps.
 8. Set up intake before you need it. Decide how prospects, players, and customers can reach you, who replies, and how you’ll record what they say. Review the feedback after a playtest or release, follow up, and take the evidence that changes the next cycle back to Vision and Scope.
 

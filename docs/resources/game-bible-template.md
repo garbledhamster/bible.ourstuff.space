@@ -54,10 +54,19 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Versioned installer, app package, or staged browser build:
 - Clean install or fresh launch, core playthrough, and results by target:
 
-## Player Manual and Wiki
-- In-game How to Play outline:
-- Wiki topics and screenshots:
-- Published references:
+## Demo, Manual and Wiki
+
+Copy these prompts for each workflow you want to showcase.
+
+- Audience and outcome. Who is trying it, and what can they do by the end?
+- Showcase. What does the workflow help someone understand about the project?
+- Sandbox evidence. Link the passing cases for the action, result, and recovery. Record the build and target.
+- Demo entry and setup. Where do people start, and what sample data, objects, or progress do they need?
+- Actions and feedback. What do people do with the real controls, and what result can they see?
+- Recovery and replay. How do people retry, resume, or continue into the project?
+- Manual and wiki. Link the walkthrough, lookup pages, and practice steps. Show how someone gets back to the task.
+- Capture. List the moments to record, the verified build, and the link viewers use to try it.
+- Release check. Record the first-time user’s task, build, device, observations, and any checks to repeat.
 
 ## Release Pricing and Marketing
 - Release scope, delivery platform, price, and payment:

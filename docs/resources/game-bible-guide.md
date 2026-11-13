@@ -37,7 +37,7 @@ Look for games, apps, products, or services that solve a similar problem, serve 
 
 For an open-source project, look at the running product as well as its source, docs, and tests where they help answer your question. Check the license before reusing code or assets. For a closed-source product or service, try the workflow if you can and use public demos, help pages, or release notes to see how it works for the people using it.
 
-If I were building a task board, I'd look at how [Kanboard](https://github.com/kanboard/kanboard), an open-source app, handles moving a task between columns. That gives me something to check in the Development Sandbox, where I'd try moving a task and refreshing the board to see whether it stayed put. I'd also look at how [Trello](https://support.atlassian.com/trello/docs/getting-started-with-trello-video-demo/), a closed-source service, introduces a first board. I'd use that to decide what to explain in the Design Document and what to leave for the Player Manual & Wiki. I could then watch someone add and move a card to see where they need help.
+If I were building a task board, I'd look at how [Kanboard](https://github.com/kanboard/kanboard), an open-source app, handles moving a task between columns. That gives me something to check in the Development Sandbox, where I'd try moving a task and refreshing the board to see whether it stayed put. I'd also look at how [Trello](https://support.atlassian.com/trello/docs/getting-started-with-trello-video-demo/), a closed-source service, introduces a first board. I'd use that to decide what to explain in the Design Document and what to leave for Demo, Manual & Wiki. I could then watch someone add and move a card to see where they need help.
 
 As you work through the Bible, bring each reference back when you get to the decision it informs. It might give you a workflow to try in a playtest, a feature to leave out of the first release, or a way to explain the product when you launch.
 
@@ -145,7 +145,7 @@ While I'm preparing the release, I build one dedicated scene for development bef
 
 Make it a playable simulation for developers. I want to move through the sandbox, walk up to an object or control, and use it to trigger the game's behavior so I can see what a player would see. In a game with HP, I could walk up to a “Die” button and activate it. The game rules take my HP to zero and I see the actual death scene.
 
-I also want to use the sandbox to take screenshots for the wiki. If we can pull up a particular item, character, menu, or scene on its own, we can show what it looks like in the game without playing through a level to get there.
+I also want to use the sandbox to take screenshots for the wiki and to check the behavior we’ll showcase in the demo. If we can pull up a particular item, character, menu, or scene on its own, we can show what it looks like in the game without playing through a level to get there.
 
 ### Launch link or command
 
@@ -235,29 +235,50 @@ I'd open the test URL on a phone with a fresh browser profile and start at the t
 
 I can repeat the build, open or install it on each target we're shipping, and play through the core loop. I have a record of the build that passed and can use it for the manual and screenshots.
 
-## Player Manual & Wiki
+## Demo, Manual & Wiki
 
-I like to think about how we'll explain a game while we're designing it. Once we have a build to play, I can sit down with it and write the help using the words, icons, and screens the player will see. I want someone who's stuck to find the right bit of help and go back to what they were doing.
+Every project needs a demo people can try. Pick one useful thing someone can do from start to finish and use the controls, visuals, and rules they’ll meet in the project. I want someone to see what makes the project useful or fun and have a go at it themselves. That could mean delivering a parcel in a game, moving a card to Done on a sample task board, or finding and opening a resource on a website.
 
-### In-game How to Play
+### Build the demo from the sandbox
 
-Start with the controls and one thing a new player can try. Show what they'll see when it works and how they can recover from a mistake they're likely to make. If the main screen uses a parcel icon to show progress, use that same icon and a screenshot in How to Play. Ask a fresh player to find the help and do the action with it open or after reading it.
+Start with the cases you’ve tested in the development sandbox. Pick a workflow that shows what the project can do, and link to the passing checks for its main action, visible result, and likely recovery. Keep the build and target with those results. If you want to show something the team hasn’t checked, add a sandbox case and run it first.
 
-### Wiki topics and screenshots
+Use the real controls, visuals, and behavior from those cases to put together a short, guided workflow. Give the visitor a starting point with what they need already in reach, such as a fresh parcel or a sample board. Let them act and see the result for themselves. Give them a way to retry, replay the demo, and continue into the project. Open the demo from the same link or menu a visitor will use and try the whole flow on the release candidate.
 
-Give an item, mechanic, or scene its own page when someone is likely to look it up. For a parcel, I'd explain how you get it, where it goes, what changes its condition, and what you can do once it's wet. A screenshot earns its place when it shows something a player needs to recognize, like the difference between the dry and wet icons. Link related pages where a player might need to take another step.
+### Connect the demo, manual, and wiki
 
-### Published references
+Walk through the task from start to finish in the manual or in-app help. Show the controls, what success looks like, and how to recover from a likely mistake. Link to the demo so someone can follow along.
 
-Record where the manual and wiki live. Open them from the game the way a player would, then try the instructions on the build you're offering. If you've moved a button or changed the name of an item, update the picture and the words together so the reader can find it.
+Give an item, control, or rule its own wiki page when someone is likely to look it up. A page can teach one small action with an example, a screenshot, and a link to the relevant place to practice. Use the same names, icons, and examples across the three. If someone opens help mid-task, take them to the relevant step or topic and give them a way back to their work.
+
+### Capture the demo for a trailer or walkthrough
+
+Choose a few moments that show what someone does and what happens because of it. Capture them from the verified demo build. A trailer can show the action and payoff in a few shots. A walkthrough can stay with the task long enough for someone to follow the steps. Use the public demo link wherever you share the footage so viewers can try what they saw.
 
 ### Island Post example
 
-How to Play can show the movement controls, the parcel icon, and where to find Retry. For the wiki, use the sandbox to take screenshots after crossing the same puddle with a wrapped parcel and an unwrapped parcel, so players can see what stays dry and what gets wet. Link back to the recovery instructions for a player who's already stuck.
+In the sandbox, use the courier’s controls to cross a puddle with an unwrapped parcel and check that its condition icon changes. Try handing Mina the wet parcel and check that Retry restores a fresh one. Check the dry handoff and the wrapped crossing as well. Record the build and results for each case before using them in the demo.
+
+For the Dock demo, start with the postmaster handing you a parcel for Mina. At the fork you can take the boardwalk or try the puddle shortcut. If you soak the parcel, the icon changes and Mina offers Retry. On the next attempt you can take the boardwalk and make a dry delivery. Capture the fork, the splash and icon change, then the dry delivery. End the trailer with a link to try the Dock.
+
+The manual’s **Make your first delivery** walkthrough shows the same fork, parcel icons, and Retry button and links to the Dock demo. The wiki’s **Wet parcels** page shows how to recognize a wet parcel and links to the manual’s retry step. In Market Lane the player learns to wrap a parcel. The **Parcel wrap** wiki page shows screenshots of the same puddle with and without wrap and links to the Market Lane practice so the player can try it.
+
+### Reusable demo template
+
+Copy the [Demo, Manual & Wiki template](game-bible-template.md#demo-manual-and-wiki) for each workflow you want to showcase. Fill it in with a task, its passing sandbox cases, the public demo entry, the matching help, and the moments you’d capture.
+
+### Grilling questions
+
+1. **Audience and purpose.** Who will try this first? What task would help them understand what the project can do?
+2. **Sandbox evidence.** Which checks show the action, result, and recovery working? What still needs a run before we show it?
+3. **Hands-on practice.** What should someone do themselves? How will they tell it worked? How do they get another try?
+4. **Help and handoffs.** What will they look up halfway through? Where does the practice link land, and how do they return to their task?
+5. **Capture.** Which moments show the action and result? Can a viewer follow the link and do what they just saw?
+6. **Proof.** What should a first-time user be able to do unaided? Which changes would send us back to the sandbox, the help, or the footage?
 
 ### Complete when
 
-Someone can find the help from the game, follow it on the release candidate, and see the result you described.
+Record the passing sandbox cases and the release build, then watch a first-time user open the demo, complete the task, find the relevant help, and return to the task. Check that they can recover from a likely mistake and do the same kind of task unaided. Verify that you can capture the demo for a trailer or walkthrough and that viewers have a working link to try it. When a rule, label, or screen changes, check the affected sandbox cases and update the demo, instructions, screenshots, and footage that use it.
 
 ## Release, Pricing & Marketing
 
@@ -273,7 +294,7 @@ Save the build ID for the version you intend to ship. Start with a fresh player 
 
 ### Store copy, screenshots, pitch, and links
 
-Describe something the player can picture themselves doing. A shot of the courier choosing a path through the Dock tells me more about Island Post than a list of broad claims about the game. Use screenshots or footage from the build, write a short pitch someone else can explain in their own words, and check the links for playing, purchasing when applicable, and finding help. After launch, open the public page and take the same path a new player would.
+Describe something the player can picture themselves doing. A shot of the courier choosing a path through the Dock tells me more about Island Post than a list of broad claims about the game. Use screenshots or footage from the verified demo, write a short pitch someone else can explain in their own words, and check the links for trying the demo, purchasing when applicable, and finding help. After launch, open the public page and take the same path a new player would.
 
 ### Island Post example
 
@@ -317,7 +338,7 @@ Start with the rules that changed and give them repeatable sandbox cases. Then p
 
 ### Manual, wiki, and release notes
 
-Tell players what they'll see and what they need to do to use it. If you've moved Retry, replace the old picture and directions in the manual. If you've added a route, explain where to find it and who can access it. Open the help from the released build and check it against what a player gets.
+Tell players what they'll see and what they need to do to use it. If you've moved Retry, check the demo and replace any pictures, directions, or footage that show the old location. If you've added a route, explain where to find it and who can access it. Open the help from the released build and check it against what a player gets.
 
 ### Island Post example
 

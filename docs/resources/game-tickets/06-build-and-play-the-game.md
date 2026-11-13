@@ -13,7 +13,7 @@ Make a repeatable build of the assembled game and give a player a package to ins
 - [ ] Record the startup scene, source revision, targets, and steps to compile or export the game with its assets and dependencies.
 - [ ] On each target in scope, install and launch the package from a clean environment or open the staged web build in a fresh browser profile.
 - [ ] Start a new game and finish the core loop across scenes. Check retry and save or resume where the game supports them.
-- [ ] Fix any failures, rebuild, and repeat the affected checks. Link the verified build for the player manual.
+- [ ] Fix any failures, rebuild, and repeat the affected checks. Link the verified build for the demo, manual, and wiki.
 
 ## Evidence and handoff
 

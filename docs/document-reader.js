@@ -82,8 +82,15 @@ export async function startReader() {
     download.hidden = false;
     if (reader.hash) {
       const fragment = decodeURIComponent(reader.hash.slice(1));
-      const heading = article.querySelector(`#${CSS.escape(fragment)}`)
-        ?? (fragment === 'game-design-document' ? article.querySelector('#design-document') : null);
+      const renamedHeadings = {
+        'game-design-document': 'design-document',
+        'player-manual--wiki': 'demo-manual--wiki',
+        'player-manual-and-wiki': 'demo-manual-and-wiki',
+      };
+      const id = CSS.escape(fragment);
+      const renamedId = renamedHeadings[fragment];
+      const heading = article.querySelector(`#${id}`)
+        ?? (renamedId ? article.querySelector(`#${renamedId}`) : null);
       heading?.scrollIntoView();
     }
   } catch {
