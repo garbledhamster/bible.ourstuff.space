@@ -1,6 +1,7 @@
 import { cp, readFile, rm, writeFile } from 'node:fs/promises';
 import { marked } from 'marked';
 import { parseChapterGuide, parseWorkedExample } from '../docs/chapter-content.js';
+import { resolveDocumentLinks } from '../docs/document-reader.js';
 
 const source = new URL('../docs/', import.meta.url);
 const output = new URL('../dist/', import.meta.url);
@@ -49,16 +50,24 @@ const tickets = marked.lexer(await read('resources/game-tickets/README.md')).fin
 if (!tickets || tickets.rows.length !== Object.keys(guide).length) {
   throw new Error('The ticket list must have one row per chapter.');
 }
-const downloadRenderer = new marked.Renderer();
-const renderLink = downloadRenderer.link.bind(downloadRenderer);
-downloadRenderer.link = token => renderLink(token).replace('<a ', '<a download ');
-const rows = tickets.rows.map(([id, ticket, blocker, evidence]) =>
-  `<tr><th scope="row">${marked.parseInline(id.text)}</th>` +
-  `<td>${marked.parseInline(ticket.text, { renderer: downloadRenderer })}</td>` +
-  `<td>${marked.parseInline(blocker.text)}</td><td>${marked.parseInline(evidence.text)}</td></tr>\n`);
+const liveResources = new URL('https://bible.ourstuff.space/resources/');
+const ticketList = new URL('game-tickets/README.md', liveResources);
+const reader = new URL('../read.html', liveResources);
+const ticketRenderer = new marked.Renderer();
+const renderLink = ticketRenderer.link.bind(ticketRenderer);
+ticketRenderer.link = (token) => {
+  const link = new URL(token.href);
+  if (link.origin !== reader.origin) return renderLink(token);
+  return renderLink({ ...token, href: `../..${link.pathname}${link.search}${link.hash}` });
+};
+const rows = tickets.rows.map(([id, ticket, blocker, evidence]) => {
+  resolveDocumentLinks(ticket.tokens, ticketList, reader);
+  return `<tr><th scope="row">${marked.parseInline(id.text)}</th>` +
+    `<td>${marked.Parser.parseInline(ticket.tokens, { renderer: ticketRenderer })}</td>` +
+    `<td>${marked.parseInline(blocker.text)}</td><td>${marked.parseInline(evidence.text)}</td></tr>\n`;
+});
 await render('resources/game-tickets/index.html', 'TICKETS', rows.join(''));
 
-const liveResources = new URL('https://bible.ourstuff.space/resources/');
 const localLinks = new Set();
 const agentIndex = marked.lexer(await read('resources/agent-index.md'));
 marked.walkTokens(agentIndex, token => {

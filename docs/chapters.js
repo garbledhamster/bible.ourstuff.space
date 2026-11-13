@@ -1,6 +1,7 @@
 import { parseChapterGuide, parseWorkedExample } from './chapter-content.js';
 
 const guideUrl = new URL('./resources/game-bible-guide.md', import.meta.url);
+const readerUrl = new URL('./read.html', import.meta.url);
 let chapterRequest;
 
 function loadChapterContent() {
@@ -9,7 +10,7 @@ function loadChapterContent() {
       if (!response.ok) throw new Error(`Chapter guide request failed: ${response.status}`);
       return response.text();
     })
-    .then(parseChapterGuide)
+    .then((source) => parseChapterGuide(source, guideUrl, readerUrl))
     .catch((error) => {
       chapterRequest = undefined;
       throw error;
@@ -224,17 +225,18 @@ for (const [number, [title, slug, sections]] of panels.entries()) {
     body.textContent = 'Loading example…';
     const markdown = document.createElement('a');
     markdown.className = 'chapter-link';
-    markdown.href = 'resources/island-post-example.md';
-    markdown.textContent = 'Read Markdown';
+    const exampleUrl = new URL('./resources/island-post-example.md', import.meta.url);
+    markdown.href = 'read.html?file=/resources/island-post-example.md';
+    markdown.textContent = 'Read example';
     actions.append(markdown);
-    fetch(markdown.href, { cache: 'no-cache' })
+    fetch(exampleUrl, { cache: 'no-cache' })
       .then((response) => {
         if (!response.ok) throw new Error(`Worked example request failed: ${response.status}`);
         return response.text();
       })
-      .then((source) => { body.innerHTML = parseWorkedExample(source); })
+      .then((source) => { body.innerHTML = parseWorkedExample(source, exampleUrl, readerUrl); })
       .catch((error) => {
-        body.textContent = 'The example couldn’t load. Use Read Markdown to open it.';
+        body.textContent = 'The example couldn’t load. Use Read example to open it.';
         console.error(error);
       });
   } else {

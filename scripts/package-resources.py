@@ -18,6 +18,6 @@ package("game-planning-kit.zip", [
 ])
 package("game-quality-control.zip", [
     ("game-quality-control/SKILL.md", RESOURCES / "game-quality-control.md"),
-    ("game-quality-control/agents/openai.yaml", ROOT / "scripts" / "game-quality-control-openai.yaml"),
+    ("game-quality-control/agents/openai.yaml", RESOURCES / "game-quality-control-agent.yaml"),
 ])
 print("Packaged the planning kit and quality-control skill from the published sources.")

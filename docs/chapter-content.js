@@ -1,7 +1,8 @@
 import { marked } from './vendor/marked.esm.js';
+import { resolveDocumentLinks } from './document-reader.js';
 
-export function parseChapterGuide(guide) {
-  const tokens = lexMarkdown(guide);
+export function parseChapterGuide(guide, source, reader) {
+  const tokens = lexMarkdown(guide, source, reader);
   const sections = new Map();
   let currentSection;
 
@@ -26,15 +27,16 @@ export function parseChapterGuide(guide) {
   );
 }
 
-export function parseWorkedExample(markdown) {
-  const tokens = lexMarkdown(markdown);
+export function parseWorkedExample(markdown, source, reader) {
+  const tokens = lexMarkdown(markdown, source, reader);
   return marked.parser(tokens.filter(token => token.type !== 'heading' || token.depth !== 1));
 }
 
-function lexMarkdown(markdown) {
+function lexMarkdown(markdown, source, reader) {
   const tokens = marked.lexer(markdown);
   marked.walkTokens(tokens, (token) => {
     if (token.type === 'html') throw new Error('Game Bible sources must use Markdown without raw HTML.');
   });
+  if (source && reader) resolveDocumentLinks(tokens, source, reader);
   return tokens;
 }
