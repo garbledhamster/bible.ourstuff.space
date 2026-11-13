@@ -6,15 +6,16 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | --- | --- | --- | --- |
 | 01 | [Define the first release](01-vision-and-scope.md) | None | The owner can show the Git repository and folder map and explain the first playable. |
 | 02 | [Specify the workflow and rules](02-game-design-document.md) | 01 | The core workflow has observable rules and a map of the screens or scenes. |
-| 03 | [Run the first interaction on the target](03-engine-and-assets.md) | 02 | A fresh checkout runs a representative interaction using its assets. |
-| 04 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 03 | A contributor can play and reset the release’s required cases in one dedicated development scene before player-scene assembly. |
-| 05 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 04 | A player can enter, complete, and exit each in-scope scene. |
-| 06 | [Build and play the game](06-build-and-play-the-game.md) | 05 | A player can install or open the build on the target and complete the core loop. |
-| 07 | [Write and verify player help](07-player-manual-and-wiki.md) | 06 | A fresh player can find and use help that matches the build. |
-| 08 | [Verify the release candidate](08-release-pricing-and-marketing.md) | 07 | The exact candidate works from the planned delivery entry point. |
-| 09 | [Walk a new contributor through a change](09-contributor-training.md) | 08 | A contributor can run, change, and verify the released workflow. |
-| 10 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 09 | One change goes through the affected checks and documentation. |
-| 11 | [Review feedback and plan the next cycle](11-intake-and-feedback.md) | 10 | Feedback reaches an owner and produces a next-cycle scope decision. |
+| 03 | [Design the core interface workflow](ui-and-ux-design.md) | 02 | A sketch shows where someone finds the next action, feedback, and recovery on the intended screens. |
+| 04 | [Run the first interaction on the target](03-engine-and-assets.md) | 03 | A fresh checkout runs a representative interaction using its assets. |
+| 05 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 04 | A contributor can play and reset the release’s required cases in one dedicated development scene before player-scene assembly. |
+| 06 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 05 | A player can enter, complete, and exit each in-scope scene. |
+| 07 | [Build and play the game](06-build-and-play-the-game.md) | 06 | A player can install or open the build on the target and complete the core loop. |
+| 08 | [Write and verify player help](07-player-manual-and-wiki.md) | 07 | A fresh player can find and use help that matches the build. |
+| 09 | [Verify the release candidate](08-release-pricing-and-marketing.md) | 08 | The exact candidate works from the planned delivery entry point. |
+| 10 | [Walk a new contributor through a change](09-contributor-training.md) | 09 | A contributor can run, change, and verify the released workflow. |
+| 11 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 10 | One change goes through the affected checks and documentation. |
+| 12 | [Review feedback and plan the next cycle](11-intake-and-feedback.md) | 11 | Feedback reaches an owner and produces a next-cycle scope decision. |
 
 Start with the earliest ticket whose blockers are complete. Some preparation can start sooner. Draft the help outline during design and open an intake channel before a playtest or launch. Treat that preparation as a separate task. Start each chapter ticket after its listed blocker is complete.
 
@@ -27,4 +28,4 @@ Start with the earliest ticket whose blockers are complete. Some preparation can
 - **Evidence:** record the build or revision, target, verification steps and result, and links to observations or outputs.
 - **Handoff:** link to the finished work, note any unresolved items, and name the next unblocked ticket.
 
-When Chapter 11 changes the game, open a new Chapter 01 for the next cycle and link back to the evidence. Keep each release’s dependency list in order.
+When Chapter 12 changes the game, open a new Chapter 01 for the next cycle and link back to the evidence. Keep each release’s dependency list in order.

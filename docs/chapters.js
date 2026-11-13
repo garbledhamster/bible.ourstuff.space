@@ -35,6 +35,12 @@ const chapters = [
     ['Open design decisions', 'Record unanswered design questions and decide which need a prototype or playtest.'],
     ['Island Post', 'The Dock teaches dry routes. Market Lane adds wrapping. The Hill Route adds two deliveries and an optional step goal.'],
   ]],
+  ['UI & UX Design', 'ui-and-ux-design', [
+    ['Summary', 'Make the next action easy to find when someone needs it.'],
+    ['Layout and controls', 'Use alignment, spacing, and short labels to show what belongs together and what to do next.'],
+    ['Project standards', 'Record how screens handle frequent actions, feedback, and recovery.'],
+    ['Island Post', 'Keep the parcel condition in view and put Retry beside the failed-delivery message.'],
+  ]],
   ['Engine & Assets', 'engine-and-assets', [
     ['Summary', 'Get a representative interaction running and account for the assets each scene needs.'],
     ['Engine and launch instructions', 'Record the engine, supported devices, and how to launch the game from a fresh checkout.'],

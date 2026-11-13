@@ -21,6 +21,14 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Screens or scenes and their dependencies:
 - Open design decisions:
 
+## UI and UX Design
+
+- Main workflow and what the person needs at each step:
+- Sketch or prototype at the intended screen sizes:
+- Where frequent actions, status, and recovery appear:
+- Project standards for alignment, spacing, visual hierarchy, labels, and controls:
+- Checks for supported inputs, accessibility, and a first-time user completing the workflow:
+
 ## Engine and Assets
 - Engine and launch instructions:
 - Maps, characters, objects, interface, art, and sound:

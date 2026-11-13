@@ -20,7 +20,7 @@ export function parseChapterGuide(guide, source, reader) {
     }
   }
 
-  if (sections.size !== 11) throw new Error(`Expected eleven guide chapters, found ${sections.size}.`);
+  if (sections.size !== 12) throw new Error(`Expected twelve guide chapters, found ${sections.size}.`);
 
   return Object.fromEntries(
     Array.from(sections, ([slug, chapter]) => [slug, marked.parser(chapter)])

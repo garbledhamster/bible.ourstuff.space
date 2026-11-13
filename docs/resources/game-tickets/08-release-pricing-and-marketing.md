@@ -1,7 +1,7 @@
 # 08 · Verify the release candidate
 
-**Chapter** 08
-**Blocked by** 07
+**Chapter** 09
+**Blocked by** 08
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

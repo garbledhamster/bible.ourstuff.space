@@ -7,7 +7,7 @@ Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources
 - [Project Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Project Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
-- [Preset ticket list](game-tickets/index.html) — browse eleven starter tickets with blockers, acceptance checks, and evidence.
+- [Preset ticket list](game-tickets/index.html) — browse twelve starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
 - [Game Development Playbook](game-development-playbook.md) — draft workflow.
 - [Island Post worked example](island-post-example.md) — illustrative game bible entries.
@@ -15,6 +15,8 @@ Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources
 - [Game Quality Control skill package](game-quality-control.zip) — downloadable ZIP. [Read the agent configuration](game-quality-control-agent.yaml).
 
 ## Public agent skills
+
+- [Impeccable](https://github.com/pbakaus/impeccable) — shape and review the interface using the [UI & UX Design chapter](game-bible-guide.md#ui--ux-design).
 
 - [Phaser agent skills](https://github.com/phaserjs/phaser/tree/master/skills) — subsystem references for coding agents.
 

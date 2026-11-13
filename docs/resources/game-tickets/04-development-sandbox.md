@@ -1,7 +1,7 @@
 # 04 · Prove the mechanics in the sandbox
 
-**Chapter** 04
-**Blocked by** 03
+**Chapter** 05
+**Blocked by** 04
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

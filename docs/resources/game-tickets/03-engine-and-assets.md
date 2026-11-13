@@ -1,7 +1,7 @@
 # 03 · Run the first interaction on the target
 
-**Chapter** 03
-**Blocked by** 02
+**Chapter** 04
+**Blocked by** 03
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

@@ -1,7 +1,7 @@
 # 07 · Write and verify player help
 
-**Chapter** 07
-**Blocked by** 06
+**Chapter** 08
+**Blocked by** 07
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

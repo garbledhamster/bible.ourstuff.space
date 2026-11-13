@@ -85,6 +85,34 @@ Say an unwrapped parcel gets wet the moment the courier enters a puddle. The par
 
 I can follow a task or turn through the document, try a rule and know what to look for, and find the screens or scenes that depend on it. Each open decision has a way to get an answer.
 
+## UI & UX Design
+
+When I look at a screen, I want everything on it to feel like it was meant to be there. If someone needs to check their progress, change something, or try again, put that within reach at the moment they need it. Start with what they came to do. Then look at where their eyes go, what feels natural to click or tap, and what tells them the action worked.
+
+### Put the next action where people need it
+
+Take one core workflow from the Design Document and sketch it from the first screen to the outcome. At each step, ask what the person needs to see, what they'll try next, and what they need to know after they act. Keep frequent actions and important status in view. Put the action next to the thing it acts on, and put a recovery action next to the problem it solves.
+
+### Let the layout do some of the explaining
+
+Use alignment and spacing to show what belongs together. Use size, contrast, and position to make the next step easy to spot. Keep the text short. A familiar icon can carry something people recognize, and a short label can help when they'd have to guess. Give people a way to get more detail when they need it. Keep the instructions and labels people need to understand the task or use it with assistive technology.
+
+### Set standards for this project
+
+Read [Joe’s Notes](joes-notes.md) and use [Impeccable](https://github.com/pbakaus/impeccable) to shape the workflow and review the result. Write down the choices that should carry from screen to screen, like where primary actions go, how spacing groups related controls, and how buttons, icons, and feedback look and behave. For a game, decide what players need to see while they play. For an app, decide what someone needs in view to finish the task they opened it for. Link to the project's existing design notes or components when they already explain the choice.
+
+### Try the design on the intended screens
+
+Walk through a sketch or clickable prototype at the screen sizes you plan to support. Check what changes when the layout gets narrow and how someone reaches the same controls with the inputs the project supports. Write down what you need to prove in the sandbox and what you need to observe in a playtest. When the workflow is running, check readable text and contrast, visible keyboard focus where supported, and whether someone can complete the task and recover without coaching.
+
+### Island Post example
+
+I'd keep the parcel's condition visible while the player walks. If the parcel gets wet and the delivery fails, I'd put **Retry** right beside the message that tells them what happened. Then I'd hand the game to someone on a phone and watch where they look and what they tap before I say anything.
+
+### Complete when
+
+We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
+
 ## Engine & Assets
 
 I want to get a piece of the game running while the setup is still easy to change. A little map with a character and one object can tell me whether the engine can handle our controls and give the player the feedback we want. Once I can see that interaction, I have something to build the rest of the assets around.
@@ -169,7 +197,7 @@ Write the scene in the order the player experiences it. Where do they come in? W
 
 ### Mechanics and assets used
 
-Link the scene to its rules in the Design Document and to the art, sound, objects, and interface it uses. Pull up their sandbox cases before assembly. Then play the scene with those same pieces in place. I might see the wet icon in the sandbox and miss it in the scene because it sits too close to the dialogue. That's something I can only check with the pieces together.
+Link the scene to its rules in the Design Document and to the art, sound, objects, and interface it uses. Pull up their sandbox cases before assembly. Then play the scene with those same pieces in place and use the UI & UX Design checks for its main workflow. I might see the wet icon in the sandbox and miss it in the scene because it sits too close to the dialogue. That's something I can only check with the pieces together.
 
 ### Playtest criteria, observations, fixes, and result
 
