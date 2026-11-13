@@ -115,7 +115,23 @@ Give developers a direct way into the sandbox. It could have its own development
 
 ### Scenario and expected behavior
 
-Describe a case so another person can repeat it. Give them a starting state, an action, and something they can see or hear when it works. Start with success, failure, and how the player gets another try. Add cases for movement, menus, objects, dialogue, and the different controls when those pieces affect the scene you're about to build.
+Describe a case so another person can repeat it. Give them a starting state, an action, and something they can see or hear when it works.
+
+### NPC roster and dialogue
+
+If the game has non-player characters (NPCs), put a roster picker in the sandbox with every NPC in the release. I want to pick someone, walk up to them, and talk to them using the game's dialogue controls. Give me starting states for anything that changes the conversation, like what I'm carrying, what I've already said, or whether I finished a quest. Use those states and Reset to play every branch of each NPC's dialogue tree. Check what the character says, which choices appear, and what changes in the game after I choose one.
+
+### Mechanics and other checks
+
+Give every game mechanic in the release a playable case. Start with what should happen when I use it as intended, then try where the rule changes, what happens when it fails, and how I get another try. Test mechanics together when one changes the other. A parcel crossing a puddle is one case. Crossing it after wrapping the parcel shows whether wrapping changes the outcome.
+
+Look at what the release asks the player to do and add cases for the parts they depend on. Use this list to decide what needs a check.
+
+- **Controls and access.** Try the required actions on each supported control scheme and check any accessibility settings the game offers.
+- **Menus and feedback.** Open and close menus. Check that text, icons, animation, and sound give the right cues and update when the game state changes.
+- **Objects and rewards.** Pick up, use, or spend an item. Try interacting again to see whether the game applies a one-time reward twice.
+- **Transitions and recovery.** Check pause, resume, retry, and any handoff that depends on game state. After a retry, look at what resets and what the player keeps.
+- **Progress and saves.** If the game saves progress, save from a known state and reload. Check what the game restores and what the player can do next.
 
 ### Build, platform, result, and evidence
 
@@ -127,11 +143,11 @@ When something fails, write down the case and which scene or release work depend
 
 ### Island Post example
 
-Start the courier near a puddle with a dry unwrapped parcel. Walk across the puddle using the game controls and watch the parcel icon change. Reset to the starting spot and try crossing with a wrapped parcel. The second parcel should stay dry. In a separate case, start with a failed delivery, use the game's Retry control, and check that the courier goes back to the start with a fresh parcel.
+Start the courier near a puddle with a dry unwrapped parcel. Walk across the puddle using the game controls and watch the parcel icon change. Reset to the starting spot and try crossing with a wrapped parcel. The second parcel should stay dry. In a separate case, start with a failed delivery, use the game's Retry control, and check that the courier goes back to the start with a fresh parcel. Pick Mina from the NPC roster and try talking to her with a dry parcel, then with a wet one. Check what she says and what the courier can do next in each case.
 
 ### Complete when
 
-A contributor can open the dedicated sandbox, play the required cases through the game's controls or sandbox objects that trigger the same game rules, and reset each case to its starting state. Record passing results for those cases before assembling the player scenes, with enough detail for someone else to repeat the checks.
+A contributor can open the dedicated sandbox, play every release mechanic and each applicable check through the game's controls or sandbox objects, and reset each case to its starting state. If the game has NPCs, the roster picker gives them a way to play every branch of each release NPC's dialogue tree. Record passing results before assembling the player scenes, with enough detail for someone else to repeat the checks.
 
 ## Scene Scripts & Playtests
 

@@ -45,7 +45,9 @@ const chapters = [
   ['Development Sandbox', 'development-sandbox', [
     ['Summary', 'Build one playable development scene before assembling player scenes. Move through it, use its objects and controls, and see the outcomes the game actually produces.'],
     ['Launch link or command', 'Document the development entry point or test-build shortcut so a contributor can open the sandbox and reset a case.'],
-    ['Scenario and expected behavior', 'Name the starting state, play the case inside the sandbox, and reset to repeat it. Include failure and recovery where they matter.'],
+    ['Scenario and expected behavior', 'Name the starting state, play the case inside the sandbox, and reset to repeat it.'],
+    ['NPC roster and dialogue', 'Pick any NPC in the release and play every branch of their dialogue tree from the states that change it.'],
+    ['Mechanics and other checks', 'Play every release mechanic. Check the controls, feedback, items, transitions, recovery, and saves the release relies on.'],
     ['Build, platform, result, and evidence', 'Record what you ran, on which device or input, what happened, and where to see the result.'],
     ['Open failures and next checks', 'Identify the failed rule or asset, what work it blocks, and the check to repeat after the fix.'],
     ['Island Post', 'Cross a puddle with an unwrapped parcel, then a wrapped one. Confirm Retry restores a fresh parcel after a failed delivery.'],

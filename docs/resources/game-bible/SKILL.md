@@ -17,7 +17,11 @@ Read the [published chapter guide](https://bible.ourstuff.space/resources/game-b
 2. Use the active chapter to identify the decision or artifact and what proves it. For a design decision, use the [playbook's staged conversation](https://bible.ourstuff.space/resources/game-development-playbook.md) when the user wants to work through options. For assigned build work, use the [release spec](https://bible.ourstuff.space/resources/game-spec-template.md) and the relevant [starter ticket](https://bible.ourstuff.space/resources/game-tickets/) when the project needs them.
 3. Work within the requested scope. Record the observed result, applicable build or revision, target, and artifact link in the project's existing evidence record. Report missing evidence as unverified and name the next action it blocks or informs. Carry feedback into the next scope decision when the evidence warrants a change.
 
-For Chapter 4, build one dedicated development scene before assembling player scenes. Make it a playable simulation where developers move through the scene and use objects or controls to trigger the actual game rules and see what the player would see. Put the current release’s mechanics, assets, controls, objects, and outcomes within reach. Document the development entry point or test-build shortcut, the named starting states, and how to reset and play each case again. Use the [Development Sandbox chapter](https://bible.ourstuff.space/resources/game-bible-guide.md#development-sandbox) for the completion checks.
+For Chapter 4, build one dedicated development scene before assembling player scenes. Make it a playable simulation where developers move through the scene and use objects or controls to trigger the actual game rules and see what the player would see. Put the current release’s mechanics, assets, controls, objects, and outcomes within reach. Document the development entry point or test-build shortcut, the named starting states, and how to reset and play each case again.
+
+Give every release mechanic a playable case. In games with NPCs, include a roster picker for every release NPC and make every branch of their dialogue trees playable from the states that unlock it. Use the guide's list of checks to decide what else the release needs.
+
+Use the [Development Sandbox chapter](https://bible.ourstuff.space/resources/game-bible-guide.md#development-sandbox) for the completion checks.
 
 ## Work the chapters for software
 
