@@ -2,6 +2,8 @@
 
 Use the Game Bible template to record the project's decisions, working artifacts, and evidence. When resuming, read the current stage and identify the next decision or check.
 
+For a new Game Bible, follow the [Vision & Scope kickoff](game-bible-guide.md) with Game Bible and Grill with Docs.
+
 When an idea is ready to build, fill in the [game spec template](game-spec-template.md) and use the [preset ticket list](game-tickets/README.md) to create the work in dependency order. Record evidence against the chapter’s completion checks.
 
 1. Establish the player promise, initial scope, and rough scene roadmap. Record engine, audience, documentation, distribution, and potential update decisions at the level needed now.

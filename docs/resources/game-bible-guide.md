@@ -6,6 +6,13 @@ Use the [Game Bible template](game-bible-template.md) to keep the decisions for 
 
 ## Vision & Scope
 
+### Kick off the project
+
+Start each new Game Bible with Vision & Scope. If you're working with an agent, use Game Bible and Grill with Docs together. Read the project notes and check the repository first, then use the chat pop-out to work through decisions in rounds. Put the recommended choice first and explain what each realistic option changes. Ask the next set of questions after the answers it depends on are in.
+
+Save agreed decisions in the project's Bible as you go. Keep a short glossary in `CONTEXT.md` as the project's terms settle. Once the owner confirms the player promise, audience, platforms, first playable, and how we'll check it, use that scope to start the Game Design Document. Keep the open decisions visible so the next person knows what still needs an answer.
+
+
 When I'm picturing a game, I usually have more ideas than I can use in the first release. I want to get far enough with one of them that I can put the game in someone's hands and see what they do. That means agreeing on who we're making it for, what they'll get to do, and what we can finish well enough for them to try.
 
 ### Project folders and Git

@@ -14,6 +14,8 @@ The [Game Bible](https://bible.ourstuff.space/) has a shared chapter guide, temp
 3. Copy the [Bible template](resources/game-bible-template.md) from `docs/bible-upstream/docs/resources/game-bible-template.md` to `docs/game-bible.md` if the project needs a Bible. Keep an existing project Bible and its decisions. Use the shared chapter guide to work through the project copy, starting with Vision & Scope for a new game.
 4. Record the paths in the project's README. Commit `.gitmodules`, the `docs/bible-upstream` revision, and the new project documents you reviewed. A teammate who clones the game can run `git submodule update --init -- docs/bible-upstream` to get the same shared revision.
 
+For a new project, follow the [Vision & Scope kickoff](resources/game-bible-guide.md) with Game Bible and Grill with Docs.
+
 ## Refresh the shared Bible
 
 Check `git -C docs/bible-upstream status --short` first. If it shows local edits, preserve them before updating. From the game root, run:
