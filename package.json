@@ -3,9 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/render-chapters.mjs && python3 scripts/package-resources.py"
+    "build": "node scripts/render-chapters.mjs && python3 scripts/package-resources.py && vite build --config examples/island-post/vite.config.js"
   },
   "devDependencies": {
-    "marked": "17.0.5"
+    "marked": "17.0.5",
+    "vite": "8.3.8"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
   }
 }

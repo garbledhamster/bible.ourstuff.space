@@ -10,7 +10,7 @@ Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources
 - [Preset ticket list](game-tickets/index.html) — browse twelve starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
 - [Game Development Playbook](game-development-playbook.md) — draft workflow.
-- [Island Post worked example](island-post-example.md) — illustrative game bible entries.
+- [Island Post worked example](island-post-example.md) — play the Dock and see what each of the twelve chapters produced.
 - [Game Quality Control skill source](game-quality-control.md) — readable instructions.
 - [Game Quality Control skill package](game-quality-control.zip) — downloadable ZIP. [Read the agent configuration](game-quality-control-agent.yaml).
 

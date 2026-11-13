@@ -84,7 +84,7 @@ body.game-bible {
 :is(#development-sandbox, [data-chapter="development-sandbox"]) { --cover: #a9d6f7; --cover-ink: #172f4d; }
 :is(#scene-scripts-and-playtests, [data-chapter="scene-scripts-and-playtests"]) { --cover: #f6d481; --cover-ink: #432e12; }
 :is(#build-and-play-the-game, [data-chapter="build-and-play-the-game"]) { --cover: #91dce9; --cover-ink: #16383f; }
-:is(#player-manual-and-wiki, [data-chapter="player-manual-and-wiki"]) { --cover: #c9bcfa; --cover-ink: #30244e; }
+:is(#demo-manual-and-wiki, [data-chapter="demo-manual-and-wiki"]) { --cover: #c9bcfa; --cover-ink: #30244e; }
 :is(#release-pricing-and-marketing, [data-chapter="release-pricing-and-marketing"]) { --cover: #f4acbb; --cover-ink: #4c2333; }
 :is(#contributor-training, [data-chapter="contributor-training"]) { --cover: #86d6ca; --cover-ink: #123e38; }
 :is(#updates-and-dlc, [data-chapter="updates-and-dlc"]) { --cover: #dec5a9; --cover-ink: #443224; }
@@ -159,14 +159,32 @@ body.game-bible {
   line-height: 1.55;
 }
 .worked-example p { margin: 0 0 14px; }
-.worked-example ol { margin: 0; padding-inline-start: 24px; }
-.worked-example li + li { margin-top: 10px; }
-.worked-example strong { color: var(--ink); }
+.worked-example img { display: block; width: 100%; height: auto; margin-bottom: 12px; border-radius: 6px; }
 .chapter-body:focus-visible, .chapter-detail-body:focus-visible { outline-offset: -3px; }
-.callout { padding: clamp(5px, 1.35vh, 11px) 11px; border: 1px solid #3f374d; border-radius: 9px; background: #2a2538; }
-.callout h4, .callout p { font-size: clamp(11px, 1.85vh, 13px); margin: 0; line-height: 1.35; }
-.callout h4 { margin-bottom: 2px; }
-.callout p { color: #c6bdcf; }
+.chapter-steps {
+  margin: 0;
+  padding-inline-start: 1.65em;
+  font-size: clamp(13px, 2vh, 15px);
+  line-height: 1.45;
+}
+.chapter-steps li { padding: .5em .5em .5em .2em; }
+.chapter-steps li + li { border-top: 1px solid var(--line); }
+.chapter-steps li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+.chapter-example {
+  display: grid;
+  gap: 2px;
+  margin-block-start: 6px;
+  padding: 10px 12px;
+  border: 1px solid #426e67;
+  border-radius: 6px;
+  background: #183733;
+  color: #e2f6ec;
+  text-decoration: none;
+  font-size: 13px;
+}
+.chapter-example strong { color: #adf0d7; }
+.chapter-example span { text-decoration: underline; text-underline-offset: 3px; }
+.chapter-example:hover { background: #214942; }
 .chapter-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; margin-top: 10px; }
 .chapter-link {
   border: 0;
@@ -262,8 +280,7 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   .chapter-cover { min-height: 69px; padding-block: 7px; }
   .chapter-cover h3 { font-size: 32px; }
   .chapter-body { gap: 4px; padding: 6px; }
-  .callout { padding: 4px 7px; }
-  .callout h4, .callout p { font-size: 11px; }
+  .chapter-steps li { padding-block: .28em; }
   dialog { padding-top: 14px; }
   dialog h2 { margin-bottom: 8px; }
   dialog section { padding-block: 5px; }

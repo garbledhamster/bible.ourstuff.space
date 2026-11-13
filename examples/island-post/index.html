@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Take one delivery across a rainy dock. Play Island Post, the Project Bible's free browser puzzle.">
+  <title>Island Post · The Dock</title>
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <nav class="mast" aria-label="Project Bible">
+    <a href="../#island-post-example">Project Bible</a>
+    <a href="../read.html?file=/resources/island-post-example.md">Case study</a>
+  </nav>
+  <main>
+    <header class="game-heading">
+      <div><h1>Island Post</h1><p>Bring Mina a dry parcel.</p></div>
+      <div class="parcel" role="status">
+        <img id="parcel-icon" src="./assets/parcel.svg" width="46" height="46" alt="">
+        <div><small>Parcel</small><strong id="parcel-condition">At pickup</strong></div>
+      </div>
+    </header>
+    <div class="game-board" id="board" tabindex="0" role="region" aria-label="Dock playfield" aria-describedby="move-cue"></div>
+    <div class="game-controls">
+      <div class="game-feedback">
+        <p id="move-cue"><span class="keyboard-cue">Arrow keys or buttons</span><span class="touch-cue">Tap a direction</span></p>
+        <p id="move-feedback" role="status">Loading the Dock…</p>
+      </div>
+      <div class="directions" role="group" aria-label="Move the courier">
+        <button data-direction="up" aria-label="Move up" disabled></button>
+        <button data-direction="left" aria-label="Move left" disabled></button>
+        <button data-direction="down" aria-label="Move down" disabled></button>
+        <button data-direction="right" aria-label="Move right" disabled></button>
+      </div>
+      <div id="delivery-result" class="delivery-result" hidden>
+        <div><strong id="delivery-title"></strong><p id="delivery-message" role="status"></p></div>
+        <button id="delivery-action" type="button"></button>
+      </div>
+    </div>
+    <details class="dock-help" id="how-to-play">
+      <summary>How to Play</summary>
+      <ol>
+        <li>Step onto the parcel to pick it up.</li>
+        <li>At the fork, go around the puddle on the lower boardwalk.</li>
+        <li>Step onto Mina’s square to hand over the parcel.</li>
+      </ol>
+      <details id="wet-parcels">
+        <summary>Wet parcels</summary>
+        <p>A puddle soaks your parcel as soon as you step into it. Finish the delivery and choose <strong>Retry</strong> to get a fresh parcel at the fork.</p>
+        <a href="../read.html?file=/resources/island-post/wet-parcels.md">Wet parcels wiki</a>
+      </details>
+    </details>
+    <noscript>Turn on JavaScript to play Island Post.</noscript>
+  </main>
+</body>
+</html>

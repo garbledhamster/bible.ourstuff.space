@@ -57,7 +57,9 @@ Some choices are easier to make with the game in front of you. If I can't tell w
 
 ### Island Post example
 
-The first preview could be one delivery across the Dock. A player picks up a parcel, finds Mina, and gets another try if the parcel gets wet. I'd set up the private repo, put the scope notes in `docs/`, and commit them with the folder map. Market Lane and the Hill Route can wait while we find out whether people understand and enjoy that first delivery.
+The first public build is one delivery across the Dock. Pick up the parcel and find a dry route to Mina. Market Lane and the Hill Route can wait until we see how people play the Dock.
+
+[Read the one-delivery scope](island-post-example.md#vision-and-scope)
 
 ### Complete when
 
@@ -85,7 +87,9 @@ I keep the questions that still affect the game close to the rules they touch. M
 
 ### Island Post example
 
-Say an unwrapped parcel gets wet the moment the courier enters a puddle. The parcel icon changes as soon as it happens so the player can connect the two. The Dock can teach that rule. In Market Lane we can introduce wrapping, which gives the player another way to plan the crossing once they know what a puddle does.
+Stepping into the puddle soaks the parcel on that move. The parcel icon changes right away. Both routes end at Mina, where the player can Retry a soaked delivery or Play Again after a dry one.
+
+[See the Dock map and rules](island-post-example.md#design-document)
 
 ### Complete when
 
@@ -113,7 +117,9 @@ Walk through a sketch or clickable prototype at the screen sizes you plan to sup
 
 ### Island Post example
 
-I'd keep the parcel's condition visible while the player walks. If the parcel gets wet and the delivery fails, I'd put **Retry** right beside the message that tells them what happened. Then I'd hand the game to someone on a phone and watch where they look and what they tap before I say anything.
+The parcel status stays above the map. After a wet handoff, Retry takes the place of the movement controls beside Mina’s response. The phone capture shows how they fit together.
+
+[Compare the HUD sketch and phone capture](island-post-example.md#ui-and-ux-design)
 
 ### Complete when
 
@@ -139,7 +145,9 @@ Keep the working file or its source where the next contributor can find it. Mark
 
 ### Island Post example
 
-I could start with a courier, a strip of dock tiles, a puddle, and the two parcel icons. Move the courier onto the puddle and look for the icon change. Once that works on the intended controls, there's a running example of how the map, movement, and art fit together before we fill out the Dock.
+The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and the parcel. The asset ledger shows where the source files live and which cues the player sees.
+
+[Inspect the art and asset ledger](island-post-example.md#engine-and-assets)
 
 ### Complete when
 
@@ -187,7 +195,9 @@ When something fails, write down the case and which scene or release work depend
 
 ### Island Post example
 
-Start the courier near a puddle with a dry unwrapped parcel. Walk across the puddle using the game controls and watch the parcel icon change. Reset to the starting spot and try crossing with a wrapped parcel. The second parcel should stay dry. In a separate case, start with a failed delivery, use the game's Retry control, and check that the courier goes back to the start with a fresh parcel. Pick Mina from the NPC roster and try talking to her with a dry parcel, then with a wet one. Check what she says and what the courier can do next in each case.
+Choose Puddle and step into it with the dry parcel. Reset and pick Mina from the roster. Play the dry and soaked handoff cases using the movement controls, then try the action Mina offers.
+
+[Open the playable Sandbox and case record](island-post-example.md#development-sandbox)
 
 ### Complete when
 
@@ -211,7 +221,9 @@ Give a new player something to do and let them try it before you explain the con
 
 ### Island Post example
 
-Ask a first-time phone player to deliver a parcel to Mina. If the parcel gets wet, watch where they look before they try again. If they keep tapping the parcel icon, that tells us something about where they expect to recover. We can try moving Retry closer to the failed-delivery message, then watch a fresh player go through the same scene.
+The Dock scene starts one step from pickup and ends with Mina’s response. The scripted pass covers both handoffs. A first-time session will show whether someone can choose a dry route and find Retry without help.
+
+[Read the scene script and playtest record](island-post-example.md#scene-scripts-and-playtests)
 
 ### Complete when
 
@@ -235,7 +247,9 @@ Start a new game and use the controls you expect players to use. Finish a full t
 
 ### Island Post example
 
-I'd open the test URL on a phone with a fresh browser profile and start at the title screen. Take a parcel through a puddle, press Retry, and get the fresh parcel to Mina. If Market Lane is part of this build, follow the transition and check that the next map and parcel icons load. Keep that URL and build ID with the result so the screenshots and help can come from the same game.
+Open the Dock build in a fresh browser. Take the shortcut, retry the soaked delivery, and carry a fresh parcel around the puddle. Play Again returns you to pickup.
+
+[Open the player build and repeat the release check](island-post-example.md#build-and-play-the-game)
 
 ### Complete when
 
@@ -263,11 +277,9 @@ Choose a few moments that show what someone does and what happens because of it.
 
 ### Island Post example
 
-In the sandbox, use the courier’s controls to cross a puddle with an unwrapped parcel and check that its condition icon changes. Try handing Mina the wet parcel and check that Retry restores a fresh one. Check the dry handoff and the wrapped crossing as well. Record the build and results for each case before using them in the demo.
+The demo uses the passing Sandbox cases in one delivery. The manual walks through the dry route. The wiki explains how to recognize a soaked parcel and find Retry. Capture those moments from the demo so a viewer can try the same delivery.
 
-For the Dock demo, start with the postmaster handing you a parcel for Mina. At the fork you can take the boardwalk or try the puddle shortcut. If you soak the parcel, the icon changes and Mina offers Retry. On the next attempt you can take the boardwalk and make a dry delivery. Capture the fork, the splash and icon change, then the dry delivery. End the trailer with a link to try the Dock.
-
-The manual’s **Make your first delivery** walkthrough shows the same fork, parcel icons, and Retry button and links to the Dock demo. The wiki’s **Wet parcels** page shows how to recognize a wet parcel and links to the manual’s retry step. In Market Lane the player learns to wrap a parcel. The **Parcel wrap** wiki page shows screenshots of the same puddle with and without wrap and links to the Market Lane practice so the player can try it.
+[Play the demo and follow the manual and wiki](island-post-example.md#demo-manual-and-wiki)
 
 ### Reusable demo template
 
@@ -304,7 +316,9 @@ Describe something the player can picture themselves doing. A shot of the courie
 
 ### Island Post example
 
-For the Dock preview, I could show a real parcel delivery and say you get one route with a chance to retry if the parcel gets wet. On a phone, open the preview from its public page, finish a delivery, and follow the link to How to Play. That takes you through the experience the launch page describes.
+The Dock is free to play in a browser. The release kit pairs the public play link with a pitch and captures of the fork, splash, Retry, and dry handoff.
+
+[See the release kit and real captures](island-post-example.md#release-pricing-and-marketing)
 
 ### Complete when
 
@@ -324,7 +338,9 @@ Link the rules, scenes, assets, and checks that matter for the task. Include the
 
 ### Island Post example
 
-Ask a person or agent to add a short delivery route using the existing parcel rules. They should be able to find those rules and the art, play the new route from its start to a delivery, and show what happens when a parcel gets wet. Have them leave the sandbox and scene results where the team can use them.
+Start from a clean checkout and change one cue in the Sandbox. Rebuild, play the blocked move, and verify that the player demo still starts at pickup.
+
+[Try the contributor exercise](island-post-example.md#contributor-training)
 
 ### Complete when
 
@@ -348,7 +364,9 @@ Tell players what they'll see and what they need to do to use it. If you've move
 
 ### Island Post example
 
-Say an expansion adds a kind of wrap that lasts through two puddles. Try it in the sandbox, then play the expansion route where it matters. Take a regular parcel across the original Dock again and open a save from before the update if the game has saves. Now we have checks for the new rule and for the experience people already had.
+In the rehearsal, try a clearer help instruction and repeat the wet handoff, Retry, and dry detour. Keep that change in the rehearsal until it has a release of its own.
+
+[Read the update rehearsal](island-post-example.md#updates-and-dlc)
 
 ### Complete when
 
@@ -384,7 +402,9 @@ Bring a finding back to Vision & Scope with the evidence behind it. Write down w
 
 ### Island Post example
 
-Suppose several phone players miss Retry after a wet delivery. I'd bring that back to the next scope decision with the playtest notes and a goal we can check. A first-time phone player should be able to recover from a wet delivery without someone telling them where to tap.
+The first staged build stalled on startup. The intake rehearsal shows how that finding became a fix and a fresh-browser release check.
+
+[Trace a feedback rehearsal back to scope](island-post-example.md#intake-and-feedback)
 
 ### Complete when
 

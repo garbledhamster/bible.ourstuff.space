@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Island Post · Development Sandbox</title>
+  <script type="module" src="./sandbox.js"></script>
+</head>
+<body class="sandbox">
+  <nav class="mast" aria-label="Island Post">
+    <a href="../">Player demo</a>
+    <a href="../../read.html?file=/resources/island-post-example.md#development-sandbox">Case results</a>
+  </nav>
+  <main>
+    <header class="game-heading">
+      <div><h1>Dock Sandbox</h1><p>Choose a case. Move the courier. Reset to repeat.</p></div>
+      <div class="parcel" role="status">
+        <img id="parcel-icon" src="../assets/parcel.svg" width="46" height="46" alt="">
+        <div><small>Parcel</small><strong id="parcel-condition">At pickup</strong></div>
+      </div>
+    </header>
+    <div class="case-controls">
+      <label>Starting state<select id="starting-state" disabled>
+        <option value="pickup">Pickup</option><option value="puddle">Puddle</option>
+        <option value="blocked">Blocked move</option><option value="dry">Dry handoff</option>
+        <option value="soaked">Soaked handoff</option>
+      </select></label>
+      <label>NPC roster<select id="npc-roster" disabled><option value="">Choose NPC</option><option value="mina">Mina</option></select></label>
+      <button id="reset-case" type="button" disabled>Reset</button>
+      <p id="case-cue" role="status"></p>
+    </div>
+    <div class="game-board" id="board" tabindex="0" role="region" aria-label="Dock playfield" aria-describedby="move-cue"></div>
+    <div class="game-controls">
+      <div class="game-feedback"><p id="move-cue">Arrow keys or buttons</p><p id="move-feedback" role="status">Loading the Dock…</p></div>
+      <div class="directions" role="group" aria-label="Move the courier">
+        <button data-direction="up" aria-label="Move up" disabled></button>
+        <button data-direction="left" aria-label="Move left" disabled></button>
+        <button data-direction="down" aria-label="Move down" disabled></button>
+        <button data-direction="right" aria-label="Move right" disabled></button>
+      </div>
+      <div id="delivery-result" class="delivery-result" hidden>
+        <div><strong id="delivery-title"></strong><p id="delivery-message" role="status"></p></div>
+        <button id="delivery-action" type="button"></button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

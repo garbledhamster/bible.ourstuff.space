@@ -1,0 +1,98 @@
+:root {
+  color-scheme: dark;
+  color: #fff2d7;
+  background: #173238;
+  font: 16px/1.45 system-ui, sans-serif;
+  --rule: #527371;
+  --muted: #c6ded1;
+  --amber: #f5cd78;
+  --night: #173238;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0 auto; padding: 12px clamp(12px, 4vw, 24px) 24px; width: min(100%, 662px); }
+::selection { color: var(--night); background: var(--amber); }
+.mast { display: flex; justify-content: space-between; padding-block: 4px 10px; border-bottom: 1px solid var(--rule); }
+a { color: var(--muted); text-underline-offset: 4px; }
+a:hover { color: var(--amber); }
+.mast a { font-size: .8rem; font-weight: 700; }
+.game-heading { display: flex; justify-content: space-between; align-items: end; gap: 8px; margin-block: 14px 12px; }
+h1 { margin: 0; font: 400 clamp(2.35rem, 7vw, 4rem)/.95 Georgia, serif; letter-spacing: -.038em; }
+p { margin: 0; }
+.game-heading p { margin-block-start: 7px; color: var(--muted); font-size: .92rem; }
+.parcel { flex: 0 0 auto; display: flex; gap: 4px; align-items: center; padding: 3px 10px 3px 2px; border: 1px solid var(--rule); border-radius: 8px; background: #203c40; }
+.parcel small, .parcel strong { display: block; line-height: 1.25; }
+.parcel small { color: var(--muted); font-size: .69rem; }
+.parcel strong { font-size: .88rem; }
+.game-board {
+  width: 100%;
+  aspect-ratio: 7 / 6;
+  overflow: hidden;
+  border: 1px solid #799b88;
+  border-radius: 8px;
+  background: #315756;
+  box-shadow: 0 12px 28px #0a212887;
+}
+
+.game-controls {
+  position: relative;
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-block: 7px 0;
+}
+.game-feedback { color: var(--muted); font-size: .82rem; }
+#move-feedback { min-height: 1.35em; color: var(--amber); font-weight: 700; }
+.touch-cue { display: none; }
+.directions { display: flex; gap: clamp(4px, 1.4vw, 9px); }
+button, select {
+  min-height: 44px;
+  border: 1px solid #78988e;
+  border-radius: 6px;
+  background: #25454a;
+  color: inherit;
+  font: inherit;
+}
+button { padding: 0 12px; cursor: pointer; touch-action: manipulation; }
+button[data-direction] { display: grid; place-items: center; width: 46px; padding: 0; }
+button:hover:not(:disabled), button:active:not(:disabled) { background: #375a5e; }
+button:disabled { opacity: .46; cursor: default; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+
+.delivery-result {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 9px 6px 12px;
+  border: 1px solid #84ab95;
+  border-radius: 7px;
+  background: #294943;
+}
+.delivery-result[data-outcome="soaked"] { border-color: #b99b74; background: #443e37; }
+.delivery-result[hidden] { display: none; }
+.game-controls:has(.delivery-result:not([hidden])) :is(.directions, .game-feedback) { visibility: hidden; }
+.delivery-result strong { font-size: 1.04rem; }
+.delivery-result p { font-size: .83rem; }
+#delivery-action { flex-shrink: 0; border-color: var(--amber); background: var(--amber); color: #302a21; font-weight: 750; }
+#delivery-action:hover { background: #ffe2a3; }
+.dock-help { margin-top: 5px; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
+.dock-help summary { width: fit-content; min-height: 38px; padding-block: 9px; cursor: pointer; color: #fff2d7; }
+.dock-help ol { margin-block: 0 5px; padding-inline-start: 25px; }
+.dock-help details { margin-left: 12px; }
+.case-controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin-block: 0 10px; }
+.case-controls label { display: grid; gap: 3px; color: var(--muted); font-size: .81rem; }
+.case-controls select { padding-inline: 6px; }
+.case-controls p { flex: 0 0 100%; color: var(--amber); font-size: .85rem; }
+
+@media (min-width: 700px) and (max-height: 1040px) {
+  body { width: min(100%, calc((100dvh - 265px) * 7 / 6 + 48px)); min-width: 430px; }
+}
+@media (pointer: coarse) {
+  .keyboard-cue { display: none; }
+  .touch-cue { display: inline; }
+}

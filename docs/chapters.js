@@ -1,4 +1,4 @@
-import { parseChapterGuide, parseWorkedExample } from './chapter-content.js';
+import { parseChapterGuide } from './chapter-content.js';
 
 const guideUrl = new URL('./resources/game-bible-guide.md', import.meta.url);
 const readerUrl = new URL('./read.html', import.meta.url);
@@ -20,98 +20,85 @@ function loadChapterContent() {
 
 const chapters = [
   ['Vision & Scope', 'vision-and-scope', [
-    ['Summary', 'Set the player promise and decide what the first release needs to deliver.'],
-    ['Project folders and Git', 'Set up or reuse Git and record where the code, assets, and planning documents live.'],
-    ['Player promise, audience, and platforms', 'Say what players can do and why it matters to them. Name who it’s for and where they can play.'],
-    ['First playable milestone and release scope', 'Name the smallest playable outcome that proves the idea. List what ships with it and what can wait.'],
-    ['Open decisions', 'Record questions that still affect scope, who can answer them, and which work depends on the answers.'],
-    ['Island Post', 'For the first browser release, a player can deliver one parcel across a rainy dock using touch or a keyboard.'],
-  ]],
+    'Gather source material and note what it tells you.',
+    'Map the Git repository and project folders.',
+    'Name the audience, platform, and player promise.',
+    'Study similar projects and record what to try.',
+    'Pick the first playable milestone and cut list.',
+    'Assign open decisions and their next checks.',
+  ], 'Read the one-delivery scope'],
   ['Design Document', 'design-document', [
-    ['Summary', 'Describe the experience and rules in enough detail for someone to build and test them.'],
-    ['Core workflow and intended experience', 'Follow a player or visitor from their starting point through an action, feedback, and the outcome.'],
-    ['Rules and behavior', 'Describe each action, what the project does in response, and how someone recovers if it fails.'],
-    ['Screens, scenes, and dependencies', 'Outline what each screen or scene does and what it needs to work.'],
-    ['Open design decisions', 'Record unanswered design questions and decide which need a prototype or playtest.'],
-    ['Island Post', 'The Dock teaches dry routes. Market Lane adds wrapping. The Hill Route adds two deliveries and an optional step goal.'],
-  ]],
+    'Walk through the core task from start to outcome.',
+    'Write each rule, its feedback, and how to recover.',
+    'Map the screens, scenes, and what each needs.',
+    'Pick a check for each open design question.',
+  ], 'See the Dock map and rules'],
   ['UI & UX Design', 'ui-and-ux-design', [
-    ['Summary', 'Make the next action easy to find when someone needs it.'],
-    ['Layout and controls', 'Use alignment, spacing, and short labels to show what belongs together and what to do next.'],
-    ['Project standards', 'Record how screens handle frequent actions, feedback, and recovery.'],
-    ['Island Post', 'Keep the parcel condition in view and put Retry beside the failed-delivery message.'],
-  ]],
+    'Sketch the next action and status at each step.',
+    'Group related controls and trim repeated copy.',
+    'Set standards for icons, focus, feedback, and recovery.',
+    'Try the flow on its smallest and largest screens.',
+  ], 'Compare the HUD sketch and phone capture'],
   ['Engine & Assets', 'engine-and-assets', [
-    ['Summary', 'Get a representative interaction running and account for the assets each scene needs.'],
-    ['Engine and launch instructions', 'Record the engine, supported devices, and how to launch the game from a fresh checkout.'],
-    ['Maps, characters, objects, interface, art, and sound', 'List what the player sees, hears, and interacts with. Map each item to the scenes that use it.'],
-    ['Asset locations and readiness', 'Point to the current asset, identify placeholders, and record what still needs to be made or checked.'],
-    ['Island Post', 'Run a courier on a tile map with a puddle tile, boardwalk, and parcel icons before building full routes.'],
-  ]],
+    'Record the engine, targets, and launch command.',
+    'Run one interaction with representative assets.',
+    'List the art, sound, and controls each scene needs.',
+    'Track asset files, readiness, and gaps.',
+  ], 'Inspect the art and asset ledger'],
   ['Development Sandbox', 'development-sandbox', [
-    ['Summary', 'Build one playable development scene before assembling player scenes. Move through it, use its objects and controls, and see the outcomes the game actually produces.'],
-    ['Launch link or command', 'Document the development entry point or test-build shortcut so a contributor can open the sandbox and reset a case.'],
-    ['Scenario and expected behavior', 'Name the starting state, play the case inside the sandbox, and reset to repeat it.'],
-    ['NPC roster and dialogue', 'Pick any NPC in the release and play every branch of their dialogue tree from the states that change it.'],
-    ['Mechanics and other checks', 'Play every release mechanic. Check the controls, feedback, items, transitions, recovery, and saves the release relies on.'],
-    ['Build, platform, result, and evidence', 'Record what you ran, on which device or input, what happened, and where to see the result.'],
-    ['Open failures and next checks', 'Identify the failed rule or asset, what work it blocks, and the check to repeat after the fix.'],
-    ['Island Post', 'Cross a puddle with an unwrapped parcel, then a wrapped one. Confirm Retry restores a fresh parcel after a failed delivery.'],
-  ]],
+    'Give developers a separate launch path.',
+    'Make each mechanic playable from a named start.',
+    'Add a roster and test each NPC outcome.',
+    'Reset each case and record results on target inputs.',
+    'Log failures and the checks to repeat.',
+  ], 'Open the Sandbox and case results'],
   ['Scene Scripts & Playtests', 'scene-scripts-and-playtests', [
-    ['Summary', 'Assemble and playtest one complete scene at a time.'],
-    ['Scene script', 'Write how the player enters, what they try to do, what characters say, and how each outcome moves them on.'],
-    ['Mechanics and assets used', 'Link each scene to the rules and assets it uses, along with the sandbox checks that cover them.'],
-    ['Playtest criteria, observations, fixes, and result', 'Set the player task before the test. Watch what happens, fix what blocks the experience, and record the retest.'],
-    ['Island Post', 'Ask a first-time phone player to deliver to Mina. Watch whether they can find Retry after soaking a parcel.'],
-  ]],
+    'Script the entrance, player choice, and outcomes.',
+    'Link the scene to its rules, assets, and passing cases.',
+    'Give a new player a task and observe without coaching.',
+    'Record fixes and repeat the affected path.',
+  ], 'Read the scene script and playtest record'],
   ['Build & Play the Game', 'build-and-play-the-game', [
-    ['Summary', 'Turn the assembled scenes into a game a player can install or open, then play through the build on its target.'],
-    ['Build targets and steps', 'Record the startup scene, target, build or export command, and settings so someone else can make the same build.'],
-    ['Package and launch', 'Package the required assets and dependencies. Test the installer or app package on a clean target, or open a staged web build in a fresh browser profile.'],
-    ['Playthrough and evidence', 'Start from the player entry point and play the core loop across scenes. Record the build, target, steps, and result so the manual can use the verified build.'],
-    ['Island Post', 'Open the staged browser build on a phone, start from the title screen, deliver to Mina, and continue to Market Lane.'],
-  ]],
+    'Record the target, startup scene, and build command.',
+    'Package the assets and open a fresh player session.',
+    'Play through success, failure, and recovery.',
+    'Save the build ID, target, and result.',
+  ], 'Play the verified Dock build'],
   ['Demo, Manual & Wiki', 'demo-manual-and-wiki', [
-    ['Summary', 'Show what the project can do with a hands-on demo drawn from tested sandbox behavior.'],
-    ['Demo', 'Use the project’s real controls and visuals to teach one complete workflow.'],
-    ['Manual and wiki', 'Link the walkthrough and lookup pages to the places where people can practice.'],
-    ['Capture', 'Record the verified demo for a trailer or walkthrough and give viewers a link to try it.'],
-    ['Island Post', 'Try the Dock delivery, recover from a wet parcel, and capture the dry delivery.'],
-  ]],
+    'Turn passing Sandbox cases into a playable demo.',
+    'Write a walkthrough that leads back to practice.',
+    'Add lookup pages for rules players ask about.',
+    'Capture the demo and give viewers a link to try it.',
+  ], 'Try the walkthrough and Wet Parcels wiki'],
   ['Release, Pricing & Marketing', 'release-pricing-and-marketing', [
-    ['Summary', 'Decide how people get the game, verify the release, and show what players will actually do.'],
-    ['Release scope, platform, price, and payment', 'Name what ships, where it’s available, and what it costs. Check payment and access if the release requires them.'],
-    ['Readiness checks and release evidence', 'Run the exact candidate from the planned delivery path. Record its build and the result of playing the core loop.'],
-    ['Store copy, screenshots, pitch, and links', 'Use the playable build to make launch material and verify that every published link leads where players expect.'],
-    ['Island Post', 'Share the Dock preview, then prepare the three-route browser release using footage of an actual delivery.'],
-  ]],
+    'Set what ships, where to get it, and what it costs.',
+    'Verify the candidate through its delivery path.',
+    'Write the pitch and capture screenshots from play.',
+    'Open the public links as a new player.',
+  ], 'See the public release kit'],
   ['Contributor Training', 'contributor-training', [
-    ['Summary', 'Make it possible for someone new to contribute and check their own work.'],
-    ['Setup, first task, and verification', 'Show how to launch the game and sandbox, make one representative change, and verify it.'],
-    ['Decisions and references', 'Point to the rules, scripts, and checks a contributor needs to understand why the game works this way.'],
-    ['Island Post', 'Have a teammate or agent add a small delivery route, run it in the game, and follow the documented checks.'],
-  ]],
+    'Write clean checkout and launch steps.',
+    'Give a new contributor one small task.',
+    'Link the rules and assets they need.',
+    'Have them run the checks and save the result.',
+  ], 'Try the contributor exercise'],
   ['Updates & DLC', 'updates-and-dlc', [
-    ['Summary', 'Take a new feature or route through the same checks as the base game.'],
-    ['Proposed changes, affected players, and release approach', 'State what changes, who gets it, and whether it ships as an update, expansion, or rehearsal.'],
-    ['Sandbox, scene, and compatibility checks', 'Repeat affected scenarios and scenes. Check existing saves, access, and progress when the change touches them.'],
-    ['Manual, wiki, and release notes', 'Update the player-facing material to explain what changed and how to use it.'],
-    ['Island Post', 'Prove a new parcel rule in the sandbox, test the expansion route, and check that the original routes still work.'],
-  ]],
+    'Describe the change, who gets it, and how it ships.',
+    'Repeat the affected Sandbox and scene checks.',
+    'Check existing progress and access when they apply.',
+    'Update the help, release notes, and captures.',
+  ], 'Read the update rehearsal'],
   ['Intake & Feedback', 'intake-and-feedback', [
-    ['Summary', 'Listen to prospects, players, and customers. Use what you learn to decide what to build next.'],
-    ['Who to hear from', 'Include people who considered the game, people playing it now, and customers who have paid for it.'],
-    ['Where feedback comes in and what to ask', 'Choose channels people can reach. Ask what they expected, what they tried, and what happened.'],
-    ['Who reads, replies, and follows up', 'Assign an owner for each channel and record who handles follow-up.'],
-    ['What people said or did', 'Capture the message or observation with its source, date, build, and enough context to understand it later.'],
-    ['Patterns, urgent issues, and open questions', 'Group recurring reports, identify issues that need attention now, and note what needs another conversation.'],
-    ['What returns to Chapter 1', 'Link the evidence to a scope decision and define how you’ll check whether the next release improves it.'],
-    ['Island Post', 'Phone players miss Retry. Set a goal for the next release that a first-time player can recover from a wet delivery without coaching.'],
-  ]],
+    'Pick who to hear from and where they can reply.',
+    'Assign intake, response, and follow-up.',
+    'Save observations with the build and context.',
+    'Group repeat reports and flag urgent issues.',
+    'Bring a finding and a success check back to scope.',
+  ], 'Trace a feedback rehearsal back to scope'],
 ];
 
-const panels = [...chapters, ['Island Post (In-Progress)', 'island-post-example']];
+const panels = [...chapters, ['Island Post', 'island-post-example']];
+const exampleReader = 'read.html?file=/resources/island-post-example.md';
 
 const rail = document.querySelector('#rail');
 const previous = document.querySelector('#prev');
@@ -204,51 +191,45 @@ window.addEventListener('pointerup', (event) => {
   }
 });
 
-function appendChapterSections(container, sections) {
-  for (const [title, summary] of sections) {
-    const callout = document.createElement('div');
-    callout.className = 'callout';
-    const heading = document.createElement('h4');
-    const detail = document.createElement('p');
-    heading.textContent = title;
-    detail.textContent = summary;
-    callout.append(heading, detail);
-    container.append(callout);
+function appendChapterActions(container, steps, example, slug) {
+  const list = document.createElement('ol');
+  list.className = 'chapter-steps';
+  for (const step of steps) {
+    const item = document.createElement('li');
+    item.textContent = step;
+    list.append(item);
   }
+  const callout = document.createElement('a');
+  callout.className = 'chapter-example';
+  callout.href = `${exampleReader}#${slug}`;
+  const label = document.createElement('strong');
+  label.textContent = 'Island Post example';
+  const action = document.createElement('span');
+  action.textContent = example;
+  callout.append(label, action);
+  container.append(list, callout);
 }
 
-for (const [number, [title, slug, sections]] of panels.entries()) {
+for (const [number, [title, slug, steps, example]] of panels.entries()) {
   const isExample = number === chapters.length;
   const card = document.createElement('article');
   card.className = isExample ? 'chapter worked-example' : 'chapter';
   card.id = slug;
-  const label = isExample ? 'Example 1' : chapterLabel(number);
+  const label = isExample ? 'Playable example' : chapterLabel(number);
   card.innerHTML = `<header class="chapter-cover"><span class="chapter-number">${label}</span><h3>${title.replaceAll('&', '&amp;')}</h3><div class="chapter-actions"></div></header><div class="chapter-body"></div>`;
   const body = card.querySelector('.chapter-body');
   body.tabIndex = 0;
   body.setAttribute('role', 'region');
-  body.setAttribute('aria-label', `${title} sections`);
+  body.setAttribute('aria-label', isExample ? 'Island Post showcase' : `${title} actions`);
   const actions = card.querySelector('.chapter-actions');
   if (isExample) {
-    body.textContent = 'Loading example…';
-    const markdown = document.createElement('a');
-    markdown.className = 'chapter-link';
-    const exampleUrl = new URL('./resources/island-post-example.md', import.meta.url);
-    markdown.href = 'read.html?file=/resources/island-post-example.md';
-    markdown.textContent = 'Read example';
-    actions.append(markdown);
-    fetch(exampleUrl, { cache: 'no-cache' })
-      .then((response) => {
-        if (!response.ok) throw new Error(`Worked example request failed: ${response.status}`);
-        return response.text();
-      })
-      .then((source) => { body.innerHTML = parseWorkedExample(source, exampleUrl, readerUrl); })
-      .catch((error) => {
-        body.textContent = 'The example couldn’t load. Use Read example to open it.';
-        console.error(error);
-      });
+    actions.innerHTML = `<a class="chapter-link" href="island-post/">Play the Dock</a><a class="chapter-link" href="${exampleReader}">Read the case study</a>`;
+    body.innerHTML = `<img src="resources/island-post/evidence/dock-fork.webp" alt="The courier at the fork between the puddle and dry boardwalk" width="720" height="882" loading="lazy">
+      <p>Bring Mina a dry parcel. The shortcut looks tempting.</p>
+      <p>Play the delivery, then follow it through all twelve chapters.</p>
+      <a class="chapter-example" href="island-post/sandbox/"><strong>Development Sandbox</strong><span>Play the resettable Dock cases</span></a>`;
   } else {
-    appendChapterSections(body, sections);
+    appendChapterActions(body, steps, example, slug);
     const open = document.createElement('button');
     open.type = 'button';
     open.className = 'chapter-link';
@@ -260,6 +241,13 @@ for (const [number, [title, slug, sections]] of panels.entries()) {
       chapterDialog.showModal();
     });
     actions.append(open);
+    if (number === 0) {
+      const play = document.createElement('a');
+      play.className = 'chapter-link';
+      play.href = 'island-post/';
+      play.textContent = 'Play Island Post';
+      actions.append(play);
+    }
   }
   if (slug === 'intake-and-feedback') {
     const restart = document.createElement('a');
@@ -302,7 +290,7 @@ for (const [number, [title, slug, sections]] of panels.entries()) {
 function renderPanelPosition() {
   position.textContent = current < chapters.length
     ? `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`
-    : 'Example 1';
+    : 'Example';
   previous.disabled = current === 0;
   next.disabled = current === panels.length - 1;
   next.setAttribute('aria-label', current === chapters.length - 1 ? 'Go to Island Post example' : 'Next chapter');
