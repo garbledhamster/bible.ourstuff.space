@@ -12,6 +12,7 @@ Set up the project’s home and agree on a player promise, audience, target, and
 
 - [ ] Set up or reuse a Git repository. If it has a remote, verify its destination and intended visibility.
 - [ ] Record the folder map in the README and commit the planning notes.
+- [ ] Start a source record during kickoff with relevant source material and similar projects. Record what you reviewed, what it contributes, and which scope decisions it informs.
 - [ ] Describe the first playable from launch to a player outcome.
 - [ ] Record the audience, platforms, what ships, and decisions that still block design.
 - [ ] Record the owner’s decision on the scope.

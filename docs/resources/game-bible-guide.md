@@ -15,6 +15,12 @@ Save agreed decisions in the project's Bible as you go. Keep a short glossary in
 
 When I'm picturing a game, I usually have more ideas than I can use in the first release. I want to get far enough with one of them that I can put the game in someone's hands and see what they do. That means agreeing on who we're making it for, what they'll get to do, and what we can finish well enough for them to try.
 
+### Research and source collection
+
+Start collecting material during kickoff so you have something concrete to work from in the first scope conversation. Begin with the project's own notes, existing work, and original sources that explain the subject or the people who will use what you're making. Gather useful text files, PDFs, datasets, videos, recordings, and transcripts as they apply. Keep authorized copies in the project when they help. Link to originals that should stay where they are.
+
+Keep a short source record with the author or organization, original link or file, relevant page or timestamp, what you learned, and which decision it informs. Mark material you still need to review and record any limits on reuse. When a source changes what you're picturing, bring the finding into the next scope conversation. Collect Similar Projects alongside this work so you can also see how other people handled a comparable experience.
+
 ### Project folders and Git
 
 Use the [project Bible setup instructions](https://bible.ourstuff.space/AGENTS.md) to keep a local copy of the shared guide, templates, and assets that you can update from the main Bible.
@@ -55,7 +61,7 @@ The first preview could be one delivery across the Dock. A player picks up a par
 
 ### Complete when
 
-I can find the repository, the folder map, and the scope notes in Git. From those notes, I can tell who we're building for, how they'll use what we're making, what belongs in the first release, and what we'd need to see to call it a good first try. I can also find the projects we looked at and the questions we want to bring into later chapters.
+I can find the repository, the folder map, and the scope notes in Git. From those notes, I can tell who we're building for, how they'll use what we're making, what belongs in the first release, and what we'd need to see to call it a good first try. I can find the sources and similar projects we reviewed, see what they tell us about the scope, and find the questions we want to bring into later chapters.
 
 ## Design Document
 

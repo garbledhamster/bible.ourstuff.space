@@ -11,6 +11,10 @@ Next decision or check:
 - First playable milestone and release scope:
 - Open decisions:
 
+### Research and Source Collection
+
+Start during kickoff. Link the source record, including original notes, text files, PDFs, datasets, videos, recordings, or transcripts where relevant. For each useful source, record its origin and locator, what it contributes, any reuse limits, and which decision it informs. Mark what is queued for review.
+
 ### Similar Projects
 
 Include relevant open-source and closed-source games, apps, products, or services. For each one, record its name and source link, what it has in common with this project, what you want to learn, and the chapter or decision that research will inform. Link to source, docs, or tests for open-source examples and to a demo, help page, or other public evidence for closed-source examples.
