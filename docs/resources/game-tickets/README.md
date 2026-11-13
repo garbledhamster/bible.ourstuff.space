@@ -7,7 +7,7 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | 01 | [Define the first release](01-vision-and-scope.md) | None | The owner can show the Git repository and folder map and explain the first playable. |
 | 02 | [Specify the game loop and scenes](02-game-design-document.md) | 01 | The core loop has observable rules and a rough scene roadmap. |
 | 03 | [Run the first interaction on the target](03-engine-and-assets.md) | 02 | A fresh checkout runs a representative interaction using its assets. |
-| 04 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 03 | Required rules, inputs, and recovery can be exercised from known states. |
+| 04 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 03 | A contributor can play and reset the release’s required cases in one dedicated development scene before player-scene assembly. |
 | 05 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 04 | A player can enter, complete, and exit each in-scope scene. |
 | 06 | [Build and play the game](06-build-and-play-the-game.md) | 05 | A player can install or open the build on the target and complete the core loop. |
 | 07 | [Write and verify player help](07-player-manual-and-wiki.md) | 06 | A fresh player can find and use help that matches the build. |

@@ -43,9 +43,9 @@ const chapters = [
     ['Island Post', 'Run a courier on a tile map with a puddle tile, boardwalk, and parcel icons before building full routes.'],
   ]],
   ['Development Sandbox', 'development-sandbox', [
-    ['Summary', 'Make the game’s mechanics, assets, and interactions repeatable before assembling scenes.'],
-    ['Launch link or command', 'Give an agent or contributor a direct way to open the runnable sandbox.'],
-    ['Scenario and expected behavior', 'Set a known starting state, specify what the player does, and write down what should happen. Include failure and recovery where they matter.'],
+    ['Summary', 'Build one playable development scene before assembling player scenes. Move through it, use its objects and controls, and see the outcomes the game actually produces.'],
+    ['Launch link or command', 'Document the development entry point or test-build shortcut so a contributor can open the sandbox and reset a case.'],
+    ['Scenario and expected behavior', 'Name the starting state, play the case inside the sandbox, and reset to repeat it. Include failure and recovery where they matter.'],
     ['Build, platform, result, and evidence', 'Record what you ran, on which device or input, what happened, and where to see the result.'],
     ['Open failures and next checks', 'Identify the failed rule or asset, what work it blocks, and the check to repeat after the fix.'],
     ['Island Post', 'Cross a puddle with an unwrapped parcel, then a wrapped one. Confirm Retry restores a fresh parcel after a failed delivery.'],

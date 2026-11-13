@@ -23,8 +23,10 @@ Next decision or check:
 - Asset locations and readiness:
 
 ## Development Sandbox
-- Launch link or command:
-- Scenario, initial state, player action, and expected behavior:
+- Dedicated development scene to build before player-scene assembly:
+- Release mechanics, assets, controls, objects, and outcomes reachable from that scene:
+- Development entry point or test-build shortcut:
+- For each case, record the named starting state, the object or control to use in the scene, what the player should see, and how to reset:
 - Record build, platform, observed result, and evidence:
 - Open failures and next checks:
 

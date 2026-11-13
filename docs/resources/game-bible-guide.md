@@ -103,13 +103,15 @@ Someone can start the game from a clean checkout and show one real interaction w
 
 ## Development Sandbox
 
-Before I build out a scene, I want a real sandbox where I can get right to the part I'm working on. If I'm changing the way a wet parcel looks, I want to get straight to the puddle. The same goes for a menu, a piece of dialogue, or an object the player can use. I want a place where I or an agent can pull up that part of the game, try it, change something, and try it again.
+While I'm preparing the release, I build one dedicated scene for development before I start assembling the scenes a player will go through. That's the sandbox. I want the mechanics, assets, controls, objects, and outcomes for this release within reach in that one scene. If I'm changing the way a wet parcel looks, I want to get straight to the puddle. The same goes for a menu, a piece of dialogue, or an object the player can use. I or an agent can try it, change something, and try it again.
+
+Make it a playable simulation for developers. I want to move through the sandbox, walk up to an object or control, and use it to trigger the game's behavior so I can see what a player would see. In a game with HP, I could walk up to a “Die” button and activate it. The game rules take my HP to zero and I see the actual death scene.
 
 I also want to use the sandbox to take screenshots for the wiki. If we can pull up a particular item, character, menu, or scene on its own, we can show what it looks like in the game without playing through a level to get there.
 
 ### Launch link or command
 
-Give the sandbox an entry point in the project and have it run the same game code the scene will use. I should be able to open a case, start from a known spot with the right items, and reset it without walking through a level. Keep the launch instructions where contributors already go to start the game.
+Give developers a direct way into the sandbox. It could have its own development entry point or open from a developer shortcut in a test build. Run the same game code the player scenes will use. Give cases named starting states so I can get to the right spot with the right items. Give me a Reset so I can go back to that same state and play the case again. Keep the launch and reset instructions where contributors already go to start the game.
 
 ### Scenario and expected behavior
 
@@ -125,11 +127,11 @@ When something fails, write down the case and which scene or release work depend
 
 ### Island Post example
 
-Put the courier next to the same puddle twice. Start with a dry unwrapped parcel and cross the puddle, then reset and try the same move with a wrapped parcel. The first parcel should get wet and the second should stay dry. In a separate case, start with a failed delivery, press Retry, and check that the courier goes back to the start with a fresh parcel.
+Start the courier near a puddle with a dry unwrapped parcel. Walk across the puddle using the game controls and watch the parcel icon change. Reset to the starting spot and try crossing with a wrapped parcel. The second parcel should stay dry. In a separate case, start with a failed delivery, use the game's Retry control, and check that the courier goes back to the start with a fresh parcel.
 
 ### Complete when
 
-The person building the scene can open and reset the cases it relies on. The cases required for the release have passing results with enough detail for someone else to repeat them.
+A contributor can open the dedicated sandbox, play the required cases through the game's controls or sandbox objects that trigger the same game rules, and reset each case to its starting state. Record passing results for those cases before assembling the player scenes, with enough detail for someone else to repeat the checks.
 
 ## Scene Scripts & Playtests
 

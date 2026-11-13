@@ -6,13 +6,14 @@
 
 ## What to build
 
-Give the game a runnable sandbox with repeatable scenarios for the release scope.
+Build one dedicated development scene during preparation, before assembling the player scenes. Make it playable so a developer can move through the scene, interact with objects or controls, and see the outcomes the same game code produces for a player. Put the release’s mechanics, assets, controls, objects, and outcomes within reach.
 
 ## Acceptance checks
 
-- [ ] Open the sandbox directly and reset each required scenario to a known state.
-- [ ] Exercise mechanics and assets, including expected failure and recovery.
-- [ ] Record results for the required checks before closing the chapter.
+- [ ] Open the sandbox from the documented development entry point or test-build shortcut.
+- [ ] Play the required cases inside the scene by using objects or controls that trigger the actual game rules. Check what the player sees, including failure and recovery where they apply.
+- [ ] Use a named starting state to open each case, then use Reset and play it again.
+- [ ] Record passing results for the required cases before assembling the player scenes.
 
 ## Evidence and handoff
 
