@@ -1,11 +1,11 @@
-# Game Bible agent resource index
+# Project Bible agent resource index
 
-Give your agent the [Game Bible skill](https://bible.ourstuff.space/resources/game-bible/SKILL.md) to work through the chapters for a game, app, or other software project. The skill reads the same published Markdown as the chapter reader. Open the [live index](https://bible.ourstuff.space/resources/agent-index.md) at the start of a project or when you pick up a chapter so you have the current files.
+Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources/project-bible/SKILL.md) to work through the chapters for a game, app, or other software project. The skill reads the same published Markdown as the chapter reader. Open the [live index](https://bible.ourstuff.space/resources/agent-index.md) at the start of a project or when you pick up a chapter so you have the current files.
 
 - [Set up and update a project Bible](../AGENTS.md) — clone the shared guide and assets into your game repository.
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
-- [Game Bible template](game-bible-template.md) — reusable outline with chapter prompts.
-- [Game Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
+- [Project Bible template](game-bible-template.md) — reusable outline with chapter prompts.
+- [Project Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
 - [Preset ticket list](game-tickets/index.html) — browse eleven starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
@@ -21,7 +21,7 @@ Give your agent the [Game Bible skill](https://bible.ourstuff.space/resources/ga
 ## Plugins
 
 - **Game Studio** — use the browser-game specialists if the agent's environment already provides this plugin.
-- **Game Bible plugin** — optional future packaging. The template, workflow draft, and quality-control package are linked above.
+- **Project Bible plugin** — optional future packaging. The template, workflow draft, and quality-control package are linked above.
 
 ## Public guides and projects
 

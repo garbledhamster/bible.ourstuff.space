@@ -3,25 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Joe’s Builder’s Bible for games and software. Work through the chapters with your agents, from the first idea to release and feedback.">
-<title>Game Bible</title>
+<meta name="description" content="Joe’s Project Bible for games and software. Work through the chapters with your agents, from the first idea to release and feedback.">
+<title>Project Bible</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="alternate" type="text/markdown" href="resources/agent-index.md" title="Game Bible agent index">
+<link rel="alternate" type="text/markdown" href="resources/agent-index.md" title="Project Bible agent index">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="project-masthead.css">
 <script src="chapters.js" type="module"></script>
 </head>
 <body class="game-bible">
-<header class="top">
-<h1>Game Bible<span>.</span></h1>
+<header class="top project-masthead">
+<div class="project-masthead-title"><h1>Project Bible<span aria-hidden="true">.</span></h1></div>
 <div class="navigation"><span id="position" aria-live="polite">01 / 11</span><button id="prev" aria-label="Previous chapter" type="button">←</button><button id="next" aria-label="Next chapter" type="button">→</button></div>
 </header>
 <main aria-label="Chapters">
-<div id="rail" class="rail" tabindex="0" aria-label="Game Bible chapters and worked example"></div>
+<div id="rail" class="rail" tabindex="0" aria-label="Project Bible chapters and worked example"></div>
 </main>
 <footer class="resources">
-<nav class="link-row" aria-label="Game Bible resources">
+<nav class="link-row" aria-label="Project Bible resources">
 <button id="quick" type="button" aria-haspopup="dialog" data-description="Browse the chapters, templates, agent resources, and Joe’s Notes.">Get Started</button>
 <span class="separator" aria-hidden="true">  •  </span>
 <button type="button" data-info-dialog="template-info" aria-haspopup="dialog" data-description="Read the fill-in template for all eleven chapters.">Bible template</button>
@@ -34,7 +35,7 @@
 <form method="dialog"><button class="close" aria-label="Close Get Started" autofocus>×</button></form>
 <h2 id="reference-title">Get Started</h2>
 <div class="reference-intro">
-<p>This is my Builder’s Bible for games, apps, and other software. Start with the chapters here and work through them with your agent using the project you’re building.</p>
+<p>This is my Project Bible for games, apps, and other software. Start with the chapters here and work through them with your agent using the project you’re building.</p>
 <p>Define a game people can picture playing. Sketch the rules, pick an engine, and gather the art and sound. Prove the mechanics in a sandbox. Build and playtest each scene. Package the game and play it the way a player will open or install it. Then write the player guide and wiki. Plan the launch, price, and pitch. Teach contributors how to test changes and ship updates or expansions. Listen to players and prospects, then use their feedback to decide what comes next.</p>
 <ul>
 <li>Scroll sideways to browse the chapters and the Island Post example.</li>
@@ -48,8 +49,8 @@
 </nav>
 <div class="quick-links" role="region" aria-labelledby="quick-links-title">
 <h3 id="quick-links-title">Quick Links</h3>
-<section><h4>Game Bible files</h4><p class="link-row">
-<button type="button" data-info-dialog="template-info" aria-haspopup="dialog" data-description="Copy and fill in the eleven chapters for a new game.">Game Bible template</button>
+<section><h4>Project Bible files</h4><p class="link-row">
+<button type="button" data-info-dialog="template-info" aria-haspopup="dialog" data-description="Copy and fill in the eleven chapters for a new project.">Project Bible template</button>
 <span class="separator" aria-hidden="true">  •  </span>
 <a href="read.html?file=/resources/island-post-example.md" data-description="See one game move from vision and scope to player feedback and back.">Island Post example</a>
 <span class="separator" aria-hidden="true">  •  </span>
@@ -62,7 +63,7 @@
 <span class="separator" aria-hidden="true">  •  </span>
 <a href="https://github.com/phaserjs/phaser/tree/master/skills" data-description="Read the public coding agent skills maintained in the Phaser repository.">Phaser agent skills</a>
 <span class="separator" aria-hidden="true">  •  </span>
-<a href="read.html?file=/resources/agent-index.md#plugins" data-description="See the available Game Studio capabilities and the Game Bible plugin notes.">Plugin availability</a>
+<a href="read.html?file=/resources/agent-index.md#plugins" data-description="See the available Game Studio capabilities and the Project Bible plugin notes.">Plugin availability</a>
 </p></section>
 <section><h4>Public guides and projects</h4><p class="link-row">
 <a href="https://aaai.org/papers/ws04-04-001-mda-a-formal-approach-to-game-design-and-game-research/" data-description="Read the original paper on how game mechanics shape the player experience.">MDA framework</a>
@@ -101,7 +102,7 @@
 </dialog>
 <dialog id="template-info" class="info-dialog" aria-labelledby="template-title" aria-describedby="template-description">
 <h2 id="template-title">Bible template</h2>
-<p id="template-description">Start a Game Bible for a new game. The Markdown file gives you prompts for all eleven chapters, from Vision &amp; Scope through Intake &amp; Feedback. Fill it in as you make decisions and verify the work.</p>
+<p id="template-description">Start a Project Bible for a new game, app, or other software project. The Markdown file gives you prompts for all eleven chapters, from Vision &amp; Scope through Intake &amp; Feedback. Fill it in as you make decisions and verify the work.</p>
 <form method="dialog" class="template-actions">
 <button type="submit" class="primary" autofocus>Close</button>
 <a class="primary" href="read.html?file=/resources/game-bible-template.md">Read template</a>
@@ -109,7 +110,7 @@
 </dialog>
 <dialog id="agent-info" class="info-dialog" aria-labelledby="agent-title" aria-describedby="agent-description">
 <h2 id="agent-title">Agent resources</h2>
-<p id="agent-description">Give an agent the <a href="read.html?file=/resources/game-bible/SKILL.md">Game Bible skill</a> to use the current chapter guide. The resource index links the templates, tickets, and supporting skills.</p>
+<p id="agent-description">Give an agent the <a href="read.html?file=/resources/project-bible/SKILL.md">Project Bible skill</a> to use the current chapter guide. The resource index links the templates, tickets, and supporting skills.</p>
 <p class="link-row planning-links"><a href="read.html?file=/resources/game-spec-template.md">Spec template</a>
 <a href="resources/game-tickets/index.html">Preset ticket list</a>
 <a href="read.html?file=/resources/game-bible-guide.md">Chapter guide</a></p>

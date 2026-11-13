@@ -1,4 +1,4 @@
-# Game Bible
+# Project Bible
 
 To use the Bible in a game repository, see [Set up and update a project Bible](docs/AGENTS.md).
 

@@ -1,9 +1,9 @@
 # Game spec template
 
-Copy this file when an idea is ready to become a build. Use the filled-in Game Bible for decisions and reference material. Use this spec to define the current release and what will prove it works.
+Copy this file when an idea is ready to become a build. Use the filled-in Project Bible for decisions and reference material. Use this spec to define the current release and what will prove it works.
 
 - Game and release or iteration: [name]
-- Game Bible, decisions, and prior evidence: [links]
+- Project Bible, decisions, and prior evidence: [links]
 - Project repository and README folder map: [links]
 - Owner and intended audience: [names or roles]
 - Tracker or local ticket folder: [location]

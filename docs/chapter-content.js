@@ -35,7 +35,7 @@ export function parseWorkedExample(markdown, source, reader) {
 function lexMarkdown(markdown, source, reader) {
   const tokens = marked.lexer(markdown);
   marked.walkTokens(tokens, (token) => {
-    if (token.type === 'html') throw new Error('Game Bible sources must use Markdown without raw HTML.');
+    if (token.type === 'html') throw new Error('Project Bible sources must use Markdown without raw HTML.');
   });
   if (source && reader) resolveDocumentLinks(tokens, source, reader);
   return tokens;

@@ -1,8 +1,8 @@
 # Game Development Playbook draft
 
-Use the Game Bible template to record the project's decisions, working artifacts, and evidence. When resuming, read the current stage and identify the next decision or check.
+Use the Project Bible template to record the project's decisions, working artifacts, and evidence. When resuming, read the current stage and identify the next decision or check.
 
-For a new Game Bible, follow the [Vision & Scope kickoff](game-bible-guide.md) with Game Bible and Grill with Docs.
+For a new Project Bible, follow the [Vision & Scope kickoff](game-bible-guide.md) with Project Bible and Grill with Docs.
 
 When an idea is ready to build, fill in the [game spec template](game-spec-template.md) and use the [preset ticket list](game-tickets/README.md) to create the work in dependency order. Record evidence against the chapter’s completion checks.
 
@@ -15,4 +15,4 @@ When an idea is ready to build, fill in the [game spec template](game-spec-templ
 7. Show contributors how to start the game, use the sandbox, and verify changes. Run updates and DLC through the affected steps.
 8. Set up intake before you need it. Decide how prospects, players, and customers can reach you, who replies, and how you’ll record what they say. Review the feedback after a playtest or release, follow up, and take the evidence that changes the next cycle back to Vision and Scope.
 
-Use the [Game Bible guide](game-bible-guide.md) for the complete chapter instructions and examples.
+Use the [Project Bible guide](game-bible-guide.md) for the complete chapter instructions and examples.

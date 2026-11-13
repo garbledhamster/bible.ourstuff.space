@@ -1,4 +1,4 @@
-# Game Bible template
+# Project Bible template
 
 Game:
 Current stage:

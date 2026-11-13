@@ -1,14 +1,14 @@
-# Game Bible guide
+# Project Bible guide
 
 I put this guide together for the way I want to build games with people and with agents. I want to be able to open the project, see what we're trying to make, and play enough of it to tell if it's going the way we pictured. That starts with the first idea and goes all the way through helping people play, putting out updates, and figuring out what to work on next.
 
-Use the [Game Bible template](game-bible-template.md) to keep the decisions for your own game. I'll use Island Post, an example game about delivering parcels on a rainy island, to show how those decisions carry from one chapter to the next.
+Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. I'll use Island Post, an example game about delivering parcels on a rainy island, to show how those decisions carry from one chapter to the next.
 
 ## Vision & Scope
 
 ### Kick off the project
 
-Start each new Game Bible with Vision & Scope. If you're working with an agent, use Game Bible and Grill with Docs together. Read the project notes and check the repository first, then use the chat pop-out to work through decisions in rounds. Put the recommended choice first and explain what each realistic option changes. Ask the next set of questions after the answers it depends on are in.
+Start each new Project Bible with Vision & Scope. If you're working with an agent, use Project Bible and Grill with Docs together. Read the project notes and check the repository first, then use the chat pop-out to work through decisions in rounds. Put the recommended choice first and explain what each realistic option changes. Ask the next set of questions after the answers it depends on are in.
 
 Save agreed decisions in the project's Bible as you go. Keep a short glossary in `CONTEXT.md` as the project's terms settle. Once the owner confirms the player promise, audience, platforms, first playable, and how we'll check it, use that scope to start the Game Design Document. Keep the open decisions visible so the next person knows what still needs an answer.
 
@@ -21,7 +21,7 @@ Use the [project Bible setup instructions](https://bible.ourstuff.space/AGENTS.m
 
 I set up the project folder while the idea is still small. When I come back to it, or ask an agent to pick it up, I want us both looking at the same files and history. Run `git status` from the game folder. If Git is already set up, confirm the root with `git rev-parse --show-toplevel` and use that repository. For a new project, run `git init` in the game folder.
 
-Put a short folder map in the README. I might start with scenes, objects, and interface code in `src/`, original art and sound in `assets/`, and the Game Bible and decisions in `docs/`. Give the sandbox and tests a place in the map when you add them. If the engine puts things somewhere else, record where they actually live so the next person can find them.
+Put a short folder map in the README. I might start with scenes, objects, and interface code in `src/`, original art and sound in `assets/`, and the Project Bible and decisions in `docs/`. Give the sandbox and tests a place in the map when you add them. If the engine puts things somewhere else, record where they actually live so the next person can find them.
 
 Stage the README and first notes with `git add`, look over what you staged, and save that starting point with `git commit`. Keep credentials and local engine caches out of Git. If you use GitHub, I start with a private repository unless the owner wants it public. Confirm the remote and its visibility before you push. [GitHub’s setup walkthrough](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 

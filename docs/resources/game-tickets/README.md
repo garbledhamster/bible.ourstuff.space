@@ -1,4 +1,4 @@
-# Preset Game Bible tickets
+# Preset Project Bible tickets
 
 Copy these drafts into the game’s tracker or keep them as local Markdown tickets. Fill the [game spec template](../game-spec-template.md) first, then give each ticket the actual project, release, story IDs, and acceptance criteria. The chapter checks run in this order. Split large tickets into smaller slices and make the parent chapter depend on the slices that prove its result.
 

@@ -1,0 +1,41 @@
+.project-masthead {
+  padding-block: 8px;
+}
+
+.project-masthead-title {
+  min-width: 0;
+}
+
+.top.project-masthead h1 {
+  font-size: clamp(34px, 6vw, 58px);
+  letter-spacing: -.04em;
+}
+
+.project-masthead-name {
+  margin: 4px 0 0;
+  font: 700 clamp(13px, 2.4vw, 17px)/1.25 var(--sans);
+}
+
+.project-masthead .navigation {
+  flex-shrink: 0;
+}
+
+body.game-bible:has(.project-masthead-name) {
+  grid-template-rows: auto minmax(0, 1fr) 52px;
+}
+
+@media (max-width: 600px) {
+  body.game-bible:has(.project-masthead-name) {
+    grid-template-rows: auto minmax(0, 1fr) 44px;
+  }
+
+  .top.project-masthead h1 {
+    font-size: clamp(29px, 8.6vw, 42px);
+  }
+}
+
+@media (max-height: 470px) {
+  body.game-bible:has(.project-masthead-name) {
+    grid-template-rows: auto minmax(0, 1fr) 40px;
+  }
+}
