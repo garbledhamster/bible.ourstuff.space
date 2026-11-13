@@ -11,6 +11,10 @@ Next decision or check:
 - First playable milestone and release scope:
 - Open decisions:
 
+### Similar Projects
+
+Include relevant open-source and closed-source games, apps, products, or services. For each one, record its name and source link, what it has in common with this project, what you want to learn, and the chapter or decision that research will inform. Link to source, docs, or tests for open-source examples and to a demo, help page, or other public evidence for closed-source examples.
+
 ## Design Document
 - Core workflow and intended experience:
 - For each rule or interaction: input, rule, feedback, success, failure, and recovery:

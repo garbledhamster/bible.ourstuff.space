@@ -31,6 +31,16 @@ I try to describe the game from where the player is sitting. In Island Post, you
 
 A phone and a desktop can deliver the same experience with different controls. If I say both are in scope, I'm agreeing to try the actual game with touch and a keyboard before I tell people it works on both.
 
+### Similar Projects
+
+Look for games, apps, products, or services that solve a similar problem, serve a similar audience, or handle one part of the experience well. Include relevant open-source and closed-source examples. For each one, link to what you looked at, say what it has in common with your project, and write down a question you want to carry into a later chapter.
+
+For an open-source project, look at the running product as well as its source, docs, and tests where they help answer your question. Check the license before reusing code or assets. For a closed-source product or service, try the workflow if you can and use public demos, help pages, or release notes to see how it works for the people using it.
+
+If I were building a task board, I'd look at how [Kanboard](https://github.com/kanboard/kanboard), an open-source app, handles moving a task between columns. That gives me something to check in the Development Sandbox, where I'd try moving a task and refreshing the board to see whether it stayed put. I'd also look at how [Trello](https://support.atlassian.com/trello/docs/getting-started-with-trello-video-demo/), a closed-source service, introduces a first board. I'd use that to decide what to explain in the Design Document and what to leave for the Player Manual & Wiki. I could then watch someone add and move a card to see where they need help.
+
+As you work through the Bible, bring each reference back when you get to the decision it informs. It might give you a workflow to try in a playtest, a feature to leave out of the first release, or a way to explain the product when you launch.
+
 ### First playable milestone and release scope
 
 Pick one part of the game that has a beginning, a decision, and an outcome the player can see. Write down the scenes and rules needed to get them through it, along with how they'll open the game. Keep the other ideas in the plan so you can come back to them after seeing how the first part plays.
@@ -45,7 +55,7 @@ The first preview could be one delivery across the Dock. A player picks up a par
 
 ### Complete when
 
-I can find the repository, the folder map, and the scope notes in Git. From those notes, I can tell who we're building for, how they'll play, what belongs in the first release, and what we'd need to see to call it a good first try.
+I can find the repository, the folder map, and the scope notes in Git. From those notes, I can tell who we're building for, how they'll use what we're making, what belongs in the first release, and what we'd need to see to call it a good first try. I can also find the projects we looked at and the questions we want to bring into later chapters.
 
 ## Design Document
 
