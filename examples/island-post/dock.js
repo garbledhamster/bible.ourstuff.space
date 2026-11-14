@@ -5,11 +5,23 @@ import courierUrl from './assets/courier.svg';
 import minaUrl from './assets/mina.svg';
 import parcelUrl from './assets/parcel.svg';
 import soakedUrl from './assets/parcel-soaked.svg';
+import splashAudio from './assets/audio/puddle-splash.wav';
+import dryVoice from './assets/audio/mina-dry.wav';
+import soakedVoice from './assets/audio/mina-soaked.wav';
 import './style.css';
 
 const size = 96;
 const position = (index) => (index + .5) * size;
 const labels = { none: 'At pickup', dry: 'Dry', soaked: 'Soaked' };
+const deliveryLines = {
+  dry: 'Made it through the rain!',
+  soaked: 'Try the lower boardwalk.',
+};
+const clips = {
+  'puddle-splash': { url: splashAudio, volume: .65 },
+  'mina-dry': { url: dryVoice, volume: .85 },
+  'mina-soaked': { url: soakedVoice, volume: .85 },
+};
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 export function bootDock({ onReady } = {}) {
@@ -23,15 +35,19 @@ export function bootDock({ onReady } = {}) {
   const resultTitle = byId('delivery-title');
   const resultMessage = byId('delivery-message');
   const resultAction = byId('delivery-action');
+  const soundToggle = byId('dock-sound');
+  const soundState = byId('dock-sound-state');
   const assets = { dock: dockUrl, courier: courierUrl, mina: minaUrl, parcel: parcelUrl };
 
   class DockScene extends Phaser.Scene {
     preload() {
-      this.load.on('loaderror', () => {
+      this.load.on('loaderror', (file) => {
+        if (!Object.hasOwn(assets, file.key)) return;
         this.assetsFailed = true;
         feedback.textContent = 'The Dock art couldn’t load. Reload to try again.';
       });
       for (const [key, url] of Object.entries(assets)) this.load.svg(key, url);
+      for (const [key, { url }] of Object.entries(clips)) this.load.audio(key, url);
     }
 
     create() {
@@ -45,10 +61,40 @@ export function bootDock({ onReady } = {}) {
       }).setOrigin(.5);
       this.splash = this.add.ellipse(0, 0, 43, 25, 0xc3f1e8, .32).setStrokeStyle(4, 0xe2fff5);
       this.courier = this.add.image(0, 0, 'courier').setDisplaySize(68, 73);
+      this.clips = new Map();
+      for (const [key, { volume }] of Object.entries(clips)) {
+        if (this.cache.audio.exists(key)) this.clips.set(key, this.sound.add(key, { volume }));
+      }
+      this.soundEnabled = false;
       this.reset(start);
 
       const input = new AbortController();
       const options = { signal: input.signal };
+      soundToggle.disabled = this.clips.size === 0;
+      soundToggle.addEventListener('click', async () => {
+        if (this.soundEnabled) {
+          this.soundEnabled = false;
+          this.sound.stopAll();
+        } else {
+          soundToggle.disabled = true;
+          soundState.textContent = 'Starting…';
+          try {
+            const context = this.sound.context;
+            if (context && context.state !== 'running') await context.resume();
+            if (input.signal.aborted) return;
+            this.soundEnabled = true;
+          } catch {
+            if (input.signal.aborted) return;
+          } finally {
+            if (!input.signal.aborted) soundToggle.disabled = false;
+          }
+        }
+        soundToggle.setAttribute('aria-pressed', String(this.soundEnabled));
+        soundState.textContent = this.soundEnabled ? 'On' : 'Off';
+      }, options);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) this.sound.stopAll();
+      }, options);
       window.addEventListener('keydown', (event) => {
         const direction = event.key.startsWith('Arrow') && directions[event.key.slice(5).toLowerCase()];
         if (!direction || event.altKey || event.ctrlKey || event.metaKey ||
@@ -63,11 +109,19 @@ export function bootDock({ onReady } = {}) {
         this.reset(this.state.delivery === 'soaked' ? freshParcel : start);
         board.focus({ preventScroll: true });
       }, options);
-      this.events.once('shutdown', () => input.abort());
+      this.events.once('shutdown', () => {
+        input.abort();
+        this.sound.stopAll();
+        for (const clip of this.clips.values()) clip.destroy();
+        soundToggle.disabled = true;
+        soundToggle.setAttribute('aria-pressed', 'false');
+        soundState.textContent = 'Off';
+      });
       onReady?.(this);
     }
 
     reset(state) {
+      this.sound.stopAll();
       this.tweens.killTweensOf([this.courier, this.splash]);
       this.splashTimer?.remove();
       this.splash.setVisible(false);
@@ -94,12 +148,23 @@ export function bootDock({ onReady } = {}) {
         this.tweens.add({ targets: this.courier, x: x + dx * 9, y: y + dy * 9, yoyo: true, duration: 65 });
       } else this.tweens.add({ targets: this.courier, x: targetX, y, duration: 125, ease: 'Sine.Out' });
 
-      if (cue === 'splash') this.showSplash(x, y);
+      if (cue === 'splash') {
+        this.showSplash(x, y);
+        this.playCue('puddle-splash');
+      }
       if (cue) {
         feedback.textContent = { blocked: 'Path blocked', pickup: 'Parcel picked up', splash: 'Splash. Parcel soaked.' }[cue];
       } else feedback.textContent = '';
       this.renderStatus();
-      if (state.delivery) resultAction.focus({ preventScroll: true });
+      if (state.delivery) {
+        this.playCue(`mina-${state.delivery}`);
+        resultAction.focus({ preventScroll: true });
+      }
+    }
+
+    playCue(key) {
+      const ready = this.sound.context ? this.sound.context.state === 'running' : !this.sound.locked;
+      if (this.soundEnabled && ready && !document.hidden) this.clips.get(key)?.play();
     }
 
     renderStatus() {
@@ -113,7 +178,7 @@ export function bootDock({ onReady } = {}) {
       if (delivery) {
         result.dataset.outcome = delivery;
         resultTitle.textContent = delivery === 'dry' ? 'Delivered dry' : 'Parcel soaked';
-        resultMessage.textContent = delivery === 'dry' ? 'Mina: “Made it through the rain!”' : 'Mina: “Try the lower boardwalk.”';
+        resultMessage.textContent = `Mina: “${deliveryLines[delivery]}”`;
         resultAction.textContent = delivery === 'dry' ? 'Play Again' : 'Retry';
       }
     }
@@ -135,7 +200,6 @@ export function bootDock({ onReady } = {}) {
     type: Phaser.AUTO,
     parent: board,
     backgroundColor: '#315756',
-    audio: { noAudio: true },
     input: { keyboard: false },
     scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH, width: 672, height: 576 },
     scene: DockScene,

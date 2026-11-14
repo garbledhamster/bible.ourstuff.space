@@ -42,7 +42,9 @@ The first-time playtest still needs to show whether a player who soaks the parce
 
 ## Audio Engineering
 
-**Example for a future audio pass.** The Dock uses the splash animation and soaked parcel frame to show what happened in the puddle. For an effect, record a few small splashes and try them when a dry parcel becomes soaked. Use Retry to check that the sound plays once on the next crossing. For dialogue, give Mina's dry and wet handoffs separate line IDs and record a take for each. Play the matching line at the handoff, keep the written response on screen, and stop the line if the player chooses Retry.
+Open the [Dock demo](../island-post/) and turn **Sound** on. Move right four times. You'll hear the splash when the parcel gets soaked and Mina will say, “Try the lower boardwalk.” Choose **Retry**, then take the lower route to hear her dry handoff. Both lines appear on screen, so you can also play with Sound off.
+
+In the [Development Sandbox](../island-post/sandbox/), turn Sound on and choose **Puddle**, **Dry handoff**, or **Soaked handoff** to try each cue on its own. Choose **Reset** to repeat it. The splash comes from a free recording, and the demo uses a synthetic voice for Mina. [See the cue list, credits, and playback checks](island-post/verification.md#audio-cues).
 
 ## Development Sandbox
 

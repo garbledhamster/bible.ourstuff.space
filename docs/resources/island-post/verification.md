@@ -24,6 +24,20 @@ On November 13, 2026, the production build passed the Dock and Sandbox checks in
 
 First-time player discovery and physical phone testing remain open.
 
+## Audio cues
+
+Turn **Sound** on in the [player demo](../../island-post/) or the [Sandbox](../../island-post/sandbox/). Both open with sound off. In the Sandbox, choose the start that matches the cue, then use the real movement controls. Reset brings back the starting parcel and stops the current sound.
+
+| Cue ID | Game event and Sandbox start | Sound and source | On-screen feedback |
+| --- | --- | --- | --- |
+| `puddle-splash` | A dry parcel becomes soaked. Choose **Puddle** and move right. | A short water splash by qubodup. The demo uses an edited mono WAV made from the Freesound preview. [Recording and CC0 credit](https://freesound.org/people/qubodup/sounds/737234/) | Splash animation and soaked parcel indicator. |
+| `mina-dry` | Mina receives a dry parcel. Choose **Dry handoff** and move up. | “Made it through the rain!” Synthetic demo voice rendered with Piper and the LJSpeech medium voice. [Voice model and dataset credit](https://huggingface.co/rhasspy/piper-voices/blob/v1.0.0/en/en_US/ljspeech/medium/MODEL_CARD) | The line and **Play Again**. |
+| `mina-soaked` | Mina receives a soaked parcel. Choose **Soaked handoff** and move up. | “Try the lower boardwalk.” The same synthetic voice and settings as the dry line. [Voice model and dataset credit](https://huggingface.co/rhasspy/piper-voices/blob/v1.0.0/en/en_US/ljspeech/medium/MODEL_CARD) | The line and **Retry**. |
+
+Phaser 4.2.1 loads three short WAV files from the build. The effect plays on the transition to a soaked parcel. Mina's line plays on the handoff that shows the matching text. The Sound button, Retry, Play Again, and Sandbox Reset can stop the current cue. Missing audio leaves the movement and visible feedback available.
+
+**Browser checks · November 14, 2026.** Desktop Chrome and phone-sized Chromium and WebKit started the right audio buffer for all three cases. The splash played once per parcel, Retry stopped the current line, and Reset let each cue play again. The wet route also worked with sound off and with the splash file blocked. These checks cover playback and game feedback. The mix still needs a listen on a physical phone speaker.
+
 ## Scene script and playtest
 
 The courier starts one step from the pickup marker. After pickup the puddle sits directly ahead, and the longer boardwalk runs below it. The player steps onto Mina’s square to hand over the parcel. Mina says “Try the lower boardwalk” after a soaked handoff and “Made it through the rain!” after a dry one. Retry starts at the fork; Play Again returns to the opening.

@@ -222,6 +222,8 @@ Use a named, resettable case from the [Development Sandbox](../#development-sand
 
 The cue list links game events to the effects and recorded lines the build plays, with source and credit information. We can replay a representative encounter on the intended targets, hear the cues at the right moments, read any essential dialogue, and finish with sound off. Mute works, loops and lines stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
 
+[Play the Island Post audio example](island-post-example.md#audio-engineering) to hear a sourced splash and two captioned handoff lines.
+
 ## Development Sandbox
 
 While I'm preparing the release, I build one dedicated scene for development before I start assembling the scenes a player will go through. That's the sandbox. I want the mechanics, assets, controls, objects, and outcomes for this release within reach in that one scene. If I'm changing the way a wet parcel looks, I want to get straight to the puddle. The same goes for a menu, a piece of dialogue, or an object the player can use. I or an agent can try it, change something, and try it again.

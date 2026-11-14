@@ -51,7 +51,7 @@ const chapters = [
     'Track sources, permissions, captions, and export files.',
     'Set the mix, mute controls, and loop behavior.',
     'Listen to a resettable encounter on target devices.',
-  ], 'See where a splash cue would go'],
+  ], 'Hear the puddle splash and Mina’s handoff'],
   ['Development Sandbox', 'development-sandbox', [
     'Give developers a separate launch path.',
     'Make each mechanic playable from a named start.',
