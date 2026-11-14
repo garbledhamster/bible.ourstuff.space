@@ -185,6 +185,17 @@ Start with a small set for one playable encounter. Record Foley, make the sound 
 
 For ambience, record or assemble enough material to carry the scene. Edit the loop join and play several cycles of the actual export. Listen for clicks, gaps, or a sound that calls attention to itself every time the loop starts over.
 
+### Where to find free sound effects
+
+Start with the sound you need to hear. Search for “wooden door latch” for a podcast scene, “soft confirmation chime” for an app, or “small water splash” for a video or game. These libraries let you browse or download recordings for film, podcasts, videos, presentations, websites, apps, and games. Check the terms for the file and how you plan to publish it.
+
+- **Freesound** is a good first stop for everyday sounds, Foley, and field recordings. Each upload shows its license. Sign in to download the original. Try the short CC0 splash to see what a sound page gives you. [Browse Freesound](https://freesound.org/) · [Downloadable splash by qubodup](https://freesound.org/people/qubodup/sounds/737234/) · [Freesound license guide](https://freesound.org/help/faq/#what-do-i-need-to-do-to-legally-use-the-files-on-freesound)
+- **Pixabay** has a searchable library for effects such as chimes, ambience, and transitions. Its content license allows free use and editing without required credit, subject to its restrictions. It limits standalone distribution of substantially unchanged files. [Browse Pixabay Sound Effects](https://pixabay.com/sound-effects/) · [Pixabay Content License](https://pixabay.com/service/license-summary/)
+- **Mixkit** is useful for quick edits, with effects for doors, footsteps, impacts, and transitions. Its sound-effects library offers free downloads for personal and commercial projects without required credit. Check the sound-effects terms for your use. [Browse Mixkit Sound Effects](https://mixkit.co/free-sound-effects/) · [Door recordings](https://mixkit.co/free-sound-effects/doors/) · [Mixkit licenses](https://mixkit.co/license/)
+- **Sonniss** offers free bundles of recorded and designed effects. The bundle terms cover effects incorporated into personal and commercial projects, including films, podcasts, apps, and games, without required credit. Use the license in effect when you downloaded. Share the source link when someone needs their own copies. [Download the Sonniss bundles](https://sonniss.com/gameaudiogdc/) · [Sonniss bundle license](https://sonniss.com/gdc-bundle-license/)
+
+**Start with CC0** if you expect to reuse a sound across projects or share the original file. For CC BY, include the creator, source, license link, and any changes in your credits. Reserve CC BY-NC sounds for projects that meet the license’s noncommercial terms. Check distribution terms separately if you're shipping a template, open repository, or sample pack. Save the sound's page, creator, license or version, and download date with the project. [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [CC BY](https://creativecommons.org/licenses/by/4.0/) · [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/)
+
 ### Write and record dialogue
 
 Write the line where it belongs in the scene. Give it an ID, the speaker, the exact words, the trigger, and any delivery notes. Read it aloud against the action. A line like “Now, set the hook!” has to fit the moment when the player can act. A sharp cue can mark the opening while a longer line prepares the player before the bite. Write the caption or on-screen prompt with the line.
