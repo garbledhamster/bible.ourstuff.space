@@ -272,6 +272,12 @@ On the web, test a fresh launch and start audio from a player gesture. Keep play
 
 Use a named, resettable case from the [Development Sandbox](../#development-sandbox). Listen through a normal run, a failure, and a retry on the devices people will use. Check the phone speaker and headphones if both are in scope. Try rapid input, pause and resume, leaving the scene, and a muted run. For web builds, also check switching away and returning. Record the build, device, what you heard, and what still needs another listen. An automated check can count playback requests. Listen to the actual mix to judge timing and balance.
 
+#### Listen to the scene, then isolate one sound
+
+Play the whole encounter once. Pick a moment that affects what the player hears or does, such as a hook prompt that might disappear under wind or a word lost under music. Reset to the same moment and compare two versions with one change. To find out whether wind covers the hook cue, lower the wind and leave the cue, the phone and its volume alone. If you're comparing two edits of a spoken line, play them at about the same loudness so the louder take doesn't get an easy advantage.
+
+Ask the listener what they heard before you tell them what changed. Then play the whole scene again. Keep the change if the cue reads more clearly and the background still feels like it belongs. Record the moment, the change, what the listener heard and what you kept. This is a game audio exercise based on [Jason Corey’s technical ear training](https://sites.google.com/a/umich.edu/jason-corey/technical-ear-training).
+
 ### Complete when
 
 The release has a music plan, including a decision to go without music if that suits the experience. The cue list links game events to the sounds the build plays, with source and credit information. We can replay a representative encounter on the intended targets, hear the cues at the right moments, read any essential dialogue, and finish with sound off. Mute works, loops and lines stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
