@@ -1,3 +1,18 @@
+async function loadChapterWork() {
+  if (document.querySelector('[data-chapter-work]')) return;
+  const masthead = document.querySelector('link[href$="/project-masthead.css"]');
+  if (!masthead || !document.querySelector('#chapter-dialog')) return;
+  const module = new URL('reader-review-upgrade.js', masthead.href);
+  try {
+    const { enableChapterWork } = await import(module);
+    enableChapterWork(new URL('review.css', module));
+  } catch {
+    // Earlier shared revisions have no chapter work module.
+  }
+}
+
+void loadChapterWork();
+
 const title = document.querySelector('#references #reference-title');
 
 if (title) {

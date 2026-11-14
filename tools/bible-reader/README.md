@@ -1,6 +1,6 @@
 # Private Project Bible reader updates
 
-The reader checks the published Git revision at [version.json](https://bible.ourstuff.space/version.json) when the page opens. In **Get Started**, click the version above the title to check again or choose **Update now**. The short version is the first eight characters of the Git commit. Reload to pick up shared styles and resources after installing.
+The reader checks the published Git revision at [version.json](https://bible.ourstuff.space/version.json) when the page opens. In **Get Started**, click the version above the title to check again or choose **Update now**. The short version is the first eight characters of the Git commit. Reload to pick up shared styles, Review and Tasks after installing. The updater module loads chapter work from the installed checkout beside its shared masthead stylesheet. Existing local reader runtimes need the current `/_bible/updates.js` once, after which updates and restores pick the chapter work up from the selected shared revision.
 
 Serve a standard reader from its project root with Python 3 and Git:
 

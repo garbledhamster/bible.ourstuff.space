@@ -76,6 +76,12 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
     slug = chapter;
     const content = element('div', 'chapter-review-content');
     content.append(...body.childNodes);
+    if (!checklist.length) {
+      const source = [...content.querySelectorAll('h3, h4')].find(heading =>
+        /^(?:tasks|open tasks|next actions|what to check|complete when)$/i.test(heading.textContent.trim()));
+      const list = source?.nextElementSibling;
+      if (list?.matches('ul, ol')) checklist = [...list.children].map(item => item.textContent);
+    }
     if (audioPreview && slug === 'audio-engineering') {
       const source = element('a', '', 'Bedroom knock preview');
       source.href = audioPreview;
