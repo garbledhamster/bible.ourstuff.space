@@ -10,8 +10,12 @@ For each chapter, record the input from the previous chapter, what you made, wha
 - Project folder and Git repository, including the remote and visibility if used:
 - README folder map and first saved planning commit:
 - Player promise, intended audience, and platforms:
-- First playable milestone and release scope:
-- Open decisions and Wayfinder map link, if used:
+
+### Visual Vision
+
+- Ask the creator, “Picture one moment that shows what you're trying to make. What do you see in your mind’s eye?” Save their description of one scene or screen and any references, with the details they want to carry forward.
+- Make and show a rough image. Ask what feels right and what they'd change, then revise and show it again until they say it feels like what they pictured.
+- Embed the chosen image and record the details to carry into UI & UX Design and Engine & Assets. If you pause before the creator confirms it, mark the latest image as a draft and record what still needs their reaction.
 
 ### Research and Source Collection
 
@@ -20,6 +24,11 @@ Start during kickoff. Link the source record, including original notes, text fil
 ### Similar Projects
 
 Include relevant open-source and closed-source games, apps, products, or services. For each one, record its name and source link, what it has in common with this project, what you want to learn, and the chapter or decision that research will inform. Link to source, docs, or tests for open-source examples and to a demo, help page, or other public evidence for closed-source examples.
+
+### First playable milestone and release scope
+
+- First playable milestone and release scope:
+- Open decisions and Wayfinder map link, if used:
 
 ## Design Document
 - Core workflow and intended experience:

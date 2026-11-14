@@ -16,7 +16,7 @@ Embed every image generated for the project in the chapter where it was made or 
 
 Start each new Project Bible with Vision & Scope. If you're working with an agent, use Project Bible and Grill with Docs together. Read the project notes and check the repository first, then use the chat pop-out to work through decisions in rounds. Put the recommended choice first and explain what each realistic option changes. Ask the next set of questions after the answers it depends on are in.
 
-Save agreed decisions in the project's Bible as you go. Keep a short glossary in `CONTEXT.md` as the project's terms settle. Once the owner confirms the player promise, audience, platforms, first playable, and how we'll check it, use that scope to start the Design Document. Keep the open decisions visible so the next person knows what still needs an answer.
+Save agreed decisions in the project's Bible as you go. Keep a short glossary in `CONTEXT.md` as the project's terms settle. Once the owner confirms the player promise, audience, platforms, visual direction, first playable, and how we'll check it, use that scope to start the Design Document. Keep the open decisions visible so the next person knows what still needs an answer.
 
 
 When I'm picturing a game, I usually have more ideas than I can use in the first release. I want to get far enough with one of them that I can put the game in someone's hands and see what they do. That means agreeing on who we're making it for, what they'll get to do, and what we can finish well enough for them to try.
@@ -42,6 +42,14 @@ Stage the README and first notes with `git add`, look over what you staged, and 
 I try to describe the game from where the player is sitting. In Island Post, you're carrying a parcel across a rainy dock and trying to get it to someone dry. You can picture what you'll do, and there's a reason to pay attention to the route you take. Write that much for your own game, then say who you think would enjoy it and where they'll play.
 
 A phone and a desktop can deliver the same experience with different controls. If I say both are in scope, I'm agreeing to try the actual game with touch and a keyboard before I tell people it works on both.
+
+### Visual Vision
+
+Ask the creator, “Picture one moment that shows what you're trying to make. What do you see in your mind’s eye?” Start with their description of a scene in the game or a screen in the software. Ask which details give it the feeling they want. If they bring a reference, ask what they see in it that belongs in their project.
+
+Make one rough image of that scene or screen and show it to the creator. Ask what feels right and what they'd change. Revise the image from their feedback and show it again. Keep going until they say it feels like what they pictured. For Island Post, we might try a blue-gray dock with warm light in Mina’s window. If the light feels right but the dock looks too polished, keep the light and try rougher boards.
+
+Embed the chosen image in this chapter beside the creator's description and the details they want to carry forward. If the conversation pauses, save the latest image as a draft and record what still needs their reaction. Use the chosen image as a reference when you sketch the interface and make the assets.
 
 ### Similar Projects
 
@@ -72,6 +80,8 @@ The first public build is one delivery across the Dock. Pick up the parcel and f
 ### Complete when
 
 I can find the repository, the folder map, and the scope notes in Git. From those notes, I can tell who we're building for, how they'll use what we're making, what belongs in the first release, and what we'd need to see to call it a good first try. I can find the sources and similar projects we reviewed, see what they tell us about the scope, and find the questions we want to bring into later chapters.
+
+I can see the visual direction the creator confirmed and read which details they want to carry into the interface and assets.
 
 ## Design Document
 
