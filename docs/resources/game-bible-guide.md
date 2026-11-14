@@ -2,7 +2,7 @@
 
 I put this guide together for the way I want to build games with people and with agents. I want to be able to open the project, see what we're trying to make, and play enough of it to tell if it's going the way we pictured. That starts with the first idea and goes all the way through helping people play, putting out updates, and figuring out what to work on next.
 
-Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. I'll use Island Post, an example game about delivering parcels on a rainy island, to show how those decisions carry from one chapter to the next.
+Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback.
 
 ### Carry the work through the chapters
 
@@ -49,7 +49,6 @@ Stage the README and first notes with `git add`, look over what you staged, and 
 
 ### Player promise, audience, and platforms
 
-I try to describe the game from where the player is sitting. In Island Post, you're carrying a parcel across a rainy dock and trying to get it to someone dry. You can picture what you'll do, and there's a reason to pay attention to the route you take. Write that much for your own game, then say who you think would enjoy it and where they'll play.
 
 A phone and a desktop can deliver the same experience with different controls. If I say both are in scope, I'm agreeing to try the actual game with touch and a keyboard before I tell people it works on both.
 
@@ -57,7 +56,7 @@ A phone and a desktop can deliver the same experience with different controls. I
 
 Ask the creator, “Picture one moment that shows what you're trying to make. What do you see in your mind’s eye?” Start with their description of a scene in the game or a screen in the software. Ask which details give it the feeling they want. If they bring a reference, ask what they see in it that belongs in their project.
 
-Make one rough image of that scene or screen and show it to the creator. Ask what feels right and what they'd change. Revise the image from their feedback and show it again. Keep going until they say it feels like what they pictured. For Island Post, we might try a blue-gray dock with warm light in Mina’s window. If the light feels right but the dock looks too polished, keep the light and try rougher boards.
+Make one rough image of that scene or screen and show it to the creator. Ask what feels right and what they'd change. Revise the image from their feedback and show it again. Keep going until they say it feels like what they pictured.
 
 Embed the chosen image in this chapter beside the creator's description and the details they want to carry forward. If the conversation pauses, save the latest image as a draft and record what still needs their reaction. Use the chosen image as a reference when you sketch the interface and make the assets.
 
@@ -84,12 +83,6 @@ Describe the experience you're aiming for from the player's seat. What do they n
 Some choices are easier to make with the game in front of you. If I can't tell whether a route is clear on a phone, I write down who will check it, what they need to build to try it, and what other work depends on the answer. That gives us something to do when we get to the question.
 
 When the questions will take more than one session or one answer changes what we can work on next, use [Wayfinder](game-development-playbook.md#work-through-open-decisions). Give the map one destination, then write a decision ticket for each question you can already name. Put questions that still depend on what you learn under Not yet specified. Link the map from the project's Bible so the next person can pick up a question that's ready.
-
-### Island Post example
-
-The first public build is one delivery across the Dock. Pick up the parcel and find a dry route to Mina. Market Lane and the Hill Route can wait until we see how people play the Dock.
-
-[Read the one-delivery scope](island-post-example.md#vision-and-scope)
 
 ### Complete when
 
@@ -135,15 +128,9 @@ I keep the questions that still affect the game close to the rules they touch. M
 
 If a question about the defining action could change the rules, cues, or scope, try the smallest version that can answer it before building the art or scenes that depend on it. A paper map and a token can show what a player knows before choosing and what the rule gives them afterward. If the question is about timing, controls, or the feel of the action, make a rough playable version with enough of the cue and input to test that question.
 
-While the idea is still open, try different ways to create the experience. When you're trying to learn why one version fails, compare one change at a time from the same starting state with the same task. Give an intended player a neutral task, watch what they do, and ask what led to their choice. Use the [Island Post early playtest](island-post/dock-design.md#early-playtest-plan) as an example. Record what you keep, change, or still need to learn. Carry the chosen behavior into the existing [Development Sandbox](#development-sandbox) to check it with the actual runtime assets and rules.
+While the idea is still open, try different ways to create the experience. When you're trying to learn why one version fails, compare one change at a time from the same starting state with the same task. Give an intended player a neutral task, watch what they do, and ask what led to their choice. Record what you keep, change, or still need to learn. Carry the chosen behavior into the existing [Development Sandbox](#development-sandbox) to check it with the actual runtime assets and rules.
 
 If you're using a Wayfinder map, link the question here where it affects the workflow, rule, or scene. Once you settle it, write the decision, the reason, and the evidence in the chapter that owns that part of the project. Close the ticket with a link to that record. Use a build ticket when there's an agreed change for someone to implement.
-
-### Island Post example
-
-Stepping into the puddle soaks the parcel on that move. The parcel icon changes right away. Both routes end at Mina, where the player can Retry a soaked delivery or Play Again after a dry one.
-
-[See the Dock map and rules](island-post-example.md#design-document)
 
 ### Complete when
 
@@ -175,19 +162,13 @@ Read [Joe’s Notes](joes-notes.md) and use [Impeccable](https://github.com/pbak
 
 I want the menu to show what kind of game I've opened. Draw or generate the art for every button, icon, HUD panel, and menu frame, and save it with the project. Use the same approach for the designed controls and frames in an app. Put the pieces on the sketch and write down the states people need to recognize, such as pressed, selected, disabled, or on and off. Reuse one piece of art anywhere it does the same job.
 
-Load that artwork into the interface. Use the engine or web code for layout, live labels, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs. [See the Island Post button and frame samples](island-post/ui-art.md).
+Load that artwork into the interface. Use the engine or web code for layout, live labels, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs.
 
 ### Try the design on the intended screens
 
 Walk through a sketch or clickable prototype at the screen sizes you plan to support. Check what changes when the layout gets narrow and how someone reaches the same controls with the inputs the project supports. Write down what you need to prove in the sandbox and what you need to observe in a playtest. When the workflow is running, check readable text and contrast, visible keyboard focus where supported, and whether someone can complete the task and recover without coaching.
 
 Use [Design Wayfinder](game-development-playbook.md#try-one-live-design-decision) when you need to use the actual interface to make the choice. Pick one question and build just enough to try it from the first action to the visible result. If you're comparing two options, give both the same task and starting state. Check the supported screens and inputs, then have the person making the decision try it. Save what they chose and why here, and carry the behavior into a sandbox case and a playtest where it matters.
-
-### Island Post example
-
-The parcel status stays above the map. After a wet handoff, Retry takes the place of the movement controls beside Mina’s response. The phone capture shows how they fit together.
-
-[Follow the Retry placement decision from comparison to playtest](island-post-example.md#ui-and-ux-design)
 
 ### Complete when
 
@@ -211,7 +192,7 @@ Write down which engine and version you're using, the devices you plan to suppor
 
 I make the asset list by walking through the scenes and asking what the player will see, hear, or touch. If an icon tells them the parcel is wet, I need both versions of that icon and a place in the game to look at them. Link each asset to the scene or rule that needs it. That's how I figure out which art or sound I want to get into the game first.
 
-For a game like Island Post, I like the main screen to show the few things players need to keep track of. You can see the parcel and its condition while you move. Use icons and short words for things players check often, and give them a way to open the details by hovering, focusing with a keyboard, or pressing and holding. A game that depends on reading will need more text on screen. For this one, longer explanations can live in How to Play or with the item.
+I like the main screen to show the few things players need to keep track of. You can see the parcel and its condition while you move. Use icons and short words for things players check often, and give them a way to open the details by hovering, focusing with a keyboard, or pressing and holding. A game that depends on reading will need more text on screen. For this one, longer explanations can live in How to Play or with the item.
 
 ### Turn the vision art into game assets
 
@@ -239,12 +220,6 @@ Keep an editable asset inventory spreadsheet for this work. Give each asset a st
 
 Keep the working file or its source where the next contributor can find it. Mark which pieces are placeholders, which are ready to use, and which still need to be tried on a target device. A sprite can look right on its own and still be hard to read on the map. Open it in the game and see if it does its job at the size the player will see.
 
-### Island Post example
-
-The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and the parcel. The HUD and controls use their own authored SVG files, with two frames for the parcel condition. The asset ledger shows where the source files live and which cues the player sees.
-
-[Inspect the art and asset ledger](island-post-example.md#engine-and-assets)
-
 ### Complete when
 
 Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The main runtime assets for the current playable scope come from its visual references, load in the engine, and appear in the chapter with the observed results. Resolve any missing main asset or failed fit before handing the scene to Development Sandbox. Track smaller remaining assets with their next check.
@@ -269,7 +244,6 @@ Make a music decision for each release, even if you want the whole game to go wi
 
 For each track, name what starts it, how long it runs, whether it loops, and how it changes or stops when the player pauses, retries, or moves to another scene. Set its level beside ambience, effects, and speech. If the music gets in the way of a line or a cue the player needs to act on, decide where to lower it or leave it out. Link the track and editable source and record who made it, what lets you ship it, and what credit to give.
 
-On the Island Post dock, a few soft electric piano notes loop under the rain. The notes drop back when Mina speaks and return after her line. Retry keeps the track going so it doesn't start over every time you bring her a parcel.
 
 ### Build the sound effects
 
@@ -296,7 +270,7 @@ Get the performer's permission for the planned use. Record a few takes with cons
 
 ### Generate spoken dialogue locally
 
-Use text-to-speech (TTS) to turn a script into audio. For new English dialogue, start with **Kokoro-82M through Kokoro ONNX**. It runs on the CPU and writes a WAV you can edit. The quantized model and voice file together are about 121 MB. After setup, the script and synthesis stay on your machine. Island Post uses Kokoro's `af_heart` voice for both of Mina's lines. Try **Piper** when you already have a voice that works for the character or need a smaller model. [Kokoro model card and Apache 2.0 license](https://huggingface.co/hexgrad/Kokoro-82M) · [Kokoro ONNX](https://github.com/thewh1teagle/kokoro-onnx) · [Piper](https://github.com/OHF-Voice/piper1-gpl)
+Use text-to-speech (TTS) to turn a script into audio. For new English dialogue, start with **Kokoro-82M through Kokoro ONNX**. It runs on the CPU and writes a WAV you can edit. The quantized model and voice file together are about 121 MB. After setup, the script and synthesis stay on your machine. Try **Piper** when you already have a voice that works for the character or need a smaller model. [Kokoro model card and Apache 2.0 license](https://huggingface.co/hexgrad/Kokoro-82M) · [Kokoro ONNX](https://github.com/thewh1teagle/kokoro-onnx) · [Piper](https://github.com/OHF-Voice/piper1-gpl)
 
 #### Render a line to WAV
 
@@ -338,7 +312,7 @@ Play effects when the game accepts an action or changes state. For a timed promp
 
 #### Make dialogue sound like it belongs in the scene
 
-Start with what you would hear in that place between lines. At the Dock, a quiet rain loop runs before, during, and after Mina speaks. Keep this background on its own track so it carries across lines and you can turn it down if it competes with speech. If the voice still sounds close to the microphone, turn it down a little and try a gentle cut to the highest frequencies. A nearby wall or deck can give you a short, faint reflection. Save longer reverb for places with a tail you would hear, such as a hall. Compare the processed line with the original at about the same loudness while the scene plays. Listen for the first and last words on the speaker your audience will use. [Island Post mix settings and sources](island-post/verification.md#audio-cues)
+Start with what you would hear in that place between lines. Keep this background on its own track so it carries across lines and you can turn it down if it competes with speech. If the voice still sounds close to the microphone, turn it down a little and try a gentle cut to the highest frequencies. A nearby wall or deck can give you a short, faint reflection. Save longer reverb for places with a tail you would hear, such as a hall. Compare the processed line with the original at about the same loudness while the scene plays. Listen for the first and last words on the speaker your audience will use.
 
 On the web, test a fresh launch and start audio from a player gesture. Keep play working if the browser blocks audio or a file fails to load. In Phaser projects, check the installed version's Sound Manager and who owns each loop across scene changes. [Phaser sound source](https://github.com/phaserjs/phaser/tree/v4.2.1/src/sound) · [Browser autoplay behavior](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay)
 
@@ -356,7 +330,6 @@ Ask the listener what they heard before you tell them what changed. Then play th
 
 The release has a music plan, including a decision to go without music if that suits the experience. The cue list links game events to the sounds the build plays, with source and credit information. We can replay a representative encounter on the intended targets, hear the cues at the right moments, read any essential dialogue, and finish with sound off. Mute works, loops and lines stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
 
-[Play the Island Post audio example](island-post-example.md#audio-engineering) to hear how the score, rain, splash, and two captioned handoff lines fit together.
 
 ## Development Sandbox
 
@@ -406,12 +379,6 @@ Keep the build or revision, the device and controls you used, what you expected,
 
 When something fails, write down the case and which scene or release work depends on it. If Retry puts the player back with the same wet parcel, the Dock still needs a way for the player to recover. After the fix, start from that same failed delivery and see what Retry does before updating the result.
 
-### Island Post example
-
-Choose Puddle and step into it with the dry parcel. Reset and pick Mina from the roster. Play the dry and soaked handoff cases using the movement controls, then try the action Mina offers.
-
-[Open the playable Sandbox and case record](island-post-example.md#development-sandbox)
-
 ### Complete when
 
 A contributor can open the dedicated sandbox, play every release mechanic and each applicable check through the game's controls or sandbox objects, and reset each case to its starting state. If the game has NPCs, the roster picker gives them a way to play every branch of each release NPC's dialogue tree. Record passing results before assembling the player scenes, with enough detail for someone else to repeat the checks.
@@ -440,12 +407,6 @@ Bring the player prediction from Vision & Scope and any early test from Design D
 
 Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls when first impressions matter. They can show whether the change helped without remembering where you told the last player to look. Use [Game Quality Control](game-quality-control.md#set-the-bar) for the test criteria and [Engagement & Feedback](#what-people-said-or-did) for the observation record.
 
-### Island Post example
-
-The Dock scene starts one step from pickup and ends with Mina’s response. The scripted pass covers both handoffs. A first-time session will show whether someone can choose a dry route and find Retry without help.
-
-[Read the scene script and playtest record](island-post-example.md#scene-scripts-and-playtests)
-
 ### Complete when
 
 A player can go from the start of the scene to an outcome, recover where they need to, and continue or leave. Keep the observations and the result of the last check with the scene so the next person can see how it played.
@@ -471,12 +432,6 @@ For an installable game, package the assets and dependencies with it and try the
 ### Playthrough and evidence
 
 Start a new game and use the controls you expect players to use. Finish a full turn, follow the scene transitions, and try getting back on track after a failure. If there's a save, quit and reopen the game to see if it picks up where you left off. Keep the build ID, package or URL, target, and what you saw. If you fix something, make a new build and repeat the affected parts of the playthrough.
-
-### Island Post example
-
-Open the Dock build in a fresh browser. Take the shortcut, retry the soaked delivery, and carry a fresh parcel around the puddle. Play Again returns you to pickup.
-
-[Open the player build and repeat the release check](island-post-example.md#build-and-play-the-game)
 
 ### Complete when
 
@@ -507,12 +462,6 @@ Give an item, control, or rule its own wiki page when someone is likely to look 
 ### Capture the demo for a trailer or walkthrough
 
 Choose a few moments that show what someone does and what happens because of it. Capture them from the verified demo build. A trailer can show the action and payoff in a few shots. A walkthrough can stay with the task long enough for someone to follow the steps. Use the public demo link wherever you share the footage so viewers can try what they saw.
-
-### Island Post example
-
-The demo uses the passing Sandbox cases in one delivery. The manual walks through the dry route. The wiki explains how to recognize a soaked parcel and find Retry. Capture those moments from the demo so a viewer can try the same delivery.
-
-[Play the demo and follow the manual and wiki](island-post-example.md#demo-manual-and-wiki)
 
 ### Reusable demo template
 
@@ -551,13 +500,7 @@ Save the build ID for the version you intend to ship. Start with a fresh player 
 
 ### Store copy, screenshots, pitch, and links
 
-Describe something the player can picture themselves doing. A shot of the courier choosing a path through the Dock tells me more about Island Post than a list of broad claims about the game. Use screenshots or footage from the verified demo, write a short pitch someone else can explain in their own words, and check the links for trying the demo, purchasing when applicable, and finding help. After launch, open the public page and take the same path a new player would.
-
-### Island Post example
-
-The Dock is free to play in a browser. The release kit pairs the public play link with a pitch and captures of the fork, splash, Retry, and dry handoff.
-
-[See the release kit and real captures](island-post-example.md#release-pricing-and-marketing)
+Describe something the player can picture themselves doing. Use screenshots or footage from the verified demo, write a short pitch someone else can explain in their own words, and check the links for trying the demo, purchasing when applicable, and finding help. After launch, open the public page and take the same path a new player would.
 
 ### Complete when
 
@@ -580,12 +523,6 @@ Show the contributor how to launch the game and the sandbox from a clean checkou
 ### Decisions and references
 
 Link the rules, scenes, assets, and checks that matter for the task. Include the reason behind a decision the contributor might encounter, such as making touch controls work differently so a finger leaves more of the map visible. A short explanation can save them from having to work out why the game behaves that way.
-
-### Island Post example
-
-Start from a clean checkout and change one cue in the Sandbox. Rebuild, play the blocked move, and verify that the player demo still starts at pickup.
-
-[Try the contributor exercise](island-post-example.md#contributor-training)
 
 ### Complete when
 
@@ -640,12 +577,6 @@ Give the Sandbox named cases for independent controls, simultaneous actions, joi
 
 Keep a record with client and server revisions, devices, network conditions, participants, expected and observed outcomes, and remaining failures. Two tabs help debug; they do not replace a separate-device test. Give a newcomer the joining instructions and observe them joining, completing the encounter, leaving, and returning without coaching.
 
-### Island Post example
-
-The shipped Dock is single-player. Multiplayer is N/A for that release. A possible future co-op slice would give two couriers one delivery each and test simultaneous handoffs. That is a proposal, with no multiplayer implementation or hosting evidence yet.
-
-[Read the example's scope decision](island-post-example.md#multiplayer-and-multi-user-support)
-
 ### Complete when
 
 Every multiplayer mode promised for the release is playable from joining through a complete encounter and recovery on the intended devices and network. The recorded checks pass for shared outcomes, access, disconnects, and any persistent progress. Another person can follow the hosting runbook, check the service, and recover it. Claims about cloud hosting, player capacity, and persistence each have their own evidence. Otherwise keep the failed or unverified check open, or record N/A with the single-player scope decision.
@@ -671,12 +602,6 @@ Start with the rules that changed and give them repeatable sandbox cases. Then p
 ### Manual, wiki, and release notes
 
 Tell players what they'll see and what they need to do to use it. If you've moved Retry, check the demo and replace any pictures, directions, or footage that show the old location. If you've added a route, explain where to find it and who can access it. Open the help from the released build and check it against what a player gets.
-
-### Island Post example
-
-In the rehearsal, try a clearer help instruction and repeat the wet handoff, Retry, and dry detour. Keep that change in the rehearsal until it has a release of its own.
-
-[Read the update rehearsal](island-post-example.md#updates-and-dlc)
 
 ### Complete when
 
@@ -708,9 +633,9 @@ Decide what starts the conversation, such as a first session, a shipped update, 
 
 ### Part 2 · Feedback
 
-Keep a Feedback Markdown file with the project. Use it for what people and agents say during development and after launch, including feedback that comes in outside the engagement plan. Record the source, date, and the part of the project they were responding to. Quote their words when available or mark a summary as a paraphrase. Link any follow-up or decision to the entry so we can see what we heard and what we did about it.
+Keep a Feedback Markdown file with the project. Use it for what people and agents say during development and after launch, including feedback that comes in outside the engagement plan. Append every item in entry order. Record the date and time it was entered with a time zone offset, the source, and the part of the project they were responding to. Quote their words when available or mark a summary as a paraphrase. Link any follow-up or decision to the entry so we can see what we heard and what we did about it.
 
-Use [Feedback](feedback.md) beside Joe’s Notes in Get Started for feedback about this shared Bible. Link each project's own Feedback file from its chapter.
+Use [Feedback](feedback.md) beside Joe’s Notes in Tutorial for feedback about this shared Bible. Link each project’s Feedback and Changelog files from its Bible. Add a timestamped changelog entry when you finish a meaningful change and link the feedback that prompted it.
 
 ### What people said or did
 
@@ -723,12 +648,6 @@ Look for problems that keep showing up and for a report that needs a quick respo
 ### What returns to Chapter 1
 
 Bring a finding back to Vision & Scope with the evidence behind it. Write down what you want to change, why it fits the next release, and how you'll see if it helped. If you decide to keep the scope where it is, record the reason so you can come back to that decision as you learn more.
-
-### Island Post example
-
-The first staged build stalled on startup. The intake rehearsal shows how that finding became a fix and a fresh-browser release check.
-
-[Trace a feedback rehearsal back to scope](island-post-example.md#intake-and-feedback)
 
 ### Complete when
 

@@ -26,25 +26,25 @@ const chapters = [
     'Study similar projects and record what to try.',
     'Pick the first playable milestone and cut list.',
     'Assign open decisions and their next checks.',
-  ], 'Read the one-delivery scope'],
+  ]],
   ['Design Document', 'design-document', [
     'Walk through the core task from start to outcome.',
     'Write each rule, its feedback, and how to recover.',
     'Map the screens, scenes, and what each needs.',
     'Pick a check for each open design question.',
-  ], 'See the Dock map and rules'],
+  ]],
   ['UI & UX Design', 'ui-and-ux-design', [
     'Sketch the next action and status at each step.',
     'Group related controls and trim repeated copy.',
     'Plan the art and states for buttons, HUDs, and frames.',
     'Try the flow on its smallest and largest screens.',
-  ], 'Compare the HUD sketch and phone capture'],
+  ]],
   ['Engine & Assets', 'engine-and-assets', [
     'Record the engine, targets, and launch command.',
     'Run one interaction with representative assets.',
     'Make usable scenery as separate objects and keep an asset spreadsheet.',
     'Link the artwork and states to the controls that load them.',
-  ], 'Inspect the art and asset ledger'],
+  ]],
   ['Audio Engineering', 'audio-engineering', [
     'List what players hear and which game events trigger it.',
     'Plan the music for the release, including where to use silence.',
@@ -52,7 +52,7 @@ const chapters = [
     'Track sources, permissions, captions, and export files.',
     'Set the mix, mute controls, and loop behavior.',
     'Listen to a resettable encounter on target devices.',
-  ], 'Hear the puddle splash and Mina’s handoff'],
+  ]],
   ['Development Sandbox', 'development-sandbox', [
     'Give developers a separate launch path.',
     'Make each mechanic playable from a named start.',
@@ -60,50 +60,50 @@ const chapters = [
     'Add a roster and test each NPC outcome.',
     'Reset each case and record results on target inputs.',
     'Log failures and the checks to repeat.',
-  ], 'Open the Sandbox and case results'],
+  ]],
   ['Scene Scripts & Playtests', 'scene-scripts-and-playtests', [
     'Script the entrance, player choice, and outcomes.',
     'Link the scene to its rules, assets, and passing cases.',
     'Give a new player a task and observe without coaching.',
     'Record fixes and repeat the affected path.',
-  ], 'Read the scene script and playtest record'],
+  ]],
   ['Build & Play the Game', 'build-and-play-the-game', [
     'Record the target, startup scene, and build command.',
     'Package the assets and open a fresh player session.',
     'Play through success, failure, and recovery.',
     'Save the build ID, target, and result.',
-  ], 'Play the verified Dock build'],
+  ]],
   ['Demo, Manual & Wiki', 'demo-manual-and-wiki', [
     'Turn passing Sandbox cases into a playable demo.',
     'Write a walkthrough that leads back to practice.',
     'Add lookup pages for rules players ask about.',
     'Capture the demo and give viewers a link to try it.',
-  ], 'Try the walkthrough and Wet Parcels wiki'],
+  ]],
   ['Release, Pricing & Marketing', 'release-pricing-and-marketing', [
     'Set what ships, where to get it, and what it costs.',
     'Verify the candidate through its delivery path.',
     'Write the pitch and capture screenshots from play.',
     'Open the public links as a new player.',
-  ], 'See the public release kit'],
+  ]],
   ['Contributor Training', 'contributor-training', [
     'Write clean checkout and launch steps.',
     'Give a new contributor one small task.',
     'Link the rules and assets they need.',
     'Have them run the checks and save the result.',
-  ], 'Try the contributor exercise'],
+  ]],
   ['Multiplayer & Multi-user Support', 'multiplayer-and-multi-user-support', [
     'Choose shared screen, split screen, or online play.',
     'Carry shared rules and a two-player proof from early chapters.',
     'Finish an encounter with independent players and shared outcomes.',
     'Verify local joining, remote hosting, and recovery in scope.',
     'Record capacity, persistence, and operating evidence.',
-  ], 'Read the single-player scope decision'],
+  ]],
   ['Updates & DLC', 'updates-and-dlc', [
     'Describe the change, who gets it, and how it ships.',
     'Repeat the affected Sandbox and scene checks.',
     'Check existing progress and access when they apply.',
     'Update the help, release notes, and captures.',
-  ], 'Read the update rehearsal'],
+  ]],
   ['Engagement & Feedback', 'engagement-and-feedback', [
     'Decide who talks with whom, why, and about what.',
     'Choose where and how to talk, when to reach out, and how often.',
@@ -111,11 +111,10 @@ const chapters = [
     'Save observations with the build and context.',
     'Group repeat reports and flag urgent issues.',
     'Bring a finding and a success check back to scope.',
-  ], 'Trace a feedback rehearsal back to scope'],
+  ]],
 ];
 
-const panels = [...chapters, ['Island Post', 'island-post-example']];
-const exampleReader = 'read.html?file=/resources/island-post-example.md';
+const panels = chapters;
 
 const rail = document.querySelector('#rail');
 const previous = document.querySelector('#prev');
@@ -208,7 +207,7 @@ window.addEventListener('pointerup', (event) => {
   }
 });
 
-function appendChapterActions(container, steps, example, slug) {
+function appendChapterActions(container, steps) {
   const list = document.createElement('ol');
   list.className = 'chapter-steps';
   for (const step of steps) {
@@ -216,56 +215,32 @@ function appendChapterActions(container, steps, example, slug) {
     item.textContent = step;
     list.append(item);
   }
-  const callout = document.createElement('a');
-  callout.className = 'chapter-example';
-  callout.href = `${exampleReader}#${slug}`;
-  const label = document.createElement('strong');
-  label.textContent = 'Island Post example';
-  const action = document.createElement('span');
-  action.textContent = example;
-  callout.append(label, action);
-  container.append(list, callout);
+  container.append(list);
 }
 
-for (const [number, [title, slug, steps, example]] of panels.entries()) {
-  const isExample = number === chapters.length;
+for (const [number, [title, slug, steps]] of panels.entries()) {
   const card = document.createElement('article');
-  card.className = isExample ? 'chapter worked-example' : 'chapter';
+  card.className = 'chapter';
   card.id = slug;
-  const label = isExample ? 'Playable example' : chapterLabel(number);
+  const label = chapterLabel(number);
   card.innerHTML = `<header class="chapter-cover"><span class="chapter-number">${label}</span><h3>${title.replaceAll('&', '&amp;')}</h3><div class="chapter-actions"></div></header><div class="chapter-body"></div>`;
   const body = card.querySelector('.chapter-body');
   body.tabIndex = 0;
   body.setAttribute('role', 'region');
-  body.setAttribute('aria-label', isExample ? 'Island Post showcase' : `${title} actions`);
+  body.setAttribute('aria-label', `${title} actions`);
   const actions = card.querySelector('.chapter-actions');
-  if (isExample) {
-    actions.innerHTML = `<a class="chapter-link" href="island-post/">Play the Dock</a><a class="chapter-link" href="${exampleReader}">Read the case study</a>`;
-    body.innerHTML = `<img src="resources/island-post/evidence/ui-dock.jpg" alt="The courier at the fork between the puddle and dry boardwalk" width="790" height="900" loading="lazy">
-      <p>Bring Mina a dry parcel. The shortcut looks tempting.</p>
-      <p>Play the delivery, then follow it through the Project Bible.</p>
-      <a class="chapter-example" href="island-post/sandbox/"><strong>Development Sandbox</strong><span>Play the resettable Dock cases</span></a>`;
-  } else {
-    appendChapterActions(body, steps, example, slug);
-    const open = document.createElement('button');
-    open.type = 'button';
-    open.className = 'chapter-link';
-    open.textContent = 'Open Chapter';
-    open.setAttribute('aria-label', `Open Chapter ${number + 1} · ${title}`);
-    open.setAttribute('aria-haspopup', 'dialog');
-    open.addEventListener('click', () => {
-      renderOpenChapter(number);
-      chapterDialog.showModal();
-    });
-    actions.append(open);
-    if (number === 0) {
-      const play = document.createElement('a');
-      play.className = 'chapter-link';
-      play.href = 'island-post/';
-      play.textContent = 'Play Island Post';
-      actions.append(play);
-    }
-  }
+  appendChapterActions(body, steps);
+  const open = document.createElement('button');
+  open.type = 'button';
+  open.className = 'chapter-link';
+  open.textContent = 'Open Chapter';
+  open.setAttribute('aria-label', `Open Chapter ${number + 1} · ${title}`);
+  open.setAttribute('aria-haspopup', 'dialog');
+  open.addEventListener('click', () => {
+    renderOpenChapter(number);
+    chapterDialog.showModal();
+  });
+  actions.append(open);
   if (slug === 'engagement-and-feedback') {
     const restart = document.createElement('a');
     restart.className = 'chapter-link';
@@ -305,12 +280,9 @@ for (const [number, [title, slug, steps, example]] of panels.entries()) {
 }
 
 function renderPanelPosition() {
-  position.textContent = current < chapters.length
-    ? `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`
-    : 'Example';
+  position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`;
   previous.disabled = current === 0;
   next.disabled = current === panels.length - 1;
-  next.setAttribute('aria-label', current === chapters.length - 1 ? 'Go to Island Post example' : 'Next chapter');
 }
 
 function showPanel(number) {
@@ -418,6 +390,10 @@ for (const [number, group] of [document.querySelector('.resources'), drawer].ent
 }
 
 function showLinkedPanel() {
+  if (location.hash === "#island-post-example") {
+    location.replace("demo.html");
+    return;
+  }
   const renamedChapters = {
     '#game-design-document': '#design-document',
     '#intake-and-feedback': '#engagement-and-feedback',

@@ -56,6 +56,12 @@ Translate each chapter into the decision, deliverable, and completion evidence t
 
 Use the project's own terms and existing artifacts. When a chapter has no equivalent for the release, record why and move to the next chapter. Record the observed result, revision, target, and artifact link using the same evidence standard as for games.
 
+## Keep project records current
+
+Keep project-owned Feedback and Changelog Markdown files and link them from the Bible. Capture every item of human or agent feedback when it comes in, during development and after launch. Append entries in entry order and use an ISO 8601 date and time with a time zone offset. Record the source, context, and what was said. Label paraphrases.
+
+When you finish a meaningful change, append a timestamped changelog entry before handing off the work. Say what changed and how you checked it. Link the feedback entry when it prompted the change. Use the shared Bible’s [Feedback](../feedback.md) and [Changelog](../changelog.md) as examples.
+
 ## Showcase the work
 
 When building the [Island Post example](../island-post-example.md), capture screenshots and link the actual outputs as each chapter develops. Show the design record in planning chapters, the runnable checks and gameplay in production chapters, and the release materials and feedback when available. Identify the release and label the evidence with its status so readers can see what the team has verified.

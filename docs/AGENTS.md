@@ -26,7 +26,7 @@ For a new project, follow the [Vision & Scope kickoff](resources/game-bible-guid
 
 ## Refresh the shared Bible
 
-In the private reader, open **Get Started**, click the Bible version above the title, and choose **Update now**. If an update causes a problem, choose **Restore previous** and reload the reader. Use the project’s README if its reader uses a different setup.
+In the private reader, open **Tutorial** (called **Get Started** in older readers), click the Bible version above the title, and choose **Update now**. If an update causes a problem, choose **Restore previous** and reload the reader. Use the project’s README if its reader uses a different setup.
 
 For a checkout without a reader, run the version command from the game root. Use a current copy of the shared Bible for the command:
 
@@ -40,3 +40,9 @@ Use `restore` in place of `update` to return to the locally backed-up revision. 
 The refresh gives you the updated skill, guide, templates, and shared assets at the same paths. Pick up from the current decision and evidence in your own Bible and apply the new guidance when it helps with that work. Keep your existing Bible, notes, task list, art, and saves in place. The template is for starting a new Bible. Make project edits in the existing project files. Reload the local reader to see the updated Markdown. Use **Project Bible** as the main heading and show the project name on the next line. Stage and commit `docs/bible-upstream` to record the new shared revision for the team.
 
 A direct clone of the shared Bible already has the Codex skill link. Find the live skill, templates, and downloads in the [agent resource index](resources/agent-index.md). To preview the shared site locally, run `npm ci` and `npm run build` from `docs/bible-upstream` and serve its `dist/` directory.
+
+## Keep project records current
+
+Keep project-owned Feedback and Changelog Markdown files and link them from the Bible. Capture every item of human or agent feedback when it comes in, during development and after launch. Append entries in entry order and use an ISO 8601 date and time with a time zone offset. Record the source, context, and what was said. Label paraphrases.
+
+When you finish a meaningful change, append a timestamped changelog entry before handing off the work. Say what changed and how you checked it. Link the feedback entry when it prompted the change. Use the shared Bible’s [Feedback](resources/feedback.md) and [Changelog](resources/changelog.md) as examples.

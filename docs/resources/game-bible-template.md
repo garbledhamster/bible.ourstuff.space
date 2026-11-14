@@ -187,6 +187,10 @@ Link a conversation and follow-up, or a rehearsal.
 
 ### Feedback
 
+Append each item when entered, in order, with a timestamp that includes its time zone. Update the project Changelog when finishing a meaningful change and link feedback that prompted it.
+
+- Project Changelog Markdown file:
+
 - Project Feedback Markdown file:
 - What did people or agents say during development or after launch?
 - What follow-up or change to the project, process, or next scope did it inform?
