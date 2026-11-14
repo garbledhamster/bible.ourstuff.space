@@ -4,6 +4,12 @@ I put this guide together for the way I want to build games with people and with
 
 Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. I'll use Island Post, an example game about delivering parcels on a rainy island, to show how those decisions carry from one chapter to the next.
 
+### Carry the work through the chapters
+
+Work through the chapters in order for the current playable scope. Each chapter takes something from the previous one, improves it, and checks the result. Carry the same scene or interaction from the vision art into a design, a UI sketch, engine-ready assets, a sandbox case, and then a playable scene. When testing exposes a gap, return to the chapter that owns it and repeat the affected checks before moving on. Keep the next unmet check visible when work pauses.
+
+Embed every image generated for the project in the chapter where it was made or discussed. Save the image in the project and put it next to the decision, asset, or result it illustrates. Give it useful alt text and a short caption explaining its purpose and current status. Link the source or prompt and reuse the same file when a later chapter needs it. Open the rendered chapter to confirm the image loads. For chapters that change the playable build, record what you tried, the result, and what the next chapter can build on.
+
 ## Vision & Scope
 
 ### Kick off the project
@@ -151,6 +157,10 @@ I make the asset list by walking through the scenes and asking what the player w
 
 For a game like Island Post, I like the main screen to show the few things players need to keep track of. You can see the parcel and its condition while you move. Use icons and short words for things players check often, and give them a way to open the details by hovering, focusing with a keyboard, or pressing and holding. A game that depends on reading will need more text on screen. For this one, longer explanations can live in How to Play or with the item.
 
+### Turn the vision art into game assets
+
+Bring the actual Vision & Scope art and the UI & UX sketches into this chapter. For each main asset in the playable scope, identify the reference, make or import the runtime file, and embed an image showing the result. The asset list should name the scene, source, file the engine loads, and what passed or still needs work. For a game, include the main environments, characters, props, and interface states. Try them in the real engine at play size. Check that the character reads against the room, that interactive props line up with their controls, and that the art fits the chosen perspective and palette.
+
 ### Create and wire the interface assets
 
 1. Walk the screens with the UI & UX Design sketch. List the artwork, its states, and the places that use it. Make or generate the pieces against the project's art direction. Keep the source and the files the build loads together or link them from the asset ledger.
@@ -169,7 +179,7 @@ The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and th
 
 ### Complete when
 
-Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The asset ledger links the UI art and its states to the controls that load it. We know which remaining assets need work before we build the scenes that use them.
+Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The main runtime assets for the current playable scope come from its visual references, load in the engine, and appear in the chapter with the observed results. Resolve any missing main asset or failed fit before handing the scene to Development Sandbox. Track smaller remaining assets with their next check.
 
 ## Audio Engineering
 

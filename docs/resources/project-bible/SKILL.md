@@ -25,6 +25,11 @@ In a project reader, use **Project Bible** as the main heading and put the proje
    - Record the accepted decision, reason, and evidence in the relevant Bible chapter. Close any decision ticket with a link to that record. For assigned build work, use the [release spec](../game-spec-template.md) and the relevant [starter ticket](../game-tickets/README.md).
 4. Work within the requested scope. Record the observed result, applicable build or revision, target, and artifact link in the project's existing evidence record. Report missing evidence as unverified and name the next action it blocks or informs. Carry feedback into the next scope decision when the evidence warrants a change.
 
+Follow [Carry the work through the chapters](../game-bible-guide.md#carry-the-work-through-the-chapters). Start with the earliest unmet chapter for the current playable scope. Before scene assembly, verify that Engine & Assets produced and loaded the main runtime assets derived from the vision, and that Development Sandbox exercised them with the actual mechanics. Return to an earlier chapter when its output is missing or a later check fails.
+
+Save and embed every generated project image in the chapter where it was made or discussed, beside its context. Include alt text, caption, status, and a source or prompt link. Reuse the file across chapters and check the rendered reader.
+
+
 For Development Sandbox, build one dedicated development scene before assembling player scenes. Make it a playable simulation where developers move through the scene and use objects or controls to trigger the actual game rules and see what the player would see. Put the current release’s mechanics, assets, controls, objects, and outcomes within reach. Document the development entry point or test-build shortcut, the named starting states, and how to reset and play each case again.
 
 Give every release mechanic a playable case. In games with NPCs, include a roster picker for every release NPC and make every branch of their dialogue trees playable from the states that unlock it. Use the guide's list of checks to decide what else the release needs.

@@ -4,6 +4,8 @@ Game:
 Current stage:
 Next decision or check:
 
+For each chapter, record the input from the previous chapter, what you made, what you checked on the target, and the next unmet check. Embed generated images beside the decisions they illustrate. Include alt text, purpose, status, and a source or prompt link. Reuse the same files in later chapters.
+
 ## Vision and Scope
 - Project folder and Git repository, including the remote and visibility if used:
 - README folder map and first saved planning commit:
@@ -38,6 +40,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 ## Engine and Assets
 - Engine and launch instructions:
 - Maps, characters, objects, interface, art, and sound:
+- Vision or UI reference → authored runtime file → scene or state → result at play size. Embed the source images and representative engine capture.
 - Asset locations and readiness:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
 
