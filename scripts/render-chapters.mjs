@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { cp, readFile, rm, writeFile } from 'node:fs/promises';
 import { marked } from 'marked';
 import { parseChapterGuide, parseWorkedExample } from '../docs/chapter-content.js';
@@ -21,6 +22,11 @@ async function render(path, label, content) {
 await rm(output, { recursive: true, force: true });
 // Publish the same UI art the Dock loads, including the linked sample folder.
 await cp(source, output, { recursive: true, dereference: true });
+const revision = execFileSync('git', ['rev-parse', 'HEAD'], {
+  cwd: new URL('../', import.meta.url), encoding: 'utf8',
+}).trim();
+await writeFile(new URL('version.json', output), JSON.stringify({ format: 1, revision }) + '\n');
+
 const markedSource = new URL('../node_modules/marked/', import.meta.url);
 const vendor = new URL('vendor/', output);
 const markedModule = await readFile(new URL('lib/marked.esm.js', markedSource), 'utf8');
