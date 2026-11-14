@@ -27,6 +27,10 @@ In a project reader, use **Project Bible** as the main heading and put the proje
 
 Follow [Carry the work through the chapters](../game-bible-guide.md#carry-the-work-through-the-chapters). Start with the earliest unmet chapter for the current playable scope. Before scene assembly, verify that Engine & Assets produced and loaded the main runtime assets derived from the vision, and that Development Sandbox exercised them with the actual mechanics. Return to an earlier chapter when its output is missing or a later check fails.
 
+For a design question, use Ask Schell when available to identify a playable moment and the smallest test that could change the decision. Before marking a chapter complete, link its usable output and observed result from the project Bible. An asset preview, a passing rule test, and an observed play session show different things. Record what was checked and leave the remaining check open.
+
+For interactive objects, follow [Make objects the player can use](../game-bible-guide.md#make-objects-the-player-can-use). Make separate world objects and link them, their animation fit, and their sandbox evidence in an editable asset inventory spreadsheet. Verify approach, collision, pose alignment, draw order, and exit at play size in the dedicated sandbox before scene assembly.
+
 Save and embed every generated project image in the chapter where it was made or discussed, beside its context. Include alt text, caption, status, and a source or prompt link. Reuse the file across chapters and check the rendered reader.
 
 

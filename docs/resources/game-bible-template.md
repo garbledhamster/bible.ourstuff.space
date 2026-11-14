@@ -4,7 +4,7 @@ Game:
 Current stage:
 Next decision or check:
 
-For each chapter, record the input from the previous chapter, what you made, what you checked on the target, and the next unmet check. Embed generated images beside the decisions they illustrate. Include alt text, purpose, status, and a source or prompt link. Reuse the same files in later chapters.
+For each chapter, record the earlier input, the expected player experience or decision, and the output someone can open or run. Link the completion check, what you observed, and the build and target when applicable. Record the next unmet check and its owner. If a chapter does not apply to this release, record why. Embed generated images beside the decisions they illustrate. Include alt text, purpose, status, and a source or prompt link. Reuse the same files in later chapters.
 
 ## Vision and Scope
 - Project folder and Git repository, including the remote and visibility if used:
@@ -51,6 +51,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Maps, characters, objects, interface, art, and sound:
 - Vision or UI reference → authored runtime file → scene or state → result at play size. Embed the source images and representative engine capture.
 - Asset locations and readiness:
+- Interactive objects and editable asset inventory spreadsheet. Link separate runtime assets, game size, collision and interaction points, matching character actions, and readiness evidence:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
 
 - Animated characters: source frame, embedded sheet, cell size or atlas, common action checklist and two or three personal idle habits; action/direction frame map, trigger/delay, interruption, return pose, anchor, collision shape, and in-engine checks. Track each required action as Needed, Drawn, Wired, or Verified. Use the [sprite sheet workflow](sprite-sheets.md).
@@ -77,6 +78,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - NPC roster picker and dialogue branches to exercise, including the states that change each conversation:
 - Playable cases for every release mechanic and the other applicable checks from the Development Sandbox chapter:
 - For each case, record the named starting state, the object or control to use in the scene, what the player should see, and how to reset:
+- For interactive objects, show independent placement, approach and collision, pose fit and draw order, exit to movement, and reset. Link the matching inventory rows and in-engine captures:
 - Record build, platform, observed result, and evidence:
 - Open failures and next checks:
 

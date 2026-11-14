@@ -8,6 +8,10 @@ Use the [Project Bible template](game-bible-template.md) to keep the decisions f
 
 Work through the chapters in order for the current playable scope. Each chapter takes something from the previous one, improves it, and checks the result. Carry the same scene or interaction from the vision art into a design, a UI sketch, engine-ready assets, a sandbox case, and then a playable scene. When testing exposes a gap, return to the chapter that owns it and repeat the affected checks before moving on. Keep the next unmet check visible when work pauses.
 
+Start with what you want the player to experience in one moment. Name what they'll notice, what they can do, and what tells them it worked. For example, a player walks up to the bed, sees they can lie down, and watches their character settle onto the mattress. Use that moment to see whether the rules, art, and engine work together.
+
+Before starting a chapter, read its completion check and link the earlier output you'll use. In the project Bible, record the output someone can open or run, the expected result, what you observed, and the build or device when it matters. Name the next action and who owns it. For a decision chapter, the output can be a written decision with a reason. For a build chapter, link the working artifact and the check that exercised it. Mark unfinished checks open and return to the earliest one the next piece depends on. If a chapter does not apply to this release, record why.
+
 Embed every image generated for the project in the chapter where it was made or discussed. Save the image in the project and put it next to the decision, asset, or result it illustrates. Give it useful alt text and a short caption explaining its purpose and current status. Link the source or prompt and reuse the same file when a later chapter needs it. Open the rendered chapter to confirm the image loads. For chapters that change the playable build, record what you tried, the result, and what the next chapter can build on.
 
 ## Vision & Scope
@@ -183,6 +187,12 @@ For an animated character, plan the full action set for their role before making
 
 Follow the [sprite sheet workflow](sprite-sheets.md) to record frame names or indices, playback speed, looping, anchor, and collision shape. Load it as an animated Sprite, connect actions to the actual movement rules, and inspect the loop at game size. Check every required action and direction, stopping, turning, blocked movement, and transitions. Play long-delay habits through an action picker and natural idle waits. Movement and interaction must interrupt them immediately; cosmetic motion must not change gameplay or disrupt listening and other authored moments. Embed the sheet and a captured in-game result in this chapter; link the same files from the Sandbox. An attractive sheet is an asset draft until those checks pass.
 
+### Make objects the player can use
+
+List the objects the player can use and give each its own asset and engine object. Keep those objects out of the room background so you can position, hide, move, or replace them independently. Make one representative object and its matching character action together. For a chair, check where the hips meet the seat and where the feet land. For a bed, check where the head meets the pillow and how the body fits on the mattress. Start from the same standing character and world scale for both. Set the object origin, collision, interaction range, approach and exit points, pose anchor, and draw order. Compare their silhouettes at game size before making more objects.
+
+Keep an editable asset inventory spreadsheet for this work. Give each asset a stable name and record its owning chapter, scene or action, source and runtime paths, dimensions at source and game size, and status. For an interactive object, record or link its origin, collision, approach and exit, pose anchor, draw order, and matching animation. Link a preview and the sandbox result from the row. Keep live coordinates in the game data and link to them where possible. The sprite sheet or atlas supplies frames to the engine. The spreadsheet helps contributors find the files and see which pieces fit and which still need a test.
+
 ### Create and wire the interface assets
 
 1. Walk the screens with the UI & UX Design sketch. List the artwork, its states, and the places that use it. Make or generate the pieces against the project's art direction. Keep the source and the files the build loads together or link them from the asset ledger.
@@ -321,6 +331,8 @@ Give developers a direct way into the sandbox. It could have its own development
 ### Scenario and expected behavior
 
 Describe a case so another person can repeat it. Give them a starting state, an action, and something they can see or hear when it works.
+
+For interactive scenery, start with the character and separate objects in a small test area. Use the same assets, scale, and interaction code the player scene will use. Walk around the object to check collision and what appears in front. Approach it with the normal controls, use it, and check the pose throughout its animation. Exit to a walkable spot, then reset and repeat. Move or hide the object in the sandbox to check that its use point and collision belong to the object and that the background contains no duplicate. Capture the approach and active pose at game size. Record a failed fit here and fix it in Engine & Assets before using that object in another scene.
 
 ### NPC roster and dialogue
 
