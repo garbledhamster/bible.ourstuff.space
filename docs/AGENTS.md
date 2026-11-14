@@ -26,14 +26,16 @@ For a new project, follow the [Vision & Scope kickoff](resources/game-bible-guid
 
 ## Refresh the shared Bible
 
-Check `git -C docs/bible-upstream status --short` first. If it shows local edits, stop and preserve them before updating. Use the existing project README command if its reader uses a different setup. From the game root, run:
+In the private reader, open **Get Started**, click the Bible version above the title, and choose **Update now**. If an update causes a problem, choose **Restore previous** and reload the reader. Use the project’s README if its reader uses a different setup.
+
+For a checkout without a reader, run the version command from the game root. Use a current copy of the shared Bible for the command:
 
 ```sh
-git submodule update --init --remote --checkout -- docs/bible-upstream
+python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/version.py update docs/bible-upstream
 git diff --submodule=log -- docs/bible-upstream
 ```
 
-If the project reader has a version control, you can use **Get Started → Bible version → Check for updates → Update now** to install the published revision in its shared checkout. Use the project's README for the checkout path or refresh command if it differs from the example above.
+Use `restore` in place of `update` to return to the locally backed-up revision. The updater checks for local edits before changing the checkout.
 
 The refresh gives you the updated skill, guide, templates, and shared assets at the same paths. Pick up from the current decision and evidence in your own Bible and apply the new guidance when it helps with that work. Keep your existing Bible, notes, task list, art, and saves in place. The template is for starting a new Bible. Make project edits in the existing project files. Reload the local reader to see the updated Markdown. Use **Project Bible** as the main heading and show the project name on the next line. Stage and commit `docs/bible-upstream` to record the new shared revision for the team.
 

@@ -63,19 +63,30 @@ class SharedBible:
 
     def check(self):
         installed = self.installed_revision()
+        previous = self.previous_revision(installed)
         try:
             latest = self.latest_revision()
         except UpdateError as error:
-            return {"installed": installed, "latest": None, "status": "offline", "message": str(error)}
-        return self.compare(installed, latest)
+            return {"installed": installed, "latest": None, "previous": previous,
+                    "status": "offline", "message": str(error)}
+        return self.compare(installed, latest, previous)
 
     @staticmethod
-    def compare(installed, latest):
+    def compare(installed, latest, previous=None):
         return {
             "installed": installed,
             "latest": latest,
+            "previous": previous,
             "status": "current" if installed == latest else "available",
         }
+
+    @staticmethod
+    def backup_ref(revision):
+        return f"refs/project-bible/backups/{revision}"
+
+    def previous_revision(self, installed):
+        ref = self.backup_ref(installed)
+        return self.git("for-each-ref", "--format=%(objectname)", ref) or None
 
     def require_clean(self):
         if self.git("status", "--porcelain", "--untracked-files=all"):
@@ -88,7 +99,7 @@ class SharedBible:
             if target != latest or (installed != expected and installed != latest):
                 raise UpdateError("The versions changed. Check for updates again.")
             if installed == latest:
-                return self.compare(installed, latest)
+                return self.compare(installed, latest, self.previous_revision(installed))
             try:
                 self.require_clean()
                 self.git("fetch", "--no-tags", self.upstream, "refs/heads/main")
@@ -97,10 +108,24 @@ class SharedBible:
                 self.require_clean()
                 if self.installed_revision() != installed:
                     raise UpdateError("The installed version changed. Check for updates again.")
+                self.git("update-ref", self.backup_ref(latest), installed)
                 self.git("checkout", "--detach", "--no-overwrite-ignore", latest)
             except (OSError, subprocess.SubprocessError) as error:
-                raise UpdateError("The update couldn’t be installed. The current copy is still available.") from error
-            return self.compare(latest, latest)
+                raise UpdateError("The update couldn’t be installed. Check the installed version.") from error
+            return self.compare(latest, latest, installed)
+
+    def restore(self, expected, target):
+        with self.lock:
+            installed = self.installed_revision()
+            if installed != expected or self.previous_revision(installed) != target:
+                raise UpdateError("The versions changed. Check for updates again.")
+            self.require_clean()
+            try:
+                self.git("checkout", "--detach", "--no-overwrite-ignore", target)
+            except (OSError, subprocess.SubprocessError) as error:
+                raise UpdateError("The backup couldn’t be restored. Check the installed version.") from error
+            return {"installed": target, "latest": None, "previous": self.previous_revision(target),
+                    "status": "restored"}
 
 
 class ReaderHandler(SimpleHTTPRequestHandler):
@@ -235,13 +260,18 @@ class ReaderHandler(SimpleHTTPRequestHandler):
                 raise ValueError("Invalid request length")
             self.connection.settimeout(5)
             request = json.loads(self.rfile.read(length))
-            installed, latest = request["installed"], request["latest"]
-            if not all(isinstance(sha, str) and REVISION.fullmatch(sha) for sha in (installed, latest)):
+            installed = request["installed"]
+            action = request.get("action", "install")
+            if action not in ("install", "restore"):
+                raise ValueError("Invalid action")
+            target = request["previous" if action == "restore" else "latest"]
+            if not all(isinstance(sha, str) and REVISION.fullmatch(sha) for sha in (installed, target)):
                 raise ValueError("Invalid revisions")
         except (OSError, ValueError, TypeError, KeyError):
             return self.respond(400, {"message": "Check for updates and try again."})
         try:
-            return self.respond(200, bible.install(installed, latest))
+            change = bible.restore if action == "restore" else bible.install
+            return self.respond(200, change(installed, target))
         except UpdateError as error:
             return self.respond(409, {"message": str(error)})
         except (OSError, subprocess.SubprocessError):

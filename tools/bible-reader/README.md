@@ -11,7 +11,16 @@ python3 /path/to/bible.ourstuff.space/tools/bible-reader/serve.py \
 
 Load `/_bible/updates.css` and `/_bible/updates.js` (a module) in each reader page. Use one `--reader URL_PATH SHARED_CHECKOUT` per reader. Readers that use the same checkout show the same installed version. A hosted reader can use `--mount /project/bible-upstream/ /path/to/project/docs/bible-upstream` to serve shared files from its project's checkout.
 
-The updater checks Git for local changes and only checks out the published commit in the selected shared repository. It leaves the enclosing project Git history, Bible chapters, notes and assets in their current locations. Review the changed submodule pointer before recording it in the project repository. Keep the reader on localhost or a trusted private network.
+The updater checks Git for local changes and installs the published revision in the selected shared checkout. Each update saves the prior revision in a local Git ref before changing the checkout. In the version dialog, choose **Restore previous**, then reload the reader. Restore works offline and applies to every reader that uses that checkout. It preserves your project chapters, notes, assets, and Git history. Review the changed submodule pointer before recording it in the project repository. Keep the reader on localhost or a trusted private network.
+
+For a checkout without a reader, use the same updater from a current copy of this repository:
+
+```sh
+python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/version.py update docs/bible-upstream
+python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/version.py restore docs/bible-upstream
+```
+
+These commands switch the shared checkout to a detached revision. The backup stays in that clone under `refs/project-bible/backups/`, outside the project files.
 
 ## Editable Task List
 

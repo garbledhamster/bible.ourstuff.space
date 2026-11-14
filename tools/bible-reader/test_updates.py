@@ -52,6 +52,32 @@ class SharedBibleTest(unittest.TestCase):
         self.assertEqual(git(self.shared, "rev-parse", "HEAD"), self.previous)
         self.assertEqual((self.shared / "guide.md").read_text(), "Local edits")
 
+    def test_install_retains_previous_release(self):
+        self.bible.install(self.previous, self.latest)
+        self.bible.install(self.latest, self.latest)
+        self.assertEqual(self.bible.check().get("previous"), self.previous)
+
+    def test_restore_works_offline_and_preserves_project_notes(self):
+        self.bible.install(self.previous, self.latest)
+
+        def offline():
+            raise OSError("No network")
+
+        self.bible.published = offline
+        self.assertEqual(self.bible.restore(self.latest, self.previous)["installed"], self.previous)
+        self.assertEqual((self.shared / "guide.md").read_text(), "First guide")
+        self.assertEqual(self.notes.read_text(), '["A project note"]\n')
+
+    def test_restore_rejects_a_stale_backup_or_local_edits(self):
+        self.bible.install(self.previous, self.latest)
+        with self.assertRaises(UpdateError):
+            self.bible.restore(self.latest, self.latest)
+        (self.shared / "guide.md").write_text("Local edits")
+        with self.assertRaises(UpdateError):
+            self.bible.restore(self.latest, self.previous)
+        self.assertEqual(git(self.shared, "rev-parse", "HEAD"), self.latest)
+        self.assertEqual((self.shared / "guide.md").read_text(), "Local edits")
+
     def test_request_must_match_latest_release(self):
         with self.assertRaises(UpdateError):
             self.bible.install(self.previous, "0" * 40)

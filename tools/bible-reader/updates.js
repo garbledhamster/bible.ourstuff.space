@@ -20,19 +20,24 @@ if (title) {
     <dl>
       <div><dt>Installed</dt><dd data-installed>—</dd></div>
       <div><dt>Latest</dt><dd data-latest>—</dd></div>
+      <div data-backup hidden><dt>Previous</dt><dd data-previous>—</dd></div>
     </dl>
     <p role="status">Checking for updates…</p>
     <div class="bible-update-actions">
       <button type="button" data-check>Check for updates</button>
       <button type="button" data-install disabled>Update now</button>
+      <button type="button" data-restore hidden disabled>Restore previous</button>
     </div>`;
   document.body.append(dialog);
 
   const installed = dialog.querySelector('[data-installed]');
   const latest = dialog.querySelector('[data-latest]');
+  const backup = dialog.querySelector('[data-backup]');
+  const previous = dialog.querySelector('[data-previous]');
   const status = dialog.querySelector('[role="status"]');
   const checkButton = dialog.querySelector('[data-check]');
   const installButton = dialog.querySelector('[data-install]');
+  const restoreButton = dialog.querySelector('[data-restore]');
   let release;
   let busy = false;
 
@@ -45,6 +50,7 @@ if (title) {
     busy = value;
     checkButton.disabled = busy;
     installButton.disabled = busy || release?.status !== 'available';
+    restoreButton.disabled = busy || !release?.previous;
   }
 
   async function request(options) {
@@ -58,6 +64,8 @@ if (title) {
     release = result;
     showVersion(installed, result.installed);
     showVersion(latest, result.latest);
+    showVersion(previous, result.previous);
+    backup.hidden = restoreButton.hidden = !result.previous;
     if (result.installed) version.textContent = `Bible version ${result.installed.slice(0, 8)}`;
     status.dataset.state = result.status;
     status.textContent = message ?? result.message ??
@@ -78,22 +86,24 @@ if (title) {
     }
   }
 
-  async function install() {
-    if (busy || release?.status !== 'available') return;
+  async function changeVersion(action) {
+    const restoring = action === 'restore';
+    if (busy || (restoring ? !release?.previous : release?.status !== 'available')) return;
     setBusy(true);
-    status.textContent = 'Installing the shared Bible…';
+    status.textContent = restoring ? 'Restoring the previous Bible…' : 'Installing the shared Bible…';
     try {
-      const { installed, latest } = release;
+      const { installed, latest, previous } = release;
       const result = await request({
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Bible-Update': '1' },
-        body: JSON.stringify({ installed, latest }),
+        body: JSON.stringify(restoring ? { action, installed, previous } : { action, installed, latest }),
       });
-      show(result, 'Updated. Reload the reader to load any new styles.');
+      show(result, restoring ? 'Previous version restored. Reload the reader.' :
+        'Updated. Reload the reader to load any new styles.');
     } catch (error) {
       status.dataset.state = 'offline';
       status.textContent = error instanceof SyntaxError || error instanceof TypeError
-        ? 'Couldn’t finish the update. Check the installed version before trying again.'
+        ? 'Couldn’t change versions. Check the installed version before trying again.'
         : error.message;
     } finally {
       setBusy(false);
@@ -102,6 +112,7 @@ if (title) {
 
   version.addEventListener('click', () => dialog.showModal());
   checkButton.addEventListener('click', check);
-  installButton.addEventListener('click', install);
+  installButton.addEventListener('click', () => changeVersion('install'));
+  restoreButton.addEventListener('click', () => changeVersion('restore'));
   void check();
 }
