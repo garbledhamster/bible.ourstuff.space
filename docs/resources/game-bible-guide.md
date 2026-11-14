@@ -171,6 +171,32 @@ The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and th
 
 Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The asset ledger links the UI art and its states to the controls that load it. We know which remaining assets need work before we build the scenes that use them.
 
+## Audio Engineering
+
+Play one short scene and listen for what the player needs to hear. In a fishing game, I'd start with the tap on the line, the moment you can set the hook, and the splash when the fish comes up. A little wind can give you the feeling of sitting on the lake. Keep it low enough that you can still hear the bite on a phone.
+
+### Spot the cues
+
+Walk the scene from entry through success, failure, and retry. Give each sound a job. Write down the game event that starts it, what it should tell the player, and what should stop it. Mark which sounds repeat or loop, which need to cut through the mix, and which the release can do without. Give any information a player needs to act a visible or otherwise accessible equivalent.
+
+### Make and track the assets
+
+Record or source a small set for one playable encounter. Keep editable masters and link the files the build loads from the cue list. Record the creator, source, reuse rights, and required credits. Mark placeholders so you know what still needs replacing. Trim effects for responsive playback and listen through loop joins on the formats you ship.
+
+### Wire and mix the scene
+
+Play effects when the game accepts an action or changes state. For a timed prompt, use the same rule that turns on the visible prompt. Give loops an owner that can stop them when you pause, retry, leave, or switch scenes. Set how loud the cues, ambience, music, and voice should be relative to each other, using the layers the scene needs. Listen to overlapping sounds, limit repeated effects, and leave room for the loudest moment. Add mute and any volume controls the release needs, and decide how those settings carry between sessions.
+
+On the web, test a fresh launch and start audio from a player gesture. Keep play working if the browser blocks audio or a file fails to load. In Phaser projects, check the installed version's Sound Manager and who owns each loop across scene changes. [Phaser sound source](https://github.com/phaserjs/phaser/tree/v4.2.1/src/sound) · [Browser autoplay behavior](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay)
+
+### Listen on the target
+
+Use a named, resettable case from the [Development Sandbox](../#development-sandbox). Listen through a normal run, a failure, and a retry on the devices people will use. Check the phone speaker and headphones if both are in scope. Try rapid input, pause and resume, leaving the scene, and a muted run. For web builds, also check switching away and returning. Record the build, device, what you heard, and what still needs another listen. An automated check can count playback requests. Listen to the actual mix to judge timing and balance.
+
+### Complete when
+
+The cue list links game events to the sounds and their sources. We can replay a representative encounter on the intended targets, hear the cues at the right moments, and finish with sound off. Mute works, loops stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
+
 ## Development Sandbox
 
 While I'm preparing the release, I build one dedicated scene for development before I start assembling the scenes a player will go through. That's the sandbox. I want the mechanics, assets, controls, objects, and outcomes for this release within reach in that one scene. If I'm changing the way a wet parcel looks, I want to get straight to the puddle. The same goes for a menu, a piece of dialogue, or an object the player can use. I or an agent can try it, change something, and try it again.

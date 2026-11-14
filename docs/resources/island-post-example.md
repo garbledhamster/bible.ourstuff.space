@@ -40,6 +40,10 @@ The first-time playtest still needs to show whether a player who soaks the parce
 
 ![A splash on the puddle tile as the HUD shows a soaked parcel](island-post/evidence/ui-splash.jpg)
 
+## Audio Engineering
+
+**Existing build.** The Dock uses the splash animation and soaked parcel frame to show what happened in the puddle. Try the wet route with sound off and watch when the frame changes. If we add a splash cue, we'd play it when a dry parcel becomes soaked, then use Retry to check that it plays once on the next crossing. This is a cue example for a future audio pass.
+
 ## Development Sandbox
 
 **Verified in desktop Chrome and iPhone 13 touch emulation.** Open the [Development Sandbox](../island-post/sandbox/). Choose a starting state, move the courier using the game’s controls, then Reset. Pick Mina from the roster and try both handoffs. The [Sandbox record](island-post/verification.md#sandbox-cases) lists the actions and what happened.

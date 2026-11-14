@@ -1,7 +1,7 @@
-# 06 · Build and play the game
+# 08 · Build and play the game
 
-**Chapter** 07
-**Blocked by** 06
+**Chapter** 08
+**Blocked by** 07
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

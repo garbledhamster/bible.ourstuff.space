@@ -1,7 +1,7 @@
-# 05 · Assemble and playtest each scene
+# 07 · Assemble and playtest each scene
 
-**Chapter** 06
-**Blocked by** 05
+**Chapter** 07
+**Blocked by** 06
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

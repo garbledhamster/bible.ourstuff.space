@@ -31,6 +31,8 @@ Give every release mechanic a playable case. In games with NPCs, include a roste
 
 Use the [Development Sandbox chapter](../game-bible-guide.md#development-sandbox) for the completion checks.
 
+In [Audio Engineering](../game-bible-guide.md#audio-engineering), walk one playable encounter and record the events, cues, sources, and mix. Use the project's actual playback engine and version. Add resettable listening cases to the sandbox, then check the mix on target devices and play through with sound off. If the release calls for silence, record the decision in the chapter.
+
 ## Coordinate interface work
 
 In [UI & UX Design](../game-bible-guide.md#ui--ux-design), identify the buttons, icons, HUD pieces and frames to author and the states users need. In [Engine & Assets](../game-bible-guide.md#engine--assets), use the available art and engine specialists to make or import the files and wire them to the controls. Use the [Dock samples](../island-post/ui-art.md) when a contributor needs to see the handoff from artwork to behavior. Check the real controls and state changes in the sandbox and built workflow. Keep the asset ledger and test results with the project.

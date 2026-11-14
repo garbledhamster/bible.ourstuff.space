@@ -1,7 +1,7 @@
-# 09 · Walk a new contributor through a change
+# 11 · Walk a new contributor through a change
 
-**Chapter** 10
-**Blocked by** 09
+**Chapter** 11
+**Blocked by** 10
 **Spec and story IDs** [fill in for this release]
 
 ## What to build

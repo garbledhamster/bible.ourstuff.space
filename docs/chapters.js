@@ -45,6 +45,12 @@ const chapters = [
     'List the art, sound, and controls each scene needs.',
     'Link the artwork and states to the controls that load them.',
   ], 'Inspect the art and asset ledger'],
+  ['Audio Engineering', 'audio-engineering', [
+    'List what players hear and which game events trigger it.',
+    'Record the source, rights, and build file for each sound.',
+    'Set the mix, mute controls, and loop behavior.',
+    'Listen to a resettable encounter on target devices.',
+  ], 'See where a splash cue would go'],
   ['Development Sandbox', 'development-sandbox', [
     'Give developers a separate launch path.',
     'Make each mechanic playable from a named start.',
@@ -226,7 +232,7 @@ for (const [number, [title, slug, steps, example]] of panels.entries()) {
     actions.innerHTML = `<a class="chapter-link" href="island-post/">Play the Dock</a><a class="chapter-link" href="${exampleReader}">Read the case study</a>`;
     body.innerHTML = `<img src="resources/island-post/evidence/ui-dock.jpg" alt="The courier at the fork between the puddle and dry boardwalk" width="790" height="900" loading="lazy">
       <p>Bring Mina a dry parcel. The shortcut looks tempting.</p>
-      <p>Play the delivery, then follow it through all twelve chapters.</p>
+      <p>Play the delivery, then follow it through the Project Bible.</p>
       <a class="chapter-example" href="island-post/sandbox/"><strong>Development Sandbox</strong><span>Play the resettable Dock cases</span></a>`;
   } else {
     appendChapterActions(body, steps, example, slug);

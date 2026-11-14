@@ -41,6 +41,16 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Asset locations and readiness:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
 
+## Audio Engineering
+
+- What players should hear, what each cue communicates, and which feedback they need with sound off:
+- Cue list with game events, priority, playback and stop behavior, source masters, build assets, and rights or credits:
+- Mix and player settings, including how mute and any volume controls carry across sessions:
+- Playback ownership, startup, pause, resume, and scene exits:
+- Resettable listening cases and target devices, including mute, repeat input, and an interruption:
+- Build, device, listening results, and remaining checks:
+- If the release calls for silence, record the decision and how the player gets the feedback:
+
 ## Development Sandbox
 - Dedicated development scene to build before player-scene assembly:
 - Release mechanics, assets, controls, objects, and outcomes reachable from that scene:

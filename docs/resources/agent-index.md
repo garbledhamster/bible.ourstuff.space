@@ -7,11 +7,11 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 - [Project Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Project Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
-- [Preset ticket list](game-tickets/index.html) — browse twelve starter tickets with blockers, acceptance checks, and evidence.
+- [Preset ticket list](game-tickets/index.html) — browse the starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
 - [Game Development Playbook](game-development-playbook.md) — draft workflow.
 - [Make and wire UI artwork](island-post/ui-art.md) — inspect the Dock’s button and frame files, then play the state changes. [Open the direction asset](island-post/ui/direction-idle.svg).
-- [Island Post worked example](island-post-example.md) — play the Dock and see what each of the twelve chapters produced.
+- [Island Post worked example](island-post-example.md) — play the Dock and follow its work through the chapters.
 - [Game Quality Control skill source](game-quality-control.md) — readable instructions.
 - [Game Quality Control skill package](game-quality-control.zip) — downloadable ZIP. [Read the agent configuration](game-quality-control-agent.yaml).
 

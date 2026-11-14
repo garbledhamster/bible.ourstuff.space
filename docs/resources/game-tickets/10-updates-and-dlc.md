@@ -1,7 +1,7 @@
-# 10 · Rehearse or deliver an update
+# 12 · Rehearse or deliver an update
 
-**Chapter** 11
-**Blocked by** 10
+**Chapter** 12
+**Blocked by** 11
 **Spec and story IDs** [fill in for this release]
 
 ## What to build
