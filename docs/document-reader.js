@@ -87,6 +87,8 @@ export async function startReader() {
       const renamedHeadings = {
         'game-design-document': 'design-document',
         'player-manual--wiki': 'demo-manual--wiki',
+        'intake-and-feedback': 'engagement',
+        'intake--feedback': 'engagement',
         'player-manual-and-wiki': 'demo-manual-and-wiki',
       };
       const id = CSS.escape(fragment);

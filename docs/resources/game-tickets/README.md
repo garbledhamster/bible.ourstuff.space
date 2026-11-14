@@ -17,7 +17,7 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | 11 | [Walk a new contributor through a change](09-contributor-training.md) | 10 | A contributor can run, change, and verify the released workflow. |
 | 12 | [Prove multiplayer and hosting](multiplayer.md) | 11; start its proof during 04–06 if required by vision | Players complete a shared encounter and recover, or scope records N/A. |
 | 13 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 12 | One change goes through the affected checks and documentation. |
-| 14 | [Review feedback and plan the next cycle](11-intake-and-feedback.md) | 13 | Feedback reaches an owner and produces a next-cycle scope decision. |
+| 14 | [Plan engagement and try a conversation](11-intake-and-feedback.md) | 13 | Feedback reaches an owner and produces a next-cycle scope decision. |
 
 Start with the earliest ticket whose blockers are complete. Some preparation can start sooner. Draft the help outline during design and open an intake channel before a playtest or launch. Treat that preparation as a separate task. Start each chapter ticket after its listed blocker is complete. If multiplayer is required for the release, pull its two-player proof into Engine & Assets and the Sandbox, and block that release on the applicable Chapter 12 checks. Chapter placement is not permission to defer a core multiplayer promise until after launch.
 

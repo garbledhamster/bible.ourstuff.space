@@ -58,6 +58,7 @@ const sections = chapters.map(chapter => {
   const tokens = marked.lexer(chapter);
   const slug = tokens[0].text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const previousSlugs = {
+    'engagement': 'intake-and-feedback',
     'design-document': 'game-design-document',
     'demo-manual-and-wiki': 'player-manual-and-wiki',
   };

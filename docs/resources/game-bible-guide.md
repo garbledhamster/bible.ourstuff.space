@@ -438,7 +438,7 @@ Link the scene to its rules in the Design Document and to the art, sound, object
 
 Bring the player prediction from Vision & Scope and any early test from Design Document. Give an intended player a neutral task and let them try it before you explain the controls or the route. Note the build, device and input, what they did or said, and any help you gave. Then write down what you think explains the observation and what you'd keep, change, or test next. If they skip a branch, leave that observation open or run a separate check from that state.
 
-Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls when first impressions matter. They can show whether the change helped without remembering where you told the last player to look. Use [Game Quality Control](game-quality-control.md#set-the-bar) for the test criteria and [Intake & Feedback](#what-people-said-or-did) for the observation record.
+Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls when first impressions matter. They can show whether the change helped without remembering where you told the last player to look. Use [Game Quality Control](game-quality-control.md#set-the-bar) for the test criteria and [Engagement](#what-people-said-or-did) for the observation record.
 
 ### Island Post example
 
@@ -656,7 +656,7 @@ Every multiplayer mode promised for the release is playable from joining through
 
 1. Take a shipped revision, existing player state, and an agreed change.
 2. Build or rehearse a small update against the prior release. Prepare its delivery, recovery path, compatibility check, and release notes.
-3. Restart from an existing install or save and try the affected behavior and recovery. Link the verified change to Intake & Feedback. Reopen the affected sandbox or release check when something regresses.
+3. Restart from an existing install or save and try the affected behavior and recovery. Link the verified change to Engagement. Reopen the affected sandbox or release check when something regresses.
 
 After a release, I want room to build more of the game. It could be a fix for people who already play or downloadable content (DLC) that gives them another part of it to explore. I work through the parts of the release process that the change touches, including what happens when somebody opens the new version with a game already in progress.
 
@@ -682,27 +682,27 @@ In the rehearsal, try a clearer help instruction and repeat the wet handoff, Ret
 
 The update or rehearsal passes the checks it affects, including the relevant paths for existing players. The manual, wiki, and release notes describe what players get in that version.
 
-## Intake & Feedback
+## Engagement
 
 ### What to carry forward
 
-1. Take the release and update records, the intended experience, and reports from players or a rehearsal.
-2. Keep one intake route and record the task, observed behavior, build, and follow-up for actionable reports.
-3. Walk a report from receipt to a reply and a scope decision. Send the decision and supporting evidence back to Vision & Scope for the next pass.
+1. Start with what shipped, who it serves, and what people can do with it now.
+2. Make a plan for who will talk with people, why, and what those conversations will look like.
+3. Try one conversation and follow-up. Bring what you learn back to Vision & Scope when it informs the next release.
 
-Putting a game in front of people gives me a chance to see where their experience differs from what I pictured. Some people will play and tell me where they got stuck. Others might never make it past the page where I ask them to try it. I want a way to hear from both and bring something specific back to the next release.
+Once we've built the thing, I want to decide how I'll talk with the people who use it. I might check in with someone who just started, show a regular user something they can do with an update, or hear how people are making it part of what they already do. This chapter is about those ongoing conversations. Sales and marketing have their own chapter.
 
-### Who to hear from
+### Who I want to talk with and why
 
-Think about whose experience could answer a question you have. For a phone control, I'd watch a first-time phone player. For a purchase issue, I'd want to hear from somebody who tried to buy it. A person who left before pressing Play might help me understand what they thought they were getting from the page.
+Name who I'm talking with and what makes the conversation worth having for both of us. Decide what I'll share, what I'd like to hear, and what I'd do with what I learn. For example, after someone tries the game on their phone, I might ask what they were trying to do when they stopped and show them where to pick up again.
 
-### Where feedback comes in and what to ask
+### Where and how I'll talk with people
 
-Pick a place people can reach and that somebody can keep up with. Put it where players will see it before the playtest or launch. Ask what they expected, what they tried, and what happened. If someone tells me the game was confusing, I want to know what they were trying to do when they felt that way.
+Pick a place they already use or can easily reach. Decide whether it makes sense to talk one-on-one, in a group, or in a public thread, and what I'll use to help the conversation along, such as a screenshot, a demo, or a few questions. Give people a way to reach me too.
 
-### Who reads, replies, and follows up
+### When I'll reach out and how often
 
-Give each channel an owner who will read it and respond. Tell people what you heard and what else you need from them, or when you can come back with an answer. If a report needs somebody else to look at it, record who has it so the original player can get a reply.
+Decide what starts the conversation, such as a first session, a shipped update, or a question somebody sends in. Set a frequency and amount of time I can keep up with. Name who reads replies, when they check, and who follows up. If someone else needs to help, keep track of who will get back to the person.
 
 ### What people said or did
 
@@ -724,4 +724,4 @@ The first staged build stalled on startup. The intake rehearsal shows how that f
 
 ### Complete when
 
-Someone owns the intake and has tried the path from receiving a report to responding. We've used what we heard to make and record the next scope decision.
+The engagement plan names who talks with whom, why, about what, through which channels and formats, and when and how often. The owner has tried a conversation and follow-up, or rehearsed them if nobody is using the release yet. Record what the conversation suggests for the next scope decision.

@@ -166,19 +166,21 @@ Link the two-client observation and recovery runbook for release and updates, or
 
 ## Updates and DLC
 
-Link the previous revision, update and compatibility result. Give Intake & Feedback the shipped change.
+Link the previous revision, update and compatibility result. Give Engagement the shipped change.
 
 - Proposed changes, affected players, and release approach:
 - Sandbox, scene, and compatibility checks:
 - Manual, wiki, and release note updates:
 
-## Intake and Feedback
+## Engagement
 
-Link the report, response, and next scope decision back to Vision & Scope.
+Once the release is built, decide how we'll keep talking with people who use it.
 
-- Who we want to hear from, including prospects, current players, and customers:
-- Where feedback comes in and how we ask for it:
-- Who reads each channel, replies, and follows up:
-- What people said or did, with the source, date, and context:
-- What came up repeatedly, what needs attention now, and what needs another conversation:
-- What evidence goes back to Chapter 1, what we’ll change, and how we’ll check it:
+- Who will do the talking, and who do we want to talk with?
+- Why are we talking with them, and what will we share or ask about?
+- Where will we talk, in what format, and what will we use to help the conversation?
+- What prompts us to reach out, how often will we do it, and how much time can we give it?
+- Who reads replies and follows up, and when?
+- What did people say or do, and what should that inform in the next Vision & Scope?
+
+Link a conversation and follow-up, or a rehearsal, and any resulting scope decision.

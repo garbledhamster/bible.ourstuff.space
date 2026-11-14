@@ -104,9 +104,10 @@ const chapters = [
     'Check existing progress and access when they apply.',
     'Update the help, release notes, and captures.',
   ], 'Read the update rehearsal'],
-  ['Intake & Feedback', 'intake-and-feedback', [
-    'Pick who to hear from and where they can reply.',
-    'Assign intake, response, and follow-up.',
+  ['Engagement', 'engagement', [
+    'Decide who talks with whom, why, and about what.',
+    'Choose where and how to talk, when to reach out, and how often.',
+    'Try a conversation and follow up.',
     'Save observations with the build and context.',
     'Group repeat reports and flag urgent issues.',
     'Bring a finding and a success check back to scope.',
@@ -265,7 +266,7 @@ for (const [number, [title, slug, steps, example]] of panels.entries()) {
       actions.append(play);
     }
   }
-  if (slug === 'intake-and-feedback') {
+  if (slug === 'engagement') {
     const restart = document.createElement('a');
     restart.className = 'chapter-link';
     restart.href = '#vision-and-scope';
@@ -419,6 +420,7 @@ for (const [number, group] of [document.querySelector('.resources'), drawer].ent
 function showLinkedPanel() {
   const renamedChapters = {
     '#game-design-document': '#design-document',
+    '#intake-and-feedback': '#engagement',
     '#player-manual-and-wiki': '#demo-manual-and-wiki',
   };
   const fragment = renamedChapters[location.hash] ?? location.hash;
