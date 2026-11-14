@@ -6,7 +6,7 @@
 2. At the fork, move down to the lower boardwalk. Follow it right until you’re below Mina.
 3. Move up to hand the parcel to Mina. Look for **Delivered dry**.
 
-![The upper route has the puddle and the lower boardwalk is clear](evidence/dock-fork.webp)
+![The upper route has the puddle and the lower boardwalk is clear](evidence/ui-dock.jpg)
 
 ## Try again after a wet delivery
 

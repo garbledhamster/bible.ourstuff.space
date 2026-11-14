@@ -19,7 +19,8 @@ async function render(path, label, content) {
 }
 
 await rm(output, { recursive: true, force: true });
-await cp(source, output, { recursive: true });
+// Publish the same UI art the Dock loads, including the linked sample folder.
+await cp(source, output, { recursive: true, dereference: true });
 const markedSource = new URL('../node_modules/marked/', import.meta.url);
 const vendor = new URL('vendor/', output);
 const markedModule = await readFile(new URL('lib/marked.esm.js', markedSource), 'utf8');

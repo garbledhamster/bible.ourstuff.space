@@ -18,6 +18,12 @@
 
 [Sandbox capture](evidence/dock-sandbox.webp) · [Grayscale capture](evidence/sandbox-grayscale.webp)
 
+## Interface art check
+
+On November 13, 2026, the production build passed the Dock and Sandbox checks in desktop Chrome with keyboard and Chrome’s iPhone 13 emulation with touch. The direction art loaded, the parcel HUD switched to the soaked frame after the puddle, and Mina’s soaked response showed the brass Retry button. Retry restored a dry parcel and returned focus to the board. The dry route and Play Again still worked. The Sandbox could repeat the soaked handoff and Reset. The phone view fit its 390 CSS pixel viewport. [Desktop Dock](evidence/ui-dock.jpg) · [Phone Retry](evidence/ui-phone-retry.jpg)
+
+First-time player discovery and physical phone testing remain open.
+
 ## Scene script and playtest
 
 The courier starts one step from the pickup marker. After pickup the puddle sits directly ahead, and the longer boardwalk runs below it. The player steps onto Mina’s square to hand over the parcel. Mina says “Try the lower boardwalk” after a soaked handoff and “Made it through the rain!” after a dry one. Retry starts at the fork; Play Again returns to the opening.

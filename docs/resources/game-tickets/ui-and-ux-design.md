@@ -11,6 +11,7 @@ Sketch or prototype the main workflow from the [UI & UX Design chapter](../game-
 
 - [ ] Show what the person sees, does, and gets back at each step, including how they recover.
 - [ ] Use layout, spacing, and short labels to make the next action clear on the intended screen sizes.
+- [ ] List the artwork for buttons, icons, HUD pieces, and frames, and the states each needs.
 - [ ] Record the applicable accessibility and input checks, and define a first-time user task to try without coaching.
 
 ## Evidence and handoff

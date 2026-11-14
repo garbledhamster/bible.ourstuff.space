@@ -1,6 +1,6 @@
 # Project Bible
 
-To use the Bible in a game repository, see [Set up and update a project Bible](docs/AGENTS.md).
+Clone this repository to get the [Project Bible skill](docs/resources/project-bible/SKILL.md) and its resources together. Codex discovers the skill through the checked-in `.agents/skills/project-bible` link. To use it in a game or app repository, see [Set up and update a project Bible](docs/AGENTS.md).
 
 Edit the source in `docs/`. The site and the agent skill use the same chapter guide in `docs/resources/game-bible-guide.md`. Add design notes to `docs/resources/joes-notes.md`. Add new agent resources to `docs/resources/agent-index.md` so readers and agents can find them from the live index. The browser reader opens files from `docs/` through `read.html?file=/path/to/file.md`. Keep the raw Markdown URLs for agents and downloads.
 

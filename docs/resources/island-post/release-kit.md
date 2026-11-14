@@ -8,12 +8,12 @@
 
 | Shot | What to show | Capture |
 | --- | --- | --- |
-| The choice | Hold on the fork after pickup. Show Mina and both paths. | [Fork](evidence/dock-fork.webp) |
-| The consequence | Step onto the puddle and show the splash and Soaked label. | [Splash](evidence/dock-splash.webp) |
-| The recovery | Finish the wet delivery and show Retry beside Mina’s response. | [Retry on phone](evidence/dock-phone-retry.webp) |
-| The payoff | Take the lower boardwalk, deliver dry, and end with the play link. | [Dry handoff](evidence/dock-delivered.webp) |
+| The choice | Hold on the fork after pickup. Show Mina and both paths. | [Fork](evidence/ui-dock.jpg) |
+| The consequence | Step onto the puddle and show the splash and Soaked label. | [Splash](evidence/ui-splash.jpg) |
+| The recovery | Finish the wet delivery and show Retry beside Mina’s response. | [Retry on phone](evidence/ui-phone-retry.jpg) |
+| The payoff | Take the lower boardwalk, deliver dry, and end with the play link. | [Dry handoff](evidence/ui-delivered.jpg) |
 
-[Watch the recorded Dock walkthrough](evidence/dock-walkthrough.webm). It shows the shortcut, wet handoff, Retry, and dry delivery in one run. [Open the play link](../../island-post/) and [read the walkthrough](first-delivery.md).
+[Watch the Dock walkthrough](evidence/dock-walkthrough.webm). It shows the shortcut, wet handoff, Retry, and dry delivery in one run. [Open the play link](../../island-post/) and [read the walkthrough](first-delivery.md).
 
 ## Release check
 

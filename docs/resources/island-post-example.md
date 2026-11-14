@@ -4,7 +4,7 @@
 
 Bring Mina a dry parcel. The short path crosses a puddle; the boardwalk gives you a way around it. If you get the parcel wet, you can finish the delivery, take a fresh parcel, and try the other route.
 
-![The courier at the fork, with the dry parcel in the HUD and Mina waiting at the far end](island-post/evidence/dock-fork.webp)
+![The courier at the fork, with the dry parcel in the HUD and Mina waiting at the far end](island-post/evidence/ui-dock.jpg)
 
 **Release:** Dock 1.0, one free browser delivery. The evidence below comes from the public showcase build or from a named rehearsal. Browser checks cover desktop Chrome and iPhone 13 touch emulation. First-time player sessions and a physical phone check are still open.
 
@@ -22,7 +22,9 @@ Bring Mina a dry parcel. The short path crosses a puddle; the boardwalk gives yo
 
 **Implemented and checked in the browser.** Put the parcel condition above the map and keep the route clear. Place Retry in the same strip as Mina’s response so it’s within reach when the result appears. Give each direction its own 46 × 44 CSS pixel control. The [HUD sketch and standards](island-post/dock-design.md#hud-sketch-and-standards) explain what to check.
 
-![Phone view with the soaked parcel indicator, Mina’s response and the Retry button in one strip](island-post/evidence/dock-phone-retry.webp)
+![Phone view with the soaked parcel indicator, Mina’s response and the brass Retry button](island-post/evidence/ui-phone-retry.jpg)
+
+The direction keys, Retry, the parcel HUD, and Mina’s response use artwork from the Dock’s asset folder. When the courier hits a puddle, the splash animates and the parcel frame switches to its soaked artwork. [See the art files and how the controls use them](island-post/ui-art.md).
 
 ### Where should Retry appear?
 
@@ -34,15 +36,15 @@ The first-time playtest still needs to show whether a player who soaks the parce
 
 ## Engine and Assets
 
-**Built.** Phaser 4.2.1 runs the illustrated Dock scene. Vite packages the Dock and Sandbox as separate browser entries. The public showcase uses original SVG art for the map, courier, Mina, and the two parcel states. The [asset ledger](island-post/dock-design.md#asset-ledger) maps the art to its use and includes the source paths. Try the splash to see how the scene, effect, and HUD work together.
+**Built.** Phaser 4.2.1 runs the illustrated Dock scene. Vite packages the Dock and Sandbox as separate browser entries. The public showcase uses original SVG art for the map, courier, Mina, the two parcel states, and the control and frame artwork. The [asset ledger](island-post/dock-design.md#asset-ledger) maps the art to its use and includes the source paths. Try the splash to see how the scene, effect, and HUD work together.
 
-![A splash on the puddle tile as the HUD shows a soaked parcel](island-post/evidence/dock-splash.webp)
+![A splash on the puddle tile as the HUD shows a soaked parcel](island-post/evidence/ui-splash.jpg)
 
 ## Development Sandbox
 
 **Verified in desktop Chrome and iPhone 13 touch emulation.** Open the [Development Sandbox](../island-post/sandbox/). Choose a starting state, move the courier using the game’s controls, then Reset. Pick Mina from the roster and try both handoffs. The [Sandbox record](island-post/verification.md#sandbox-cases) lists the actions and what happened.
 
-![Development Sandbox showing Mina selected, the soaked handoff and the separate Reset control](island-post/evidence/dock-sandbox.webp)
+![Development Sandbox showing Mina selected, the soaked handoff and the separate Reset control](island-post/evidence/ui-sandbox.jpg)
 
 ## Scene Scripts and Playtests
 
@@ -52,13 +54,13 @@ The first-time playtest still needs to show whether a player who soaks the parce
 
 **Playable build.** Open [Dock 1.0](../island-post/) in a fresh tab and play a complete delivery. The [build record](island-post/verification.md#build-record) gives the command, expected entry points, and replay steps. The player entry has no developer case picker or Reset.
 
-![The courier and Mina at the end of a dry delivery, with Play Again available](island-post/evidence/dock-delivered.webp)
+![The courier and Mina at the end of a dry delivery, with Play Again available](island-post/evidence/ui-delivered.jpg)
 
 ## Demo Manual and Wiki
 
 **Playable and documented.** The demo uses the Sandbox’s verified pickup, puddle, handoff, and Retry rules in one continuous delivery. Read [Make your first delivery](island-post/first-delivery.md) for the walkthrough and [Wet parcels](island-post/wet-parcels.md) for the rule and recovery steps. In the demo, open How to Play and close it to keep going from the same square.
 
-The [capture sheet](island-post/release-kit.md#capture-sheet) pairs the actual fork, splash, and dry handoff with the public play link. [Watch the recorded delivery](island-post/evidence/dock-walkthrough.webm).
+The [capture sheet](island-post/release-kit.md#capture-sheet) pairs the actual fork, splash, and dry handoff with the public play link. [Watch the delivery](island-post/evidence/dock-walkthrough.webm).
 
 ## Release Pricing and Marketing
 

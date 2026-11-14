@@ -115,6 +115,12 @@ Use alignment and spacing to show what belongs together. Use size, contrast, and
 
 Read [Joe’s Notes](joes-notes.md) and use [Impeccable](https://github.com/pbakaus/impeccable) to shape the workflow and review the result. Write down the choices that should carry from screen to screen, like where primary actions go, how spacing groups related controls, and how buttons, icons, and feedback look and behave. For a game, decide what players need to see while they play. For an app, decide what someone needs in view to finish the task they opened it for. Link to the project's existing design notes or components when they already explain the choice.
 
+### Make the interface part of the art
+
+I want the menu to show what kind of game I've opened. Draw or generate the art for every button, icon, HUD panel, and menu frame, and save it with the project. Use the same approach for the designed controls and frames in an app. Put the pieces on the sketch and write down the states people need to recognize, such as pressed, selected, disabled, or on and off. Reuse one piece of art anywhere it does the same job.
+
+Load that artwork into the interface. Use the engine or web code for layout, live labels, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs. [See the Island Post button and frame samples](island-post/ui-art.md).
+
 ### Try the design on the intended screens
 
 Walk through a sketch or clickable prototype at the screen sizes you plan to support. Check what changes when the layout gets narrow and how someone reaches the same controls with the inputs the project supports. Write down what you need to prove in the sandbox and what you need to observe in a playtest. When the workflow is running, check readable text and contrast, visible keyboard focus where supported, and whether someone can complete the task and recover without coaching.
@@ -129,7 +135,7 @@ The parcel status stays above the map. After a wet handoff, Retry takes the plac
 
 ### Complete when
 
-We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
+We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We’ve named the artwork and states each control or frame needs. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
 
 ## Engine & Assets
 
@@ -145,19 +151,25 @@ I make the asset list by walking through the scenes and asking what the player w
 
 For a game like Island Post, I like the main screen to show the few things players need to keep track of. You can see the parcel and its condition while you move. Use icons and short words for things players check often, and give them a way to open the details by hovering, focusing with a keyboard, or pressing and holding. A game that depends on reading will need more text on screen. For this one, longer explanations can live in How to Play or with the item.
 
+### Create and wire the interface assets
+
+1. Walk the screens with the UI & UX Design sketch. List the artwork, its states, and the places that use it. Make or generate the pieces against the project's art direction. Keep the source and the files the build loads together or link them from the asset ledger.
+2. Import the files as textures, sprites, or images. For a resizable frame, preserve its corners and stretch or tile the middle. Give each control a readable label or accessible name, a usable hit area, and visible focus where supported.
+3. Bind the art to the real control and game state. Try the states and effects with the real input in the sandbox. Check that the right art loads and labels and hit areas still fit on the smallest target screen. Capture the result in the built interface. [Follow the Dock implementation](island-post/ui-art.md).
+
 ### Asset locations and readiness
 
 Keep the working file or its source where the next contributor can find it. Mark which pieces are placeholders, which are ready to use, and which still need to be tried on a target device. A sprite can look right on its own and still be hard to read on the map. Open it in the game and see if it does its job at the size the player will see.
 
 ### Island Post example
 
-The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and the parcel. The asset ledger shows where the source files live and which cues the player sees.
+The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and the parcel. The HUD and controls use their own authored SVG files, with two frames for the parcel condition. The asset ledger shows where the source files live and which cues the player sees.
 
 [Inspect the art and asset ledger](island-post-example.md#engine-and-assets)
 
 ### Complete when
 
-Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. We know which remaining assets need work before we build the scenes that use them.
+Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The asset ledger links the UI art and its states to the controls that load it. We know which remaining assets need work before we build the scenes that use them.
 
 ## Development Sandbox
 
@@ -186,7 +198,7 @@ Give every game mechanic in the release a playable case. Start with what should 
 Look at what the release asks the player to do and add cases for the parts they depend on. Use this list to decide what needs a check.
 
 - **Controls and access.** Try the required actions on each supported control scheme and check any accessibility settings the game offers.
-- **Menus and feedback.** Open and close menus. Check that text, icons, animation, and sound give the right cues and update when the game state changes.
+- **Menus and feedback.** Open and close menus. Exercise each required control and frame state. Check that the artwork, labels, animation, and sound give the right cues when the game state changes.
 - **Objects and rewards.** Pick up, use, or spend an item. Try interacting again to see whether the game applies a one-time reward twice.
 - **Transitions and recovery.** Check pause, resume, retry, and any handoff that depends on game state. After a retry, look at what resets and what the player keeps.
 - **Progress and saves.** If the game saves progress, save from a known state and reload. Check what the game restores and what the player can do next.

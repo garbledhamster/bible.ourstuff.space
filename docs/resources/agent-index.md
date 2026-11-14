@@ -1,6 +1,6 @@
 # Project Bible agent resource index
 
-Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources/project-bible/SKILL.md) to work through the chapters for a game, app, or other software project. The skill reads the same published Markdown as the chapter reader. Open the [live index](https://bible.ourstuff.space/resources/agent-index.md) at the start of a project or when you pick up a chapter so you have the current files.
+Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide, templates, and example together. Codex discovers the skill from the Bible checkout. Follow the setup instructions below to expose it from a game or app that uses the Bible as a submodule. The skill works from that project’s Bible and checkout when it helps you through a chapter.
 
 - [Set up and update a project Bible](../AGENTS.md) — clone the shared guide and assets into your game repository.
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
@@ -10,6 +10,7 @@ Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources
 - [Preset ticket list](game-tickets/index.html) — browse twelve starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
 - [Game Development Playbook](game-development-playbook.md) — draft workflow.
+- [Make and wire UI artwork](island-post/ui-art.md) — inspect the Dock’s button and frame files, then play the state changes. [Open the direction asset](island-post/ui/direction-idle.svg).
 - [Island Post worked example](island-post-example.md) — play the Dock and see what each of the twelve chapters produced.
 - [Game Quality Control skill source](game-quality-control.md) — readable instructions.
 - [Game Quality Control skill package](game-quality-control.zip) — downloadable ZIP. [Read the agent configuration](game-quality-control-agent.yaml).

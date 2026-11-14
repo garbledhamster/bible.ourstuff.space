@@ -36,14 +36,14 @@ const chapters = [
   ['UI & UX Design', 'ui-and-ux-design', [
     'Sketch the next action and status at each step.',
     'Group related controls and trim repeated copy.',
-    'Set standards for icons, focus, feedback, and recovery.',
+    'Plan the art and states for buttons, HUDs, and frames.',
     'Try the flow on its smallest and largest screens.',
   ], 'Compare the HUD sketch and phone capture'],
   ['Engine & Assets', 'engine-and-assets', [
     'Record the engine, targets, and launch command.',
     'Run one interaction with representative assets.',
     'List the art, sound, and controls each scene needs.',
-    'Track asset files, readiness, and gaps.',
+    'Link the artwork and states to the controls that load them.',
   ], 'Inspect the art and asset ledger'],
   ['Development Sandbox', 'development-sandbox', [
     'Give developers a separate launch path.',
@@ -224,7 +224,7 @@ for (const [number, [title, slug, steps, example]] of panels.entries()) {
   const actions = card.querySelector('.chapter-actions');
   if (isExample) {
     actions.innerHTML = `<a class="chapter-link" href="island-post/">Play the Dock</a><a class="chapter-link" href="${exampleReader}">Read the case study</a>`;
-    body.innerHTML = `<img src="resources/island-post/evidence/dock-fork.webp" alt="The courier at the fork between the puddle and dry boardwalk" width="720" height="882" loading="lazy">
+    body.innerHTML = `<img src="resources/island-post/evidence/ui-dock.jpg" alt="The courier at the fork between the puddle and dry boardwalk" width="790" height="900" loading="lazy">
       <p>Bring Mina a dry parcel. The shortcut looks tempting.</p>
       <p>Play the delivery, then follow it through all twelve chapters.</p>
       <a class="chapter-example" href="island-post/sandbox/"><strong>Development Sandbox</strong><span>Play the resettable Dock cases</span></a>`;

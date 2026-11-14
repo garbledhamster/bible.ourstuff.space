@@ -12,6 +12,7 @@ Make one representative interaction runnable with its required assets.
 
 - [ ] Launch from a clean checkout using the documented command.
 - [ ] Show one player action with visible feedback and real or representative assets.
+- [ ] Link each authored UI asset and its source to the control, frame, or state that uses it. Verify the representative assets load in the running build.
 - [ ] Record target devices and the assets still needed for the release.
 
 ## Evidence and handoff

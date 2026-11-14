@@ -25,11 +25,6 @@ export function bootDock({ onReady } = {}) {
   const resultAction = byId('delivery-action');
   const assets = { dock: dockUrl, courier: courierUrl, mina: minaUrl, parcel: parcelUrl };
 
-  for (const button of buttons) {
-    const angle = { up: 0, left: -90, down: 180, right: 90 }[button.dataset.direction];
-    button.innerHTML = `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path transform="rotate(${angle} 12 12)" d="M5 13l7-7 7 7m-7-7v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
-  }
-
   class DockScene extends Phaser.Scene {
     preload() {
       this.load.on('loaderror', () => {

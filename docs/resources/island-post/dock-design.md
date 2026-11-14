@@ -57,7 +57,7 @@ Mina: “Try the lower boardwalk.”
 
 Keep the parcel chip visible during play. Use the dry and soaked icons with labels so color is one of several cues. Keep the board free of overlays. When the player reaches Mina, replace the direction strip with the result and its action. Move keyboard focus to Retry or Play Again, and return it to the board when a run restarts. Put the route explanation and parcel details in How to Play.
 
-[See the actual phone result](evidence/dock-phone-retry.webp) · [See the grayscale Sandbox capture](evidence/sandbox-grayscale.webp)
+[See the phone result with the current UI art](evidence/ui-phone-retry.jpg) · [See the grayscale Sandbox capture](evidence/sandbox-grayscale.webp)
 
 ## Asset ledger
 
@@ -67,7 +67,10 @@ Keep the parcel chip visible during play. Use the dry and soaked icons with labe
 | Courier in a yellow raincoat | Player position and movement | `assets/courier.svg` |
 | Mina in a red cap | Delivery square and recipient | `assets/mina.svg` |
 | Dry and soaked parcels | Pickup marker and the two HUD conditions | `assets/parcel.svg`, `assets/parcel-soaked.svg` |
-| Splash and arrows | Immediate puddle feedback and movement controls | `dock.js` |
+| Direction buttons | Four rotations of one arrow key with idle and highlighted artwork | `assets/ui/direction-idle.svg`, `assets/ui/direction-active.svg` |
+| Brass action | Retry, Play Again, and sandbox Reset share one button face and its highlighted state | `assets/ui/button-brass.svg`, `assets/ui/button-brass-active.svg` |
+| Dock frames | Frame around the board, Help, parcel HUD and response, with a soaked variant for the HUD and response | `assets/ui/frame-dry.svg`, `assets/ui/frame-soaked.svg` |
+| Splash effect | Phaser animates the expanding ring when the courier steps in the puddle | `dock.js` |
 | Sound | The preview is silent. The HUD and map carry the cues. | No audio assets |
 
-The runtime loads SVGs as files so Phaser can decode them in the production build. The [puddle capture](evidence/dock-splash.webp) shows the map, splash, and changed parcel icon together.
+[See the UI art and how it is wired](ui-art.md). The runtime loads SVGs as files so Phaser can decode them in the production build. The [puddle capture](evidence/ui-splash.jpg) shows the map, splash, and changed parcel icon together.

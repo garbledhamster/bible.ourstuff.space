@@ -31,6 +31,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Sketch or prototype at the intended screen sizes:
 - Where frequent actions, status, and recovery appear:
 - Project standards for alignment, spacing, visual hierarchy, labels, and controls:
+- Interface artwork needed for buttons, icons, HUDs, and frames, including the states each needs:
 - Checks for supported inputs, accessibility, and a first-time user completing the workflow:
 - For a live design decision, record the chosen behavior, reason, comparison evidence, and the sandbox or playtest check that follows:
 
@@ -38,6 +39,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Engine and launch instructions:
 - Maps, characters, objects, interface, art, and sound:
 - Asset locations and readiness:
+- UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
 
 ## Development Sandbox
 - Dedicated development scene to build before player-scene assembly:
