@@ -6,6 +6,8 @@ import minaUrl from './assets/mina.svg';
 import parcelUrl from './assets/parcel.svg';
 import soakedUrl from './assets/parcel-soaked.svg';
 import splashAudio from './assets/audio/puddle-splash.wav';
+import rainAudio from './assets/audio/dock-rain.wav';
+import scoreAudio from './assets/audio/dock-score.wav';
 import dryVoice from './assets/audio/mina-dry.wav';
 import soakedVoice from './assets/audio/mina-soaked.wav';
 import './style.css';
@@ -17,7 +19,10 @@ const deliveryLines = {
   dry: 'Made it through the rain!',
   soaked: 'Try the lower boardwalk.',
 };
+const scoreVolume = .11;
 const clips = {
+  'dock-rain': { url: rainAudio, volume: .12, loop: true },
+  'dock-score': { url: scoreAudio, volume: scoreVolume, loop: true },
   'puddle-splash': { url: splashAudio, volume: .65 },
   'mina-dry': { url: dryVoice, volume: .85 },
   'mina-soaked': { url: soakedVoice, volume: .85 },
@@ -62,10 +67,15 @@ export function bootDock({ onReady } = {}) {
       this.splash = this.add.ellipse(0, 0, 43, 25, 0xc3f1e8, .32).setStrokeStyle(4, 0xe2fff5);
       this.courier = this.add.image(0, 0, 'courier').setDisplaySize(68, 73);
       this.clips = new Map();
-      for (const [key, { volume }] of Object.entries(clips)) {
-        if (this.cache.audio.exists(key)) this.clips.set(key, this.sound.add(key, { volume }));
+      for (const [key, { volume, loop }] of Object.entries(clips)) {
+        if (this.cache.audio.exists(key)) this.clips.set(key, this.sound.add(key, { volume, loop }));
       }
       this.soundEnabled = false;
+      for (const key of ['mina-dry', 'mina-soaked']) {
+        const voice = this.clips.get(key);
+        voice?.on('complete', () => this.setScoreVolume(scoreVolume, 260));
+        voice?.on('stop', () => this.setScoreVolume(scoreVolume, 260));
+      }
       this.reset(start);
 
       const input = new AbortController();
@@ -74,7 +84,7 @@ export function bootDock({ onReady } = {}) {
       soundToggle.addEventListener('click', async () => {
         if (this.soundEnabled) {
           this.soundEnabled = false;
-          this.sound.stopAll();
+          this.stopAudio();
         } else {
           soundToggle.disabled = true;
           soundState.textContent = 'Starting…';
@@ -91,10 +101,23 @@ export function bootDock({ onReady } = {}) {
         }
         soundToggle.setAttribute('aria-pressed', String(this.soundEnabled));
         soundState.textContent = this.soundEnabled ? 'On' : 'Off';
+        this.startBackground();
       }, options);
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) this.sound.stopAll();
+      document.addEventListener('visibilitychange', async () => {
+        if (document.hidden) {
+          this.stopAudio();
+          return;
+        }
+        if (!this.soundEnabled) return;
+        const context = this.sound.context;
+        try {
+          if (context && context.state !== 'running') await context.resume();
+          if (!input.signal.aborted) this.startBackground();
+        } catch {
+          return;
+        }
       }, options);
+      this.sound.on('unlocked', this.startBackground, this);
       window.addEventListener('keydown', (event) => {
         const direction = event.key.startsWith('Arrow') && directions[event.key.slice(5).toLowerCase()];
         if (!direction || event.altKey || event.ctrlKey || event.metaKey ||
@@ -111,7 +134,8 @@ export function bootDock({ onReady } = {}) {
       }, options);
       this.events.once('shutdown', () => {
         input.abort();
-        this.sound.stopAll();
+        this.sound.off('unlocked', this.startBackground, this);
+        this.stopAudio();
         for (const clip of this.clips.values()) clip.destroy();
         soundToggle.disabled = true;
         soundToggle.setAttribute('aria-pressed', 'false');
@@ -121,7 +145,9 @@ export function bootDock({ onReady } = {}) {
     }
 
     reset(state) {
-      this.sound.stopAll();
+      for (const [key, clip] of this.clips) {
+        if (!clips[key].loop) clip.stop();
+      }
       this.tweens.killTweensOf([this.courier, this.splash]);
       this.splashTimer?.remove();
       this.splash.setVisible(false);
@@ -157,14 +183,33 @@ export function bootDock({ onReady } = {}) {
       } else feedback.textContent = '';
       this.renderStatus();
       if (state.delivery) {
-        this.playCue(`mina-${state.delivery}`);
+        if (this.playCue(`mina-${state.delivery}`)) this.setScoreVolume(.038, 75);
         resultAction.focus({ preventScroll: true });
       }
     }
 
     playCue(key) {
       const ready = this.sound.context ? this.sound.context.state === 'running' : !this.sound.locked;
-      if (this.soundEnabled && ready && !document.hidden) this.clips.get(key)?.play();
+      return this.soundEnabled && ready && !document.hidden && this.clips.get(key)?.play();
+    }
+
+    startBackground() {
+      for (const [key, clip] of this.clips) {
+        if (clips[key].loop && !clip.isPlaying && !clip.isPaused) this.playCue(key);
+      }
+    }
+
+    setScoreVolume(volume, duration = 0) {
+      const score = this.clips.get('dock-score');
+      if (!score) return;
+      this.tweens.killTweensOf(score);
+      if (duration && score.isPlaying) this.tweens.add({ targets: score, volume, duration });
+      else score.setVolume(volume);
+    }
+
+    stopAudio() {
+      for (const clip of this.clips.values()) clip.stop();
+      this.setScoreVolume(scoreVolume);
     }
 
     renderStatus() {

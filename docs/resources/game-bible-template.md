@@ -48,6 +48,8 @@ Include relevant open-source and closed-source games, apps, products, or service
 
 - What players should hear, what each cue communicates, and which feedback they need with sound off:
 - Cue list with game events, priority, playback and stop behavior, source masters, build assets, and rights or credits:
+- Music decision for this release, including where you want silence and why:
+- For music you will use: purpose, style, scene placement, start, loop, transitions and stop behavior, level beside key cues and dialogue, source and rights or credits:
 - Sound effects to record, make, or source, with variants and loops where useful:
 - Dialogue sheet with line IDs, speaker, words, delivery notes, selected takes, permissions, and captions or prompts:
 - Export formats and which files the scene loads before play:

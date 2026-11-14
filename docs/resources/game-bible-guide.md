@@ -189,6 +189,14 @@ Play one short scene and listen for what the player needs to hear. In a fishing 
 
 Walk the scene from entry through success, failure, and retry. Give each sound a job. Write down the game event that starts it, what it should tell the player, and what should stop it. Mark which sounds repeat or loop, which need to cut through the mix, and which the release can do without. Give any information a player needs to act a visible or otherwise accessible equivalent.
 
+### Plan the music
+
+Make a music decision for each release, even if you want the whole game to go without music. Write down what music should do, where it plays, and where you want players to hear the place or the action on its own. Pick a style and a few qualities someone can work from, such as instruments, pace, and how busy the melody should be.
+
+For each track, name what starts it, how long it runs, whether it loops, and how it changes or stops when the player pauses, retries, or moves to another scene. Set its level beside ambience, effects, and speech. If the music gets in the way of a line or a cue the player needs to act on, decide where to lower it or leave it out. Link the track and editable source and record who made it, what lets you ship it, and what credit to give.
+
+On the Island Post dock, a few soft electric piano notes loop under the rain. The notes drop back when Mina speaks and return after her line. Retry keeps the track going so it doesn't start over every time you bring her a parcel.
+
 ### Build the sound effects
 
 Start with a small set for one playable encounter. Record Foley, make the sound with synthesis, or find a recording you can use. For a fish landing, try a small splash and a wet slap as separate recordings. Listen to them with the landing animation. Keep the part of each recording that sells the motion, and trim the lead-in so the splash starts when the fish hits the ice. If a sound repeats often, try a few takes and compare them in a run with rapid input.
@@ -214,7 +222,7 @@ Get the performer's permission for the planned use. Record a few takes with cons
 
 ### Generate spoken dialogue locally
 
-Use text-to-speech (TTS) to turn a script into audio. For new English dialogue, start with **Kokoro-82M through Kokoro ONNX**. It runs on the CPU and writes a WAV you can edit. The quantized model and voice file together are about 121 MB. After setup, the script and synthesis stay on your machine. Try **Piper** when you already have a voice that works for the character or need a smaller model. Mina's original lines used Piper with the LJSpeech medium voice. [Kokoro model card and Apache 2.0 license](https://huggingface.co/hexgrad/Kokoro-82M) · [Kokoro ONNX](https://github.com/thewh1teagle/kokoro-onnx) · [Piper](https://github.com/OHF-Voice/piper1-gpl) · [Piper LJSpeech voice card](https://huggingface.co/rhasspy/piper-voices/blob/v1.0.0/en/en_US/ljspeech/medium/MODEL_CARD)
+Use text-to-speech (TTS) to turn a script into audio. For new English dialogue, start with **Kokoro-82M through Kokoro ONNX**. It runs on the CPU and writes a WAV you can edit. The quantized model and voice file together are about 121 MB. After setup, the script and synthesis stay on your machine. Island Post uses Kokoro's `af_heart` voice for both of Mina's lines. Try **Piper** when you already have a voice that works for the character or need a smaller model. [Kokoro model card and Apache 2.0 license](https://huggingface.co/hexgrad/Kokoro-82M) · [Kokoro ONNX](https://github.com/thewh1teagle/kokoro-onnx) · [Piper](https://github.com/OHF-Voice/piper1-gpl)
 
 #### Render a line to WAV
 
@@ -254,6 +262,10 @@ Export in formats your targets play. Check timing and loop joins after encoding.
 
 Play effects when the game accepts an action or changes state. For a timed prompt, use the same rule that turns on the visible prompt. Give loops and dialogue an owner that can stop them when you pause, retry, leave, or switch scenes. Set how loud the cues, ambience, music, and voice should be relative to each other, using the layers the scene needs. Listen to overlapping sounds, limit repeated effects, and leave room for the loudest moment. If the wind covers a line, lower it while the character speaks and listen to the return to normal. Add mute and any volume controls the release needs, and decide how those settings carry between sessions.
 
+#### Make dialogue sound like it belongs in the scene
+
+Start with what you would hear in that place between lines. At the Dock, a quiet rain loop runs before, during, and after Mina speaks. Keep this background on its own track so it carries across lines and you can turn it down if it competes with speech. If the voice still sounds close to the microphone, turn it down a little and try a gentle cut to the highest frequencies. A nearby wall or deck can give you a short, faint reflection. Save longer reverb for places with a tail you would hear, such as a hall. Compare the processed line with the original at about the same loudness while the scene plays. Listen for the first and last words on the speaker your audience will use. [Island Post mix settings and sources](island-post/verification.md#audio-cues)
+
 On the web, test a fresh launch and start audio from a player gesture. Keep play working if the browser blocks audio or a file fails to load. In Phaser projects, check the installed version's Sound Manager and who owns each loop across scene changes. [Phaser sound source](https://github.com/phaserjs/phaser/tree/v4.2.1/src/sound) · [Browser autoplay behavior](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay)
 
 ### Listen on the target
@@ -262,9 +274,9 @@ Use a named, resettable case from the [Development Sandbox](../#development-sand
 
 ### Complete when
 
-The cue list links game events to the effects and recorded lines the build plays, with source and credit information. We can replay a representative encounter on the intended targets, hear the cues at the right moments, read any essential dialogue, and finish with sound off. Mute works, loops and lines stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
+The release has a music plan, including a decision to go without music if that suits the experience. The cue list links game events to the sounds the build plays, with source and credit information. We can replay a representative encounter on the intended targets, hear the cues at the right moments, read any essential dialogue, and finish with sound off. Mute works, loops and lines stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
 
-[Play the Island Post audio example](island-post-example.md#audio-engineering) to hear a sourced splash and two captioned handoff lines.
+[Play the Island Post audio example](island-post-example.md#audio-engineering) to hear how the score, rain, splash, and two captioned handoff lines fit together.
 
 ## Development Sandbox
 

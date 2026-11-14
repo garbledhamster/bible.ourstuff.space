@@ -36,7 +36,7 @@ Give every release mechanic a playable case. In games with NPCs, include a roste
 
 Use the [Development Sandbox chapter](../game-bible-guide.md#development-sandbox) for the completion checks.
 
-In [Audio Engineering](../game-bible-guide.md#audio-engineering), walk one playable encounter and record the events, cues, sources, and mix. Use the project's actual playback engine and version. Add resettable listening cases to the sandbox, then check the mix on target devices and play through with sound off. If the release calls for silence, record the decision in the chapter.
+In [Audio Engineering](../game-bible-guide.md#audio-engineering), plan the music for the release, including any decision to go without it. Then walk one playable encounter and record the events, cues, sources, and mix. Use the project's actual playback engine and version. Add resettable listening cases to the sandbox, then check the mix on target devices and play through with sound off. If the release calls for silence, record the decision in the chapter.
 
 ## Coordinate interface work
 

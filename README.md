@@ -6,6 +6,6 @@ Edit the source in `docs/`. The site and the agent skill use the same chapter gu
 
 Run `npm ci` and `npm run build` with Node.js and Python 3. The build validates the chapter order and the index's local links, renders the notes, template and ticket list from Markdown, and rebuilds both ZIP downloads. Preview the result with `python3 -m http.server 8000 --directory dist`.
 
-The Island Post example lives in `examples/island-post/`. The site build packages its player demo at `/island-post/` and developer Sandbox at `/island-post/sandbox/`. Use `node --test examples/island-post/rules.test.js` to check the shared Dock rules.
+The Island Post example lives in `examples/island-post/`. The site build packages its player demo at `/island-post/` and developer Sandbox at `/island-post/sandbox/`. Use `node --test examples/island-post/rules.test.js` to check the shared Dock rules. The Dock ships with light rain, a short score, and two captioned lines for Mina. See the [audio cue list](docs/resources/island-post/verification.md#audio-cues) for the mix, credits, and the remaining phone listening check.
 
 Pushing to `main` builds and publishes `dist/` to [bible.ourstuff.space](https://bible.ourstuff.space/) through the **Publish Bible** workflow. Check the run in GitHub Actions after a release.

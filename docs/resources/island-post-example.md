@@ -44,7 +44,9 @@ The first-time playtest still needs to show whether a player who soaks the parce
 
 Open the [Dock demo](../island-post/) and turn **Sound** on. Move right four times. You'll hear the splash when the parcel gets soaked and Mina will say, “Try the lower boardwalk.” Choose **Retry**, then take the lower route to hear her dry handoff. Both lines appear on screen, so you can also play with Sound off.
 
-In the [Development Sandbox](../island-post/sandbox/), turn Sound on and choose **Puddle**, **Dry handoff**, or **Soaked handoff** to try each cue on its own. Choose **Reset** to repeat it. The splash comes from a free recording, and the demo uses a synthetic voice for Mina. [See the cue list, credits, and playback checks](island-post/verification.md#audio-cues).
+In the [Development Sandbox](../island-post/sandbox/), turn Sound on and choose **Puddle**, **Dry handoff**, or **Soaked handoff** to hear each cue over the rain and a short electric piano loop. Reset the case to hear it again. The rain and music keep playing between attempts, and the music drops while Mina speaks.
+
+The rain and splash come from free recordings. Both of Mina's lines use Kokoro, with a gentle cut to the highs and two faint reflections to give her voice some distance. We made the music for Island Post. The notes leave room for the rain and for the splash that tells you the parcel got soaked. [See the cue list, mix settings, and credits](island-post/verification.md#audio-cues).
 
 ## Development Sandbox
 
