@@ -19,3 +19,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T12:15:38-06:00 · Joe · Art style selection
 
 **Paraphrase.** Show six art styles on one sheet so the creator can pick a direction, then narrow the next sheet toward the style they envision. [Vision & Scope](game-bible-guide.md#vision--scope)
+
+### 2026-11-14T15:59:03-06:00 · Joe · Menu and gameplay art
+
+**Paraphrase.** Give items that appear in a menu and in play a full static illustration and a matching compact sprite. In a fighting game, let players inspect the sword’s blade, guard, and grip in the inventory and recognize the same sword in the fighter’s hand. [UI & UX Design](game-bible-guide.md#ui--ux-design)

@@ -27,3 +27,7 @@ Kept the open chapter at the same window-relative height across Review, Tasks, a
 ### 2026-11-14T15:38:48-06:00 · Task List and clone changelog
 
 Added the chapter checklist to Tutorial, with an Island Post example and guidance for keeping project tasks current. Private readers can show their daily project entries beside the changelog from the installed shared Bible.
+
+### 2026-11-14T16:01:21-06:00 · Menu and gameplay art
+
+Added matching menu illustrations and compact gameplay sprites to the [guide](game-bible-guide.md#make-matching-menu-and-gameplay-art) and [template](template.html#engine-and-assets), using Joe’s fighting-game sword. The build and both Island Post rule tests passed. Checked both chapter dialogs, the guide link, and the template prompts at desktop and phone widths. [Feedback](feedback.md#entries)

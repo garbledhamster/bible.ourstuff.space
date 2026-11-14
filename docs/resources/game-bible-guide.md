@@ -164,6 +164,8 @@ I want the menu to show what kind of game I've opened. Draw or generate the art 
 
 Load that artwork into the interface. Use the engine or web code for layout, live labels, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs.
 
+For each item or object that appears in a menu or inventory and in play, plan two pieces of art. Show a full static illustration in the menu so players can study the details. Use a matching compact sprite or icon that players can recognize at gameplay size. In a fighting game, the inventory can show the sword’s blade, guard, and grip in detail. In the match, players should recognize that same sword in the fighter’s hand. Mark both uses on the sketch and send them to [Engine & Assets](game-bible-guide.md#engine--assets).
+
 ### Try the design on the intended screens
 
 Walk through a sketch or clickable prototype at the screen sizes you plan to support. Check what changes when the layout gets narrow and how someone reaches the same controls with the inputs the project supports. Write down what you need to prove in the sandbox and what you need to observe in a playtest. When the workflow is running, check readable text and contrast, visible keyboard focus where supported, and whether someone can complete the task and recover without coaching.
@@ -172,7 +174,7 @@ Use [Design Wayfinder](game-development-playbook.md#try-one-live-design-decision
 
 ### Complete when
 
-We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We’ve named the artwork and states each control or frame needs. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
+We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We’ve named the artwork and states each control or frame needs, including both views of items that appear in a menu and in play. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
 
 ## Engine & Assets
 
@@ -216,13 +218,21 @@ Keep an editable asset inventory spreadsheet for this work. Give each asset a st
 2. Import the files as textures, sprites, or images. For a resizable frame, preserve its corners and stretch or tile the middle. Give each control a readable label or accessible name, a usable hit area, and visible focus where supported.
 3. Bind the art to the real control and game state. Try the states and effects with the real input in the sandbox. Check that the right art loads and labels and hit areas still fit on the smallest target screen. Capture the result in the built interface. [Follow the Dock implementation](island-post/ui-art.md).
 
+### Make matching menu and gameplay art
+
+Start both pieces from the same master artwork or visual reference. Keep the item's recognizable silhouette, palette, and distinguishing details as you simplify the gameplay sprite or HUD icon. Give the full static illustration and the compact asset their own names and runtime paths in the asset ledger. Link the shared source, where each appears, and its display size.
+
+If the item needs animation, list the strip or atlas frames separately and record the relevant anchor. For the fighting-game sword, put that anchor at the grip and check that the sword stays aligned with the fighter’s hand through its poses. Pack compact frames into an atlas when that helps the engine load them.
+
+Open the menu and play the scene with both assets loaded. Save a side-by-side capture at their intended display sizes. Check that the full illustration shows the details players need, the compact art reads against the playfield or HUD, and both look like the same item. Link the capture from the ledger and add the sandbox result once you’ve tried it there.
+
 ### Asset locations and readiness
 
 Keep the working file or its source where the next contributor can find it. Mark which pieces are placeholders, which are ready to use, and which still need to be tried on a target device. A sprite can look right on its own and still be hard to read on the map. Open it in the game and see if it does its job at the size the player will see.
 
 ### Complete when
 
-Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The main runtime assets for the current playable scope come from its visual references, load in the engine, and appear in the chapter with the observed results. Resolve any missing main asset or failed fit before handing the scene to Development Sandbox. Track smaller remaining assets with their next check.
+Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The main runtime assets for the current playable scope come from its visual references, load in the engine, and appear in the chapter with the observed results. For items used in a menu and in play, both assets are named in the ledger and checked side by side at their display sizes. Resolve any missing main asset or failed fit before handing the scene to Development Sandbox. Track smaller remaining assets with their next check.
 
 ## Audio Engineering
 

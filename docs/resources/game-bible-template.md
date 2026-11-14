@@ -55,6 +55,7 @@ Link the target-size check and the file or state list Engine & Assets will use.
 - Where frequent actions, status, and recovery appear:
 - Project standards for alignment, spacing, visual hierarchy, labels, and controls:
 - Interface artwork needed for buttons, icons, HUDs, and frames, including the states each needs:
+- Items shown in a menu and in play. Mark where players inspect the full static illustration and where they see the matching compact gameplay sprite or HUD icon:
 - Checks for supported inputs, accessibility, and a first-time user completing the workflow:
 - For a live design decision, record the chosen behavior, reason, comparison evidence, and the sandbox or playtest check that follows:
 
@@ -68,6 +69,7 @@ Link the runnable slice and at-size capture for the Sandbox. Give Audio Engineer
 - Asset locations and readiness:
 - Interactive objects and editable asset inventory spreadsheet. Link separate runtime assets, game size, collision and interaction points, matching character actions, and readiness evidence:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
+- Menu and gameplay art for each item. Link the shared reference, named illustration and compact sprite or icon files, and any animation strip or atlas frames with their anchor. Link the side-by-side check for recognizability and readability at the sizes used in the menu and in play:
 
 - Animated characters: source frame, embedded sheet, cell size or atlas, common action checklist and two or three personal idle habits; action/direction frame map, trigger/delay, interruption, return pose, anchor, collision shape, and in-engine checks. Track each required action as Needed, Drawn, Wired, or Verified. Use the [sprite sheet workflow](sprite-sheets.md).
 
