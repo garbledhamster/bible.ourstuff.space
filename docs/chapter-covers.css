@@ -1,0 +1,20 @@
+:is(#vision-and-scope, [data-chapter="vision-and-scope"]) { --cover: #e8b8f0; --cover-ink: #331e3b; }
+:is(#design-document, [data-chapter="design-document"]) { --cover: #e8a88b; --cover-ink: #40241e; }
+:is(#ui-and-ux-design, [data-chapter="ui-and-ux-design"]) { --cover: #efbbd6; --cover-ink: #412539; }
+:is(#engine-and-assets, [data-chapter="engine-and-assets"]) { --cover: #b8cfb7; --cover-ink: #28382e; }
+:is(#audio-engineering, [data-chapter="audio-engineering"]) { --cover: #addfd0; --cover-ink: #203b37; }
+:is(#development-sandbox, [data-chapter="development-sandbox"]) { --cover: #a9d6f7; --cover-ink: #172f4d; }
+:is(#scene-scripts-and-playtests, [data-chapter="scene-scripts-and-playtests"]) { --cover: #f6d481; --cover-ink: #432e12; }
+:is(#build-and-play-the-game, [data-chapter="build-and-play-the-game"]) { --cover: #91dce9; --cover-ink: #16383f; }
+:is(#demo-manual-and-wiki, [data-chapter="demo-manual-and-wiki"]) { --cover: #c9bcfa; --cover-ink: #30244e; }
+:is(#release-pricing-and-marketing, [data-chapter="release-pricing-and-marketing"]) { --cover: #f4acbb; --cover-ink: #4c2333; }
+:is(#contributor-training, [data-chapter="contributor-training"]) { --cover: #86d6ca; --cover-ink: #123e38; }
+:is(#multiplayer-and-multi-user-support, [data-chapter="multiplayer-and-multi-user-support"]) { --cover: #c4caef; --cover-ink: #272b55; }
+:is(#updates-and-dlc, [data-chapter="updates-and-dlc"]) { --cover: #dec5a9; --cover-ink: #443224; }
+:is(#intake-and-feedback, [data-chapter="intake-and-feedback"]) { --cover: #d9e894; --cover-ink: #303910; }
+:is(#island-post-example, [data-chapter="island-post-example"]) { --cover: #f5cba7; --cover-ink: #452b24; }
+
+/* Each card spans the shared cover and body rows in the chapter rail. */
+.rail { grid-template-rows: auto minmax(0, 1fr); }
+.chapter { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
+.chapter > .chapter-cover { justify-content: flex-start; }

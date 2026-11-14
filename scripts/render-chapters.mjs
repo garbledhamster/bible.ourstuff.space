@@ -37,6 +37,18 @@ await Promise.all([
 
 const guide = parseChapterGuide(await read('resources/game-bible-guide.md'));
 parseWorkedExample(await read('resources/island-post-example.md'));
+const coverRules = await read('chapter-covers.css');
+const covers = new Map([...coverRules.matchAll(
+  /^:is\(#([\w-]+), \[data-chapter="\1"\]\) \{ --cover: (#[0-9a-f]{6}); --cover-ink: #[0-9a-f]{6}; \}$/gim,
+)].map(([, slug, color]) => [slug, color.toLowerCase()]));
+const chapterSlugs = [...Object.keys(guide), 'island-post-example'];
+const missingCover = chapterSlugs.find(slug => !covers.has(slug));
+if (missingCover) throw new Error(`Missing chapter cover color: ${missingCover}`);
+const coverColors = chapterSlugs.map(slug => covers.get(slug));
+if (new Set(coverColors).size !== coverColors.length) {
+  throw new Error('Each chapter cover must have a unique color.');
+}
+
 const notes = (await read('resources/joes-notes.md')).trim().split(/\n(?=### )/);
 await render('index.html', 'NOTES',
   notes.slice(1).map(note => `<section>\n${marked.parse(note)}</section>\n`).join(''));
