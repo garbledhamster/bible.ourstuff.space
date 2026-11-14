@@ -1,3 +1,4 @@
+import { chapterWork } from './review.js';
 import { parseChapterGuide } from './chapter-content.js';
 
 const guideUrl = new URL('./resources/game-bible-guide.md', import.meta.url);
@@ -125,6 +126,7 @@ const chapterChoices = document.querySelector('#chapter-choices');
 const chapterDialog = document.querySelector('#chapter-dialog');
 const chapterDialogBody = chapterDialog.querySelector('.chapter-detail-body');
 const chapterDialogTitle = chapterDialog.querySelector('h2');
+const work = chapterWork(chapterDialog, chapterDialogBody);
 const chapterDialogNumber = chapterDialog.querySelector('.chapter-number');
 const chapterPrevious = document.querySelector('#chapter-previous');
 const chapterNext = document.querySelector('#chapter-next');
@@ -137,13 +139,14 @@ function chapterLabel(index) {
   return `Chapter ${String(index + 1).padStart(2, '0')}`;
 }
 
-async function renderOpenChapter(index) {
-  const [title, slug] = chapters[index];
+async function renderOpenChapter(index, view = 'review') {
+  const [title, slug, checklist] = chapters[index];
   const focused = document.activeElement;
   openChapterIndex = index;
   chapterDialog.dataset.chapter = slug;
   chapterDialogNumber.textContent = chapterLabel(index);
   chapterDialogTitle.textContent = title;
+  work.pause();
   chapterDialogBody.textContent = 'Loading chapter…';
   chapterPrevious.disabled = index === 0;
   chapterNext.disabled = index === chapters.length - 1;
@@ -155,7 +158,7 @@ async function renderOpenChapter(index) {
     if (openChapterIndex !== index) return;
     if (!Object.hasOwn(chapterContent, slug)) throw new Error(`Chapter missing from guide: ${slug}`);
     chapterDialogBody.innerHTML = chapterContent[slug];
-    chapterDialogBody.scrollTop = 0;
+    work.render(slug, view, checklist);
   } catch (error) {
     if (openChapterIndex !== index) return;
     chapterDialogBody.textContent = 'The chapter guide couldn’t load. Reopen the chapter to try again.';
@@ -166,13 +169,14 @@ async function renderOpenChapter(index) {
 function moveOpenChapter(direction) {
   const index = openChapterIndex + direction;
   if (index < 0 || index >= chapters.length) return;
-  renderOpenChapter(index);
+  renderOpenChapter(index, work.view);
   showPanel(index);
 }
 
 chapterPrevious.addEventListener('click', () => moveOpenChapter(-1));
 chapterNext.addEventListener('click', () => moveOpenChapter(1));
 chapterDialog.addEventListener('keydown', (event) => {
+  if (event.target.closest('audio, video')) return;
   if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
   if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
   event.preventDefault();
@@ -180,13 +184,14 @@ chapterDialog.addEventListener('keydown', (event) => {
 });
 chapterDialog.addEventListener('close', () => {
   chapterDrag = undefined;
+  work.pause();
   rail.children[openChapterIndex].querySelector('button.chapter-link').focus({ preventScroll: true });
 });
 
 chapterDialog.addEventListener('pointerdown', (event) => {
   chapterDrag = undefined;
   if (!event.isPrimary || event.button !== 0 || event.shiftKey ||
-      event.target === chapterDialog || event.target.closest('a, button')) return;
+      event.target === chapterDialog || event.target.closest('a, button, audio, video')) return;
   chapterDrag = { pointerId: event.pointerId, x: event.clientX, y: event.clientY };
 });
 window.addEventListener('pointercancel', (event) => {

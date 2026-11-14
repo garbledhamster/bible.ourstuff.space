@@ -31,7 +31,7 @@ function imageCell({ image, alt, full }) {
 
 export async function startTaskList(markdown) {
   const page = new URL(location.href);
-  if (page.searchParams.get('file')?.split('/').at(-1) !== 'task-list.md') return;
+  if (page.searchParams.get('file')?.split('?')[0].split('/').at(-1) !== 'task-list.md') return;
   const endpoint = new URL('api/task-list', page);
   const article = document.querySelector('#document');
   const load = async () => {
@@ -39,10 +39,18 @@ export async function startTaskList(markdown) {
     if (!response.ok) throw new Error('The editable Task List is unavailable.');
     return response.json();
   };
+  function reload(revision) {
+    const file = page.searchParams.get('file').split('?')[0];
+    page.searchParams.set('file', file + '?revision=' + revision);
+    location.replace(page);
+  }
   let snapshot;
   try {
     snapshot = await load();
-    if (markdown !== snapshot.markdown) return;
+    if (markdown !== snapshot.markdown) {
+      if (!page.searchParams.get('file').includes(snapshot.revision)) reload(snapshot.revision);
+      return;
+    }
   } catch {
     return;
   }
@@ -82,7 +90,8 @@ export async function startTaskList(markdown) {
     button.setAttribute('aria-label', 'Edit task ' + row.cells[1].textContent);
     button.onclick = () => {
       active = rows[index];
-      const [asset, task, status, next] = active.cells;
+      const [asset, task, savedStatus, next] = active.cells;
+      const status = savedStatus.replace(/ <!-- task:[\w-]+ (?:Answer|Build|Check) [01] -->$/, '');
       const match = asset.match(/^(?:\[)?!\[([^\]]*)\]\(([^)]+)\)(?:\]\(([^)]+)\))?$/);
       const values = { task, status, next, alt: match?.[1] ?? '', image: match?.[2] ?? '', full: match?.[3] ?? '' };
       for (const [name] of fields) controls[name].value = values[name];
@@ -90,6 +99,8 @@ export async function startTaskList(markdown) {
       dialog.showModal();
       controls.task.focus();
     };
+    const status = row.cells[2];
+    status.textContent = rows[index].cells[2].replace(/ <!-- task:[\w-]+ (?:Answer|Build|Check) [01] -->$/, '');
     row.cells[3].append(' ', button);
   });
 
@@ -102,14 +113,14 @@ export async function startTaskList(markdown) {
       if (!values.task || !values.status) throw new Error('Enter a task and status.');
       if (values.image && !values.alt) throw new Error('Describe the image so readers know what it shows.');
       const lines = snapshot.markdown.split('\n');
-      lines[active.index] = `| ${[imageCell(values), values.task, values.status, values.next].join(' | ')} |`;
+      lines[active.index] = `| ${[imageCell(values), values.task, values.status + (active.cells[2].match(/ <!-- task:[\w-]+ (?:Answer|Build|Check) [01] -->$/)?.[0] ?? ''), values.next].join(' | ')} |`;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Bible-Task-List': '1' },
         body: JSON.stringify({ revision: snapshot.revision, markdown: lines.join('\n') }),
       });
       if (!response.ok) throw new Error((await response.json()).message);
-      location.reload();
+      reload((await response.json()).revision);
     } catch (error) {
       result.textContent = error.message;
       result.hidden = false;

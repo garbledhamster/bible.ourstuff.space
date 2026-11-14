@@ -15,3 +15,7 @@ Made timestamped feedback and changelog updates part of finishing project work. 
 ### 2026-11-14T12:15:38-06:00 · Art style picker
 
 Added six-panel style comparisons and successive refinements to Vision & Scope, the template, and the skill. [Feedback](feedback.md#entries)
+
+### 2026-11-14T15:14:48-06:00 · Chapter Review and Tasks
+
+Added Review and Tasks inside the chapter dialog. Review uses artifacts already linked in the chapter. The public Tasks view uses the existing chapter checklist. Private readers can save to their configured Markdown task list. Checked chapter navigation and Tutorial at desktop and phone widths.
