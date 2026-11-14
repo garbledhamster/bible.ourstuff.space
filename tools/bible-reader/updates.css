@@ -99,6 +99,8 @@ dialog.bible-update {
 }
 
 @media (max-height: 480px) and (min-width: 600px) {
+  #references .bible-version { grid-row: 1; }
+  #references:has(.bible-version) #reference-title { grid-row: 2; }
   #references:has(.bible-version) .reference-intro { grid-row: 3 / 6; }
   #references:has(.bible-version) .chapter-picker { grid-row: 3; }
   #references:has(.bible-version) .quick-links { grid-row: 4; }

@@ -114,9 +114,11 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return str(Path(self.directory) / ".unavailable-reader-path" / "missing")
         if decoded in ("/_bible/updates.js", "/_bible/updates.css"):
             return str(ASSETS / decoded.rsplit("/", 1)[1])
-        for prefix, directory in self.mounts.items():
-            if decoded.startswith(prefix):
-                return str(directory.joinpath(*filter(None, decoded[len(prefix):].split("/"))))
+        for route, target in self.mounts.items():
+            if decoded == route:
+                return str(target)
+            if route.endswith("/") and decoded.startswith(route):
+                return str(target.joinpath(*filter(None, decoded[len(route):].split("/"))))
         return super().translate_path(path)
 
     def respond(self, status, payload):
@@ -184,7 +186,7 @@ def main():
     parser.add_argument("--port", type=int, required=True)
     parser.add_argument("--directory", type=Path, required=True)
     parser.add_argument("--reader", nargs=2, action="append", metavar=("URL_PATH", "SHARED_CHECKOUT"), required=True)
-    parser.add_argument("--mount", nargs=2, action="append", default=[], metavar=("URL_PATH", "DIRECTORY"))
+    parser.add_argument("--mount", nargs=2, action="append", default=[], metavar=("URL_PATH", "LOCAL_PATH"))
     args = parser.parse_args()
     checkouts = {}
     readers = {}
