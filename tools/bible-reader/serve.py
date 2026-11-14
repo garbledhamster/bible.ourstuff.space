@@ -129,10 +129,11 @@ class SharedBible:
 
 
 class ReaderHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, readers=None, mounts=None, task_lists=None, **kwargs):
+    def __init__(self, *args, readers=None, mounts=None, task_lists=None, changelogs=None, **kwargs):
         self.readers = readers or {}
         self.mounts = mounts or {}
         self.task_lists = task_lists or {}
+        self.changelogs = changelogs or {}
         super().__init__(*args, **kwargs)
 
     def list_directory(self, path):
@@ -145,6 +146,14 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return str(Path(self.directory) / ".unavailable-reader-path" / "missing")
         if decoded in ("/_bible/updates.js", "/_bible/updates.css", "/_bible/task-list.js"):
             return str(ASSETS / decoded.rsplit("/", 1)[1])
+        for route, bible in self.readers.items():
+            if decoded == route + "bible-changelog.md":
+                return str(bible.path / "docs/resources/changelog.md")
+            if decoded == route + "project-changelog.md":
+                log = self.changelogs.get(route)
+                if log is not None and self.local_host():
+                    return str(log)
+                return str(Path(self.directory) / ".unavailable-reader-path" / "missing")
         for route, task_path in self.task_lists.items():
             if decoded == route + "task-list.md":
                 return str(task_path)
@@ -286,6 +295,7 @@ def main():
     parser.add_argument("--reader", nargs=2, action="append", metavar=("URL_PATH", "SHARED_CHECKOUT"), required=True)
     parser.add_argument("--mount", nargs=2, action="append", default=[], metavar=("URL_PATH", "LOCAL_PATH"))
     parser.add_argument("--task-list", nargs=2, action="append", default=[], metavar=("URL_PATH", "MARKDOWN_FILE"))
+    parser.add_argument("--changelog", nargs=2, action="append", default=[], metavar=("URL_PATH", "MARKDOWN_FILE"))
     args = parser.parse_args()
     checkouts = {}
     readers = {}
@@ -298,8 +308,11 @@ def main():
     task_lists = {route: Path(path).resolve() for route, path in args.task_list}
     if not task_lists.keys() <= readers.keys():
         parser.error("--task-list must use an existing --reader URL path")
+    changelogs = {route: Path(path).resolve() for route, path in args.changelog}
+    if not changelogs.keys() <= readers.keys():
+        parser.error("--changelog must use an existing --reader URL path")
     handler = partial(ReaderHandler, directory=str(args.directory.resolve()), readers=readers,
-                      mounts=mounts, task_lists=task_lists)
+                      mounts=mounts, task_lists=task_lists, changelogs=changelogs)
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         server.serve_forever()
 

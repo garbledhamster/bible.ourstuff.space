@@ -29,3 +29,7 @@ To enable editing on a private reader, add `--task-list /reader/ /absolute/proje
 Use a Markdown document headed `# Task List`, with a four-column table under each chapter heading. Use **Asset**, **Task**, **Status**, and **Next action** as the headers. The Asset cell can contain a Markdown image linked to a full-size asset. Use relative image paths that the reader can serve. In the document reader's module, pass the displayed source to the editor, for example `startTaskList(await startReader())` after importing it from `/_bible/task-list.js`. A stale browser edit keeps its draft and asks the reader to reload before saving. Save an agent edit before starting its next check so the browser and workspace see the same next action.
 
 Run the updater checks with `python3 -B -m unittest discover -s tools/bible-reader`.
+
+## Changelog
+
+Open **Get Started → Changelog** to see project and shared Bible entries together. The shared entries come from the installed checkout, so they follow **Update now** and **Restore previous**. To include project entries, pass `--changelog /reader/ /absolute/project/docs/changelog.md` for the existing reader route. Keep those entries with the project and write dated headings followed by a short summary. The reader shows newest entries first.

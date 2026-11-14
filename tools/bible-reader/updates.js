@@ -17,6 +17,7 @@ const title = document.querySelector('#references #reference-title');
 
 if (title) {
   const endpoint = new URL('api/bible-update', location.href);
+  if (!title.closest('#references').querySelector('[data-bible-changelog]')) addChangelog(title);
   const version = document.createElement('button');
   version.className = 'bible-version';
   version.type = 'button';
@@ -130,4 +131,66 @@ if (title) {
   installButton.addEventListener('click', () => changeVersion('install'));
   restoreButton.addEventListener('click', () => changeVersion('restore'));
   void check();
+}
+
+function addChangelog(title) {
+  const shortcut = document.createElement('button');
+  shortcut.type = 'button';
+  shortcut.textContent = 'Changelog';
+  shortcut.dataset.bibleChangelog = '';
+  shortcut.setAttribute('aria-haspopup', 'dialog');
+
+  const references = title.closest('#references');
+  const notes = [...references.querySelectorAll('.link-row')].find(row => row.textContent.includes('Joe’s Notes'));
+  const row = notes ?? references.appendChild(document.createElement('p'));
+  row.append(' · ', shortcut);
+
+  const dialog = document.createElement('dialog');
+  dialog.className = 'bible-update bible-changelog';
+  dialog.setAttribute('aria-labelledby', 'bible-changelog-title');
+  dialog.innerHTML = `
+    <form method="dialog">
+      <button class="close" aria-label="Close changelog" autofocus>×</button>
+    </form>
+    <h2 id="bible-changelog-title">Changelog</h2>
+    <section><h3>Project changes</h3><div data-project></div></section>
+    <section><h3>Shared Bible changes</h3><div data-shared></div></section>`;
+  document.body.append(dialog);
+  shortcut.addEventListener('click', () => {
+    dialog.showModal();
+    void showLog(dialog.querySelector('[data-project]'), 'project-changelog.md',
+      'No project changes recorded.');
+    void showLog(dialog.querySelector('[data-shared]'), 'bible-changelog.md',
+      'Install the latest Bible to see its shared changelog.');
+  });
+}
+
+async function showLog(container, file, emptyMessage) {
+  container.textContent = 'Loading…';
+  try {
+    const response = await fetch(new URL(file, location.href), { cache: 'no-store' });
+    if (response.status === 404) {
+      container.textContent = emptyMessage;
+      return;
+    }
+    if (!response.ok) throw new Error('Couldn’t open the changelog.');
+    const markdown = await response.text();
+    const entries = markdown.split(/^#{2,6} (?=\d{4}-\d{2}-\d{2}\b|\d{4}-\d{2}-\d{2}T)/m).slice(1);
+    const list = document.createElement('ul');
+    for (const entry of entries.reverse()) {
+      const [heading, ...lines] = entry.trim().split(/\r?\n/);
+      const item = document.createElement('li');
+      const label = document.createElement('strong');
+      label.textContent = heading.replace(/T\d\d:\d\d(?::\d\d)?(?:\.\d+)?(?:Z|[+-]\d\d:\d\d)?/, '');
+      item.append(label);
+      const summary = lines.join('\n').trim().split(/\n\s*\n/)[0]
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/^[*-] /gm, '').replace(/\s+/g, ' ');
+      if (summary) item.append(document.createElement('br'), summary);
+      list.append(item);
+    }
+    if (list.childElementCount) container.replaceChildren(list);
+    else container.textContent = emptyMessage;
+  } catch {
+    container.textContent = 'Couldn’t open the changelog. Try again.';
+  }
 }

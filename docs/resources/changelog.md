@@ -23,3 +23,7 @@ Added Review and Tasks inside the chapter dialog. Review uses artifacts already 
 ### 2026-11-14T15:21:06-06:00 · Chapter card height
 
 Kept the open chapter at the same window-relative height across Review, Tasks, and chapter switches. Checked scrolling and navigation on desktop and on phone-sized portrait and landscape layouts.
+
+### 2026-11-14T15:38:48-06:00 · Task List and clone changelog
+
+Added the chapter checklist to Tutorial, with an Island Post example and guidance for keeping project tasks current. Private readers can show their daily project entries beside the changelog from the installed shared Bible.

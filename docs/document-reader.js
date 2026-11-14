@@ -68,6 +68,16 @@ export async function startReader() {
     const filename = decodeURIComponent(source.pathname.split('/').at(-1));
     if (/\.md$/i.test(source.pathname)) {
       article.innerHTML = renderMarkdown(contents, source, reader);
+      const heading = article.querySelector('h1');
+      const checkboxes = [...article.querySelectorAll('li > input[type="checkbox"]')];
+      if (heading?.textContent === 'Task List' && checkboxes.length) {
+        article.classList.add('task-list');
+        const summary = document.createElement('p');
+        summary.className = 'task-list-summary';
+        summary.textContent = `${checkboxes.filter(box => box.checked).length} of ${checkboxes.length} done`;
+        heading.after(summary);
+        for (const box of checkboxes) box.setAttribute('aria-label', box.checked ? 'Done' : 'Open');
+      }
       markdown = contents;
     } else {
       const pre = document.createElement('pre');

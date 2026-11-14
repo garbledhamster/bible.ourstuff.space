@@ -14,6 +14,13 @@ description: Use when planning, resuming, or verifying a game or software projec
 
 In a project reader, use **Project Bible** as the main heading and put the project's name directly underneath. Use the shared masthead stylesheet. Link the reader and active chapter when showing the user an update.
 
+## Use the project task list
+
+- At start, read the checklist recorded in the project README. The default is `docs/task-list.md`. If a project has no checklist, follow the setup instructions and seed it with confirmed work for the active release. In the shared Bible checkout, use [the Island Post checklist](../island-post/task-list.md) for the worked example.
+- Group actionable tasks under their Bible chapter headings, in chapter order. For Markdown checklists, use `- [ ]` for open work and `- [x]` for verified work. Keep an existing editable task table and its asset links where the project uses one. Add a short status such as **Ready**, **In progress**, **Waiting**, or **Later** when it helps. For waiting work, say who or what can unblock it. Link existing tickets and completion evidence from the task.
+- Update the checklist when work starts, a dependency or owner changes, or a check passes. Before handing off, reread the file and update the affected tasks while preserving other contributors’ entries. Keep completed tasks checked with their evidence. Leave unverified tasks open.
+- When someone asks for the task list, read the current file and show its chapter headings and checkboxes inline in chat. Include the relevant statuses, blockers, and the browser link. When the request is about one chapter, show that chapter’s tasks.
+
 ## Work the chapter
 
 1. Identify the project, release scope, and active chapter from the user's request and project records. Resume from the last recorded decision or check. For a new project, start with Vision & Scope and the [Bible template](../game-bible-template.md).

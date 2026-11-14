@@ -4,6 +4,7 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 
 - [Set up and update a project Bible](../AGENTS.md) — clone the shared guide and assets into your game repository.
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
+- [Task List template](task-list-template.md) and [Island Post checklist](island-post/task-list.md).
 - [Project Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Project Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
 - [Sprite sheet workflow](sprite-sheets.md) — turn the chosen character into action/direction animations and verify them in the engine.

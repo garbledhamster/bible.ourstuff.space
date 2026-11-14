@@ -1,6 +1,6 @@
 # Island Post: The Dock
 
-[Play Island Post](../island-post/) · [Open the Development Sandbox](../island-post/sandbox/) · [Read the player walkthrough](island-post/first-delivery.md)
+[Play Island Post](../island-post/) · [Open the Development Sandbox](../island-post/sandbox/) · [Read the player walkthrough](island-post/first-delivery.md) · [Task List](island-post/task-list.md)
 
 Bring Mina a dry parcel. The short path crosses a puddle; the boardwalk gives you a way around it. If you get the parcel wet, you can finish the delivery, take a fresh parcel, and try the other route.
 
