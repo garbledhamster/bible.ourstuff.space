@@ -12,7 +12,7 @@
 | Puddle | Move right | The parcel becomes soaked and the splash appears. |
 | Blocked move | Move down toward the crate | The courier stays in place and the parcel condition holds. |
 | Dry handoff | Move up toward Mina | Mina accepts the dry parcel and offers Play Again. |
-| Soaked handoff | Move up toward Mina | Mina responds to the soaked parcel and offers Retry. |
+| Soaked handoff and Retry | Move up toward Mina, then activate Retry | Mina’s response and Retry appear in the same row. Retry returns the courier to the fork with a fresh parcel and returns focus to the board. |
 | Reset | Press Reset after each action | The original position and parcel condition return, with the delivery cleared. |
 | Mina roster | Select Mina; play the dry and soaked starts | Both handoffs can be reached with the player controls. |
 
@@ -24,7 +24,7 @@ The courier starts one step from the pickup marker. After pickup the puddle sits
 
 **Scripted result:** With keyboard and emulated touch, the run passed pickup, opening and closing help without moving the courier, puddle and soaked handoff, Retry, the dry detour, and Play Again. The test also confirmed focus moves to the result action. [Phone result capture](evidence/dock-phone-retry.webp)
 
-**First-time task:** Say “Bring Mina a dry parcel.” Observe without coaching. Record the input, route, hesitations, and how the player handles a wet parcel if they encounter one. Ask what made them choose their route. A physical phone and independent first-time players still need to be checked.
+**First-time task:** Say “Bring Mina a dry parcel.” Observe without coaching. Record the input, route, and where the player hesitates. If they soak the parcel, watch where they look after Mina responds and whether they find Retry on their own. If they take the dry route, record that Retry discoverability was unobserved. Ask what made them choose their route. A physical phone and independent first-time players still need to be checked. [Read the Retry placement decision](../island-post-example.md#where-should-retry-appear)
 
 ## Build record
 

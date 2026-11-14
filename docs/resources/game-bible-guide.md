@@ -55,6 +55,8 @@ Pick one part of the game that has a beginning, a decision, and an outcome the p
 
 Some choices are easier to make with the game in front of you. If I can't tell whether a route is clear on a phone, I write down who will check it, what they need to build to try it, and what other work depends on the answer. That gives us something to do when we get to the question.
 
+When the questions will take more than one session or one answer changes what we can work on next, use [Wayfinder](game-development-playbook.md#work-through-open-decisions). Give the map one destination, then write a decision ticket for each question you can already name. Put questions that still depend on what you learn under Not yet specified. Link the map from the project's Bible so the next person can pick up a question that's ready.
+
 ### Island Post example
 
 The first public build is one delivery across the Dock. Pick up the parcel and find a dry route to Mina. Market Lane and the Hill Route can wait until we see how people play the Dock.
@@ -84,6 +86,8 @@ For a site, outline the pages, what people can do on each one, and the content o
 ### Open design decisions
 
 I keep the questions that still affect the game close to the rules they touch. Maybe we're deciding between tapping a destination and holding a direction on a phone. Put both controls on the same short route and see where players hesitate or overshoot. The comparison gives us something to talk about before we write the control into every scene.
+
+If you're using a Wayfinder map, link the question here where it affects the workflow, rule, or scene. Once you settle it, write the decision, the reason, and the evidence in the chapter that owns that part of the project. Close the ticket with a link to that record. Use a build ticket when there's an agreed change for someone to implement.
 
 ### Island Post example
 
@@ -115,11 +119,13 @@ Read [Joe’s Notes](joes-notes.md) and use [Impeccable](https://github.com/pbak
 
 Walk through a sketch or clickable prototype at the screen sizes you plan to support. Check what changes when the layout gets narrow and how someone reaches the same controls with the inputs the project supports. Write down what you need to prove in the sandbox and what you need to observe in a playtest. When the workflow is running, check readable text and contrast, visible keyboard focus where supported, and whether someone can complete the task and recover without coaching.
 
+Use [Design Wayfinder](game-development-playbook.md#try-one-live-design-decision) when you need to use the actual interface to make the choice. Pick one question and build just enough to try it from the first action to the visible result. If you're comparing two options, give both the same task and starting state. Check the supported screens and inputs, then have the person making the decision try it. Save what they chose and why here, and carry the behavior into a sandbox case and a playtest where it matters.
+
 ### Island Post example
 
 The parcel status stays above the map. After a wet handoff, Retry takes the place of the movement controls beside Mina’s response. The phone capture shows how they fit together.
 
-[Compare the HUD sketch and phone capture](island-post-example.md#ui-and-ux-design)
+[Follow the Retry placement decision from comparison to playtest](island-post-example.md#ui-and-ux-design)
 
 ### Complete when
 

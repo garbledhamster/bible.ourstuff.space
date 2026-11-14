@@ -14,6 +14,12 @@ Give your agent the [Project Bible skill](https://bible.ourstuff.space/resources
 - [Game Quality Control skill source](game-quality-control.md) — readable instructions.
 - [Game Quality Control skill package](game-quality-control.zip) — downloadable ZIP. [Read the agent configuration](game-quality-control-agent.yaml).
 
+## Wayfinding with the Project Bible
+
+- [Wayfinder in Vision & Scope](game-development-playbook.md#work-through-open-decisions) — use the `wayfinder` skill to map open questions that take several sessions or depend on one another.
+- [Design Wayfinder in UI & UX Design](game-development-playbook.md#try-one-live-design-decision) — use the `design-wayfinder` skill to try one interface choice in the project and decide after using it.
+- [Island Post Retry example](island-post-example.md#ui-and-ux-design) — see the question, playable comparison evidence, decision, and next playtest check.
+
 ## Public agent skills
 
 - [Impeccable](https://github.com/pbakaus/impeccable) — shape and review the interface using the [UI & UX Design chapter](game-bible-guide.md#ui--ux-design).

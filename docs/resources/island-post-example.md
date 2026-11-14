@@ -24,6 +24,14 @@ Bring Mina a dry parcel. The short path crosses a puddle; the boardwalk gives yo
 
 ![Phone view with the soaked parcel indicator, Mina’s response and the Retry button in one strip](island-post/evidence/dock-phone-retry.webp)
 
+### Where should Retry appear?
+
+We opened one decision ticket and used [Design Wayfinder](game-development-playbook.md#try-one-live-design-decision) to try two layouts in the playable Dock. In both versions, the player moved right four times to hand Mina a soaked parcel. Retry returned the courier to the fork with a fresh parcel. We checked both layouts with a desktop keyboard and emulated phone touch. [See Retry beside the message](island-post/evidence/retry-beside-phone.jpg) · [See Retry below the message](island-post/evidence/retry-below-phone.jpg)
+
+Joe chose to keep Retry beside Mina’s message so the player can see the result and the action in one compact row. [Try the selected layout in the Dock](../island-post/) · [Run the soaked-handoff case in the Sandbox](island-post/verification.md#sandbox-cases)
+
+The first-time playtest still needs to show whether a player who soaks the parcel finds Retry without coaching. [Read the playtest task](island-post/verification.md#scene-script-and-playtest)
+
 ## Engine and Assets
 
 **Built.** Phaser 4.2.1 runs the illustrated Dock scene. Vite packages the Dock and Sandbox as separate browser entries. The public showcase uses original SVG art for the map, courier, Mina, and the two parcel states. The [asset ledger](island-post/dock-design.md#asset-ledger) maps the art to its use and includes the source paths. Try the splash to see how the scene, effect, and HUD work together.

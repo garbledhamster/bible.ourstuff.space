@@ -9,7 +9,7 @@ Next decision or check:
 - README folder map and first saved planning commit:
 - Player promise, intended audience, and platforms:
 - First playable milestone and release scope:
-- Open decisions:
+- Open decisions and Wayfinder map link, if used:
 
 ### Research and Source Collection
 
@@ -23,7 +23,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Core workflow and intended experience:
 - For each rule or interaction: input, rule, feedback, success, failure, and recovery:
 - Screens or scenes and their dependencies:
-- Open design decisions:
+- Open design decisions and links to any decision tickets:
 
 ## UI and UX Design
 
@@ -32,6 +32,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Where frequent actions, status, and recovery appear:
 - Project standards for alignment, spacing, visual hierarchy, labels, and controls:
 - Checks for supported inputs, accessibility, and a first-time user completing the workflow:
+- For a live design decision, record the chosen behavior, reason, comparison evidence, and the sandbox or playtest check that follows:
 
 ## Engine and Assets
 - Engine and launch instructions:
