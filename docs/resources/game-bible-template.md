@@ -45,6 +45,9 @@ Include relevant open-source and closed-source games, apps, products, or service
 
 - What players should hear, what each cue communicates, and which feedback they need with sound off:
 - Cue list with game events, priority, playback and stop behavior, source masters, build assets, and rights or credits:
+- Sound effects to record, make, or source, with variants and loops where useful:
+- Dialogue sheet with line IDs, speaker, words, delivery notes, selected takes, permissions, and captions or prompts:
+- Export formats and which files the scene loads before play:
 - Mix and player settings, including how mute and any volume controls carry across sessions:
 - Playback ownership, startup, pause, resume, and scene exits:
 - Resettable listening cases and target devices, including mute, repeat input, and an interruption:

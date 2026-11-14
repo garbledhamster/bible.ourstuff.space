@@ -42,7 +42,7 @@ The first-time playtest still needs to show whether a player who soaks the parce
 
 ## Audio Engineering
 
-**Existing build.** The Dock uses the splash animation and soaked parcel frame to show what happened in the puddle. Try the wet route with sound off and watch when the frame changes. If we add a splash cue, we'd play it when a dry parcel becomes soaked, then use Retry to check that it plays once on the next crossing. This is a cue example for a future audio pass.
+**Example for a future audio pass.** The Dock uses the splash animation and soaked parcel frame to show what happened in the puddle. For an effect, record a few small splashes and try them when a dry parcel becomes soaked. Use Retry to check that the sound plays once on the next crossing. For dialogue, give Mina's dry and wet handoffs separate line IDs and record a take for each. Play the matching line at the handoff, keep the written response on screen, and stop the line if the player chooses Retry.
 
 ## Development Sandbox
 

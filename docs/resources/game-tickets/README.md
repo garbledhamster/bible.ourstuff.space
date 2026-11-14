@@ -8,7 +8,7 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | 02 | [Specify the workflow and rules](02-game-design-document.md) | 01 | The core workflow has observable rules and a map of the screens or scenes. |
 | 03 | [Design the core interface workflow](ui-and-ux-design.md) | 02 | A sketch shows where someone finds the next action, feedback, and recovery on the intended screens. |
 | 04 | [Run the first interaction on the target](03-engine-and-assets.md) | 03 | A fresh checkout runs a representative interaction using its assets. |
-| 05 | [Plan and audition one audio encounter](audio-engineering.md) | 04 | A contributor can replay the cues on target devices and complete the encounter muted. |
+| 05 | [Produce and audition one audio encounter](audio-engineering.md) | 04 | A contributor can replay the cues on target devices and complete the encounter muted. |
 | 06 | [Prove the mechanics in the sandbox](04-development-sandbox.md) | 05 | A contributor can play and reset the release’s required cases in one dedicated development scene before player-scene assembly. |
 | 07 | [Assemble and playtest each scene](05-scene-scripts-and-playtests.md) | 06 | A player can enter, complete, and exit each in-scope scene. |
 | 08 | [Build and play the game](06-build-and-play-the-game.md) | 07 | A player can install or open the build on the target and complete the core loop. |

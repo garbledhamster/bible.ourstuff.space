@@ -179,13 +179,27 @@ Play one short scene and listen for what the player needs to hear. In a fishing 
 
 Walk the scene from entry through success, failure, and retry. Give each sound a job. Write down the game event that starts it, what it should tell the player, and what should stop it. Mark which sounds repeat or loop, which need to cut through the mix, and which the release can do without. Give any information a player needs to act a visible or otherwise accessible equivalent.
 
-### Make and track the assets
+### Build the sound effects
 
-Record or source a small set for one playable encounter. Keep editable masters and link the files the build loads from the cue list. Record the creator, source, reuse rights, and required credits. Mark placeholders so you know what still needs replacing. Trim effects for responsive playback and listen through loop joins on the formats you ship.
+Start with a small set for one playable encounter. Record Foley, make the sound with synthesis, or find a recording you can use. For a fish landing, try a small splash and a wet slap as separate recordings. Listen to them with the landing animation. Keep the part of each recording that sells the motion, and trim the lead-in so the splash starts when the fish hits the ice. If a sound repeats often, try a few takes and compare them in a run with rapid input.
+
+For ambience, record or assemble enough material to carry the scene. Edit the loop join and play several cycles of the actual export. Listen for clicks, gaps, or a sound that calls attention to itself every time the loop starts over.
+
+### Write and record dialogue
+
+Write the line where it belongs in the scene. Give it an ID, the speaker, the exact words, the trigger, and any delivery notes. Read it aloud against the action. A line like “Now, set the hook!” has to fit the moment when the player can act. A sharp cue can mark the opening while a longer line prepares the player before the bite. Write the caption or on-screen prompt with the line.
+
+Get the performer's permission for the planned use. Record a few takes with consistent mic distance and enough headroom for a louder read. Mark the take that fits the character and timing. Edit distracting noise, trim the start and end, and listen again beside the effects. For a line that can repeat, decide when it may play again and what happens if another line starts, the player skips it, or the scene ends.
+
+### Prepare the files for the game
+
+Keep the original recordings and editable masters. Name the exports by cue or line ID so someone can replace a take without guessing which file the game uses. Link the source, take, and build file in the cue list. Record the creator or performer, permission or license, and any credit that ships with the game. Mark temporary audio so it is easy to find before release.
+
+Export in formats your targets play. Check timing and loop joins after encoding. Load short timing cues before the player needs them. Check the size and startup cost of longer ambience, music, and dialogue on the devices you plan to support.
 
 ### Wire and mix the scene
 
-Play effects when the game accepts an action or changes state. For a timed prompt, use the same rule that turns on the visible prompt. Give loops an owner that can stop them when you pause, retry, leave, or switch scenes. Set how loud the cues, ambience, music, and voice should be relative to each other, using the layers the scene needs. Listen to overlapping sounds, limit repeated effects, and leave room for the loudest moment. Add mute and any volume controls the release needs, and decide how those settings carry between sessions.
+Play effects when the game accepts an action or changes state. For a timed prompt, use the same rule that turns on the visible prompt. Give loops and dialogue an owner that can stop them when you pause, retry, leave, or switch scenes. Set how loud the cues, ambience, music, and voice should be relative to each other, using the layers the scene needs. Listen to overlapping sounds, limit repeated effects, and leave room for the loudest moment. If the wind covers a line, lower it while the character speaks and listen to the return to normal. Add mute and any volume controls the release needs, and decide how those settings carry between sessions.
 
 On the web, test a fresh launch and start audio from a player gesture. Keep play working if the browser blocks audio or a file fails to load. In Phaser projects, check the installed version's Sound Manager and who owns each loop across scene changes. [Phaser sound source](https://github.com/phaserjs/phaser/tree/v4.2.1/src/sound) · [Browser autoplay behavior](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay)
 
@@ -195,7 +209,7 @@ Use a named, resettable case from the [Development Sandbox](../#development-sand
 
 ### Complete when
 
-The cue list links game events to the sounds and their sources. We can replay a representative encounter on the intended targets, hear the cues at the right moments, and finish with sound off. Mute works, loops stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
+The cue list links game events to the effects and recorded lines the build plays, with source and credit information. We can replay a representative encounter on the intended targets, hear the cues at the right moments, read any essential dialogue, and finish with sound off. Mute works, loops and lines stop where they should, and we have a listening record for the build. If the release calls for silence, record that decision and check the player can follow the workflow through its other feedback.
 
 ## Development Sandbox
 

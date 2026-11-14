@@ -47,7 +47,8 @@ const chapters = [
   ], 'Inspect the art and asset ledger'],
   ['Audio Engineering', 'audio-engineering', [
     'List what players hear and which game events trigger it.',
-    'Record the source, rights, and build file for each sound.',
+    'Make the effects and record the lines for one scene.',
+    'Track sources, permissions, captions, and export files.',
     'Set the mix, mute controls, and loop behavior.',
     'Listen to a resettable encounter on target devices.',
   ], 'See where a splash cue would go'],
