@@ -202,6 +202,38 @@ Write the line where it belongs in the scene. Give it an ID, the speaker, the ex
 
 Get the performer's permission for the planned use. Record a few takes with consistent mic distance and enough headroom for a louder read. Mark the take that fits the character and timing. Edit distracting noise, trim the start and end, and listen again beside the effects. For a line that can repeat, decide when it may play again and what happens if another line starts, the player skips it, or the scene ends.
 
+### Generate spoken dialogue locally
+
+Use text-to-speech (TTS) to turn a script into audio. For new English dialogue, start with **Kokoro-82M through Kokoro ONNX**. It runs on the CPU and writes a WAV you can edit. The quantized model and voice file together are about 121 MB. After setup, the script and synthesis stay on your machine. Try **Piper** when you already have a voice that works for the character or need a smaller model. Mina's original lines used Piper with the LJSpeech medium voice. [Kokoro model card and Apache 2.0 license](https://huggingface.co/hexgrad/Kokoro-82M) · [Kokoro ONNX](https://github.com/thewh1teagle/kokoro-onnx) · [Piper](https://github.com/OHF-Voice/piper1-gpl) · [Piper LJSpeech voice card](https://huggingface.co/rhasspy/piper-voices/blob/v1.0.0/en/en_US/ljspeech/medium/MODEL_CARD)
+
+#### Render a line to WAV
+
+From a folder for your dialogue work, install the renderer in a Python 3.12 virtual environment and download the model and voices once. This setup was checked on an Apple silicon Mac. [Model and voice downloads](https://github.com/thewh1teagle/kokoro-onnx/releases/tag/model-files-v1.0)
+
+```sh
+python3.12 -m venv .venv
+.venv/bin/python -m pip install kokoro-onnx==0.6.1 soundfile==0.13.1
+base=https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0
+curl -fL "$base/kokoro-v1.0.int8.onnx" -o kokoro-v1.0.int8.onnx
+curl -fL "$base/voices-v1.0.bin" -o voices-v1.0.bin
+```
+
+```sh
+.venv/bin/python - <<'PY'
+import soundfile as sf
+from kokoro_onnx import Kokoro
+
+tts = Kokoro("kokoro-v1.0.int8.onnx", "voices-v1.0.bin")
+line = "Try the lower boardwalk."
+audio, rate = tts.create(line, voice="af_heart", speed=0.95, lang="en-us")
+sf.write("mina-soaked.wav", audio, rate, subtype="PCM_16")
+PY
+```
+
+Try two voices on the same line at similar volume. Listen for unclear consonants, names, pacing, and whether you can understand the words over the effects. Start with `af_heart` and compare `af_sarah`. Adjust punctuation or speed for another take, then listen in the scene before choosing. A transcript can flag a hard-to-hear word. Check it by ear on the speaker your audience will use.
+
+For each chosen take, keep the line ID, exact text, voice ID, model version, speed, WAV, and caption with the project. Check the voice and model terms for your release. Get permission before imitating an identifiable person's voice.
+
 ### Prepare the files for the game
 
 Keep the original recordings and editable masters. Name the exports by cue or line ID so someone can replace a take without guessing which file the game uses. Link the source, take, and build file in the cue list. Record the creator or performer, permission or license, and any credit that ships with the game. Mark temporary audio so it is easy to find before release.
