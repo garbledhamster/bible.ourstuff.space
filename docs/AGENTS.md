@@ -33,6 +33,8 @@ git submodule update --init --remote --checkout -- docs/bible-upstream
 git diff --submodule=log -- docs/bible-upstream
 ```
 
-This refreshes the skill, guide, templates, and assets together from the main Bible. The skill link resolves to the same submodule path after the update. Review the changes against your active chapter. Keep your project Markdown, art, notes, and saves in their existing locations. Make any changes to the project Bible as separate, targeted edits. Reload the local reader to see the updated Markdown. Use **Project Bible** as the main heading and show the project name on the next line. Stage and commit `docs/bible-upstream` to record the new shared revision for the team.
+If the project reader has a version control, you can use **Get Started → Bible version → Check for updates → Update now** to install the published revision in its shared checkout. Use the project's README for the checkout path or refresh command if it differs from the example above.
+
+The refresh gives you the updated skill, guide, templates, and shared assets at the same paths. Pick up from the current decision and evidence in your own Bible and apply the new guidance when it helps with that work. Keep your existing Bible, notes, task list, art, and saves in place. The template is for starting a new Bible. Make project edits in the existing project files. Reload the local reader to see the updated Markdown. Use **Project Bible** as the main heading and show the project name on the next line. Stage and commit `docs/bible-upstream` to record the new shared revision for the team.
 
 A direct clone of the shared Bible already has the Codex skill link. Find the live skill, templates, and downloads in the [agent resource index](resources/agent-index.md). To preview the shared site locally, run `npm ci` and `npm run build` from `docs/bible-upstream` and serve its `dist/` directory.

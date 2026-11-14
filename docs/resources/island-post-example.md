@@ -12,11 +12,13 @@ Bring Mina a dry parcel. The short path crosses a puddle; the boardwalk gives yo
 
 **Decision.** Build one Dock delivery that a casual puzzle player can finish in a short browser session using touch or a keyboard. The choice is whether to take the short route through the puddle or the longer route around it. The Dock ends after one delivery. Market Lane, wrapping, and the Hill Route can wait.
 
-**Reference.** The earlier Dock preview proved the short-route decision was playable. The public build keeps that choice and gives the courier, Mina, the Dock, and the controls their own treatment. The [scope brief](island-post/dock-design.md#scope-brief) records what ships and what a first-time playtest needs to show.
+**Reference.** The earlier Dock preview proved the short-route decision was playable. The public build keeps that choice and gives the courier, Mina, the Dock, and the controls their own treatment. The [scope brief](island-post/dock-design.md#scope-brief) records what ships and the prediction about how a new player reads the fork.
 
 ## Design Document
 
 **Implemented.** Step onto the parcel, read the fork, and walk to Mina. A puddle soaks a dry parcel on entry. A soaked handoff offers Retry; a dry handoff offers Play Again. The [Dock map and rules](island-post/dock-design.md#dock-map-and-rules) show both paths, the state changes, and where to recover.
+
+**Proposed early test.** Before drawing the full Dock, sketch the fork, move a token, and see whether someone can read a route to Mina. The [early playtest plan](island-post/dock-design.md#early-playtest-plan) includes the starting state, neutral task, and what each result would change.
 
 ## UI and UX Design
 
@@ -56,7 +58,7 @@ The rain and splash come from free recordings. Both of Mina's lines use Kokoro, 
 
 ## Scene Scripts and Playtests
 
-**Scripted pass; first-time players pending.** The [scene script and playtest task](island-post/verification.md#scene-script-and-playtest) follow the courier from pickup through either handoff. The browser run tested help, a wet delivery, Retry, the dry detour, and Play Again. The next session is to watch someone try the same delivery without telling them which route to take.
+**Scripted pass; first-time players pending.** The [scene script and playtest task](island-post/verification.md#scene-script-and-playtest) follow the courier from pickup through either handoff. The browser run tested help, a wet delivery, Retry, the dry detour, and Play Again. The next session is to watch someone try the same delivery without telling them which route to take. The [early playtest plan](island-post/dock-design.md#early-playtest-plan) shows how you could ask the route question before making the full scene.
 
 ## Build and Play the Game
 

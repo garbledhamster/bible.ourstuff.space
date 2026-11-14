@@ -31,6 +31,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 ### First playable milestone and release scope
 
 - First playable milestone and release scope:
+- Intended experience at the defining moment, expected player behavior, and an observation that would reopen a decision:
 - Open decisions and Wayfinder map link, if used:
 
 ## Design Document
@@ -38,9 +39,11 @@ Include relevant open-source and closed-source games, apps, products, or service
 Link a walkthrough of the choice, outcome, and recovery. Name the cues UI & UX Design needs.
 
 - Core workflow and intended experience:
+- Main choice: what the player knows before acting, what each option gains or costs, and what the outcome teaches. Check how the rule, story, presentation, and technology support that moment.
 - For each rule or interaction: input, rule, feedback, success, failure, and recovery:
 - Screens or scenes and their dependencies:
-- Open design decisions and links to any decision tickets:
+- If repeated play drives the experience: early loop, later loop with changed stakes, and a point to finish or return.
+- Open design decisions and links to any decision tickets. For a question that could change dependent work, link the smallest early test and record what to keep, change, or verify next.
 
 ## UI and UX Design
 
@@ -106,7 +109,7 @@ Link the playable scene, observed task, and retest for the next build.
 
 - For each scene: entry, player objective, actions, dialogue, outcomes, and transitions:
 - Mechanics and assets used:
-- Playtest criteria, observations, fixes, and result:
+- Playtest: link the prediction and any early test. Record player fit, task, build, device and input, observed actions or words, help, and what you kept, changed, or will retest.
 
 ## Build and Play the Game
 

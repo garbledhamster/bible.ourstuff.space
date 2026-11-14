@@ -19,7 +19,7 @@ Embed every image generated for the project in the chapter where it was made or 
 ### What to carry forward
 
 1. Start with the creator’s sources and any feedback from the previous release. Agree on one moment the audience should experience.
-2. Save the player promise, chosen visual direction, target, scope, and the first playable milestone. Describe a result that would make you reconsider the scope.
+2. Save the player promise, chosen visual direction, target, scope, and the first playable milestone. If an uncertain part of the player promise could change what you build, record what you expect to see in play and what would make you revisit the decision.
 3. Ask the creator to walk through the moment and confirm what belongs in it. Link the agreed brief and visual to Design Document. Resolve a mismatch here before handing off.
 
 ### Kick off the project
@@ -77,6 +77,8 @@ Decide whether this release is single-player, local multiplayer, or online. When
 
 Pick one part of the game that has a beginning, a decision, and an outcome the player can see. Write down the scenes and rules needed to get them through it, along with how they'll open the game. Keep the other ideas in the plan so you can come back to them after seeing how the first part plays.
 
+Describe the experience you're aiming for from the player's seat. What do they notice, what do they expect will happen, and why does the outcome matter to them? On the Dock, I want a new player to feel like they worked out a dry route by reading the terrain. I'd watch which way they go and ask what led them there. If they reach Mina dry but say they guessed, I'd check the route cues before I spend time making more deliveries. Carry the prediction and the decision it could change into [Design Document](#open-design-decisions).
+
 ### Open decisions
 
 Some choices are easier to make with the game in front of you. If I can't tell whether a route is clear on a phone, I write down who will check it, what they need to build to try it, and what other work depends on the answer. That gives us something to do when we get to the question.
@@ -109,6 +111,10 @@ Once I know what I want someone to get out of a project, I write down what they'
 
 Walk through one complete task from where someone starts. In a delivery game, they get a parcel, choose a route, find out whether the parcel made it, and decide what to do next. I want to write down where the player gets to make a choice and what the game tells them along the way. Later I can watch someone take a route and see whether they picked it for the reason I thought they would.
 
+At the main choice, write down what the player can tell before acting, what each option could gain or cost them, and what they learn from the outcome. In a discovery puzzle, a clue can lead to one good answer. If the game promises a tradeoff, walk through a situation where each option makes sense.
+
+Use Schell's Elemental Tetrad to look at the same moment together. Which rule produces the consequence? What gives it meaning in the story or situation? What can the player see or hear that helps them understand it? What do the controls and technology need to make possible? On the Dock, the rain makes a wet parcel plausible, the puddle and boardwalk show the routes, one step into the puddle changes the parcel, and the map and feedback need to stay clear at phone size. [Jesse Schell, The Art of Game Design](https://schellgames.com/art-of-game-design)
+
 ### Rules and behavior
 
 A mechanic is a rule we can put into play. I write down what the player starts with, what they do, what changes, and how they find out. If they can fail, the rule also needs to say what they can do after that. Add the touch and keyboard details where they differ. A person or agent building the rule should be able to try it and know what result to look for.
@@ -117,6 +123,8 @@ A mechanic is a rule we can put into play. I write down what the player starts w
 
 For a site, outline the pages, what people can do on each one, and the content or systems they depend on. For a game, I give each scene a rough outline so I can see what it introduces and what the player should already know. The outline is also where I note which rules, art, and sounds that scene needs. When we sit down to assemble it, we can write the full scene script with its dialogue and transitions. By then we know which pieces we're putting together.
 
+When the promise depends on repeated play, walk through an early loop and a later one. Name what the player learned, earned, or spent, what changes the next choice, and where they can finish satisfied or decide to come back. Use those beats to decide what the scene order needs to teach or introduce. For a one-delivery game like the Dock, walking through the handoff and retry or exit is enough.
+
 ### Personal and shared spaces
 
 If the game mixes private scenes with shared online spaces, write the transition as a rule: what carries across, who owns that state, and what happens if joining fails or a player leaves. For example, someone might leave a personal home for a shared adventure and return with an earned discovery. Their pause, dialogue, or return must have a defined effect on the other players. Use the [multiplayer chapter](#multiplayer--multi-user-support) to plan a small proof before building the rest of those scenes.
@@ -124,6 +132,10 @@ If the game mixes private scenes with shared online spaces, write the transition
 ### Open design decisions
 
 I keep the questions that still affect the game close to the rules they touch. Maybe we're deciding between tapping a destination and holding a direction on a phone. Put both controls on the same short route and see where players hesitate or overshoot. The comparison gives us something to talk about before we write the control into every scene.
+
+If a question about the defining action could change the rules, cues, or scope, try the smallest version that can answer it before building the art or scenes that depend on it. A paper map and a token can show what a player knows before choosing and what the rule gives them afterward. If the question is about timing, controls, or the feel of the action, make a rough playable version with enough of the cue and input to test that question.
+
+While the idea is still open, try different ways to create the experience. When you're trying to learn why one version fails, compare one change at a time from the same starting state with the same task. Give an intended player a neutral task, watch what they do, and ask what led to their choice. Use the [Island Post early playtest](island-post/dock-design.md#early-playtest-plan) as an example. Record what you keep, change, or still need to learn. Carry the chosen behavior into the existing [Development Sandbox](#development-sandbox) to check it with the actual runtime assets and rules.
 
 If you're using a Wayfinder map, link the question here where it affects the workflow, rule, or scene. Once you settle it, write the decision, the reason, and the evidence in the chapter that owns that part of the project. Close the ticket with a link to that record. Use a build ticket when there's an agreed change for someone to implement.
 
@@ -424,7 +436,9 @@ Link the scene to its rules in the Design Document and to the art, sound, object
 
 ### Playtest criteria, observations, fixes, and result
 
-Give a new player something to do and let them try it before you explain the controls or the route. Write down what they did, where they paused, and what they expected would happen. Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls. They can show whether the change helped without remembering where you told the last player to look.
+Bring the player prediction from Vision & Scope and any early test from Design Document. Give an intended player a neutral task and let them try it before you explain the controls or the route. Note the build, device and input, what they did or said, and any help you gave. Then write down what you think explains the observation and what you'd keep, change, or test next. If they skip a branch, leave that observation open or run a separate check from that state.
+
+Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls when first impressions matter. They can show whether the change helped without remembering where you told the last player to look. Use [Game Quality Control](game-quality-control.md#set-the-bar) for the test criteria and [Intake & Feedback](#what-people-said-or-did) for the observation record.
 
 ### Island Post example
 

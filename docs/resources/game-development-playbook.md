@@ -20,7 +20,7 @@ Use the [Project Bible guide](game-bible-guide.md) for the complete chapter inst
 
 ## Work through open decisions
 
-Use **Wayfinder** when a release has questions that span sessions or block other decisions. Start from the [Vision & Scope open decisions](game-bible-guide.md#open-decisions). Give the effort a destination, put answerable questions on decision tickets in the project's existing tracker, and record which questions depend on which answers. If there's no tracker, use local Markdown. Keep one map and link it from the project Bible. Work the next ready question with the evidence it needs. Use Grill with Docs when the owner can answer through discussion.
+Use **Wayfinder** when a release has questions that span sessions or block other decisions. Start from the [Vision & Scope open decisions](game-bible-guide.md#open-decisions). Give the effort a destination, put answerable questions on decision tickets in the project's existing tracker, and record which questions depend on which answers. If there's no tracker, use local Markdown. Keep one map and link it from the project Bible. Work the next ready question with the evidence it needs. Use Grill with Docs when the owner can answer through discussion. If the answer depends on how the defining action plays, use the [early test in Design Document](game-bible-guide.md#open-design-decisions) before committing the work that depends on it.
 
 Once a decision is settled, record the answer, reason, and evidence in the relevant Bible chapter. Close the decision ticket with a link there and add a one-line summary to the map. When the way is clear, use the release spec and build tickets for the work people can now do.
 

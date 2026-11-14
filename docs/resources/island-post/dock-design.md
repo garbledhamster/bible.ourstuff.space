@@ -6,6 +6,8 @@
 
 A casual puzzle player opens the Dock, picks up Mina’s parcel, and chooses a route. They can hand it over dry or soaked, then retry or replay. The public example is one browser delivery. Phone touch and desktop keyboard use the same rules. Later routes, parcel wrapping, accounts, saves, and paid content are outside this release.
 
+**Design prediction to test.** A new casual puzzle player can look at the fork, choose the dry boardwalk, and explain which cue helped them work out the route. If they choose dry by chance or only notice the puddle after a soak, look at what they can see before the choice. See the [early playtest plan](#early-playtest-plan) for how to check that before making the full Dock.
+
 For the first-time playtest, ask one person on a phone and one on desktop to bring Mina a dry parcel without coaching. Record where they pause, which route they choose, and what led them to that choice. If they soak the parcel, watch whether they find Retry on their own. If both take the dry route, mark Retry discoverability unobserved.
 
 The Bible repository keeps the public build in `examples/island-post/`, art in its `assets/` folder, and this record in `docs/resources/island-post/`. The private project is the reference for the Dock idea; the public edition has its own art and implementation.
@@ -37,6 +39,16 @@ Start → Pickup → Puddle → Boards → Mina
 | Reach Mina with a dry parcel | Show Delivered dry. Play Again returns to the opening before pickup. |
 
 The map and state changes live in `examples/island-post/rules.js`. The Sandbox and demo both call the same movement function. This delivery has one NPC with two responses based on parcel condition.
+
+## Early playtest plan
+
+**Proposed paper test.** The question is whether the player can work out a dry route from what they see at the fork. Do this before drawing the full Dock if the answer could change how you show the paths. The published build's [first-time playtest](verification.md#scene-script-and-playtest) still has its own open checks.
+
+1. Sketch the playable squares from the [Dock map](#dock-map-and-rules). Put a courier token at the fork with a Dry card, show both paths, and mark Mina's square. Draw the puddle as the player would see it. Keep the solution and the map's rule labels on your side of the table.
+2. Tell a casual puzzle player who hasn't seen the layout, “Bring Mina a dry parcel.” Let them move one square at a time. If they enter the puddle, switch the card to Soaked. Both paths end at Mina. For a soaked handoff, show Mina's response and offer Retry at the fork with a fresh parcel. For a dry handoff, show Delivered dry and end the attempt.
+3. Note the route, any pause or help, and what the player says led to their choice. If they can point to the cue they used before moving, take that cue into the rough playable scene. If they guessed or missed the puddle, try one clearer way of showing it from the same starting state with a fresh player. If the scene player sees the dry route and means to take it but moves the wrong way, try the intended controls in a rough browser build to check what happened. If they never soak the parcel, Retry discovery remains open.
+
+Save what the player did, what you think explains it, and what you'd keep or try next. The paper version can test route reading. The browser scene is where you can observe actual movement and whether a player finds the on-screen Retry action after a wet delivery.
 
 ## HUD sketch and standards
 
