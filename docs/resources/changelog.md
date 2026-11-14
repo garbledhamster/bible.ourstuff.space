@@ -31,3 +31,7 @@ Added the chapter checklist to Tutorial, with an Island Post example and guidanc
 ### 2026-11-14T16:01:21-06:00 · Menu and gameplay art
 
 Added matching menu illustrations and compact gameplay sprites to the [guide](game-bible-guide.md#make-matching-menu-and-gameplay-art) and [template](template.html#engine-and-assets), using Joe’s fighting-game sword. The build and both Island Post rule tests passed. Checked both chapter dialogs, the guide link, and the template prompts at desktop and phone widths. [Feedback](feedback.md#entries)
+
+### 2026-11-14T16:03:11-06:00 · Sharing catches
+
+Added [Sharing moments people want to talk about](game-bible-guide.md#sharing-moments-people-want-to-talk-about) to Engagement & Feedback. Bryan’s fishing game illustrates a trophy prompt, editable social drafts, a link back to the game, and a comment for the video the player was watching. The site build validated all 14 chapters. [Joe’s feedback](feedback.md#2026-11-14t160212-0600--joe--sharing-catches)

@@ -641,6 +641,16 @@ Pick a place they already use or can easily reach. Decide whether it makes sense
 
 Decide what starts the conversation, such as a first session, a shipped update, or a question somebody sends in. Set a frequency and amount of time I can keep up with. Name who reads replies, when they check, and who follows up. If someone else needs to help, keep track of who will get back to the person.
 
+### Sharing moments people want to talk about
+
+Think of a moment someone would want to show a friend, and give them a way to share it while it’s still fresh. In Bryan’s fishing game, a player could see **Share Catch** in their catch results. When they land a trophy fish, let the result pop and point to that same button while keeping **Continue** easy to reach.
+
+Start the post with the fish, its size, and a picture from the game. Give the player space to change the caption or add what happened, and give their friends a link back to the game. Mock up both the draft the player edits and what their friends would see on X, Facebook, or Instagram. Try a Story with a link sticker on Instagram so someone who sees the catch can get to the game. Check what each platform lets you carry into its composer and make the copy or save step clear where the player needs it. The player reviews the draft and chooses when to post.
+
+If the game is showing a YouTube video about the catch, offer a comment for that video. A draft might start with “I caught a 28-inch trophy walleye in the game!” Leave room underneath for the player to say how they did it or ask Bryan a question. Try **Copy comment and open YouTube** so they can paste it under the right video and post when they’re ready. YouTube’s API requires the player’s authorization to post a comment from the game. [YouTube comment API](https://developers.google.com/youtube/data/reference/rest/v3/commentThreads/insert)
+
+In the prototype, give someone a regular catch and a trophy catch. See if they find sharing when they want it, can add their own words and can get back to fishing. Then have someone else open the game from the shared preview. Check that the YouTube draft leads to the video that was showing when the player chose to comment. Record where the player hesitates or loses the draft so you know what to change before building the feature.
+
 ### Part 2 · Feedback
 
 Keep a Feedback Markdown file with the project. Use it for what people and agents say during development and after launch, including feedback that comes in outside the engagement plan. Append every item in entry order. Record the date and time it was entered with a time zone offset, the source, and the part of the project they were responding to. Quote their words when available or mark a summary as a paraphrase. Link any follow-up or decision to the entry so we can see what we heard and what we did about it.
