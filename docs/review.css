@@ -1,6 +1,7 @@
 #chapter-dialog[open]:has(.chapter-work) {
   width: min(930px, calc(100% - 20px));
   grid-template-rows: auto auto minmax(0, 1fr) auto;
+  height: calc(100dvh - 22px);
   max-height: calc(100dvh - 22px);
 }
 #chapter-dialog .chapter-work {

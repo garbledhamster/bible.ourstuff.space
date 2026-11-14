@@ -19,3 +19,7 @@ Added six-panel style comparisons and successive refinements to Vision & Scope, 
 ### 2026-11-14T15:14:48-06:00 · Chapter Review and Tasks
 
 Added Review and Tasks inside the chapter dialog. Review uses artifacts already linked in the chapter. The public Tasks view uses the existing chapter checklist. Private readers can save to their configured Markdown task list. Checked chapter navigation and Tutorial at desktop and phone widths.
+
+### 2026-11-14T15:21:06-06:00 · Chapter card height
+
+Kept the open chapter at the same window-relative height across Review, Tasks, and chapter switches. Checked scrolling and navigation on desktop and on phone-sized portrait and landscape layouts.
