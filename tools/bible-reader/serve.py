@@ -120,9 +120,9 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return str(Path(self.directory) / ".unavailable-reader-path" / "missing")
         if decoded in ("/_bible/updates.js", "/_bible/updates.css", "/_bible/task-list.js"):
             return str(ASSETS / decoded.rsplit("/", 1)[1])
-        for route, path in self.task_lists.items():
+        for route, task_path in self.task_lists.items():
             if decoded == route + "task-list.md":
-                return str(path)
+                return str(task_path)
         for route, target in self.mounts.items():
             if decoded == route:
                 return str(target)

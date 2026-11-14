@@ -16,6 +16,7 @@ class TaskListTest(unittest.TestCase):
             root = Path(directory)
             path = root / "task-list.md"
             path.write_text("# Task List\n")
+            (root / "read.html").write_text("Reader")
             handler = partial(ReaderHandler, directory=directory, task_lists={"/game/": path})
             with ThreadingHTTPServer(("127.0.0.1", 0), handler) as server:
                 worker = threading.Thread(target=server.serve_forever, daemon=True)
@@ -34,6 +35,10 @@ class TaskListTest(unittest.TestCase):
                     return response.status, json.loads(response.read())
 
                 route = "/game/api/task-list"
+                connection.request("GET", "/read.html")
+                static = connection.getresponse()
+                self.assertEqual(static.status, 200)
+                self.assertEqual(static.read(), b"Reader")
                 status, current = request("GET", route)
                 self.assertEqual(status, 200)
                 update = {"revision": current["revision"], "markdown": "# Task List\n\nNew task\n"}
