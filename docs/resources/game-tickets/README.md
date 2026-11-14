@@ -15,10 +15,11 @@ Copy these drafts into the game’s tracker or keep them as local Markdown ticke
 | 09 | [Build and verify the demo, manual, and wiki](07-player-manual-and-wiki.md) | 08 | A first-time user can complete the demo and use its help. The verified demo is ready to capture. |
 | 10 | [Verify the release candidate](08-release-pricing-and-marketing.md) | 09 | The exact candidate works from the planned delivery entry point. |
 | 11 | [Walk a new contributor through a change](09-contributor-training.md) | 10 | A contributor can run, change, and verify the released workflow. |
-| 12 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 11 | One change goes through the affected checks and documentation. |
-| 13 | [Review feedback and plan the next cycle](11-intake-and-feedback.md) | 12 | Feedback reaches an owner and produces a next-cycle scope decision. |
+| 12 | [Prove multiplayer and hosting](multiplayer.md) | 11; start its proof during 04–06 if required by vision | Players complete a shared encounter and recover, or scope records N/A. |
+| 13 | [Rehearse or deliver an update](10-updates-and-dlc.md) | 12 | One change goes through the affected checks and documentation. |
+| 14 | [Review feedback and plan the next cycle](11-intake-and-feedback.md) | 13 | Feedback reaches an owner and produces a next-cycle scope decision. |
 
-Start with the earliest ticket whose blockers are complete. Some preparation can start sooner. Draft the help outline during design and open an intake channel before a playtest or launch. Treat that preparation as a separate task. Start each chapter ticket after its listed blocker is complete.
+Start with the earliest ticket whose blockers are complete. Some preparation can start sooner. Draft the help outline during design and open an intake channel before a playtest or launch. Treat that preparation as a separate task. Start each chapter ticket after its listed blocker is complete. If multiplayer is required for the release, pull its two-player proof into Engine & Assets and the Sandbox, and block that release on the applicable Chapter 12 checks. Chapter placement is not permission to defer a core multiplayer promise until after launch.
 
 ## Ticket fields to fill in
 
@@ -29,4 +30,4 @@ Start with the earliest ticket whose blockers are complete. Some preparation can
 - **Evidence:** record the build or revision, target, verification steps and result, and links to observations or outputs.
 - **Handoff:** link to the finished work, note any unresolved items, and name the next unblocked ticket.
 
-When Chapter 13 changes the game, open a new Chapter 01 for the next cycle and link back to the evidence. Keep each release’s dependency list in order.
+When Chapter 14 changes the game, open a new Chapter 01 for the next cycle and link back to the evidence. Keep each release’s dependency list in order.

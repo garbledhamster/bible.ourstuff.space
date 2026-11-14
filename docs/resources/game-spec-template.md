@@ -56,8 +56,9 @@ Replace the starter criteria with measurable checks for this game. Add the evide
 | 09 · Demo, Manual & Wiki | Playable demo, passing sandbox cases, help links, and capture plan | A first-time user can complete and retry the demo, follow the help, and repeat the workflow unaided. The verified demo is ready to capture and share. | [link and status] |
 | 10 · Release, Pricing & Marketing | Release candidate, launch materials, and distribution decision | The exact candidate launches through the intended delivery path. Its listing or page describes the actual game, and the payment flow passes if the release requires one. | [link and status] |
 | 11 · Contributor Training | Setup, first change, and verification guide | Someone starting fresh can run the game and sandbox, make a representative change, and verify it using the guide. | [link and status] |
-| 12 · Updates & DLC | Update approach and an example change | An agreed update is rehearsed or delivered. Affected behavior, existing progress, and access are checked where relevant, and release notes and help reflect the change. | [link and status] |
-| 13 · Intake & Feedback | Intake channel, feedback review, and next scope decision | A real or rehearsal message can be received, recorded, and answered. The owner reviews available evidence and records what returns to Chapter 01, including a goal or a reason to hold scope. | [link and status] |
+| 12 · Multiplayer & Multi-user Support | Mode, shared rules, playable encounter, and hosting runbook or N/A | Players complete and retry the encounter on supported devices. Remote joining, shared outcomes, recovery, and any promised capacity or persistence have recorded evidence. | [link and status] |
+| 13 · Updates & DLC | Update approach and an example change | An agreed update is rehearsed or delivered. Affected behavior, existing progress, and access are checked where relevant, and release notes and help reflect the change. | [link and status] |
+| 14 · Intake & Feedback | Intake channel, feedback review, and next scope decision | A real or rehearsal message can be received, recorded, and answered. The owner reviews available evidence and records what returns to Chapter 01, including a goal or a reason to hold scope. | [link and status] |
 
 ## Turn this spec into tickets
 

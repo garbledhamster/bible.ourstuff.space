@@ -78,6 +78,10 @@ The [capture sheet](island-post/release-kit.md#capture-sheet) pairs the actual f
 
 **Clean checkout exercise.** Follow the [contributor exercise](island-post/operations.md#contributor-exercise) to build the site, change one Sandbox cue, and verify the result. The exercise keeps the movement and handoff rules in one place.
 
+## Multiplayer and Multi-user Support
+
+**N/A for the released Dock.** This release promises one courier and one delivery. No online server or split-screen mode is shipped. If co-op becomes part of a future scope, first prove two couriers completing separate deliveries and attempting simultaneous handoffs in the Sandbox. Joining, shared outcomes, disconnection, hosting, and capacity remain unverified for that proposal.
+
 ## Updates and DLC
 
 **Rehearsal.** The [update rehearsal](island-post/operations.md#update-rehearsal) tries a clearer puddle instruction in the built help and checks that pickup, wet handoff, Retry, and the dry detour still work. There are no saves or purchases in Dock 1.0. This exercise does not add a route or ship an expansion.

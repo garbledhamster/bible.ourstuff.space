@@ -63,6 +63,8 @@ As you work through the Bible, bring each reference back when you get to the dec
 
 ### First playable milestone and release scope
 
+Decide whether this release is single-player, local multiplayer, or online. When multiplayer belongs to the promise, name the player count and shared activity and carry a small two-player proof through the earlier chapters. Use [Multiplayer & Multi-user Support](#multiplayer--multi-user-support) for the mode, state, hosting, and recovery checks.
+
 Pick one part of the game that has a beginning, a decision, and an outcome the player can see. Write down the scenes and rules needed to get them through it, along with how they'll open the game. Keep the other ideas in the plan so you can come back to them after seeing how the first part plays.
 
 ### Open decisions
@@ -98,6 +100,10 @@ A mechanic is a rule we can put into play. I write down what the player starts w
 ### Screens, scenes, and dependencies
 
 For a site, outline the pages, what people can do on each one, and the content or systems they depend on. For a game, I give each scene a rough outline so I can see what it introduces and what the player should already know. The outline is also where I note which rules, art, and sounds that scene needs. When we sit down to assemble it, we can write the full scene script with its dialogue and transitions. By then we know which pieces we're putting together.
+
+### Personal and shared spaces
+
+If the game mixes private scenes with shared online spaces, write the transition as a rule: what carries across, who owns that state, and what happens if joining fails or a player leaves. For example, someone might leave a personal home for a shared adventure and return with an earned discovery. Their pause, dialogue, or return must have a defined effect on the other players. Use the [multiplayer chapter](#multiplayer--multi-user-support) to plan a small proof before building the rest of those scenes.
 
 ### Open design decisions
 
@@ -170,6 +176,12 @@ For a game like Island Post, I like the main screen to show the few things playe
 ### Turn the vision art into game assets
 
 Bring the actual Vision & Scope art and the UI & UX sketches into this chapter. For each main asset in the playable scope, identify the reference, make or import the runtime file, and embed an image showing the result. The asset list should name the scene, source, file the engine loads, and what passed or still needs work. For a game, include the main environments, characters, props, and interface states. Try them in the real engine at play size. Check that the character reads against the room, that interactive props line up with their controls, and that the art fits the chosen perspective and palette.
+
+### Build the sprite sheet and animation map
+
+For an animated character, list the actions and directions the scene needs before making the sheet. Use one chosen character frame as the visual reference, then create each animation as a coherent strip with consistent proportions, palette, and foot position. Keep the original source and export a transparent fixed-cell sheet or an atlas with frame metadata. A pose collection with uneven spacing needs an atlas or normalization before the engine can animate it reliably.
+
+Follow the [sprite sheet workflow](sprite-sheets.md) to record frame names or indices, playback speed, looping, anchor, and collision shape. Load it as an animated Sprite, connect actions to the actual movement rules, and inspect the loop at game size. Check every required direction, stopping, turning, blocked movement, and transitions. Embed the sheet and a captured in-game result in this chapter; link the same files from the Sandbox. An attractive sheet is an asset draft until those checks pass.
 
 ### Create and wire the interface assets
 
@@ -486,6 +498,59 @@ Start from a clean checkout and change one cue in the Sandbox. Rebuild, play the
 ### Complete when
 
 A new contributor can follow the guide, make a small change from a clean starting point, and show how they checked it.
+
+## Multiplayer & Multi-user Support
+
+I want two people to be able to get into the same game, understand what they can do together, and finish something worth playing. That might mean sharing a screen on the couch, competing from separate computers, or meeting in a world that keeps running when they leave. Choose the experience first, then build the smallest version that proves it.
+
+### Carry multiplayer through the earlier chapters
+
+This chapter sits after Contributor Training and before Updates & DLC. If multiplayer belongs to the vision, work its requirements into the earlier chapters and prove one two-player encounter in the Development Sandbox before assembling the full game. Finish the hosting and operating work here, and repeat the release checks before publishing multiplayer. A game whose main promise depends on other players needs that evidence before its first release.
+
+In Vision & Scope, choose player count, local or online play, cooperation or competition, and whether progress persists. In Design Document, name who owns shared rules, player identity, world state, and rewards. In UI & UX Design, sketch joining, player-specific controls and cameras, leaving, and reconnecting. In Engine & Assets, keep input, game rules, networking, and rendering separate enough to run the same encounter with two players. In the Sandbox, try simultaneous actions and a dropped connection. Keep each decision and result in its owning chapter, linked from here.
+
+For a single-player release, record that choice and mark this chapter N/A. Possible future multiplayer is a reason to keep the rules understandable; it does not require building unused server infrastructure.
+
+### Choose the mode and prove one encounter
+
+| Mode | First thing to build | Evidence to keep |
+| --- | --- | --- |
+| Shared screen or split screen | Two input assignments, one simulation, shared or separate cameras and HUDs | Both players can join, act independently, finish, and restart without controlling each other |
+| Online co-op / PvE | A room with two players and one shared objective or server-controlled opponent | Both clients see the same outcome, including when actions arrive together |
+| Online PvP | A room with server-validated movement, hits, scoring, and round reset | Both clients agree on the winner; forged or repeated requests cannot create extra rewards |
+| Persistent shared world | A small zone, accounts, saved progress, and a safe zone transition | Players leave and return with correct state; a server restart and restore preserve promised progress |
+
+Build only the modes in scope. A two-player room is a useful starting point for a shared world, but it does not establish MMO capacity. Measure the population, update rate, and world size the release promises before advertising them.
+
+### Keep the shared game on the server
+
+For an online action game, clients send intentions such as moving left or attempting an interaction. The server checks them against the game rules and owns the resulting coordinates, health, inventory, scores, and shared outcomes. Give each player and object a stable ID. Keep connection IDs separate from persistent account IDs. Let clients draw the latest authorized state, smoothing remote movement where needed. If local movement is predicted, reconcile it against server results.
+
+Write down world units, coordinate origin, map or zone ID, collision rules, simulation rate, and which information each client receives. Keep private information private. Save durable progress at defined boundaries; live coordinates can stay in memory between saves. A dropped connection should stop stale movement, release or reserve the player slot according to the reconnect rule, and never award a transaction twice.
+
+For a browser game using TypeScript, I recommend evaluating an established authoritative room server before writing a custom protocol. [Colyseus's Phaser walkthrough](https://docs.colyseus.io/learn/tutorial/phaser/basic-player-movement) is one starting point. Pin compatible engine, server, and client SDK versions in the project and check their current APIs before copying examples. Local split screen can use the same game rules without a network service.
+
+### Host locally, then move the same encounter online
+
+Follow the [multiplayer hosting walkthrough](multiplayer-hosting.md). First prove two clients on one computer, then two real devices on the local network. For invited remote players, reuse the project's existing private VPN when available and verify the join path from outside the host's network. Document who starts the server, what address players use, what happens when the host sleeps or quits, and how access is removed.
+
+When the game needs an always-on public host, choose a region, capacity, budget, and operator. Deploy the same tested server version, configure encrypted connections and persistent storage where needed, then connect the game to its new endpoint. Keep the setup, health check, logs, restart, backup, restore, update, and shutdown steps in a project runbook. Verify a real remote join before saying hosting works.
+
+### Test the game people will share
+
+Give the Sandbox named cases for independent controls, simultaneous actions, joining late, full rooms, leaving, reconnecting, server restart, and latency. Check the actual player count and devices promised. For split screen, check each camera and HUD at the smallest supported size, controller disconnects, and pause behavior. For online games, verify invalid movement, duplicate requests, unauthorized room access, and incompatible client versions. Persistent worlds also need a save-and-restore rehearsal, zone handoff, and load evidence. Public chat or player-created content needs reporting and moderation appropriate to that feature.
+
+Keep a record with client and server revisions, devices, network conditions, participants, expected and observed outcomes, and remaining failures. Two tabs help debug; they do not replace a separate-device test. Give a newcomer the joining instructions and observe them joining, completing the encounter, leaving, and returning without coaching.
+
+### Island Post example
+
+The shipped Dock is single-player. Multiplayer is N/A for that release. A possible future co-op slice would give two couriers one delivery each and test simultaneous handoffs. That is a proposal, with no multiplayer implementation or hosting evidence yet.
+
+[Read the example's scope decision](island-post-example.md#multiplayer-and-multi-user-support)
+
+### Complete when
+
+Every multiplayer mode promised for the release is playable from joining through a complete encounter and recovery on the intended devices and network. The recorded checks pass for shared outcomes, access, disconnects, and any persistent progress. Another person can follow the hosting runbook, check the service, and recover it. Claims about cloud hosting, player capacity, and persistence each have their own evidence. Otherwise keep the failed or unverified check open, or record N/A with the single-player scope decision.
 
 ## Updates & DLC
 

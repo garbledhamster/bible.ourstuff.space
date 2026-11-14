@@ -6,6 +6,8 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
 - [Project Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Project Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
+- [Sprite sheet workflow](sprite-sheets.md) — turn the chosen character into action/direction animations and verify them in the engine.
+- [Multiplayer hosting walkthrough](multiplayer-hosting.md) — local players, private remote joins, cloud deployment, and operating checks.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
 - [Preset ticket list](game-tickets/index.html) — browse the starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.

@@ -90,6 +90,13 @@ const chapters = [
     'Link the rules and assets they need.',
     'Have them run the checks and save the result.',
   ], 'Try the contributor exercise'],
+  ['Multiplayer & Multi-user Support', 'multiplayer-and-multi-user-support', [
+    'Choose shared screen, split screen, or online play.',
+    'Carry shared rules and a two-player proof from early chapters.',
+    'Finish an encounter with independent players and shared outcomes.',
+    'Verify local joining, remote hosting, and recovery in scope.',
+    'Record capacity, persistence, and operating evidence.',
+  ], 'Read the single-player scope decision'],
   ['Updates & DLC', 'updates-and-dlc', [
     'Describe the change, who gets it, and how it ships.',
     'Repeat the affected Sandbox and scene checks.',

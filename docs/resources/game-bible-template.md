@@ -9,7 +9,7 @@ For each chapter, record the input from the previous chapter, what you made, wha
 ## Vision and Scope
 - Project folder and Git repository, including the remote and visibility if used:
 - README folder map and first saved planning commit:
-- Player promise, intended audience, and platforms:
+- Player promise, intended audience, platforms, and single-player or multiplayer scope:
 
 ### Visual Vision
 
@@ -52,6 +52,8 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Vision or UI reference → authored runtime file → scene or state → result at play size. Embed the source images and representative engine capture.
 - Asset locations and readiness:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
+
+- Animated characters: source frame, embedded sheet, cell size or atlas, action/direction frame map, timing, anchor, collision shape, and in-engine checks. Use the [sprite sheet workflow](sprite-sheets.md).
 
 ## Audio Engineering
 
@@ -110,6 +112,16 @@ Copy these prompts for each workflow you want to showcase.
 ## Contributor Training
 - Setup, first task, and verification instructions:
 - Decisions and references a contributor needs:
+
+## Multiplayer and Multi-user Support
+- Scope: single-player / shared screen / split screen / online co-op / PvP / persistent world; player count and targets:
+- Earlier chapter decisions and two-player Sandbox evidence, or N/A with reason:
+- Shared rules, identity, state ownership, coordinates, persistence, and reconnect behavior:
+- Independent input, cameras, HUD, join/leave flow, and complete encounter:
+- Local, private remote, and cloud join instructions; pinned versions and verified endpoints:
+- Hosting owner, budget, health/logs, restart, backup/restore, updates, and shutdown runbook:
+- Separate-device, simultaneous-action, disconnect, invalid-input, and capacity results:
+- Build/server revision, observed result, remaining failures, and next check:
 
 ## Updates and DLC
 - Proposed changes, affected players, and release approach:
