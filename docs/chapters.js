@@ -280,6 +280,7 @@ for (const [number, [title, slug, steps]] of panels.entries()) {
 }
 
 function renderPanelPosition() {
+  position.parentElement.dataset.chapter = panels[current][1];
   position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`;
   previous.disabled = current === 0;
   next.disabled = current === panels.length - 1;

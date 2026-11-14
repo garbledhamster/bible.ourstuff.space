@@ -444,7 +444,6 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   background: var(--cover);
   border-color: var(--cover-ink);
 }
-#chapter-dialog .close:hover { background: color-mix(in srgb, var(--cover) 85%, var(--cover-ink)); }
 #chapter-dialog .close:focus-visible { outline-color: var(--cover-ink); }
 .chapter-detail-body {
   min-height: 0;
@@ -499,7 +498,6 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   font-size: 13px;
   font-weight: 650;
 }
-.chapter-dialog-navigation button:hover:not(:disabled) { text-decoration: underline; }
 .chapter-dialog-navigation button:disabled { opacity: .4; cursor: default; }
 @media (max-height: 520px) {
   .chapter-actions { margin-top: 5px; }

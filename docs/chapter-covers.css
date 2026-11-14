@@ -18,3 +18,37 @@
 .rail { grid-template-rows: auto minmax(0, 1fr); }
 .chapter { display: grid; grid-row: span 2; grid-template-rows: subgrid; }
 .chapter > .chapter-cover { justify-content: flex-start; }
+
+/* Reader controls use the chapter palette and leave reading text selectable. */
+button, .chapter-link, .chapter-choice {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:is(.navigation, #chapter-dialog) button:not(:disabled):hover,
+.chapter > .chapter-cover .chapter-link:hover {
+  background: var(--cover, var(--lime));
+  color: var(--cover-ink, #232030);
+}
+
+#chapter-dialog .chapter-cover button.close:hover,
+.chapter > .chapter-cover .chapter-link:hover {
+  background: color-mix(in srgb, var(--cover) 84%, var(--cover-ink));
+}
+
+:is(.navigation, #chapter-dialog) button:not(:disabled):active,
+#chapter-dialog .chapter-cover button.close:active,
+.chapter > .chapter-cover .chapter-link:active {
+  background: var(--cover-ink, #232030);
+  color: var(--cover, var(--lime));
+}
+
+.chapter-dialog-navigation button,
+.chapter > .chapter-cover .chapter-link {
+  border-radius: 6px;
+}
+
+.chapter-dialog-navigation button:focus-visible {
+  outline-color: var(--cover);
+}
