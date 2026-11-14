@@ -15,3 +15,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T12:11:01-06:00 · Joe · Project records and demo
 
 **Paraphrase.** Keep every piece of feedback in a chronological log with the time it was entered. Keep a changelog for every project and show how it works in the Bible itself. Give Island Post its own Demo page so people who clone the Bible can find the tutorial guidance and the worked example separately.
+
+### 2026-11-14T12:15:38-06:00 · Joe · Art style selection
+
+**Paraphrase.** Show six art styles on one sheet so the creator can pick a direction, then narrow the next sheet toward the style they envision. [Vision & Scope](game-bible-guide.md#vision--scope)

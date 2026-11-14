@@ -17,7 +17,7 @@ Link the creator’s confirmed moment and the scope decision Design Document wil
 ### Visual Vision
 
 - Ask the creator, “Picture one moment that shows what you're trying to make. What do you see in your mind’s eye?” Save their description of one scene or screen and any references, with the details they want to carry forward.
-- Make and show a rough image. Ask what feels right and what they'd change, then revise and show it again until they say it feels like what they pictured.
+- Show one sheet with six labeled art styles for the same scene. Record what the creator picked and why. Make the next six-panel sheet with variations on that direction until the creator confirms the look. Link the sheets, feedback, and approved style.
 - Embed the chosen image and record the details to carry into UI & UX Design and Engine & Assets. If you pause before the creator confirms it, mark the latest image as a draft and record what still needs their reaction.
 
 ### Research and Source Collection

@@ -56,7 +56,7 @@ A phone and a desktop can deliver the same experience with different controls. I
 
 Ask the creator, “Picture one moment that shows what you're trying to make. What do you see in your mind’s eye?” Start with their description of a scene in the game or a screen in the software. Ask which details give it the feeling they want. If they bring a reference, ask what they see in it that belongs in their project.
 
-Make one rough image of that scene or screen and show it to the creator. Ask what feels right and what they'd change. Revise the image from their feedback and show it again. Keep going until they say it feels like what they pictured.
+Show the creator one sheet with six labeled art-style panels. Use the same scene, characters, and action across the panels so they can compare how each style feels in the game. Ask them which direction they want and what they would keep or change. Make another six-panel sheet with variations closer to that direction. Repeat until the look matches what they pictured. Save the sheets, feedback, and chosen style in the project Bible.
 
 Embed the chosen image in this chapter beside the creator's description and the details they want to carry forward. If the conversation pauses, save the latest image as a draft and record what still needs their reaction. Use the chosen image as a reference when you sketch the interface and make the assets.
 

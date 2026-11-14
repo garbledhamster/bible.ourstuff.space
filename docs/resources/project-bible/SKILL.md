@@ -17,7 +17,7 @@ In a project reader, use **Project Bible** as the main heading and put the proje
 ## Work the chapter
 
 1. Identify the project, release scope, and active chapter from the user's request and project records. Resume from the last recorded decision or check. For a new project, start with Vision & Scope and the [Bible template](../game-bible-template.md).
-2. In Vision & Scope, begin [research and source collection](../game-bible-guide.md#vision--scope) during kickoff. Record what you reviewed, what it tells you, and which open decisions it informs. Start with the project's own material and gather examples from Similar Projects alongside it.
+2. In Vision & Scope, begin [research and source collection](../game-bible-guide.md#vision--scope) during kickoff. Record what you reviewed, what it tells you, and which open decisions it informs. Start with the project's own material and gather examples from Similar Projects alongside it. Compare art styles with a single six-panel sheet showing the same scene, then make another sheet closer to the creator’s choice. Record the sheets and approved direction in Vision & Scope.
 3. Use the active chapter to identify the decision or artifact and what proves it.
    - Use Grill with Docs to work through a decision with the project owner.
    - Bring in [Wayfinder](../game-development-playbook.md#work-through-open-decisions) when related questions span sessions or block other decisions. Link one map from the project Bible.
