@@ -53,7 +53,7 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Asset locations and readiness:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
 
-- Animated characters: source frame, embedded sheet, cell size or atlas, action/direction frame map, timing, anchor, collision shape, and in-engine checks. Use the [sprite sheet workflow](sprite-sheets.md).
+- Animated characters: source frame, embedded sheet, cell size or atlas, common action checklist and two or three personal idle habits; action/direction frame map, trigger/delay, interruption, return pose, anchor, collision shape, and in-engine checks. Track each required action as Needed, Drawn, Wired, or Verified. Use the [sprite sheet workflow](sprite-sheets.md).
 
 ## Audio Engineering
 
