@@ -16,6 +16,12 @@ Embed every image generated for the project in the chapter where it was made or 
 
 ## Vision & Scope
 
+### What to carry forward
+
+1. Start with the creator’s sources and any feedback from the previous release. Agree on one moment the audience should experience.
+2. Save the player promise, chosen visual direction, target, scope, and the first playable milestone. Describe a result that would make you reconsider the scope.
+3. Ask the creator to walk through the moment and confirm what belongs in it. Link the agreed brief and visual to Design Document. Resolve a mismatch here before handing off.
+
 ### Kick off the project
 
 Start each new Project Bible with Vision & Scope. If you're working with an agent, use Project Bible and Grill with Docs together. Read the project notes and check the repository first, then use the chat pop-out to work through decisions in rounds. Put the recommended choice first and explain what each realistic option changes. Ask the next set of questions after the answers it depends on are in.
@@ -91,6 +97,12 @@ I can see the visual direction the creator confirmed and read which details they
 
 ## Design Document
 
+### What to carry forward
+
+1. Take the chosen moment and release scope from Vision & Scope.
+2. Write a walkthrough with the player’s choices, rules, feedback, outcomes, and recovery. List the pieces the moment needs.
+3. Play it through on paper, including a miss and a retry where they apply. Link the walkthrough to UI & UX Design. Return to Vision & Scope if the choice no longer serves the promise.
+
 Once I know what I want someone to get out of a project, I write down what they'll actually do. For a website, that could mean finding a resource from the home page, opening it, and getting back to where they started. If I hand an agent the idea for a delivery game, it still has to guess when a parcel gets wet or what the player sees when that happens. We can work through those details on paper and then see how they feel in the sandbox.
 
 ### Core workflow and intended experience
@@ -126,6 +138,12 @@ Stepping into the puddle soaks the parcel on that move. The parcel icon changes 
 I can follow a task or turn through the document, try a rule and know what to look for, and find the screens or scenes that depend on it. Each open decision has a way to get an answer.
 
 ## UI & UX Design
+
+### What to carry forward
+
+1. Take the actions, decisions, and feedback from the walkthrough.
+2. Make a sketch or prototype for the supported screens and inputs. Mark the cues and artwork needed for each state.
+3. Walk the task and its recovery at the smallest target size. Save the prototype and what you saw. Send the asset list to Engine & Assets and return rule changes to Design Document.
 
 When I look at a screen, I want everything on it to feel like it was meant to be there. If someone needs to check their progress, change something, or try again, put that within reach at the moment they need it. Start with what they came to do. Then look at where their eyes go, what feels natural to click or tap, and what tells them the action worked.
 
@@ -164,6 +182,12 @@ The parcel status stays above the map. After a wet handoff, Retry takes the plac
 We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We’ve named the artwork and states each control or frame needs. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
 
 ## Engine & Assets
+
+### What to carry forward
+
+1. Take the visual direction and the assets and states named by Design Document and UI & UX Design.
+2. Make the smallest engine-ready set that can show the interaction. For usable scenery, keep a spreadsheet and load the independent objects alongside the character’s matching actions.
+3. Launch a clean checkout and capture the pieces at game size. Link the inventory and runnable files to Development Sandbox and the scene events to Audio Engineering. Revisit the visual direction or UI sketch if the pieces no longer fit.
 
 I want to get a piece of the game running while the setup is still easy to change. A little map with a character and one object can tell me whether the engine can handle our controls and give the player the feedback we want. Once I can see that interaction, I have something to build the rest of the assets around.
 
@@ -214,6 +238,12 @@ The Dock uses Phaser 4.2.1 and illustrated sprites for the courier, Mina, and th
 Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The main runtime assets for the current playable scope come from its visual references, load in the engine, and appear in the chapter with the observed results. Resolve any missing main asset or failed fit before handing the scene to Development Sandbox. Track smaller remaining assets with their next check.
 
 ## Audio Engineering
+
+### What to carry forward
+
+1. Take the representative encounter and its events from Design Document and the runnable engine slice.
+2. Produce the cue list, representative mix, and settings, or record the decision to use silence. Link any source recordings and their permissions.
+3. Try the same encounter with sound on and off, including interruption and exit. Send the cue files, inputs, and repeatable listening case to Development Sandbox. Return missing visual feedback to UI & UX Design.
 
 Play one short scene and listen for what the player needs to hear. In a fishing game, I'd start with the tap on the line, the moment you can set the hook, and the splash when the fish comes up. A little wind can give you the feeling of sitting on the lake. Keep it low enough that you can still hear the bite on a phone.
 
@@ -318,6 +348,12 @@ The release has a music plan, including a decision to go without music if that s
 
 ## Development Sandbox
 
+### What to carry forward
+
+1. Bring in the actual rules, runtime art, controls, and sound for the playable scope.
+2. Make named, resettable cases that let a contributor exercise these pieces with normal game input. Include failure and recovery wherever the rules allow them.
+3. Record the observed result at play size with the build, target, and captures. Send passing case links to Scene Scripts & Playtests. Return a failed case to the chapter that owns the rule, asset, cue, or control.
+
 While I'm preparing the release, I build one dedicated scene for development before I start assembling the scenes a player will go through. That's the sandbox. I want the mechanics, assets, controls, objects, and outcomes for this release within reach in that one scene. If I'm changing the way a wet parcel looks, I want to get straight to the puddle. The same goes for a menu, a piece of dialogue, or an object the player can use. I or an agent can try it, change something, and try it again.
 
 Make it a playable simulation for developers. I want to move through the sandbox, walk up to an object or control, and use it to trigger the game's behavior so I can see what a player would see. In a game with HP, I could walk up to a “Die” button and activate it. The game rules take my HP to zero and I see the actual death scene.
@@ -370,6 +406,12 @@ A contributor can open the dedicated sandbox, play every release mechanic and ea
 
 ## Scene Scripts & Playtests
 
+### What to carry forward
+
+1. Take the passing sandbox cases and the intended scene order from Design Document.
+2. Assemble one scene using those same pieces. Include its script, entry, consequences, recovery, and exit.
+3. Play the full scene, then give an intended player a neutral task and record what they do. Send the playable scene and findings to Build & Play the Game. Reproduce a failing component in the Sandbox before revising it.
+
 Once I've tried the pieces in the sandbox, I want to put them together and play one whole scene. The sandbox can show me the Retry button works. The scene tells me whether the player sees it when they're thinking about the delivery they just lost. That's why I like to finish a scene and watch someone play it before I build the next one.
 
 ### Scene script
@@ -396,6 +438,12 @@ A player can go from the start of the scene to an outcome, recover where they ne
 
 ## Build & Play the Game
 
+### What to carry forward
+
+1. Take the assembled scenes, applicable playtest fixes, and supported targets.
+2. Produce a versioned package or staged browser build and steps to get from a clean checkout to that build.
+3. Launch the exact candidate on each target and play the core route through its outcome. Link the build and results to Demo, Manual & Wiki. Send regressions back to the owning scene or component.
+
 Once I can play the scenes on their own, I want a build I can hand to somebody. I should be able to open it the way they will and get all the way through what we're releasing. It's easy to miss a map that never made it into the export when the engine has been loading it from your project folder the whole time.
 
 ### Build targets and steps
@@ -421,6 +469,12 @@ Open the Dock build in a fresh browser. Take the shortcut, retry the soaked deli
 I can repeat the build, open or install it on each target we're shipping, and play through the core loop. I have a record of the build that passed and can use it for the manual and screenshots.
 
 ## Demo, Manual & Wiki
+
+### What to carry forward
+
+1. Take the verified build and passing cases that show the player promise.
+2. Ship a small playable demo with help for completing, retrying, and leaving it. Capture the demonstrated build for the public walkthrough.
+3. Watch a new user follow the help and complete the demo. Send verified links and captures to Release, Pricing & Marketing. Fix an unclear cue in UI & UX Design or the scene when it affects the game too.
 
 Every project needs a demo people can try. Pick one useful thing someone can do from start to finish and use the controls, visuals, and rules they’ll meet in the project. I want someone to see what makes the project useful or fun and have a go at it themselves. That could mean delivering a parcel in a game, moving a card to Done on a sample task board, or finding and opening a resource on a website.
 
@@ -465,6 +519,12 @@ Record the passing sandbox cases and the release build, then watch a first-time 
 
 ## Release, Pricing & Marketing
 
+### What to carry forward
+
+1. Take the candidate, supported targets, verified demo, and help links.
+2. Prepare the delivery path, listing, and price or distribution decision for that candidate.
+3. Use the intended delivery path as a fresh player, including payment if required. Record candidate ID and observed results. Give Contributor Training the shipped setup and send build or access failures to their owners.
+
 I think about where a game might go and how people might pay for it while I'm working out the design. When it's time to release, I want those choices to match what we're actually ready to put in someone's hands. The page that gets them interested should give them a good idea of what they'll do after they click Play.
 
 ### Release scope, platform, price, and payment
@@ -491,6 +551,12 @@ The release candidate passes on the targets and access conditions we promised. A
 
 ## Contributor Training
 
+### What to carry forward
+
+1. Take the shipped setup and the chapter links for a real small change.
+2. Provide the setup instructions, a first task, and its sandbox and evidence links.
+3. Have someone start from a clean checkout, make the change, and repeat its check. Revise the instruction at the step where they get stuck. Use the verified path for multiplayer or update work.
+
 When I bring somebody into a project, I want to give them a real piece of the game to work on. I want the same thing when I'm handing it to an agent. If they can start the game, change something small, and show me what happened, I can see whether the project is set up for someone else to work in.
 
 ### Setup, first task, and verification
@@ -512,6 +578,12 @@ Start from a clean checkout and change one cue in the Sandbox. Rebuild, play the
 A new contributor can follow the guide, make a small change from a clean starting point, and show how they checked it.
 
 ## Multiplayer & Multi-user Support
+
+### What to carry forward
+
+1. Take the shared activity and player count from Vision & Scope and the state and transition rules from Design Document. Work the small proof early when the release needs multiplayer.
+2. Build the shared encounter and the hosting and recovery runbook for the current release, or record why it is out of scope.
+3. Have two clients join, act, observe the same outcome, and reconnect on the intended network. Link results to the release and Updates & DLC. Return state bugs to Design Document and reproduce them in the Sandbox.
 
 I want two people to be able to get into the same game, understand what they can do together, and finish something worth playing. That might mean sharing a screen on the couch, competing from separate computers, or meeting in a world that keeps running when they leave. Choose the experience first, then build the smallest version that proves it.
 
@@ -566,6 +638,12 @@ Every multiplayer mode promised for the release is playable from joining through
 
 ## Updates & DLC
 
+### What to carry forward
+
+1. Take a shipped revision, existing player state, and an agreed change.
+2. Build or rehearse a small update against the prior release. Prepare its delivery, recovery path, compatibility check, and release notes.
+3. Restart from an existing install or save and try the affected behavior and recovery. Link the verified change to Intake & Feedback. Reopen the affected sandbox or release check when something regresses.
+
 After a release, I want room to build more of the game. It could be a fix for people who already play or downloadable content (DLC) that gives them another part of it to explore. I work through the parts of the release process that the change touches, including what happens when somebody opens the new version with a game already in progress.
 
 ### Proposed changes, affected players, and release approach
@@ -591,6 +669,12 @@ In the rehearsal, try a clearer help instruction and repeat the wet handoff, Ret
 The update or rehearsal passes the checks it affects, including the relevant paths for existing players. The manual, wiki, and release notes describe what players get in that version.
 
 ## Intake & Feedback
+
+### What to carry forward
+
+1. Take the release and update records, the intended experience, and reports from players or a rehearsal.
+2. Keep one intake route and record the task, observed behavior, build, and follow-up for actionable reports.
+3. Walk a report from receipt to a reply and a scope decision. Send the decision and supporting evidence back to Vision & Scope for the next pass.
 
 Putting a game in front of people gives me a chance to see where their experience differs from what I pictured. Some people will play and tell me where they got stuck. Others might never make it past the page where I ask them to try it. I want a way to hear from both and bring something specific back to the next release.
 

@@ -13,6 +13,7 @@ Produce the main runtime assets for this playable scope from the vision and UI r
 - [ ] Launch from a clean checkout using the documented command.
 - [ ] Show one player action with visible feedback and real or representative assets.
 - [ ] Link each authored UI asset and its source to the control, frame, or state that uses it. Verify the representative assets load in the running build.
+- [ ] For usable scenery, record separate runtime assets and action fit in the inventory spreadsheet. Link the matching character poses and collision and interaction data.
 - [ ] Embed the generated images and an engine capture in Engine & Assets. Link each image to its reference, prompt or source, and runtime file.
 - [ ] Record what loaded and how it looked at play size. Resolve gaps in the main assets before handing them to the sandbox.
 

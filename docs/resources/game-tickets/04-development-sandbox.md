@@ -15,6 +15,7 @@ Build one dedicated development scene during preparation, before assembling the 
 - [ ] For games with NPCs, pick each release NPC from the roster and play every branch of their dialogue tree. Check which choices appear, what the character says, and what changes in the game.
 - [ ] Cover the other checks that apply to this release in the [Development Sandbox chapter](https://bible.ourstuff.space/read.html?file=%2Fresources%2Fgame-bible-guide.md#mechanics-and-other-checks).
 - [ ] Exercise the required UI artwork states with real controls and verify focus, readable labels, feedback, and recovery on the supported inputs.
+- [ ] For usable scenery, verify that placement, collision, and prompts move with the object. Capture the matching character pose at game size. Verify draw order and exit to movement.
 - [ ] Use a named starting state to open each case, then use Reset and play it again.
 - [ ] Record passing results for the required cases before assembling the player scenes.
 

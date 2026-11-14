@@ -7,6 +7,9 @@ Next decision or check:
 For each chapter, record the earlier input, the expected player experience or decision, and the output someone can open or run. Link the completion check, what you observed, and the build and target when applicable. Record the next unmet check and its owner. If a chapter does not apply to this release, record why. Embed generated images beside the decisions they illustrate. Include alt text, purpose, status, and a source or prompt link. Reuse the same files in later chapters.
 
 ## Vision and Scope
+
+Link the creator’s confirmed moment and the scope decision Design Document will use.
+
 - Project folder and Git repository, including the remote and visibility if used:
 - README folder map and first saved planning commit:
 - Player promise, intended audience, platforms, and single-player or multiplayer scope:
@@ -31,12 +34,18 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Open decisions and Wayfinder map link, if used:
 
 ## Design Document
+
+Link a walkthrough of the choice, outcome, and recovery. Name the cues UI & UX Design needs.
+
 - Core workflow and intended experience:
 - For each rule or interaction: input, rule, feedback, success, failure, and recovery:
 - Screens or scenes and their dependencies:
 - Open design decisions and links to any decision tickets:
 
 ## UI and UX Design
+
+Link the target-size check and the file or state list Engine & Assets will use.
+
 
 - Main workflow and what the person needs at each step:
 - Sketch or prototype at the intended screen sizes:
@@ -47,6 +56,9 @@ Include relevant open-source and closed-source games, apps, products, or service
 - For a live design decision, record the chosen behavior, reason, comparison evidence, and the sandbox or playtest check that follows:
 
 ## Engine and Assets
+
+Link the runnable slice and at-size capture for the Sandbox. Give Audio Engineering the scene events.
+
 - Engine and launch instructions:
 - Maps, characters, objects, interface, art, and sound:
 - Vision or UI reference → authored runtime file → scene or state → result at play size. Embed the source images and representative engine capture.
@@ -57,6 +69,9 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Animated characters: source frame, embedded sheet, cell size or atlas, common action checklist and two or three personal idle habits; action/direction frame map, trigger/delay, interruption, return pose, anchor, collision shape, and in-engine checks. Track each required action as Needed, Drawn, Wired, or Verified. Use the [sprite sheet workflow](sprite-sheets.md).
 
 ## Audio Engineering
+
+Link the mix or silence decision and the repeatable watching and listening check for the Sandbox.
+
 
 - What players should hear, what each cue communicates, and which feedback they need with sound off:
 - Cue list with game events, priority, playback and stop behavior, source masters, build assets, and rights or credits:
@@ -72,6 +87,9 @@ Include relevant open-source and closed-source games, apps, products, or service
 - If the release calls for silence, record the decision and how the player gets the feedback:
 
 ## Development Sandbox
+
+Link the passing cases a scene can reuse. Name each failure’s owning chapter and the affected scene.
+
 - Dedicated development scene to build before player-scene assembly:
 - Release mechanics, assets, controls, objects, and outcomes reachable from that scene:
 - Development entry point or test-build shortcut:
@@ -83,16 +101,25 @@ Include relevant open-source and closed-source games, apps, products, or service
 - Open failures and next checks:
 
 ## Scene Scripts and Playtests
+
+Link the playable scene, observed task, and retest for the next build.
+
 - For each scene: entry, player objective, actions, dialogue, outcomes, and transitions:
 - Mechanics and assets used:
 - Playtest criteria, observations, fixes, and result:
 
 ## Build and Play the Game
+
+Link the exact candidate, clean launch, and core playthrough evidence for the demo.
+
 - Startup scene, build targets, source revision, and build or export steps:
 - Versioned installer, app package, or staged browser build:
 - Clean install or fresh launch, core playthrough, and results by target:
 
 ## Demo, Manual and Wiki
+
+Link the demo, help, unprompted attempt, and captures for the release.
+
 
 Copy these prompts for each workflow you want to showcase.
 
@@ -107,15 +134,24 @@ Copy these prompts for each workflow you want to showcase.
 - Release check. Record the first-time user’s task, build, device, observations, and any checks to repeat.
 
 ## Release Pricing and Marketing
+
+Link the tested delivery path and candidate. Give Contributor Training the shipped setup.
+
 - Release scope, delivery platform, price, and payment:
 - Readiness checks and release evidence:
 - Store copy, screenshots, pitch scripts, and distribution links:
 
 ## Contributor Training
+
+Link the first-change exercise and a contributor’s result. Carry that setup into multiplayer or update work.
+
 - Setup, first task, and verification instructions:
 - Decisions and references a contributor needs:
 
 ## Multiplayer and Multi-user Support
+
+Link the two-client observation and recovery runbook for release and updates, or explain scope.
+
 - Scope: single-player / shared screen / split screen / online co-op / PvP / persistent world; player count and targets:
 - Earlier chapter decisions and two-player Sandbox evidence, or N/A with reason:
 - Shared rules, identity, state ownership, coordinates, persistence, and reconnect behavior:
@@ -126,11 +162,17 @@ Copy these prompts for each workflow you want to showcase.
 - Build/server revision, observed result, remaining failures, and next check:
 
 ## Updates and DLC
+
+Link the previous revision, update and compatibility result. Give Intake & Feedback the shipped change.
+
 - Proposed changes, affected players, and release approach:
 - Sandbox, scene, and compatibility checks:
 - Manual, wiki, and release note updates:
 
 ## Intake and Feedback
+
+Link the report, response, and next scope decision back to Vision & Scope.
+
 - Who we want to hear from, including prospects, current players, and customers:
 - Where feedback comes in and how we ask for it:
 - Who reads each channel, replies, and follows up:

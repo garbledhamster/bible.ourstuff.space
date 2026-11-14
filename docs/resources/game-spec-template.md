@@ -41,14 +41,14 @@ Use automation for rules and regressions that can be checked reliably. Use a rea
 
 ## Chapter completion plan
 
-Replace the starter criteria with measurable checks for this game. Add the evidence link and result as work finishes. Use the same chapter numbers in the tickets.
+Replace the starter criteria with measurable checks for this game. Use **What to carry forward** in each [guide chapter](game-bible-guide.md) to find its input and decide who needs its result next. Add the artifact, evidence link, actual result, and next owner as work finishes. Use the same chapter numbers in the tickets.
 
 | Chapter | Output for this release | Starter completion check | Evidence and status |
 | --- | --- | --- | --- |
 | 01 · Vision & Scope | Git repository, folder map, player promise, audience, target, smallest release | The planning notes are in Git and a contributor can find the source, assets, and docs. The owner can name who the game is for, what a player can complete, and what the release includes. Scope decisions that block design are resolved. | [link and status] |
 | 02 · Design Document | Core workflow, rules, failure and recovery, screens or scenes | Each rule in scope has an observable expected result, and each screen or scene names what it needs. | [link and status] |
 | 03 · UI & UX Design | Core workflow sketch or prototype and project interface standards | The next action, status, and recovery are visible where needed on intended screen sizes. List UI artwork and its states. Record how you’ll check accessibility, supported inputs, and unprompted task completion. | [link and status] |
-| 04 · Engine & Assets | Runnable project and assets for the next slice | A contributor can launch a clean checkout on the target and see one real interaction with its representative assets. Link the authored UI files and the states they serve. | [link and status] |
+| 04 · Engine & Assets | Runnable project, runtime assets, and an editable asset inventory for interactive objects | Launch a clean checkout on the target and see one real interaction at play size. Link separate object assets, their matching character actions, and the authored UI files and states. | [link and status] |
 | 05 · Audio Engineering | Music plan or decision to go without music, cue list, representative mix, settings, and listening record | Play one encounter on target devices with sound on and off. Verify cue timing, priorities, mute, and loop cleanup. If the release calls for silence, record the decision and verify the other feedback. | [link and status] |
 | 06 · Development Sandbox | One dedicated development scene with cases and results for the release’s mechanics, assets, controls, objects, and outcomes | A contributor can play every release mechanic and the applicable sandbox checks through the actual game rules. For games with NPCs, the roster picker gives access to every dialogue branch for each release NPC. Verify the outcomes and reset to named starting states before player-scene assembly. | [link and status] |
 | 07 · Scene Scripts & Playtests | Scene scripts, playable scenes, and playtest notes | Each scene can be played from entry to outcome on its intended controls. Transitions and recovery pass, and a playtest checks the intended experience. | [link and status] |

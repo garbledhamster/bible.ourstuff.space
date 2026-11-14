@@ -42,7 +42,7 @@ const chapters = [
   ['Engine & Assets', 'engine-and-assets', [
     'Record the engine, targets, and launch command.',
     'Run one interaction with representative assets.',
-    'List the art, sound, and controls each scene needs.',
+    'Make usable scenery as separate objects and keep an asset spreadsheet.',
     'Link the artwork and states to the controls that load them.',
   ], 'Inspect the art and asset ledger'],
   ['Audio Engineering', 'audio-engineering', [
@@ -56,6 +56,7 @@ const chapters = [
   ['Development Sandbox', 'development-sandbox', [
     'Give developers a separate launch path.',
     'Make each mechanic playable from a named start.',
+    'Check object scale, collision, and pose fit before scene assembly.',
     'Add a roster and test each NPC outcome.',
     'Reset each case and record results on target inputs.',
     'Log failures and the checks to repeat.',
