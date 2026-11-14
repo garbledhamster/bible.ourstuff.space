@@ -57,16 +57,18 @@ export async function startReader() {
   const path = reader.searchParams.get('file');
   const article = document.querySelector('#document');
   const download = document.querySelector('#download');
+  let markdown;
   try {
     if (!path) throw new Error('Missing file');
     const source = new URL(path, reader);
     if (source.origin !== reader.origin || !readable.test(source.pathname)) throw new Error('Unsupported file');
-    const response = await fetch(source, { redirect: 'error' });
+    const response = await fetch(source, { redirect: 'error', cache: 'no-cache' });
     if (!response.ok) throw new Error(`Request failed: ${response.status}`);
     const contents = await response.text();
     const filename = decodeURIComponent(source.pathname.split('/').at(-1));
     if (/\.md$/i.test(source.pathname)) {
       article.innerHTML = renderMarkdown(contents, source, reader);
+      markdown = contents;
     } else {
       const pre = document.createElement('pre');
       pre.textContent = contents;
@@ -97,4 +99,5 @@ export async function startReader() {
     article.textContent = 'This file couldn’t open. Check the link or go back to the Bible.';
   }
   article.removeAttribute('aria-busy');
+  return markdown;
 }

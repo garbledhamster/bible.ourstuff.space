@@ -2,12 +2,14 @@
 
 import argparse
 from functools import partial
+from hashlib import sha256
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
 from pathlib import Path
 import re
 import subprocess
+from tempfile import NamedTemporaryFile
 import threading
 from urllib.parse import unquote, urlsplit
 from urllib.request import urlopen
@@ -16,6 +18,9 @@ RELEASE_URL = "https://bible.ourstuff.space/version.json"
 UPSTREAM = "https://github.com/garbledhamster/bible.ourstuff.space.git"
 ASSETS = Path(__file__).resolve().parent
 API = "api/bible-update"
+TASK_API = "api/task-list"
+TASK_LIMIT = 128 * 1024
+TASK_LOCK = threading.Lock()
 REVISION = re.compile(r"[0-9a-f]{40}")
 
 
@@ -99,9 +104,10 @@ class SharedBible:
 
 
 class ReaderHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, readers=None, mounts=None, **kwargs):
+    def __init__(self, *args, readers=None, mounts=None, task_lists=None, **kwargs):
         self.readers = readers or {}
         self.mounts = mounts or {}
+        self.task_lists = task_lists or {}
         super().__init__(*args, **kwargs)
 
     def list_directory(self, path):
@@ -112,8 +118,11 @@ class ReaderHandler(SimpleHTTPRequestHandler):
         decoded = unquote(urlsplit(path).path)
         if any(segment.startswith(".") for segment in decoded.split("/") if segment):
             return str(Path(self.directory) / ".unavailable-reader-path" / "missing")
-        if decoded in ("/_bible/updates.js", "/_bible/updates.css"):
+        if decoded in ("/_bible/updates.js", "/_bible/updates.css", "/_bible/task-list.js"):
             return str(ASSETS / decoded.rsplit("/", 1)[1])
+        for route, path in self.task_lists.items():
+            if decoded == route + "task-list.md":
+                return str(path)
         for route, target in self.mounts.items():
             if decoded == route:
                 return str(target)
@@ -141,7 +150,63 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             hosts.add(f"localhost:{port}")
         return self.headers.get("Host") in hosts
 
+    def task_list(self):
+        path = urlsplit(self.path).path
+        return self.task_lists.get(path[:-len(TASK_API)]) if path.endswith("/" + TASK_API) else None
+
+    @staticmethod
+    def task_snapshot(path):
+        data = path.read_bytes()
+        if len(data) > TASK_LIMIT:
+            raise ValueError("Task List is too large.")
+        return {"markdown": data.decode("utf-8"), "revision": sha256(data).hexdigest()}
+
+    def save_task_list(self, path):
+        if (not self.local_host()
+                or self.headers.get("Origin") != f'http://{self.headers.get("Host")}'
+                or self.headers.get("X-Bible-Task-List") != "1"
+                or self.headers.get_content_type() != "application/json"):
+            return self.respond(403, {"message": "Open the Task List in its private reader."})
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if not 0 < length <= 2 * TASK_LIMIT:
+                raise ValueError("Invalid request length")
+            self.connection.settimeout(5)
+            request = json.loads(self.rfile.read(length))
+            revision = request["revision"]
+            markdown = request["markdown"]
+            if (not isinstance(revision, str) or not re.fullmatch(r"[0-9a-f]{64}", revision)
+                    or not isinstance(markdown, str) or not markdown.startswith("# Task List\n")
+                    or "\x00" in markdown or len(markdown.encode("utf-8")) > TASK_LIMIT):
+                raise ValueError("Invalid Task List")
+        except (OSError, ValueError, TypeError, KeyError):
+            return self.respond(400, {"message": "This Task List could not be saved. Check the edit and try again."})
+        try:
+            with TASK_LOCK:
+                if self.task_snapshot(path)["revision"] != revision:
+                    return self.respond(409, {"message": "The Task List changed. Reload it before applying your edit."})
+                with NamedTemporaryFile(dir=path.parent, delete=False) as output:
+                    temporary = Path(output.name)
+                    try:
+                        output.write(markdown.encode("utf-8"))
+                        output.flush()
+                        temporary.chmod(path.stat().st_mode & 0o777)
+                        temporary.replace(path)
+                    finally:
+                        temporary.unlink(missing_ok=True)
+                return self.respond(200, self.task_snapshot(path))
+        except (OSError, ValueError):
+            return self.respond(503, {"message": "The project Task List is unavailable."})
+
     def do_GET(self):
+        task_list = self.task_list()
+        if task_list is not None:
+            if not self.local_host():
+                return self.respond(403, {"message": "Open the reader at its local address."})
+            try:
+                return self.respond(200, self.task_snapshot(task_list))
+            except (OSError, ValueError):
+                return self.respond(503, {"message": "The project Task List is unavailable."})
         bible = self.update_route()
         if bible is None:
             return super().do_GET()
@@ -153,6 +218,9 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return self.respond(503, {"message": "The shared Bible checkout is unavailable."})
 
     def do_POST(self):
+        task_list = self.task_list()
+        if task_list is not None:
+            return self.save_task_list(task_list)
         bible = self.update_route()
         if bible is None:
             return self.respond(404, {"message": "Unknown reader."})
@@ -187,6 +255,7 @@ def main():
     parser.add_argument("--directory", type=Path, required=True)
     parser.add_argument("--reader", nargs=2, action="append", metavar=("URL_PATH", "SHARED_CHECKOUT"), required=True)
     parser.add_argument("--mount", nargs=2, action="append", default=[], metavar=("URL_PATH", "LOCAL_PATH"))
+    parser.add_argument("--task-list", nargs=2, action="append", default=[], metavar=("URL_PATH", "MARKDOWN_FILE"))
     args = parser.parse_args()
     checkouts = {}
     readers = {}
@@ -196,7 +265,11 @@ def main():
             checkouts[path] = SharedBible(path)
         readers[route] = checkouts[path]
     mounts = {route: Path(directory).resolve() for route, directory in args.mount}
-    handler = partial(ReaderHandler, directory=str(args.directory.resolve()), readers=readers, mounts=mounts)
+    task_lists = {route: Path(path).resolve() for route, path in args.task_list}
+    if not task_lists.keys() <= readers.keys():
+        parser.error("--task-list must use an existing --reader URL path")
+    handler = partial(ReaderHandler, directory=str(args.directory.resolve()), readers=readers,
+                      mounts=mounts, task_lists=task_lists)
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         server.serve_forever()
 
