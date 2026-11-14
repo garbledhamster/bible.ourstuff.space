@@ -166,13 +166,15 @@ Link the two-client observation and recovery runbook for release and updates, or
 
 ## Updates and DLC
 
-Link the previous revision, update and compatibility result. Give Engagement the shipped change.
+Link the previous revision, update and compatibility result. Give Engagement and Feedback the shipped change.
 
 - Proposed changes, affected players, and release approach:
 - Sandbox, scene, and compatibility checks:
 - Manual, wiki, and release note updates:
 
-## Engagement
+## Engagement and Feedback
+
+### Engagement
 
 Once the release is built, decide how we'll keep talking with people who use it.
 
@@ -181,6 +183,10 @@ Once the release is built, decide how we'll keep talking with people who use it.
 - Where will we talk, in what format, and what will we use to help the conversation?
 - What prompts us to reach out, how often will we do it, and how much time can we give it?
 - Who reads replies and follows up, and when?
-- What did people say or do, and what should that inform in the next Vision & Scope?
+Link a conversation and follow-up, or a rehearsal.
 
-Link a conversation and follow-up, or a rehearsal, and any resulting scope decision.
+### Feedback
+
+- Project Feedback Markdown file:
+- What did people or agents say during development or after launch?
+- What follow-up or change to the project, process, or next scope did it inform?

@@ -438,7 +438,7 @@ Link the scene to its rules in the Design Document and to the art, sound, object
 
 Bring the player prediction from Vision & Scope and any early test from Design Document. Give an intended player a neutral task and let them try it before you explain the controls or the route. Note the build, device and input, what they did or said, and any help you gave. Then write down what you think explains the observation and what you'd keep, change, or test next. If they skip a branch, leave that observation open or run a separate check from that state.
 
-Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls when first impressions matter. They can show whether the change helped without remembering where you told the last player to look. Use [Game Quality Control](game-quality-control.md#set-the-bar) for the test criteria and [Engagement](#what-people-said-or-did) for the observation record.
+Once you change the scene, ask someone who hasn't seen it to try that part on the intended controls when first impressions matter. They can show whether the change helped without remembering where you told the last player to look. Use [Game Quality Control](game-quality-control.md#set-the-bar) for the test criteria and [Engagement & Feedback](#what-people-said-or-did) for the observation record.
 
 ### Island Post example
 
@@ -656,7 +656,7 @@ Every multiplayer mode promised for the release is playable from joining through
 
 1. Take a shipped revision, existing player state, and an agreed change.
 2. Build or rehearse a small update against the prior release. Prepare its delivery, recovery path, compatibility check, and release notes.
-3. Restart from an existing install or save and try the affected behavior and recovery. Link the verified change to Engagement. Reopen the affected sandbox or release check when something regresses.
+3. Restart from an existing install or save and try the affected behavior and recovery. Link the verified change to Engagement & Feedback. Reopen the affected sandbox or release check when something regresses.
 
 After a release, I want room to build more of the game. It could be a fix for people who already play or downloadable content (DLC) that gives them another part of it to explore. I work through the parts of the release process that the change touches, including what happens when somebody opens the new version with a game already in progress.
 
@@ -682,13 +682,15 @@ In the rehearsal, try a clearer help instruction and repeat the wet handoff, Ret
 
 The update or rehearsal passes the checks it affects, including the relevant paths for existing players. The manual, wiki, and release notes describe what players get in that version.
 
-## Engagement
+## Engagement & Feedback
 
 ### What to carry forward
 
 1. Start with what shipped, who it serves, and what people can do with it now.
 2. Make a plan for who will talk with people, why, and what those conversations will look like.
 3. Try one conversation and follow-up. Bring what you learn back to Vision & Scope when it informs the next release.
+
+### Part 1 · Engagement
 
 Once we've built the thing, I want to decide how I'll talk with the people who use it. I might check in with someone who just started, show a regular user something they can do with an update, or hear how people are making it part of what they already do. This chapter is about those ongoing conversations. Sales and marketing have their own chapter.
 
@@ -703,6 +705,12 @@ Pick a place they already use or can easily reach. Decide whether it makes sense
 ### When I'll reach out and how often
 
 Decide what starts the conversation, such as a first session, a shipped update, or a question somebody sends in. Set a frequency and amount of time I can keep up with. Name who reads replies, when they check, and who follows up. If someone else needs to help, keep track of who will get back to the person.
+
+### Part 2 · Feedback
+
+Keep a Feedback Markdown file with the project. Use it for what people and agents say during development and after launch, including feedback that comes in outside the engagement plan. Record the source, date, and the part of the project they were responding to. Quote their words when available or mark a summary as a paraphrase. Link any follow-up or decision to the entry so we can see what we heard and what we did about it.
+
+Use [Feedback](feedback.md) beside Joe’s Notes in Get Started for feedback about this shared Bible. Link each project's own Feedback file from its chapter.
 
 ### What people said or did
 
@@ -724,4 +732,4 @@ The first staged build stalled on startup. The intake rehearsal shows how that f
 
 ### Complete when
 
-The engagement plan names who talks with whom, why, about what, through which channels and formats, and when and how often. The owner has tried a conversation and follow-up, or rehearsed them if nobody is using the release yet. Record what the conversation suggests for the next scope decision.
+The engagement plan names who talks with whom, why, about what, through which channels and formats, and when and how often. The owner has tried a conversation and follow-up, or rehearsed them if nobody is using the release yet. Link the project's Feedback file and record what the feedback suggests for the project, the development process, or the next scope decision.

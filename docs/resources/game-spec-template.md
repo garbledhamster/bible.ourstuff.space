@@ -58,7 +58,7 @@ Replace the starter criteria with measurable checks for this game. Use **What to
 | 11 · Contributor Training | Setup, first change, and verification guide | Someone starting fresh can run the game and sandbox, make a representative change, and verify it using the guide. | [link and status] |
 | 12 · Multiplayer & Multi-user Support | Mode, shared rules, playable encounter, and hosting runbook or N/A | Players complete and retry the encounter on supported devices. Remote joining, shared outcomes, recovery, and any promised capacity or persistence have recorded evidence. | [link and status] |
 | 13 · Updates & DLC | Update approach and an example change | An agreed update is rehearsed or delivered. Affected behavior, existing progress, and access are checked where relevant, and release notes and help reflect the change. | [link and status] |
-| 14 · Engagement | Post-launch conversation plan and evidence | The owner records who to talk with, why, what to discuss, the channel and format, and the timing and frequency. Try a conversation and follow-up, then record what it informs for Chapter 01. | [link and status] |
+| 14 · Engagement & Feedback | Post-launch conversation plan and project Feedback notes | The owner records who to talk with, why, what to discuss, the channel and format, and the timing and frequency. Try a conversation and follow-up, link the project Feedback notes, and record what they inform for Chapter 01. | [link and status] |
 
 ## Turn this spec into tickets
 

@@ -58,12 +58,12 @@ const sections = chapters.map(chapter => {
   const tokens = marked.lexer(chapter);
   const slug = tokens[0].text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const previousSlugs = {
-    'engagement': 'intake-and-feedback',
+    'engagement-and-feedback': ['intake-and-feedback', 'engagement'],
     'design-document': 'game-design-document',
     'demo-manual-and-wiki': 'player-manual-and-wiki',
   };
-  const previousSlug = previousSlugs[slug];
-  const legacyAnchor = previousSlug ? `<span id="${previousSlug}"></span>` : '';
+  const legacyAnchor = [previousSlugs[slug] ?? []].flat()
+    .map(previousSlug => `<span id="${previousSlug}"></span>`).join('');
   return { slug, html: `<section id="${slug}">${legacyAnchor}\n${marked.parser(tokens)}</section>\n` };
 });
 if (Object.keys(guide).join() !== sections.map(section => section.slug).join()) {
