@@ -20,6 +20,8 @@
 dialog.bible-update {
   box-sizing: border-box;
   width: min(430px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
   padding: 26px 20px 20px;
   text-align: left;
 }
@@ -99,6 +101,11 @@ dialog.bible-update {
 }
 
 @media (max-height: 480px) and (min-width: 600px) {
+  dialog.bible-update { padding-block: 16px; }
+  .bible-update h2 { margin-bottom: 12px; }
+  .bible-update dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .bible-update [role="status"] { min-height: 0; }
+
   #references .bible-version { grid-row: 1; }
   #references:has(.bible-version) #reference-title { grid-row: 2; }
   #references:has(.bible-version) .reference-intro { grid-row: 3 / 6; }
