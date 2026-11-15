@@ -1,3 +1,18 @@
+@import url("./chapter-covers.css");
+
+:where(.chapter, .chapter-choice, #chapter-dialog) {
+  --cover: #c9bcfa;
+  --cover-ink: #30244e;
+}
+:is(#intake-and-feedback, [data-chapter="intake-and-feedback"]) {
+  --cover: #d9e894;
+  --cover-ink: #303910;
+}
+:is(#related-project-impression-king-website, [data-chapter="related-project-impression-king-website"]) {
+  --cover: #f5cba7;
+  --cover-ink: #452b24;
+}
+
 #chapter-dialog[open]:has(.chapter-work) {
   width: min(930px, calc(100% - 20px));
   grid-template-rows: auto auto minmax(0, 1fr) auto;
@@ -119,3 +134,21 @@
 .chapter-tasks > p:empty { display: none; }
 .task-conflict { grid-column: 1 / -1; overflow-wrap: anywhere; }
 
+
+/* Keep the reading surface light and carry the chapter color into its controls. */
+#chapter-dialog .chapter-work {
+  background: color-mix(in srgb, var(--cover, #efe5f6) 23%, white);
+  border-bottom-color: var(--cover, #e5dce9);
+}
+#chapter-dialog .chapter-work button[aria-pressed="true"] {
+  background: var(--cover, #efe5f6);
+  color: var(--cover-ink, #372044);
+}
+.artifact-media video {
+  display: block;
+  width: 100%;
+  max-height: min(37dvh, 320px);
+}
+.inline-media { display: block; margin-block: .4rem .7rem; }
+.inline-media audio { display: block; width: min(100%, 19rem); height: 36px; }
+.inline-media video { display: block; width: min(100%, 34rem); max-height: 48dvh; }

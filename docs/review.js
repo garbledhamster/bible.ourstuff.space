@@ -12,36 +12,51 @@ function button(label, action) {
   return control;
 }
 
-function audio(source) {
-  const player = element('audio');
-  player.controls = true;
-  player.preload = 'none';
-  player.src = source;
-  return player;
+function player(kind, source, title) {
+  const media = element(kind);
+  media.controls = true;
+  media.preload = 'none';
+  media.src = source;
+  media.setAttribute('aria-label', title);
+  if (kind === 'video') media.playsInline = true;
+  return media;
 }
 
 function artifacts(content) {
-  const images = [...content.querySelectorAll('img')].map(image => {
-    const node = image.closest('p') ?? image;
-    const caption = node.nextElementSibling?.querySelector('strong');
-    return {
-      title: caption?.textContent.replace(/\.$/, '') || image.alt,
-      caption: caption ? caption.parentElement.textContent.slice(caption.textContent.length).trim() : '',
-      media: image.cloneNode(), node,
-    };
-  });
-  const links = [...content.querySelectorAll('a')].filter(link => {
-    const url = new URL(link.href);
-    return /\.(pdf|xlsx|wav|mp3|mp4|webm)$/i.test(url.pathname)
-      || url.searchParams.has('sandbox')
-      || link.origin === location.origin && link.pathname.endsWith('/read.html') && !!url.searchParams.get('file');
-  }).map(node => {
+  const items = [];
+  for (const node of content.querySelectorAll('img, a[href]')) {
+    if (node.localName === 'img') {
+      const anchor = node.closest('p') ?? node;
+      const caption = anchor.nextElementSibling?.querySelector('strong');
+      items.push({
+        title: caption?.textContent.replace(/\.$/, '') || node.alt || 'Image',
+        caption: (caption && caption.parentElement.textContent.slice(caption.textContent.length).trim())
+          || node.title || (caption && node.alt) || 'Chapter image.',
+        media: node.cloneNode(), node: anchor,
+      });
+      continue;
+    }
+    if (node.querySelector('img')) continue;
     const url = new URL(node.href);
-    const media = /\.(wav|mp3)$/i.test(url.pathname) ? audio(url.href) : node.cloneNode(true);
-    if (media.localName === 'a') media.className = 'artifact-document';
-    return { title: node.textContent, caption: node.title, media, node };
-  });
-  return [...images, ...links];
+    if (!['http:', 'https:'].includes(url.protocol)) continue;
+    const kind = /\.(wav|mp3|m4a|aac|oga|flac|ogg)$/i.test(url.pathname) ? 'audio'
+      : /\.(mp4|webm|ogv|m4v)$/i.test(url.pathname) ? 'video' : null;
+    const filename = url.pathname.split('/').at(-1);
+    const title = node.textContent.trim() || filename || 'Chapter artifact';
+    if (kind) {
+      const inline = element('span', 'inline-media');
+      inline.append(player(kind, url.href, title));
+      node.after(inline);
+      items.push({ title, caption: node.title || (kind === 'audio' ? 'Audio file: ' : 'Video file: ') + filename, media: player(kind, url.href, title), node });
+    } else if (/\.(pdf|xlsx)$/i.test(url.pathname)
+      || url.searchParams.has('sandbox')
+      || (url.origin === location.origin && url.pathname.endsWith('/read.html') && url.searchParams.has('file'))) {
+      const media = node.cloneNode(true);
+      media.className = 'artifact-document';
+      items.push({ title, caption: node.title || 'Linked chapter resource.', media, node });
+    }
+  }
+  return items;
 }
 
 export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
@@ -56,17 +71,20 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
   const selections = new Map();
   const taskViews = new Map();
   let view, slug, review, tasks;
-  const pause = () => body.querySelectorAll('audio, video').forEach(media => media.pause());
+  const pause = (except) => body.querySelectorAll('audio, video').forEach(media => {
+    if (media !== except) media.pause();
+  });
+  body.addEventListener('play', event => pause(event.target), true);
 
   function show(next) {
     if (!review || !body.contains(review)) return;
+    if (view !== next) pause();
     view = next;
     review.hidden = view !== 'review';
     tasks.hidden = view !== 'tasks';
     reviewButton.setAttribute('aria-pressed', String(!review.hidden));
     tasksButton.setAttribute('aria-pressed', String(!tasks.hidden));
     if (view === 'tasks') {
-      pause();
       if (!tasks.hasChildNodes()) loadTasks?.(tasks, slug);
     }
     body.scrollTop = 0;
@@ -92,7 +110,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
     const gallery = element('section', 'chapter-gallery');
     gallery.setAttribute('aria-label', 'Chapter artifacts');
     function drawGallery(focus) {
-      gallery.querySelector('audio')?.pause();
+      gallery.querySelector('audio, video')?.pause();
       if (!items.length) {
         gallery.replaceChildren(element('p', '', 'This chapter has no review artifact yet.'),
           button('Open chapter tasks', () => { show('tasks'); tasksButton.focus(); }));

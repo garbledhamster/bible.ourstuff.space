@@ -24,7 +24,7 @@ These commands switch the shared checkout to a detached revision. The backup sta
 
 ## Current phase
 
-Put a line such as `**Current phase:** Build` near the top of the project-owned Bible. Point the reader’s `<link rel="alternate" type="text/markdown">` at that Markdown file and end its title with `Project Bible source`. The updater shows the phase under the project name and opens the five-phase overview. A reader with no recorded phase shows `Phase not set`. Update the project Markdown when the work moves; a shared update or restore does not change it.
+Put a line such as `**Current phase:** Build` near the top of the project-owned Bible. Point the reader’s `<link rel="alternate" type="text/markdown">` at that Markdown file and end its title with `Project Bible source`. Use **Update now** and reload to pick up the phase display from the installed shared revision. The reader loads that display from the same checkout as its shared Review or masthead stylesheet. Older Mac readers need the current `/_bible/updates.js` once. Later updates and restores use the display from the selected revision. A reader with no recorded phase shows `Phase not set`. Update the project Markdown when the work moves; a shared update or restore preserves the recorded phase.
 
 ## Editable Task List
 
