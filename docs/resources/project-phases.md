@@ -9,9 +9,10 @@ Start a new project in **1. Explore** to learn where the idea could improve. Fol
 1. [Explore](#explore)
 2. [Grilling](#grilling)
 3. [Plan](#plan)
-4. [Build](#build)
-5. [Testing](#testing)
-6. [Maintenance](#maintenance)
+4. [Concept Generation](#concept-generation)
+5. [Build](#build)
+6. [Testing](#testing)
+7. [Maintenance](#maintenance)
 
 You can switch to any mode at any time. The Work mode lives above the chapters in the project’s Markdown, for example `**Current phase:** Build`. Keeping that field lets older readers display the saved choice.
 
@@ -27,7 +28,7 @@ Switching layouts displays the same chapter and task records. The **Tasks** tab 
 
 1. Find or create your project folder and follow the [setup instructions](../AGENTS.md) to initialize the repository, install the shared Bible, and set up the project Bible and task list.
 2. Set the current release and choose a Work mode. Start at [Vision & Scope](game-bible-guide.md#vision--scope), and work through the chapters that apply in order.
-3. Capture Explore findings as proposals, save the Grilling decisions, and turn them into tasks in Plan. When Grilling and Plan give you an agreed scope, write the first usable draft of the applicable chapters before you start building that scope. Describe what you intend to make and how you’ll check it.
+3. Capture Explore findings as proposals, save the Grilling decisions, and turn them into tasks in Plan. Draft the applicable chapters and take them into Concept Generation. Show the intended results in each chapter’s concept page and record which visuals the creator approved.
 4. In Build, update the owning chapter as each piece takes shape. Record what you built, what changed from the plan, and what you verified before moving on. Link the relevant task or artifact and name the next action and owner.
 5. Use the checks below when deciding what work to do next. If a new finding changes an earlier decision, reopen that decision and repeat the affected work. Keep the next action visible in the Bible.
 
@@ -50,11 +51,19 @@ Explore options and gather enough evidence to discuss them. Work through the app
 
 Use Ask Edwards’s gestalt lens as a project planning exercise. Step back from the chapter views and walk through the whole idea as someone would experience it, from opening it to getting what they came for. Look at how the chapter decisions work together. For example, if a player is supposed to learn which ground is safe by looking at it, the art, movement rules, and feedback need to teach the same thing. Resolve gaps and conflicts that would change the build.
 
-Once the release makes sense as a whole, go back through every applicable chapter and outline all the build tasks you can identify from its decisions. Add them to the existing task list under the chapter they belong to. Say what each task should produce, what it depends on, and how you’ll know it works. Put unanswered decisions beside the tasks they block. Before implementation begins, use the Grilling decisions and plan to draft the chapter content for the agreed scope. For each applicable chapter, explain the intended behavior or design, link the work and acceptance checks, and mark anything still open. Then move to Build.
+Once the release makes sense as a whole, outline the build tasks for every applicable chapter. Add them to the existing task list under their chapters. Say what each task should produce, what it depends on, and how you’ll know it works. Put unanswered decisions beside the tasks they block. Draft the chapter content from the Grilling decisions and agreed scope. Then move to Concept Generation.
+
+## Concept Generation
+
+Show the creator what they are going to get while the work can still change easily. Give every applicable chapter its own concept page. Use one wide lead image above four smaller, captioned panels in two columns. The lead shows the chapter’s main outcome in context. The four panels show related screens, scenes, states, or production details that explain how that outcome works. Use the [chapter concept board guide](concept-boards.md) and [board template](concept-board-template.html).
+
+Use full-size, finished-looking mockups for the app screens or game scenes people will see. For chapters that cover technical or operational work, visualize the relevant state, diagram, runbook, package, or observation sheet. Mark anything that needs empirical evidence as a planned result. Keep the originals in the project chapter, link every panel to the full-size artifact, and record provenance, what is under review, and the owning ticket.
+
+Record the exact type, spacing, positions, behavior, asset treatment, and supported sizes needed to reproduce any approved visual. Use measurements and stated values with the mockup. Record the creator’s approval by board or panel, the revision it applies to, and the next ticket. Move approved scope into Build and keep unresolved visual decisions beside the work they block.
 
 ## Build
 
-Build the full scope agreed in Plan. Use the sandbox and the minimum checks needed to keep building with confidence: confirm a piece works and that the next piece can use it. Update the relevant chapter while each piece is being built. Record how it works, decisions that changed, the artifact someone can open, and the checks you ran. Save those updates before starting dependent work or handing off the task. Assemble the pieces into a complete candidate. Move to Testing when someone can open or install it the way the intended audience will and exercise the whole release.
+Build the agreed scope from Plan and the approved chapter concepts. Use the sandbox and compare the working result with the approved visual and its build specifications at the intended sizes. Update the owning chapter with the artifact, checks, and any changes the creator approved. Assemble the pieces into a complete candidate. Move to Testing when someone can open or install it the way the intended audience will and exercise the whole release.
 
 ## Testing
 

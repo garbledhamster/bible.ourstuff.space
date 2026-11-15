@@ -59,3 +59,15 @@ class WorkModeTest(unittest.TestCase):
                 self.assertEqual(island.read_bytes(),
                                  b"# Project Bible: Island\n\n**Current phase:** Plan\n\n## Vision\nKeep this too.\n")
                 self.assertEqual(request("GET", "/zoo/")[1]["mode"], "Explore")
+
+                status, current = request("GET", "/island/")
+                self.assertEqual((status, current["mode"]), (200, "Plan"))
+                before = island.read_bytes()
+                status, concepts = request("POST", "/island/", {
+                    **current, "mode": "Concept Generation"})
+                self.assertEqual((status, concepts.get("mode")), (200, "Concept Generation"))
+                self.assertEqual(island.read_bytes(), before.replace(
+                    b"**Current phase:** Plan", b"**Current phase:** Concept Generation", 1))
+                self.assertEqual(request("GET", "/island/")[1], concepts)
+                status, built = request("POST", "/island/", {**concepts, "mode": "Build"})
+                self.assertEqual((status, built.get("mode")), (200, "Build"))

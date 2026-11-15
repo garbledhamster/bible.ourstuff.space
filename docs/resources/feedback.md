@@ -138,3 +138,9 @@ Two independent reviews used the running editor at desktop, compact, and phone s
 ### 2026-11-15T11:38:10-06:00 · Codex · Sprite Generator release review
 
 The review found that individually valid PNGs could make a draft too large to save, and that bundle import could reject a long proposal name or a valid anchor. It also found that proposal context identified the registration but omitted the full canvas and reference PNG.
+
+### 2026-11-15T11:45:54-06:00 · Joe · Put Concept Generation between Plan and Build
+
+**Paraphrase.** Give every chapter a visual concept page, using the Conscious Explorer grid with a lead image and four supporting panels. Work in Concept Generation after planning. Save the visuals and the fonts, positions, and screen details needed to build what Joe approves.
+
+[Concept Generation](project-phases.md#concept-generation)

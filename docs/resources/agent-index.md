@@ -3,7 +3,8 @@
 Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide, templates, and example together. Codex discovers the skill from the Bible checkout. Follow the setup instructions below to expose it from a game or app that uses the Bible as a submodule. The skill works from that project’s Bible and checkout when it helps you through a chapter.
 
 - [Set up and update a project Bible](../AGENTS.md) — clone the shared guide and assets into your game repository.
-- [Work modes](project-phases.md) — Explore, Grilling, Plan, Build, Testing, and Maintenance.
+- [Work modes](project-phases.md) — Explore, Grilling, Plan, Concept Generation, Build, Testing, and Maintenance.
+- [Chapter concept boards](concept-boards.md) — show one lead outcome and four supporting panels in each applicable chapter before Build.
 - [Auto Grill](auto-grill/SKILL.md) — offer an agent interview after a run of recommended answers, or use it when the owner asks agents to finish the grilling session.
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
 - [Work through the Task List](task-list-workflow.md) — pick up tasks, manage blockers and assignees, and record verified changes.

@@ -152,3 +152,9 @@ The Black Hat design review found overlapping proposal previews, grid controls h
 ### 2026-11-15T11:38:10-06:00 · Keep sprite drafts saveable and portable
 
 Keep the current draft when a change would exceed its save or bundle limit. Editable bundles preserve the names and anchors the reader accepts, and the copied proposal context identifies the reference PNG and full pose canvas. [Release review](feedback.md#2026-11-15t113810-0600--codex--sprite-generator-release-review)
+
+### 2026-11-15T11:50:03-06:00 · Add Concept Generation before Build
+
+Added a seventh Work mode between Plan and Build. Each chapter now describes what to show on the board, with a wide lead outcome and four captioned detail panels. The shared template uses the same grid at desktop sizes and reads in one column on narrow screens. Build starts from the creator’s approved visual and its reproducible specifications.
+
+Verified the Work mode change through the reader API, the shared reader tests and the site build. [Work modes](project-phases.md#concept-generation) · [Board guide](concept-boards.md) · [Feedback](feedback.md#entries)

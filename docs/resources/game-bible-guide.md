@@ -4,7 +4,7 @@ I put this guide together for the way I want to build games with people and with
 
 Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback and includes a proposed scale trial.
 
-Choose a [Work mode](project-phases.md) for what you want to do today. In each chapter, read **Work mode instructions** to see what to focus on and what to leave behind. Keep exploration findings and Grilling answers as working records. After Grilling and Plan, draft the chapters for the agreed scope before building. During Build, update the relevant chapters with what you make, what changes, and what you verify.
+Choose a [Work mode](project-phases.md) for what you want to do today. In each chapter, read **Work mode instructions** to see what to focus on and what to leave behind. Keep exploration findings and Grilling answers as working records. After Grilling and Plan, draft the chapters for the agreed scope and make a [concept board](concept-boards.md) for each applicable chapter before building. During Build, update the relevant chapters with what you make, what changes, and what you verify.
 
 ### Carry the work through the chapters
 
@@ -23,6 +23,7 @@ Embed every image generated for the project in the chapter where it was made or 
 - **Explore** · Compare who the project could serve, what they would come for, and which moment would show the promise.
 - **Grilling** · Agree on the audience, target devices, player promise, one representative moment, and what the first release includes. Save the creator’s approved visual reference and one prediction you can observe in play.
 - **Plan** · Open the project folder and initialize or locate Git. Set up the project Bible and task list, map the folders in the README, and turn the agreed scope and prediction into a release brief and first tasks.
+- **Concept Generation** · Show the signature scene or app outcome in the lead panel. Compare related visual directions or show the other scenes or screens that establish the scope. [Chapter concept board](concept-boards.md)
 - **Build** · Save the starting revision, chosen art references, and release brief. Keep the runnable candidate and its entry point tied to the milestone in the brief.
 - **Testing** · Watch someone from the intended audience try the representative moment. Record what they did, whether it matched the prediction, and what needs to change.
 - **Maintenance** · Review evidence and feedback before revising the scope. Save the next release brief when the audience, promise, or milestone changes.
@@ -118,6 +119,7 @@ I can see the visual direction the creator confirmed and read which details they
 - **Explore** · Explore different ways to do the main activity. Compare where each makes the rules clearer or creates friction.
 - **Grilling** · Walk through the main activity with the creator. Decide what the person can do, what changes, what feedback they get, and how they recover when it goes wrong.
 - **Plan** · Write the rules and starting states in the order the player encounters them. Use `to-spec`, then `to-tickets`, and record both in the Project Bible. Give each playable or verifiable slice a task with instructions, subtasks, expected results, and its real blockers. [Plan and work through tasks](task-list-workflow.md)
+- **Concept Generation** · Show the main workflow as people experience it. Use the four panels for the normal path, a choice, a failure and its recovery. [Chapter concept board](concept-boards.md)
 - **Build** · Implement the agreed rules as parts the sandbox and player scenes can share. Record which rules and recovery paths the build covers.
 - **Testing** · Try the usual path, a failed attempt, and recovery in the integrated candidate. Compare the result with the written rules and repeat affected checks after a fix.
 - **Maintenance** · Record rule changes and why they were made. Keep a repeatable case for the behavior that prompted each fix.
@@ -173,6 +175,7 @@ I can follow a task or turn through the document, try a rule and know what to lo
 - **Explore** · Sketch several ways through the same screen or workflow. Choose one interaction to test at its smallest size.
 - **Grilling** · Walk through the interface with the creator. Agree on what people need to see, where they act, and which cues or recovery controls matter on each target.
 - **Plan** · Sketch the workflow at target sizes. List each screen, input, and state it must show. Name the authored buttons, frames, icons, and other assets Engine & Assets will need.
+- **Concept Generation** · Show the main interface at full size. Use the detail panels for other screens, meaningful states or a compact layout. Record the fonts, placement and behavior needed to rebuild them. [Chapter concept board](concept-boards.md)
 - **Build** · Build the screens and bind the authored art to the actions and states. Capture representative screens at the intended sizes and link them to the sketch.
 - **Testing** · Watch a first-time user complete and recover from the task. Check layout, readable cues, focus, and the supported inputs. Save screenshots and the build tested.
 - **Maintenance** · Keep the screen record and art links current. When a control or cue changes, repeat the affected first-use and accessibility checks.
@@ -238,6 +241,7 @@ We have a sketch or prototype of the main workflow at the intended screen sizes,
 - **Explore** · Compare the smallest engine or asset experiments that could show where the intended experience breaks down.
 - **Grilling** · Agree on the target and visual direction and identify the first interaction that will prove the engine and key assets fit the project.
 - **Plan** · Choose and pin the engine version. Inventory the runtime assets for that interaction, with sources, states, owners, and what to verify at game size.
+- **Concept Generation** · Show the intended runtime composition and the assets or technical views it needs. Label intended scale, variants, anchors and source requirements. [Chapter concept board](concept-boards.md)
 - **Build** · Create or import the assets and wire the first interaction. Record the clean launch command, link the files, and capture how the assets look in the engine.
 - **Testing** · Launch from a clean checkout on the intended device. Exercise the assets at play size, including any alignment, draw order, collision, and state changes the scene needs.
 - **Maintenance** · Record asset replacements and dependency changes. Check the affected scenes and keep the source, credits, and launch instructions current.
@@ -339,6 +343,7 @@ Someone can start the game from a clean checkout and show one real interaction w
 - **Explore** · Explore different cues for one moment, including when silence or a visual cue fits better. Try them in context.
 - **Grilling** · Agree on what the person should hear, which sounds carry information, and what they can see or use with sound off. Decide where music or silence serves the experience.
 - **Plan** · Make a cue and dialogue list for one representative encounter. Record the triggers, stop rules, sources, permissions, and the listening cases to run.
+- **Concept Generation** · Show the representative cue, listening case or media control in context. Use the panels for timing, different audio states, captions and the sound-off experience. [Chapter concept board](concept-boards.md)
 - **Build** · Produce or source the files and wire them to the real events. Save the mix, caption or visual equivalents, and a repeatable listening case.
 - **Testing** · Listen on the intended devices. Try a normal run, interruption, replay, and sound off. Record whether the words and cues stay clear and the loops stop where expected.
 - **Maintenance** · Update source credits and repeat the affected listening checks after a mix, line, or engine change.
@@ -455,6 +460,7 @@ The release has a music plan, including a decision to go without music if that s
 - **Explore** · List assumptions and edge cases. Pick the smallest resettable experiment that could change what you build.
 - **Grilling** · Decide which mechanics, failures, and recovery paths you need to try before assembling the player scenes.
 - **Plan** · List named starting states, how to enter and reset each case, what to do, and what should happen. Link each case to its rule and required assets.
+- **Concept Generation** · Show the intended developer scene or test workspace and the controls for setting up, running and resetting representative cases. [Chapter concept board](concept-boards.md)
 - **Build** · Build the developer entry point and exercise the cases through the same rules and inputs used in play. Link the runnable case and its evidence.
 - **Testing** · Repeat the cases on the candidate build. Check reset, interruption, and repeated actions. Save results and any gap that still blocks a scene.
 - **Maintenance** · Add a resettable case for a reported regression and keep development cases usable as the game and its assets change.
@@ -516,6 +522,7 @@ A contributor can open the dedicated sandbox, play every release mechanic and ea
 - **Explore** · Explore alternate scene orders or prompts. Name what each might teach and where a playtest could distinguish them.
 - **Grilling** · Walk through each scene with the creator. Agree on what the person comes in knowing, what they do, and what should carry into the next scene.
 - **Plan** · Write each scene’s entry, actions, dialogue, outcome, and exits. Link the sandbox cases it needs and write the observations to collect in the playtest.
+- **Concept Generation** · Storyboard the main scene or walkthrough. Show the setup, choices, expected outcome and what the observer records. [Chapter concept board](concept-boards.md)
 - **Build** · Assemble scenes from verified pieces. Exercise each handoff through the normal player path and record the candidate and the playtest instructions.
 - **Testing** · Give the intended audience a task and watch what happens. Record where they hesitate, what they learn, and which fixes need a repeat playtest.
 - **Maintenance** · Update scene scripts and replay the changed journey after a fix or content update. Link the result and any new question to the chapter that owns it.
@@ -553,6 +560,7 @@ A player can go from the start of the scene to an outcome, recover where they ne
 - **Explore** · Compare ways to open, install, and return to the project. Try the one most likely to reveal first-run friction.
 - **Grilling** · Agree on how the intended audience will open, install, or return to the game and on what the launch must make available.
 - **Plan** · Write the launch, packaging, and versioning steps. List supported targets, controls, and the first-run, continue, and update paths that apply.
+- **Concept Generation** · Show the normal launch or install path and the scene or screen that proves the built product works. Visualize the other target or recovery states when they affect the handoff. [Chapter concept board](concept-boards.md)
 - **Build** · Produce a versioned candidate with the pieces it needs to run. Save the build, source revision, and launch or install instructions.
 - **Testing** · Open the exact candidate from a fresh browser profile or clean install. Complete the main journey and check saved progress and recovery where supported.
 - **Maintenance** · Rebuild and package updates with their version and source revision. Keep launch instructions current and check the upgrade path from the builds players have.
@@ -588,6 +596,7 @@ I can repeat the build, open or install it on each target we're shipping, and pl
 - **Explore** · Try several ways to help a newcomer reach one result. Look for where each example or hint helps.
 - **Grilling** · Choose one task a first-time player can try and decide what help they should be able to find if they get stuck.
 - **Plan** · Outline the demo entry and reset, the help topics, and what to capture. Link the scenes and sandbox cases that supply the real controls.
+- **Concept Generation** · Mock up the demo entry and the reading or video format. Show what the user tries, how they get help, and what they should see when they finish. [Chapter concept board](concept-boards.md)
 - **Build** · Build or publish the demo using the verified interaction. Write the help and capture the walkthrough or screenshots from the playable build.
 - **Testing** · Have someone open the demo, try the task, find the relevant help, and return to the task. Check that the images and instructions match the build.
 - **Maintenance** · Update the demo, captures, and help with gameplay changes. Repeat the path from a help page back to the playable task.
@@ -640,6 +649,7 @@ Record the passing sandbox cases and the release build, then watch a first-time 
 - **Explore** · Compare plausible audiences, storefronts or distribution routes. Choose a small test for the biggest unknown.
 - **Grilling** · Decide who the release is for, what they get, where they get it, and whether and how they pay.
 - **Plan** · List the release checks, delivery steps, store or landing page assets, and who handles each step. Record the price, platform, and access decisions.
+- **Concept Generation** · Show the proposed package, listing or landing page in context. Include the visuals for install, access, supported targets and the first release walkthrough. [Chapter concept board](concept-boards.md)
 - **Build** · Prepare the release candidate, copy, screenshots, and delivery links. Set up price, access, or payment in the release channel when applicable.
 - **Testing** · Verify the exact release link and what a person receives after opening, signing up, or paying. Check the published description against the candidate before shipping.
 - **Maintenance** · Check the shipped links and access when the platform, price, or offer changes. Keep public copy and screenshots in step with the current release.
@@ -675,6 +685,7 @@ The release candidate passes on the targets and access conditions we promised. A
 - **Explore** · Explore ways a new contributor could finish one useful change. Find where the current handoff gets in their way.
 - **Grilling** · Decide who will work on the project and what they should be able to change and verify on their first day.
 - **Plan** · Choose one real first task. List the access, setup, files, and checks a contributor needs to finish it.
+- **Concept Generation** · Show how a new contributor finds the required files and opens a runnable case. Use the panels to illustrate setup, the first task and the evidence or review they return. [Chapter concept board](concept-boards.md)
 - **Build** · Write the quickstart and walk the task from a fresh checkout. Link the runnable build, evidence, and the decisions needed for the work.
 - **Testing** · Have a contributor follow the quickstart and complete the task. Fix the steps where they needed outside help and record the result.
 - **Maintenance** · Keep the quickstart, access steps, and first task current. Repeat the exercise when setup, engine version, or contributor responsibilities change.
@@ -706,6 +717,7 @@ A new contributor can follow the guide, make a small change from a clean startin
 - **Explore** · Compare single-user and shared workflows against the need. Identify the simplest experiment that tests shared state.
 - **Grilling** · Decide whether the release supports shared play or multiple users. If it is single-player, record the scope and mark the chapter N/A.
 - **Plan** · For shared play, define what each person controls, who owns shared state, and what happens when someone leaves or disconnects. Plan one two-client case and the hosting checks.
+- **Concept Generation** · Show the shared moment for each role, how they join, and how loss of connection or access appears and resolves. [Chapter concept board](concept-boards.md)
 - **Build** · Build the smallest shared encounter and write how to start, join, and recover the service. Prove the encounter in the sandbox before assembling multiplayer scenes.
 - **Testing** · Have two clients join, act together, disconnect, and return on the intended network. Verify shared outcomes and retained progress, and record any measured capacity.
 - **Maintenance** · Check joins and recovery after changes to hosting or shared rules. Maintain the runbook and record incidents and fixes.
@@ -768,6 +780,7 @@ Every multiplayer mode promised for the release is playable from joining through
 - **Explore** · Explore what players might need next and how each change affects existing saves, support and updates.
 - **Grilling** · Decide what sort of follow-up work belongs here and what promises earlier players keep when you change the game.
 - **Plan** · Choose the affected release, changes, and compatibility checks. Identify the previous build and save or account state to use for comparison.
+- **Concept Generation** · Show the normal update or content entry and the decisions users face before installation. Include compatibility, success, interruption and rollback or restore when they apply. [Chapter concept board](concept-boards.md)
 - **Build** · Build the update and prepare the release notes. Add any migration or recovery the update needs and link the checks it must pass.
 - **Testing** · Try the previous and new builds from a known starting state. Verify existing progress, new content, and recovery where applicable before shipping the update.
 - **Maintenance** · Record the shipped version, what changed, and how you checked it. Use the same phases again when a larger update needs its own release.
@@ -803,6 +816,7 @@ The update or rehearsal passes the checks it affects, including the relevant pat
 - **Explore** · Try different ways to ask for and observe feedback. Choose one that helps you understand what actually happened.
 - **Grilling** · Decide whose experience you need to learn from, when you’ll talk to them, and what you want to find out.
 - **Plan** · Choose the feedback channel, who reads and follows up, and where to keep the timestamped Feedback and Changelog files.
+- **Concept Generation** · Show how people reach the feedback path and what the maintainer does with a report. Illustrate intake, evidence, resolution and follow-up. [Chapter concept board](concept-boards.md)
 - **Build** · Set up the feedback path and records. Prepare the questions or observation prompts and run one rehearsal before inviting people.
 - **Testing** · Try giving feedback through the real path. Check that the right person receives it, can trace it to the build, and knows who will follow up.
 - **Maintenance** · Record conversations and follow through on the agreed changes. Link feedback to the decision or fix and carry an unresolved finding into the next release brief.
@@ -870,6 +884,7 @@ You've shipped something that works. Now you want more people to use it, more pe
 - **Explore** · Find the first constraint growth would expose. Compare fixes and choose a small trial with a stop condition.
 - **Grilling** · Decide what to grow, for whom, and what people should still be able to count on. Ask what evidence would make it worth doing.
 - **Plan** · Record the baseline and likely constraint. Pick one increment, a budget and quality floor, and an owner who can stop the pilot.
+- **Concept Generation** · Show the smallest next trial, its operator path and the setup, checks and stop conditions needed to see whether it works. [Chapter concept board](concept-boards.md)
 - **Build** · Make the smallest change that raises the limit. Give the operator the instructions and controls to run and stop the pilot.
 - **Testing** · Run the pilot under representative conditions. Compare the outcome, workload, and cost with the baseline and rehearse recovery.
 - **Maintenance** · Record whether to expand, hold, or back out. Check where work now piles up before choosing the next increment.
