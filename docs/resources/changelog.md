@@ -43,3 +43,7 @@ Added separate [Start screen](game-bible-guide.md#start-screen) and [Credits scr
 ### 2026-11-14T20:04:12-06:00 · Island Post gameplay showcase
 
 Added the five-shot Island Post showcase to [Chapter 1](game-bible-guide.md#gameplay-showcase) and the [worked example](island-post-example.md#gameplay-showcase). The [template](template.html#vision-and-scope) now calls for one large gameplay screenshot with a starshot and four smaller screenshots with mechanic captions. Built the site and checked the guide, example, and template in Chrome at desktop and phone widths. [Joe’s feedback](feedback.md#2026-11-14t200307-0600--joe--gameplay-showcase)
+
+### 2026-11-14T20:05:14-06:00 · Fighting-game sword example
+
+Added the [side-by-side sword example](game-bible-guide.md#fighting-game-sword-example) to Engine & Assets and linked it from UI & UX Design. Checked both readers at desktop and phone widths with the compact sprite displayed at 48 × 48 pixels. [Feedback](feedback.md#2026-11-14t200514-0600--joe--sword-art-comparison)

@@ -482,6 +482,43 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   background: #f1edf4;
   font-size: .82em;
 }
+.chapter-detail-body table:has(img[src$="/sword-gameplay.png"]) {
+  display: table;
+  width: min(100%, 540px);
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-block: 1rem;
+  font: 600 .875rem/1.35 var(--sans);
+}
+.chapter-detail-body table:has(img[src$="/sword-gameplay.png"]) :is(th, td) {
+  padding: clamp(8px, 2vw, 16px);
+  text-align: center;
+  vertical-align: middle;
+  border: 0;
+}
+.chapter-detail-body td:has(img[src$="/sword-inventory.webp"]) {
+  background: #f1edf4;
+  border-radius: 8px 0 0 8px;
+}
+.chapter-detail-body td:has(img[src$="/sword-gameplay.png"]) {
+  background: #3e4b5e;
+  border-radius: 0 8px 8px 0;
+}
+.chapter-detail-body img[src$="/sword-inventory.webp"] {
+  display: block;
+  width: min(100%, 220px);
+  height: auto;
+  margin-inline: auto;
+}
+.chapter-detail-body img[src$="/sword-gameplay.png"] {
+  display: block;
+  width: 48px;
+  height: 48px;
+  max-width: none;
+  margin-inline: auto;
+  image-rendering: pixelated;
+}
 .chapter-dialog-navigation {
   display: flex;
   justify-content: space-between;

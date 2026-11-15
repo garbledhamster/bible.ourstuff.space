@@ -182,7 +182,7 @@ I want the menu to show what kind of game I've opened. Draw or generate the art 
 
 Load that artwork into the interface. Use the engine or web code for layout, live labels, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs.
 
-For each item or object that appears in a menu or inventory and in play, plan two pieces of art. Show a full static illustration in the menu so players can study the details. Use a matching compact sprite or icon that players can recognize at gameplay size. In a fighting game, the inventory can show the sword’s blade, guard, and grip in detail. In the match, players should recognize that same sword in the fighter’s hand. Mark both uses on the sketch and send them to [Engine & Assets](game-bible-guide.md#engine--assets).
+For each item or object that appears in a menu or inventory and in play, plan two pieces of art. Show a full static illustration in the menu so players can study the details. Use a matching compact sprite or icon that players can recognize at gameplay size. In a fighting game, the inventory can show the sword’s blade, guard, and grip in detail. In the match, players should recognize that same sword in the fighter’s hand. Mark both uses on the sketch and send them to [Engine & Assets](game-bible-guide.md#engine--assets). [See the sword at both sizes](game-bible-guide.md#fighting-game-sword-example).
 
 ### Try the design on the intended screens
 
@@ -243,6 +243,14 @@ Start both pieces from the same master artwork or visual reference. Keep the ite
 If the item needs animation, list the strip or atlas frames separately and record the relevant anchor. For the fighting-game sword, put that anchor at the grip and check that the sword stays aligned with the fighter’s hand through its poses. Pack compact frames into an atlas when that helps the engine load them.
 
 Open the menu and play the scene with both assets loaded. Save a side-by-side capture at their intended display sizes. Check that the full illustration shows the details players need, the compact art reads against the playfield or HUD, and both look like the same item. Link the capture from the ledger and add the sandbox result once you’ve tried it there.
+
+### Fighting-game sword example
+
+| Inventory illustration | Fight sprite (48 × 48 px) |
+| :---: | :---: |
+| ![Painted sword with a silver-blue blade, curved gold guard, and crimson grip](item-art/sword-inventory.webp) | ![Pixel-art sword with the same silver-blue blade, gold guard, and crimson grip](item-art/sword-gameplay.png) |
+
+The inventory illustration shows the blade’s blue inset and the wrap on the grip. The sprite keeps those colors and the curved guard so you can recognize the sword during a match. The sprite is shown at 1× for this example. [Art source](item-art/sword-source.md)
 
 ### Asset locations and readiness
 

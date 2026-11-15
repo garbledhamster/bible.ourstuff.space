@@ -37,3 +37,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T20:03:07-06:00 · Joe · Gameplay showcase
 
 **Paraphrase.** Put the Island Post showcase in Chapter 1 on bible.ourstuff.space and add its format to the shared template. Use one large in-game screenshot with a starshot, followed by four smaller gameplay shots with short captions that explain each mechanic. [Gameplay showcase](game-bible-guide.md#gameplay-showcase)
+
+### 2026-11-14T20:05:14-06:00 · Joe · Sword art comparison
+
+**Paraphrase.** Show the full sword illustration next to its matching sprite at the size it would appear in the fight. [Fighting-game sword example](game-bible-guide.md#fighting-game-sword-example)
