@@ -202,8 +202,12 @@ class ReaderHandler(SimpleHTTPRequestHandler):
         if self.sprite_workspaces:
             try:
                 resolved = Path(location).resolve()
-                if not any(resolved.is_relative_to(workspace.directory)
-                           for workspace in self.sprite_workspaces.values()):
+                served_paths = [resolved]
+                if resolved.is_dir():
+                    # The HTTP handler can open an index after translating the directory.
+                    served_paths.extend((resolved / name).resolve() for name in ("index.html", "index.htm"))
+                if not any(served.is_relative_to(workspace.directory)
+                           for served in served_paths for workspace in self.sprite_workspaces.values()):
                     return location
             except (OSError, RuntimeError):
                 pass
