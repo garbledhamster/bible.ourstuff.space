@@ -82,3 +82,9 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-15T08:19:32-06:00 · Joe · A chapter on scaling
 
 **Paraphrase.** Put a Scaling chapter at the end of the Bible. Research the principles businesses, software, and games have in common so the work is repeatable, then review the chapter before implementing it. [Scaling](game-bible-guide.md#scaling)
+
+### 2026-11-15T08:24:44-06:00 · Joe · Offer agent grilling
+
+**Paraphrase.** When I keep choosing the recommended answer, offer to have a separate agent grill the acting agent through the rest of the session. Wait for my choice, and give me the Bible with the agents’ decisions so I can review them. Make this a skill I can use outside the Bible too.
+
+[Auto Grill](auto-grill/SKILL.md)

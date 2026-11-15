@@ -84,3 +84,7 @@ The private reader shows the recommended order in the Work mode picker and the n
 ### 2026-11-15T08:20:50-06:00 · Scaling
 
 Added [Chapter 15 · Scaling](game-bible-guide.md#scaling), a [trial record](game-bible-template.md#scaling), and a [starter ticket](game-tickets/15-scaling.md). The draft review sharpened the constraint test, the stop decision, and the game example before integration. The site build checked all 15 chapters. Verified the last chapter, Tasks, Tutorial picker, and reader links in desktop and phone layouts. [Research notes](scaling-research.md) · [Joe’s feedback](feedback.md#entries)
+
+### 2026-11-15T08:24:44-06:00 · Auto Grill
+
+Added [Auto Grill](auto-grill/SKILL.md) as a standalone skill and linked it from the Project Bible skill and resource index. An accepted streak can prompt a switch offer. Once the owner chooses agent grilling, a separate interviewer works through the agreed scope with the acting agent, which records its decisions for review. Checked the trigger, acceptance, decline, direct request, timeout, interrupted streak and unavailable tools. Verified that the shared site build finds the skill.
