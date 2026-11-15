@@ -76,3 +76,7 @@ Added one 4 × 4 sheet per prop and art style, with chair and crate examples in 
 ### 2026-11-15T07:16:24-06:00 · Work mode picker
 
 Private readers can save a Work mode from the modal under the project name and copy a prompt for that mode. The Project Bible skill reads the project’s saved choice before working on a turn. Checked switching to Grilling, copying the prompt, reloading, and switching back to Build in a Zoo Helper test copy at desktop and phone sizes. [Feedback](feedback.md#entries)
+
+### 2026-11-15T07:22:29-06:00 · Numbered Work modes
+
+The private reader shows the recommended order in the Work mode picker and the number beside the active mode. New Bibles start in 1. Grilling and the reader lets you switch to any mode. Verified the order, backward switching, prompt copy, and reload at desktop and phone sizes. [Feedback](feedback.md#entries)

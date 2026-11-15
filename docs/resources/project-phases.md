@@ -4,7 +4,15 @@ Choose the Work mode that fits what you want to do now. In a private project rea
 
 A mode tells the agent how to approach the work. A chapter tells you where the decision, task, or result belongs. You can switch from Build back to Grilling to revisit a decision, then return to Build. Use the recorded tasks and evidence to see how far the release has come.
 
-New projects start in Grilling. The Work mode lives above the chapters in the project’s Markdown, for example `**Current phase:** Build`. Keeping that field lets older readers display the saved choice.
+Start a new project in **1. Grilling** to figure out what you’re going to build. Follow this order as the work calls for it:
+
+1. [Grilling](#grilling)
+2. [Plan](#plan)
+3. [Build](#build)
+4. [Testing](#testing)
+5. [Maintenance](#maintenance)
+
+You can switch to any mode at any time. The Work mode lives above the chapters in the project’s Markdown, for example `**Current phase:** Build`. Keeping that field lets older readers display the saved choice.
 
 ## Start to finish
 

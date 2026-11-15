@@ -72,3 +72,9 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 **Paraphrase.** Let me choose the active Work mode in a cloned Bible’s modal. I want to go back to Grilling when I’m revisiting a decision, and I want a prompt I can copy into the chat if the agent needs help switching modes.
 
 [Work modes](project-phases.md)
+
+### 2026-11-15T07:22:29-06:00 · Joe · Work mode order
+
+**Paraphrase.** Number the Work modes so a new project has a recommended order. Start with 1. Grilling so we can figure out what we’re going to build.
+
+[Work modes](project-phases.md)

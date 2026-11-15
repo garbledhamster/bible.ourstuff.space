@@ -50,6 +50,7 @@ export async function showProjectPhase() {
     <form method="dialog"><button class="close" aria-label="Close Work mode" autofocus>×</button></form>
     <h2 id="bible-phases-title">Work mode</h2>
     <section data-picker>
+      <p class="bible-mode-order">Recommended order for a new project. Switch modes as needed.</p>
       <fieldset aria-label="Choose a Work mode" disabled></fieldset>
       <p role="status"></p>
       <div class="bible-update-actions">
@@ -82,12 +83,12 @@ export async function showProjectPhase() {
   let activeMode = '';
   let busy = false;
 
-  for (const [name, summary] of modes) {
+  for (const [index, [name, summary]] of modes.entries()) {
     const label = document.createElement('label');
     label.className = 'bible-mode-option';
     label.innerHTML = '<input type="radio" name="work-mode"><span><strong></strong> <span class="bible-mode-active" hidden>Active</span><span class="bible-mode-summary"></span></span>';
     label.querySelector('input').value = name;
-    label.querySelector('strong').textContent = name;
+    label.querySelector('strong').textContent = `${index + 1}. ${name}`;
     label.querySelector('.bible-mode-summary').textContent = summary;
     fieldset.append(label);
   }
@@ -105,7 +106,8 @@ export async function showProjectPhase() {
   }
 
   function showActiveMode() {
-    button.textContent = activeMode ? `Work mode · ${activeMode}` : 'Work mode not set';
+    const number = modes.findIndex(([name]) => name === activeMode) + 1;
+    button.textContent = number ? `Work mode · ${number}. ${activeMode}` : 'Work mode not set';
     for (const input of fieldset.querySelectorAll('input')) {
       input.checked = input.value === activeMode;
       input.closest('label').querySelector('.bible-mode-active').hidden = !input.checked;

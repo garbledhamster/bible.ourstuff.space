@@ -18,7 +18,7 @@ In a project reader, use **Project Bible** as the main heading and put the proje
 
 At the start of each turn that works on the project, including when resuming a conversation, reread the Work mode at the top of the project’s Bible. It may have changed in the reader since your last turn. Use the mode the owner selected and the chapter they’re working on. A request in chat to use another mode takes precedence for that work. Suggest a switch when it would help, and save a new mode when the owner asks you to change it.
 
-Read [Work modes](../project-phases.md) and the active chapter’s **Work mode instructions**. Older revisions call these **Phase instructions**. In Grilling, explore options and help the creator reach a decision. In Plan, use Ask Edwards’s gestalt lens to review the whole idea and turn decisions into tasks. In Build, assemble the agreed scope and run the checks needed to keep working. In Testing, verify the complete candidate. In Maintenance, use feedback to guide and verify updates. Save the result in the chapter and name the next action.
+For a new project, start in **1. Grilling** to decide what to build. Read the [recommended Work mode order](../project-phases.md) and the active chapter’s **Work mode instructions**. Older revisions call these **Phase instructions**. In Grilling, explore options and help the creator reach a decision. In Plan, use Ask Edwards’s gestalt lens to review the whole idea and turn decisions into tasks. In Build, assemble the agreed scope and run the checks needed to keep working. In Testing, verify the complete candidate. In Maintenance, use feedback to guide and verify updates. Save the result in the chapter and name the next action.
 
 ## Use the project task list
 
