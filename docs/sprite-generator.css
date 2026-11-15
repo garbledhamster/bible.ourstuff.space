@@ -268,3 +268,21 @@ dialog.sprite-generator {
     border-left: 0;
   }
 }
+
+.sprite-bundle {
+  margin-top: 14px;
+}
+
+.sprite-bundle__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sprite-bundle__actions .sprite-generator__file { margin: 0; }
+
+.sprite-bundle [data-bundle-message] {
+  margin: 8px 0 0;
+  color: var(--muted, #bcb3c2);
+  font-size: .875rem;
+}

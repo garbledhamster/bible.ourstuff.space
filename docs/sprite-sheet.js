@@ -68,7 +68,7 @@ export function renderSpriteSheet({ crops, frameMap }) {
   const canvas = document.createElement('canvas');
   canvas.width = frameMap.width;
   canvas.height = frameMap.height;
-  const context = canvas.getContext('2d');
+  const context = canvas.getContext('2d', { willReadFrequently: true });
   if (!context) throw new Error('This browser couldn’t create the output sheet.');
   context.imageSmoothingEnabled = false;
   crops.forEach(({ image, x, y, width, height }, index) => {
@@ -76,4 +76,8 @@ export function renderSpriteSheet({ crops, frameMap }) {
     context.drawImage(image, x, y, width, height, cell.x, cell.y, width, height);
   });
   return canvas;
+}
+
+export function safeSpriteFilename(name) {
+  return name.replace(/[<>:"/\\|?*\u0000-\u001f]/gu, '-').replace(/[ .]+$/u, '') || 'sprites';
 }

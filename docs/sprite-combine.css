@@ -51,7 +51,7 @@
 }
 
 .sprite-combine__sequence,
-.sprite-combine__inspector [data-output-grid] {
+.sprite-combine__inspector :is([data-output-grid], [data-combine-pose-picker]) {
   margin-top: 16px;
   padding-top: 14px;
   border-top: 1px solid var(--line, #52435c);
@@ -61,10 +61,13 @@
   margin: 0;
 }
 
-.sprite-combine__sequence [data-combine-empty-order] {
+.sprite-combine__sequence [data-combine-empty-order],
+[data-combine-pose-info]:not(.sprite-combine__feedback) {
   color: var(--muted, #bcb3c2);
   font-size: .875rem;
 }
+
+[data-combine-pose-info] { margin: 8px 0 0; }
 
 .sprite-combine__sequence ol {
   width: 100%;
