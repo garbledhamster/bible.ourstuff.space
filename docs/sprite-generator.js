@@ -65,9 +65,8 @@ function makeEditor() {
     <div class="sprite-generator__body">
       <div class="sprite-generator__preview" data-preview role="region" aria-label="Sprite previews" tabindex="0">
         <figure class="sprite-generator__source" aria-label="Source preview">
-          <div class="sprite-generator__artboard">
+          <div class="sprite-generator__artboard" data-artboard>
             <p data-empty>Create a set or open one from this project.</p>
-            <img data-image alt="" hidden>
           </div>
           <figcaption data-caption hidden></figcaption>
         </figure>
@@ -145,7 +144,8 @@ export async function installSpriteGenerator(extensions = []) {
   const file = find('[data-file]');
   const assets = find('[data-assets]');
   const assetsField = find('[data-assets-field]');
-  const image = find('[data-image]');
+  const artboard = find('[data-artboard]');
+  const image = new Image();
   const empty = find('[data-empty]');
   const caption = find('[data-caption]');
   const message = find('[data-message]');
@@ -195,15 +195,16 @@ export async function installSpriteGenerator(extensions = []) {
     assets.disabled = unavailable;
     empty.hidden = Boolean(asset);
     empty.textContent = draft ? 'Import a PNG to preview it here.' : 'Create a set or open one from this project.';
-    image.hidden = caption.hidden = !asset;
+    caption.hidden = !asset;
     if (asset) {
       if (image.getAttribute('src') !== asset.dataUrl) image.src = asset.dataUrl;
       image.alt = `${asset.name} preview`;
       image.classList.toggle('sprite-generator__pixelated', Math.max(asset.width, asset.height) <= 128);
+      if (!image.parentNode) artboard.append(image);
       caption.textContent = `${asset.name} · ${asset.width} × ${asset.height} px`;
     } else {
+      image.remove();
       image.removeAttribute('src');
-      image.alt = '';
     }
     renders.forEach(refresh => refresh?.());
   }

@@ -124,3 +124,7 @@ Update now and Restore previous reopen the reader on the selected revision. The 
 ### 2026-11-15T10:38:53-06:00 · Polish the chapter layouts
 
 Separated remaining and completed work on wide screens and stacked the groups on phones. Made ticket links easier to spot and kept task details open when refreshing. The sheet shows the last loaded tasks if a refresh fails. Refined the section index, artifact links, and compact toolbar.
+
+### 2026-11-15T10:48:26-06:00 · Open Sprite Generator and save a set
+
+Enabled Sprite Generator in the footer of configured private readers. Create a named set, import a PNG, check its transparency and dimensions, and save it to the project workspace. Checked reopening the same PNG in Chrome at desktop and compact widths, separate project libraries on one host, and protection against competing saves. [Private reader setup](https://github.com/garbledhamster/bible.ourstuff.space/blob/main/tools/bible-reader/README.md#sprite-generator)
