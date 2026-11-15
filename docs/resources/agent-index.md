@@ -10,6 +10,7 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 - [Task List template](task-list-template.md) and [Island Post checklist](island-post/task-list.md).
 - [Project Bible template](game-bible-template.md) — reusable outline with chapter prompts.
 - [Project Bible guide](game-bible-guide.md) — shared Markdown for the site and skill, with chapter instructions, completion checks, and examples.
+- [Sprite Generator](sprite-generator.md) — place parts, review proposals, and combine or export frames in an enabled private reader.
 - [Sprite sheet workflow](sprite-sheets.md) — turn the chosen character into action/direction animations and verify them in the engine.
 - [Interactive objects and asset inventory](game-bible-guide.md#make-objects-the-player-can-use) — give usable objects their own files and prove their fit with the character in the sandbox.
 - [Multiplayer hosting walkthrough](multiplayer-hosting.md) — local players, private remote joins, cloud deployment, and operating checks.
