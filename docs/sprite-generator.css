@@ -235,7 +235,13 @@ dialog.sprite-generator {
   cursor: default;
 }
 
-.sprite-generator [data-discard] { margin-top: 10px; }
+.sprite-generator__recovery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.sprite-generator__recovery:not(:has(button:not([hidden]))) { display: none; }
 .sprite-generator__message {
   margin: 0;
   padding: 9px 18px;

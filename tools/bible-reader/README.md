@@ -60,3 +60,25 @@ Load the current `/_bible/updates.js` in a private reader that uses the shared `
 Enter a set name, choose **Create set**, and use **Import PNG**. The preview shows the original dimensions and transparent area. Choose **Save set**, then use **Saved sets** to reopen it. Each set is a versioned JSON manifest with the original PNG bytes. The reader keeps it in the project workspace, so the set is still there after restoring an older Bible revision. If someone else saves first, the editor keeps your draft and shows that the saved set changed. **Discard draft** reloads the saved set.
 
 The private reader’s `api/sprite-generator` lists the configured project and its saved sets. `GET api/sprite-generator/<id>` returns the manifest and its revision. `POST` to the same set URL with JSON containing `revision` and `manifest` to save. Use `null` as the revision for a new set. The POST requires the reader’s HTTP origin and the `X-Bible-Sprite-Generator: 1` header. Compare with the returned revision before applying a later edit. A stale save returns HTTP 409 and preserves the current set.
+
+### Review a PNG from Codex
+
+Save the set with a registered part. Pause on the pose you want to review and select its slot in the layer list. Choose the expression if you're working on a variation. Select **Copy Codex context** and paste the reference into Codex. The reference includes the set URL, pose, slot, expression, saved revision, and the current PNG size and registration.
+
+From the project workspace, use the shared reader's `sprite_proposal.py` to inspect the copied slot and stage the PNG file. Replace each angle-bracket value with the matching value from the reference.
+
+```sh
+python3 -B docs/bible-upstream/tools/bible-reader/sprite_proposal.py inspect \
+  --set-url '<setUrl>' --revision '<revision>' --pose '<poseId>' \
+  --slot '<slotId>' --expression '<expressionId>'
+
+python3 -B docs/bible-upstream/tools/bible-reader/sprite_proposal.py stage \
+  --set-url '<setUrl>' --revision '<revision>' --pose '<poseId>' \
+  --slot '<slotId>' --expression '<expressionId>' --png path/to/part.png
+```
+
+Use an empty expression value for the base pose. For a different PNG size, pass both `--x` and `--y` to register the patch relative to the slot's anchor. A same-size PNG uses the saved part's registration when you omit those flags. If the saved revision changed, copy the updated context before staging again.
+
+Watch **Codex proposals** in the open editor. With the proposal's pose and expression selected, **Saved** and **Proposed** show the same frame side by side. **Accept into draft** adds the part alongside any compatible edits you already made. Choose **Save set** to make those changes part of the saved revision, or choose **Discard proposal** to remove a pending proposal. If another editor has saved first, use **Save draft as copy** to keep your work in a new set, then open the latest revision from **Saved sets**. After an interrupted connection, check the save status and try **Save set** again if you still see unsaved changes.
+
+In the built-in Codex browser, Site tools can inspect the selected slot and stage PNG bytes for the same review. Keep the Sprite Generator open on the saved pose with the slot selected.

@@ -82,7 +82,10 @@ function makeEditor() {
             <label>New set name <input name="name" type="text" maxlength="120" required></label>
             <button type="submit">Create set</button>
           </form>
-          <button type="button" data-discard hidden>Discard draft</button>
+          <div class="sprite-generator__recovery">
+            <button type="button" data-save-copy hidden>Save draft as copy</button>
+            <button type="button" data-discard hidden>Discard draft</button>
+          </div>
         </section>
         <section data-assets-section aria-labelledby="sprite-assets-title" hidden>
           <h3 id="sprite-assets-title">Source images</h3>
@@ -143,6 +146,7 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
   const createName = create.elements.namedItem('name');
   const createButton = create.querySelector('button');
   const discard = find('[data-discard]');
+  const saveCopy = find('[data-save-copy]');
   const sourcesSection = find('[data-assets-section]');
   const file = find('[data-file]');
   const assets = find('[data-assets]');
@@ -160,6 +164,8 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
   let activeAsset = null;
   let dirty = false;
   let conflict = false;
+  let copyAttempt = null;
+  let uncertainSave = null;
   let busy = '';
 
   function setMessage(text) {
@@ -183,8 +189,11 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
     createName.disabled = createButton.disabled = unavailable || dirty;
     librarySelect.disabled = unavailable || dirty || !library.sets.length;
     librarySelect.value = saved?.manifest.id ?? '';
-    discard.hidden = !dirty;
+    discard.hidden = !dirty && !conflict;
+    discard.textContent = dirty ? 'Discard draft' : 'Reload saved set';
     discard.disabled = Boolean(busy);
+    saveCopy.hidden = !conflict || !dirty;
+    saveCopy.disabled = unavailable;
     sourcesSection.hidden = !draft;
     if (draft && sourcesSection.previousElementSibling === librarySection) {
       librarySection.before(sourcesSection);
@@ -222,7 +231,43 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
     return true;
   }
 
-  const extension = { controls, preview, getDraft: () => draft, updateDraft, setMessage };
+  function markConflict() {
+    conflict = true;
+    setMessage(dirty
+      ? 'Someone saved a newer revision. Save your draft as a copy or discard it to reopen that revision.'
+      : 'Someone saved a newer revision. Reload the saved set to see it.');
+    render();
+  }
+
+  function observeRevision(revision) {
+    if (!saved || busy || conflict || revision === saved.revision) return;
+    if (uncertainSave) {
+      if (!uncertainSave.checking) void settleInterruptedSave(uncertainSave);
+      return;
+    }
+    markConflict();
+  }
+
+  async function settleInterruptedSave(attempt) {
+    attempt.checking = true;
+    const current = await request(setEndpoint(attempt.manifest.id)).catch(() => null);
+    attempt.checking = false;
+    if (!current || busy || uncertainSave !== attempt || saved?.manifest.id !== current.manifest.id) return;
+    if (sameManifest(current.manifest, attempt.manifest)) {
+      finishSave(current, !sameManifest(draft, attempt.manifest));
+      setMessage('Confirmed the saved set after the connection was interrupted.');
+      render();
+    } else if (current.revision !== saved.revision) {
+      uncertainSave = null;
+      markConflict();
+    }
+  }
+
+  const extension = {
+    controls, preview, dialog, request, setEndpoint, getProject: () => library.project,
+    getDraft: () => draft, getSaved: () => saved, isBusy: () => Boolean(busy), hasConflict: () => conflict,
+    observeRevision, updateDraft, setMessage,
+  };
   const renders = extensions.map(install => install(extension));
 
   function showSnapshot(snapshot) {
@@ -230,6 +275,7 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
     draft = snapshot ? structuredClone(snapshot.manifest) : null;
     activeAsset = null;
     dirty = conflict = false;
+    copyAttempt = uncertainSave = null;
   }
 
   async function run(label, action) {
@@ -290,7 +336,7 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
   });
 
   discard.addEventListener('click', () => {
-    if (!dirty) return;
+    if (!dirty && !conflict) return;
     void run('Reloading set…', async () => {
       const id = saved?.manifest.id;
       showSnapshot(id ? await request(setEndpoint(id)) : null);
@@ -315,21 +361,67 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
     render();
   });
 
-  save.addEventListener('click', () => {
-    if (!dirty || conflict) return;
-    void run('Saving…', async () => {
-      saved = await request(setEndpoint(draft.id), {
+  async function persistDraft(manifest, revision) {
+    const url = setEndpoint(manifest.id);
+    let snapshot;
+    try {
+      snapshot = await request(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Bible-Sprite-Generator': '1' },
-        body: JSON.stringify({ revision: saved?.revision ?? null, manifest: draft }),
+        body: JSON.stringify({ revision, manifest }),
       });
-      draft = structuredClone(saved.manifest);
-      dirty = false;
-      const item = { id: draft.id, name: draft.name, revision: saved.revision };
-      library.sets = [...library.sets.filter(set => set.id !== item.id), item]
-        .sort((a, b) => a.name.localeCompare(b.name));
-      renderLibrary();
-    });
+    } catch (error) {
+      if (error.status === 400 || error.status === 403) throw error;
+      // A write can reach disk even when its response never reaches this editor.
+      const current = await request(url).catch(() => null);
+      if (current && sameManifest(current.manifest, manifest)) {
+        snapshot = current;
+        setMessage('Confirmed the saved set after the connection was interrupted.');
+      } else if (current && uncertainSave && sameManifest(current.manifest, uncertainSave.manifest)) {
+        finishSave(current, true);
+        return persistDraft(manifest, current.revision);
+      } else if (error.status === 409 || (current && current.revision !== revision)) {
+        uncertainSave = null;
+        const stale = new Error('Someone saved a newer revision. Save your draft as a copy or discard it to reopen that revision.');
+        stale.status = 409;
+        throw stale;
+      } else {
+        if (!current && manifest.id === saved?.manifest.id) uncertainSave = { manifest: structuredClone(manifest) };
+        throw new Error('The save could not be confirmed. Your draft is still here. Try saving again.');
+      }
+    }
+    finishSave(snapshot);
+  }
+
+  function sameManifest(left, right) {
+    return JSON.stringify(left) === JSON.stringify(right);
+  }
+
+  function finishSave(snapshot, keepDraft = false) {
+    saved = snapshot;
+    if (!keepDraft) draft = structuredClone(saved.manifest);
+    dirty = keepDraft;
+    conflict = false;
+    copyAttempt = uncertainSave = null;
+    const item = { id: saved.manifest.id, name: saved.manifest.name, revision: saved.revision };
+    library.sets = [...library.sets.filter(set => set.id !== item.id), item]
+      .sort((a, b) => a.name.localeCompare(b.name));
+    renderLibrary();
+  }
+
+  save.addEventListener('click', () => {
+    if (!dirty || conflict) return;
+    void run('Saving…', () => persistDraft(draft, saved?.revision ?? null));
+  });
+
+  saveCopy.addEventListener('click', () => {
+    if (!dirty || !conflict || busy) return;
+    if (copyAttempt?.draft !== draft) {
+      const suffix = ' (draft copy)';
+      const name = Array.from(draft.name).slice(0, 120 - suffix.length).join('') + suffix;
+      copyAttempt = { draft, manifest: { ...draft, name, id: crypto.randomUUID() } };
+    }
+    void run('Saving copy…', () => persistDraft(copyAttempt.manifest, null));
   });
 
   dialog.addEventListener('cancel', event => { if (busy) event.preventDefault(); });

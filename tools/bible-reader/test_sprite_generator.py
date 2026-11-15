@@ -6,6 +6,8 @@ from http.server import ThreadingHTTPServer
 import json
 from pathlib import Path
 from struct import pack
+import subprocess
+import sys
 import tempfile
 import threading
 import unittest
@@ -33,6 +35,21 @@ def sample_manifest():
         "assets": [{"id": ASSET, "name": "mask.png", "width": 2, "height": 1,
                     "dataUrl": "data:image/png;base64," + b64encode(transparent_png()).decode()}],
     }
+
+
+def placed_manifest():
+    manifest = sample_manifest()
+    manifest["placement"] = {
+        "width": 8, "height": 8,
+        "views": [{"id": "front", "name": "Front"}],
+        "slots": [{"id": "mouth", "name": "Mouth", "viewId": "front", "anchor": "face"}],
+        "parts": [{"id": "idle-mouth", "slotId": "mouth", "assetId": ASSET, "x": -1, "y": 0}],
+        "poses": [{"id": "idle", "name": "Idle", "viewId": "front", "duration": 120,
+                   "anchors": {"origin": {"x": 4, "y": 8}, "face": {"x": 4, "y": 4}},
+                   "layers": [{"slotId": "mouth", "partId": "idle-mouth", "x": 0, "y": 0}]}],
+        "expressions": [{"id": "rest", "name": "Rest", "parts": {}}],
+    }
+    return manifest
 
 
 class SpriteGeneratorTest(unittest.TestCase):
@@ -94,6 +111,77 @@ class SpriteGeneratorTest(unittest.TestCase):
             "project": "Home Team",
             "sets": [{"id": SET, "name": "Goalie", "revision": saved["revision"]}],
         }))
+
+    def test_workspace_cli_stages_a_png_for_the_open_revision(self):
+        route = f"{self.endpoint}/{SET}"
+        _, saved = self.request("POST", route, {"revision": None, "manifest": placed_manifest()})
+        png = self.home.parent / "grin.png"
+        png.write_bytes(transparent_png())
+        command = [sys.executable, "-B", str(Path(__file__).with_name("sprite_proposal.py"))]
+        arguments = ["--set-url", f"http://{self.host}{route}", "--revision", saved["revision"],
+                     "--pose", "idle", "--slot", "mouth", "--expression", "rest"]
+        inspection = subprocess.run([*command, "inspect", *arguments], capture_output=True, text=True)
+        self.assertEqual(inspection.returncode, 0, inspection.stderr)
+        self.assertEqual(json.loads(inspection.stdout)["registration"], {"x": -1, "y": 0, "width": 2, "height": 1})
+
+        staged = subprocess.run([*command, "stage", *arguments, "--png", str(png)], capture_output=True, text=True)
+        self.assertEqual(staged.returncode, 0, staged.stderr)
+        proposal_id = json.loads(staged.stdout)["id"]
+        inbox = route + "/proposals"
+        status, listed = self.request("GET", inbox)
+        self.assertEqual(status, 200)
+        self.assertEqual(listed["revision"], saved["revision"])
+        self.assertEqual([item["id"] for item in listed["proposals"]], [proposal_id])
+        self.assertEqual(self.request("GET", f"{inbox}/{proposal_id}")[1]["asset"]["dataUrl"],
+                         "data:image/png;base64," + b64encode(png.read_bytes()).decode())
+        self.assertEqual(self.request("GET", route), (200, saved))
+        self.assertEqual(self.request("GET", f"/away/api/sprite-generator/{SET}/proposals")[0], 404)
+        self.assertEqual(self.request("POST", f"{inbox}/{proposal_id}", {"action": "discard"})[0], 200)
+        self.assertEqual(self.request("GET", inbox)[1]["proposals"], [])
+
+    def test_saved_proposal_is_no_longer_pending(self):
+        route = f"{self.endpoint}/{SET}"
+        manifest = placed_manifest()
+        _, saved = self.request("POST", route, {"revision": None, "manifest": manifest})
+        inbox = route + "/proposals"
+        _, png = self.request("POST", inbox, {
+            "revision": saved["revision"], "poseId": "idle", "slotId": "mouth", "name": "smile.png",
+            "pngBase64": b64encode(transparent_png()).decode(),
+        })
+        item_url = f"{inbox}/{png['id']}"
+        _, item = self.request("GET", item_url)
+        manifest["assets"].append(item["asset"])
+        manifest["placement"]["parts"].append({
+            "id": item["id"], "assetId": item["asset"]["id"], "name": "Smile",
+            "slotId": "mouth", "x": item["x"], "y": item["y"],
+        })
+        manifest["placement"]["poses"][0]["layers"][0]["partId"] = item["id"]
+        status, accepted = self.request("POST", route, {"revision": saved["revision"], "manifest": manifest})
+        self.assertEqual(status, 200)
+        self.assertEqual(self.request("GET", route), (200, accepted))
+        self.assertEqual(self.request("GET", inbox)[1]["proposals"], [])
+        self.assertEqual(self.request("GET", item_url)[0], 404)
+
+    def test_proposal_staging_requires_a_current_revision_and_compatible_registration(self):
+        route = f"{self.endpoint}/{SET}"
+        manifest = placed_manifest()
+        _, old = self.request("POST", route, {"revision": None, "manifest": manifest})
+        _, saved = self.request("POST", route, {"revision": old["revision"], "manifest": {**manifest, "name": "New name"}})
+        inbox = route + "/proposals"
+        proposal = {
+            "revision": saved["revision"], "poseId": "idle", "slotId": "mouth",
+            "viewId": "front", "expressionId": "rest", "name": "grin.png",
+            "pngBase64": b64encode(transparent_png()).decode(),
+        }
+        for edits, expected in (
+            ({"revision": old["revision"]}, 409), ({"slotId": "helmet"}, 400),
+            ({"viewId": "side"}, 400), ({"x": -1}, 400), ({"pngBase64": "R2FtZQ=="}, 400),
+        ):
+            with self.subTest(edits=edits):
+                self.assertEqual(self.request("POST", inbox, {**proposal, **edits})[0], expected)
+        self.assertEqual(self.request("POST", inbox, proposal, Origin="https://other.example")[0], 403)
+        self.assertEqual(self.request("GET", inbox)[1]["proposals"], [])
+        self.assertEqual(self.request("GET", route), (200, saved))
 
     def test_concurrent_saves_only_apply_one_edit_to_a_revision(self):
         manifest = sample_manifest()

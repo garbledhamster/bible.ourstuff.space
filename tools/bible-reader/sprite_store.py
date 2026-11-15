@@ -126,6 +126,9 @@ class SpriteWorkspace:
         check_manifest_shape(manifest, set_id)
         return {"revision": sha256(data).hexdigest(), "manifest": manifest}
 
+    def proposal_path(self, set_id, proposal_id):
+        return self.directory / f"{set_id}.{proposal_id}.proposal"
+
     def save(self, set_id, manifest, revision):
         validate_manifest(manifest, set_id)
         data = json.dumps(manifest, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode("utf-8") + b"\n"
@@ -146,4 +149,10 @@ class SpriteWorkspace:
                     temporary.replace(self.directory / f"{set_id}.json")
                 finally:
                     temporary.unlink(missing_ok=True)
+            for asset in manifest["assets"]:
+                try:
+                    self.proposal_path(set_id, asset["id"]).unlink(missing_ok=True)
+                except OSError:
+                    # The manifest is already saved. The inbox also omits adopted parts.
+                    continue
         return {"revision": sha256(data).hexdigest(), "manifest": manifest}

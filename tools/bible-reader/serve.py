@@ -16,6 +16,7 @@ import threading
 from urllib.parse import unquote, urljoin, urlsplit, urlunsplit
 from urllib.request import urlopen
 
+from sprite_proposals import PROPOSAL_LIMIT, inspect_slot, proposal_list, read_proposal_file, stage_proposal
 from sprite_store import SET_ID, SET_LIMIT, SET_REVISION, SPRITE_API, SpriteConflict, SpriteWorkspace
 
 RELEASE_URL = "https://bible.ourstuff.space/version.json"
@@ -384,6 +385,39 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return self.sprite_workspaces.get(route + "/"), suffix[1:] if suffix else None
         return None, None
 
+    def sprite_proposals(self, workspace, set_id, proposal_id, method):
+        if not self.local_host() or (method == "POST" and not self.sprite_write_allowed()):
+            return self.respond(403, {"message": "Open Sprite Generator in its private reader."})
+        try:
+            if method == "GET":
+                if proposal_id:
+                    workspace.read(set_id)
+                    proposal = read_proposal_file(workspace.proposal_path(set_id, proposal_id), include_asset=True)
+                    return self.respond(200, proposal)
+                return self.respond(200, proposal_list(workspace, set_id))
+            request = self.read_sprite_body(PROPOSAL_LIMIT)
+            if proposal_id and request.get("action") == "discard":
+                workspace.read(set_id)
+                workspace.proposal_path(set_id, proposal_id).unlink(missing_ok=True)
+                return self.respond(200, {"id": proposal_id})
+            if not proposal_id:
+                if request.get("action") == "inspect":
+                    return self.respond(200, inspect_slot(workspace, set_id, request))
+                if request.get("action", "stage") == "stage":
+                    return self.respond(201, stage_proposal(workspace, set_id, request))
+            raise ValueError("Choose a sprite proposal action.")
+        except FileNotFoundError:
+            if workspace.directory.is_dir():
+                return self.respond(404, {"message": "Sprite set or proposal not found."})
+        except SpriteConflict as error:
+            return self.respond(409, {"revision": error.revision,
+                                      "message": "The saved set changed. Copy the current revision before proposing again."})
+        except (TypeError, ValueError, RecursionError) as error:
+            return self.respond(400, {"message": str(error)})
+        except (OSError, KeyError):
+            pass
+        return self.respond(503, {"project": workspace.project, "message": "Can’t open proposals in the sprite workspace."})
+
     def read_sprites(self, workspace, set_id):
         if not self.local_host():
             return self.respond(403, {"message": "Open Sprite Generator in its private reader."})
@@ -399,20 +433,29 @@ class ReaderHandler(SimpleHTTPRequestHandler):
         return self.respond(503, {"project": workspace.project,
                                   "message": "Can’t open the sprite workspace. Check its reader setup."})
 
+    def sprite_write_allowed(self):
+        return (self.local_host()
+                and self.headers.get("Origin") == f'http://{self.headers.get("Host")}'
+                and self.headers.get("X-Bible-Sprite-Generator") == "1"
+                and self.headers.get_content_type() == "application/json")
+
+    def read_sprite_body(self, limit):
+        length = int(self.headers.get("Content-Length", "0"))
+        if not 0 < length <= limit:
+            raise ValueError("Invalid sprite request length.")
+        self.connection.settimeout(5)
+        request = json.loads(self.rfile.read(length))
+        if not isinstance(request, dict):
+            raise ValueError("Use a JSON object for the sprite request.")
+        return request
+
     def save_sprites(self, workspace, set_id):
         if set_id is None or not SET_ID.fullmatch(set_id):
             return self.respond(404, {"message": "Sprite set not found."})
-        if (not self.local_host()
-                or self.headers.get("Origin") != f'http://{self.headers.get("Host")}'
-                or self.headers.get("X-Bible-Sprite-Generator") != "1"
-                or self.headers.get_content_type() != "application/json"):
+        if not self.sprite_write_allowed():
             return self.respond(403, {"message": "Save the set from its private reader."})
         try:
-            length = int(self.headers.get("Content-Length", "0"))
-            if not 0 < length <= SET_LIMIT:
-                raise ValueError("Invalid request length.")
-            self.connection.settimeout(5)
-            request = json.loads(self.rfile.read(length))
+            request = self.read_sprite_body(SET_LIMIT)
             revision, manifest = request["revision"], request["manifest"]
             if revision is not None and (not isinstance(revision, str) or not SET_REVISION.fullmatch(revision)):
                 raise ValueError("Invalid revision.")
@@ -429,10 +472,20 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return self.respond(503, {"project": workspace.project,
                                       "message": "Can’t save to the sprite workspace. Check its reader setup."})
 
+    def handle_sprite_request(self, workspace, path, method):
+        if path and "/" in path:
+            set_id, separator, proposal_id = path.partition("/proposals")
+            if separator and SET_ID.fullmatch(set_id):
+                if not proposal_id:
+                    return self.sprite_proposals(workspace, set_id, None, method)
+                if proposal_id.startswith("/") and SET_ID.fullmatch(proposal_id[1:]):
+                    return self.sprite_proposals(workspace, set_id, proposal_id[1:], method)
+        return self.read_sprites(workspace, path) if method == "GET" else self.save_sprites(workspace, path)
+
     def do_GET(self):
         workspace, set_id = self.sprite_workspace()
         if workspace is not None:
-            return self.read_sprites(workspace, set_id)
+            return self.handle_sprite_request(workspace, set_id, "GET")
         project = self.project_bible()
         if project is not None:
             return self.read_work_mode(project)
@@ -457,7 +510,7 @@ class ReaderHandler(SimpleHTTPRequestHandler):
     def do_POST(self):
         workspace, set_id = self.sprite_workspace()
         if workspace is not None:
-            return self.save_sprites(workspace, set_id)
+            return self.handle_sprite_request(workspace, set_id, "POST")
         project = self.project_bible()
         if project is not None:
             return self.save_work_mode(project)

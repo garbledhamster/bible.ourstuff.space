@@ -138,3 +138,7 @@ Checked both views in the reader at 1,440, 390, and 320 pixels, including keyboa
 ### 2026-11-15T11:04:19-06:00 · Place sprite parts and combine sheets
 
 Sprite Generator can place registered PNGs across poses, swap an expression by slot, and check placement at close-up and game size. Combine can assemble selected cells into a fixed grid and download the sheet with its frame map. Ran both workflows from the private reader and compared the saved and exported pixels.
+
+### 2026-11-15T11:15:39-06:00 · Review a Codex proposal on the open sprite pose
+
+Copy the saved pose and slot context for Codex, stage a PNG from the project workspace, and compare it with the saved part on the same frame. Accept it into your draft or discard it. Checked the CLI and browser together, including a lost save response and preserving both editors’ work after a revision conflict.
