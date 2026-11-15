@@ -92,3 +92,9 @@ Added [Auto Grill](auto-grill/SKILL.md) as a standalone skill and linked it from
 ## 2026-11-15T08:42:55-06:00 · Bible specs, tickets, and subtasks
 
 Made to-spec followed by to-tickets part of the Project Bible skill, guide and Joe’s Notes. Added editable subtasks to Chapter Tasks and the global Task List. Verified saving and reloading a checked subtask in Chromium, the Markdown round trip for both task formats, the reader endpoint tests, and the site build. [Task List workflow](task-list-workflow.md#turn-an-agreed-plan-into-work) · [Feedback](feedback.md)
+
+### 2026-11-15T09:05:16-06:00 · Keep the full grilling record
+
+The Bible template and Grilling prompt now point to one record for the human and agent rounds. The Project Bible and Auto Grill skills say how to attribute questions, recommendations and answers, preserve follow-ups, and help the owner rejoin or reopen a decision. Checked a revised answer, an owner taking over during agent grilling, and a missing historical answer.
+
+[Grilling work mode](project-phases.md#grilling) · [Auto Grill](auto-grill/SKILL.md)

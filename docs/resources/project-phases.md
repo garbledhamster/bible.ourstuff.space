@@ -25,7 +25,7 @@ For example, in Zoo Helper, the visitor queue starts with a decision about what 
 
 ## Grilling
 
-Explore options and gather enough evidence to discuss them. Work through the applicable chapters with the creator. Use Grill with Docs to make decisions about what you’re trying to make and what people should experience. Save each answer where it belongs in the Bible. Move to Plan when you have enough decisions to describe the release and identify what still needs an answer.
+Explore options and gather enough evidence to discuss them. Work through the applicable chapters with the creator. Use Grill with Docs to make decisions about what you’re trying to make and what people should experience. Link the complete [grilling record](auto-grill/SKILL.md#record-the-whole-interview) from the Bible. Keep who asked, who recommended each option, who answered and what was decided. Save the current decision in its chapter. Bring any question number back to the conversation to discuss it, add your own answer or take over the remaining interview. Move to Plan when you have enough decisions to describe the release and identify what still needs an answer.
 
 ## Plan
 

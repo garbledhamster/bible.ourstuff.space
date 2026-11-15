@@ -1,5 +1,5 @@
 const modes = [
-  ['Grilling', 'Explore options, then work through decisions with the creator and record what you agree on.'],
+  ['Grilling', 'Work through decisions with the creator. Keep the questions, recommendations, and attributed human and agent answers in the Bible’s grilling record.'],
   ['Plan', 'Review how the whole release fits together and turn the decisions into build tasks.'],
   ['Build', 'Build the agreed scope and run the checks needed to assemble a complete candidate.'],
   ['Testing', 'Try the complete release through its real user journeys and record what passed or needs work.'],

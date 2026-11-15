@@ -92,3 +92,9 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ## 2026-11-15T08:42:55-06:00 · Plan side projects in the Bible
 
 Joe asked that agents use to-spec and to-tickets for settled project plans, then put the spec, build instructions and subtasks in the Project Bible so the next agent can pick up the work there. Paraphrased. [Joe’s Notes](joes-notes.md#plan-side-projects-in-the-bible)
+
+### 2026-11-15T09:05:16-06:00 · Joe · Keep the whole grilling conversation
+
+**Paraphrase.** Include the questions and decisions from the chapters I worked through as well as the ones the agents answered. Show who asked and who answered. Let me work through any of the questions with the agent, and make that part of the shared Bible and skill.
+
+[Grilling work mode](project-phases.md#grilling)

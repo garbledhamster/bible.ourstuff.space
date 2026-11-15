@@ -6,6 +6,7 @@ Game:
 
 Current chapter:
 Next decision or check:
+Grilling record (link to questions, recommendations, attributed answers and decisions):
 
 For each chapter, record the earlier input, the expected player experience or decision, and the output someone can open or run. Link the completion check, what you observed, and the build and target when applicable. Record the next unmet check and its owner. If a chapter does not apply to this release, record why. Embed generated images beside the decisions they illustrate. Include alt text, purpose, status, and a source or prompt link. Reuse the same files in later chapters.
 
