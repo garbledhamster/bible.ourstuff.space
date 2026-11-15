@@ -1,0 +1,147 @@
+{
+  "image": "frostbolt-spritesheet.png",
+  "frame": {
+    "width": 48,
+    "height": 48,
+    "columns": 8,
+    "rows": 6,
+    "origin": {
+      "x": 24,
+      "y": 24
+    }
+  },
+  "directions": {
+    "right": {
+      "axis": {
+        "x": 1,
+        "y": 0
+      },
+      "cast": {
+        "frames": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "frameMs": 90
+      },
+      "flight": {
+        "frames": [
+          8,
+          9,
+          10,
+          11
+        ],
+        "frameMs": 70
+      },
+      "impact": {
+        "frames": [
+          16,
+          17,
+          18,
+          19
+        ],
+        "frameMs": 100
+      }
+    },
+    "left": {
+      "axis": {
+        "x": -1,
+        "y": 0
+      },
+      "cast": {
+        "frames": [
+          4,
+          5,
+          6,
+          7
+        ],
+        "frameMs": 90
+      },
+      "flight": {
+        "frames": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "frameMs": 70
+      },
+      "impact": {
+        "frames": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "frameMs": 100
+      }
+    },
+    "up": {
+      "axis": {
+        "x": 0,
+        "y": -1
+      },
+      "cast": {
+        "frames": [
+          24,
+          25,
+          26,
+          27
+        ],
+        "frameMs": 90
+      },
+      "flight": {
+        "frames": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "frameMs": 70
+      },
+      "impact": {
+        "frames": [
+          40,
+          41,
+          42,
+          43
+        ],
+        "frameMs": 100
+      }
+    },
+    "down": {
+      "axis": {
+        "x": 0,
+        "y": 1
+      },
+      "cast": {
+        "frames": [
+          28,
+          29,
+          30,
+          31
+        ],
+        "frameMs": 90
+      },
+      "flight": {
+        "frames": [
+          36,
+          37,
+          38,
+          39
+        ],
+        "frameMs": 70
+      },
+      "impact": {
+        "frames": [
+          44,
+          45,
+          46,
+          47
+        ],
+        "frameMs": 100
+      }
+    }
+  }
+}

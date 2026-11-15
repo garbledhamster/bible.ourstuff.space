@@ -60,3 +60,7 @@ Added [the five project phases](project-phases.md) to the shared guide and skill
 ### 2026-11-14T22:25:50-06:00 · Phase instructions in every chapter
 
 Added work and handoff instructions for Grilling, Plan, Build, Testing, and Maintenance to all 14 chapters. Linked the setup steps and walked a Zoo Helper example through the five phases. The site build passed and Chrome displayed the instructions in the guide and chapter reader. [Feedback](feedback.md#entries)
+
+### 2026-11-14T22:49:04-06:00 · Frostbolt spell example
+
+Added a [painted spellbook illustration and gameplay sheet](game-bible-guide.md#frostbolt-spell-example) for Frostbolt. The frame map covers cast, flight, and impact in four directions. The preview plays the exported spell at 1× beside the illustration. [Feedback](feedback.md#entries)

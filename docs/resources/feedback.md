@@ -54,3 +54,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T22:23:42-06:00 · Joe · Instructions for each project phase
 
 **Paraphrase.** Give every phase dedicated instructions in each chapter. Show what needs to get done and how the work builds from project setup through maintenance. [Project phases](project-phases.md) · [Chapter guide](game-bible-guide.md)
+
+### 2026-11-14T22:49:04-06:00 · Joe · Magic spell example
+
+**Paraphrase.** The sword sheet and playback match what I had in mind. Make another example for a magic spell. [Frostbolt spell example](game-bible-guide.md#frostbolt-spell-example)

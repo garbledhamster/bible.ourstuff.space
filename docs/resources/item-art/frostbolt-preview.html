@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frostbolt preview · Project Bible</title>
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../document-reader.css">
+<link rel="stylesheet" href="preview.css">
+<script type="module" src="frostbolt-preview.js"></script>
+</head>
+<body>
+<main class="document-reader">
+<nav aria-label="Document navigation">
+<a href="../../read.html?file=/resources/game-bible-guide.md#frostbolt-spell-example">← Frostbolt spell example</a>
+</nav>
+<article class="chapter-detail-body asset-example">
+<h1>Frostbolt preview</h1>
+<div class="asset-views">
+  <figure>
+    <figcaption>Spellbook illustration</figcaption>
+    <div class="asset-stage"><img src="frostbolt-inventory.webp" alt="Painted spear of ice with a blue core and three diamond-shaped shards"></div>
+  </figure>
+  <figure>
+    <figcaption>Spell preview · 1×</figcaption>
+    <div class="asset-stage asset-stage--fight"><canvas width="104" height="104" role="img" aria-label="Frostbolt effect at one CSS pixel per sprite pixel">Frostbolt animation preview</canvas></div>
+  </figure>
+</div>
+<div class="asset-controls">
+  <label>Direction
+    <select id="direction"><option value="right">Right</option><option value="left">Left</option><option value="up">Up</option><option value="down">Down</option></select>
+  </label>
+  <button id="play" type="button" disabled>Cast Frostbolt</button>
+</div>
+<p class="asset-meta" id="status" role="status"></p>
+<p class="asset-meta"><a href="frostbolt-spritesheet.png" download>Download PNG sprite sheet</a> · <a href="frostbolt-frames.json" download>Download frame map</a></p>
+</article>
+</main>
+</body>
+</html>

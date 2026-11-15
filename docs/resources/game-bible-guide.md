@@ -288,6 +288,16 @@ The painted sword shows the blue blade inset, gold guard, and red wrap. Those fe
 
 [Play both swings at 1×](item-art/sword-preview.html) · [PNG sprite sheet](item-art/sword-spritesheet.png) · [Frame map and art source](item-art/sword-source.md)
 
+### Frostbolt spell example
+
+| Spellbook illustration | Gameplay sprite sheet |
+| :---: | :---: |
+| ![Painted Frostbolt with a sapphire ice spear, diamond shards, and a frosty halo](item-art/frostbolt-inventory.webp) | ![Frostbolt sprite sheet with cast, flight, and impact frames for four directions](item-art/frostbolt-spritesheet.png) |
+
+The spellbook shows the ice spear and its frosty halo in detail. In play, a small ring gathers at the caster, the blue spear travels toward the target, and pale shards burst on contact. Use separate sequences for cast, flight, and impact so the engine can start each effect at the caster, projectile, or contact point.
+
+[Cast Frostbolt at 1×](item-art/frostbolt-preview.html) · [PNG sprite sheet](item-art/frostbolt-spritesheet.png) · [Frame map and art source](item-art/frostbolt-source.md)
+
 ### Asset locations and readiness
 
 Keep the working file or its source where the next contributor can find it. Mark which pieces are placeholders, which are ready to use, and which still need to be tried on a target device. A sprite can look right on its own and still be hard to read on the map. Open it in the game and see if it does its job at the size the player will see.
