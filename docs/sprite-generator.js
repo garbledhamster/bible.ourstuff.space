@@ -1,5 +1,8 @@
+import { installSpriteBundle } from './sprite-bundle.js';
 import { installSpriteCombine } from './sprite-combine.js';
 import { installSpritePlacement } from './sprite-placement.js';
+import { renderPoseFrame } from './sprite-pose-frame.js';
+import { installSpriteProposals } from './sprite-proposals.js';
 
 const PNG_TYPE = 'image/png';
 const PNG_LIMIT = 8 * 1024 * 1024;
@@ -101,7 +104,14 @@ function makeEditor() {
   return dialog;
 }
 
-export async function installSpriteGenerator(extensions = [installSpritePlacement, installSpriteCombine]) {
+const spriteExtensions = [
+  installSpritePlacement,
+  hooks => installSpriteCombine(hooks, { resolveFrame: renderPoseFrame }),
+  installSpriteBundle,
+  installSpriteProposals,
+];
+
+export async function installSpriteGenerator(extensions = spriteExtensions) {
   const footer = document.querySelector('.resources .link-row');
   if (!footer || footer.querySelector('[data-sprite-generator-trigger]')) return;
   const endpoint = new URL('api/sprite-generator', location.href);
@@ -263,10 +273,22 @@ export async function installSpriteGenerator(extensions = [installSpritePlacemen
     }
   }
 
+  const canImportDraft = () => !setupMessage && !busy && !dirty;
+
+  function importDraft(manifest) {
+    if (!canImportDraft()) return false;
+    showSnapshot(null);
+    draft = { ...structuredClone(manifest), id: crypto.randomUUID() };
+    dirty = true;
+    setMessage('');
+    render();
+    return true;
+  }
+
   const extension = {
     controls, preview, dialog, request, setEndpoint, getProject: () => library.project,
     getDraft: () => draft, getSaved: () => saved, isBusy: () => Boolean(busy), hasConflict: () => conflict,
-    observeRevision, updateDraft, setMessage,
+    observeRevision, updateDraft, setMessage, canImportDraft, importDraft,
   };
   const renders = extensions.map(install => install(extension));
 
