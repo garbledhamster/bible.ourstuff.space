@@ -1,0 +1,270 @@
+dialog.sprite-generator {
+  box-sizing: border-box;
+  width: min(1056px, calc(100% - 24px));
+  height: min(680px, calc(100dvh - 24px));
+  max-height: none;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line, #52435c);
+  border-radius: 16px;
+  background: #211b2b;
+  color: var(--ink, #fff5e7);
+  text-align: left;
+  font: 15px/1.45 var(--sans, system-ui);
+}
+
+.sprite-generator[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.sprite-generator [hidden] { display: none; }
+
+.sprite-generator__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line, #52435c);
+}
+
+.sprite-generator__header h2 {
+  margin: 0;
+  font: 400 clamp(32px, 5vw, 50px)/1 var(--display, Georgia, serif);
+  letter-spacing: -.025em;
+}
+
+.sprite-generator__context {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin: 5px 0 0;
+  color: var(--muted, #bcb3c2);
+  overflow-wrap: anywhere;
+}
+
+.sprite-generator__context [data-set] {
+  font-weight: 700;
+  color: var(--ink, #fff5e7);
+}
+
+.sprite-generator__context [data-set]::before {
+  content: '·';
+  display: inline-block;
+  margin-right: 10px;
+  color: var(--muted, #bcb3c2);
+}
+
+.sprite-generator__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sprite-generator__state {
+  margin: 0;
+  color: var(--muted, #bcb3c2);
+  font-size: .875rem;
+}
+
+.sprite-generator__dismiss { margin: 0; }
+
+.sprite-generator__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 28%);
+  min-width: 0;
+  min-height: 0;
+}
+
+.sprite-generator__preview,
+.sprite-generator__controls {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #756382 transparent;
+}
+
+.sprite-generator__preview {
+  padding: 18px;
+  background: var(--bg, #12121a);
+}
+
+.sprite-generator__source {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  height: min(100%, 30rem);
+  margin: 0;
+}
+
+.sprite-generator__artboard {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  border: 1px solid #50445a;
+  border-radius: 8px;
+  background: conic-gradient(#302839 25%, #272131 0 50%, #302839 0 75%, #272131 0)
+    0 0 / 24px 24px;
+  overflow: hidden;
+}
+
+.sprite-generator__artboard p {
+  margin: 12px;
+  padding: 6px 10px;
+  background: #211b2b;
+  color: var(--ink, #fff5e7);
+  text-align: center;
+}
+
+.sprite-generator__artboard img {
+  display: block;
+  width: min(76%, 32rem);
+  height: min(44dvh, 25rem);
+  object-fit: contain;
+}
+
+.sprite-generator__artboard .sprite-generator__pixelated { image-rendering: pixelated; }
+
+.sprite-generator__source figcaption {
+  margin-top: 8px;
+  color: var(--muted, #bcb3c2);
+  font-size: .875rem;
+  overflow-wrap: anywhere;
+}
+
+.sprite-generator__controls {
+  padding: 16px 18px;
+  border-left: 1px solid var(--line, #52435c);
+}
+
+.sprite-generator__controls section {
+  margin: 0;
+  padding: 0 0 16px;
+  border: 0;
+}
+
+.sprite-generator__controls section + section {
+  padding-top: 16px;
+  border-top: 1px solid var(--line, #52435c);
+}
+
+.sprite-generator__controls section[hidden] + section {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.sprite-generator__controls h3 {
+  margin: 0 0 12px;
+  color: var(--ink, #fff5e7);
+  font-size: 1rem;
+}
+
+.sprite-generator__controls label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  min-width: 0;
+  margin: 0 0 10px;
+  color: var(--muted, #bcb3c2);
+  font-size: .875rem;
+}
+
+.sprite-generator input:is([type="text"], [type="number"]),
+.sprite-generator select,
+.sprite-generator button:not(.close),
+.sprite-generator__controls .sprite-generator__file {
+  min-height: 39px;
+  max-width: 100%;
+  padding: 6px 9px;
+  border: 1px solid #685876;
+  border-radius: 7px;
+  background: #272031;
+  color: var(--ink, #fff5e7);
+  font: 600 .875rem/1.3 var(--sans, system-ui);
+}
+
+.sprite-generator__controls label > :is(input[type="text"], select) {
+  width: 100%;
+  min-width: 0;
+}
+
+.sprite-generator__controls .sprite-generator__file {
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sprite-generator__file input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.sprite-generator__controls .sprite-generator__file:has(input:disabled) {
+  opacity: .58;
+  cursor: default;
+}
+
+.sprite-generator :is(button, input, select):focus-visible,
+.sprite-generator__file:focus-within {
+  outline: 2px solid var(--lime, #e4f596);
+  outline-offset: 2px;
+}
+
+.sprite-generator button:not(.close):not(:disabled):hover,
+.sprite-generator__file:has(input:not(:disabled)):hover { background: #382b45; }
+
+.sprite-generator button.sprite-generator__primary:not(:disabled) {
+  border-color: var(--lime, #e4f596);
+  background: var(--lime, #e4f596);
+  color: #232719;
+}
+
+.sprite-generator button.sprite-generator__primary:not(:disabled):hover {
+  background: #f1ffb4;
+}
+
+.sprite-generator :is(button, input, select):disabled {
+  opacity: .58;
+  cursor: default;
+}
+
+.sprite-generator [data-discard] { margin-top: 10px; }
+.sprite-generator__message {
+  margin: 0;
+  padding: 9px 18px;
+  border-top: 1px solid var(--line, #52435c);
+  color: var(--ink, #fff5e7);
+}
+
+@media (max-width: 650px) {
+  .resources .link-row:has([data-sprite-generator-trigger]) { white-space: normal; }
+  .resources .link-row:has([data-sprite-generator-trigger]) :is(a, button, .separator) { line-height: 1.55; }
+  .sprite-generator__header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+    padding: 12px;
+  }
+  .sprite-generator__dismiss { grid-row: 1; grid-column: 2; align-self: start; }
+  .sprite-generator__actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+  .sprite-generator__body {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(116px, 42%) minmax(0, 1fr);
+  }
+  .sprite-generator__preview { padding: 10px 12px; }
+  .sprite-generator__artboard img { height: 100%; max-height: 23dvh; }
+  .sprite-generator__controls {
+    padding: 12px;
+    border-top: 1px solid var(--line, #52435c);
+    border-left: 0;
+  }
+}

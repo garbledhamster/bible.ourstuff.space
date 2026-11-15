@@ -39,3 +39,20 @@ Run the updater checks with `python3 -B -m unittest discover -s tools/bible-read
 ## Changelog
 
 Open **Get Started → Changelog** to see project and shared Bible entries together. The shared entries come from the installed checkout, so they follow **Update now** and **Restore previous**. To include project entries, pass `--changelog /reader/ /absolute/project/docs/changelog.md` for the existing reader route. Keep those entries with the project and write dated headings followed by a short summary. The reader shows newest entries first.
+
+## Sprite Generator
+
+Create a writable workspace in the project checkout beside its served files. Choose a different directory for each project, outside the server’s document root, mounts, and shared Bible checkouts. Give the reader route a project name and the path to its workspace.
+
+```sh
+mkdir -p art/sprite-sets
+python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/serve.py \
+  --port 8765 --directory docs --reader /reader/ docs/bible-upstream \
+  --sprite-generator /reader/ "Project name" art/sprite-sets
+```
+
+Load the current `/_bible/updates.js` in a private reader that uses the shared `project-masthead.css`. Existing hosts need to run the current `serve.py` and its sibling modules. Restart the host after changing its command or updating its Python reader code. Use **Update now** to install the shared editor assets, then open **Sprite Generator** in the footer. If the workspace shows an error, check that its folder exists and the host can read and write it. Use the reader at its localhost address.
+
+Enter a set name, choose **Create set**, and use **Import PNG**. The preview shows the original dimensions and transparent area. Choose **Save set**, then use **Saved sets** to reopen it. Each set is a versioned JSON manifest with the original PNG bytes. The reader keeps it in the project workspace, so the set is still there after restoring an older Bible revision. If someone else saves first, the editor keeps your draft and shows that the saved set changed. **Discard draft** reloads the saved set.
+
+The private reader’s `api/sprite-generator` lists the configured project and its saved sets. `GET api/sprite-generator/<id>` returns the manifest and its revision. `POST` to the same set URL with JSON containing `revision` and `manifest` to save. Use `null` as the revision for a new set. The POST requires the reader’s HTTP origin and the `X-Bible-Sprite-Generator: 1` header. Compare with the returned revision before applying a later edit. A stale save returns HTTP 409 and preserves the current set.

@@ -28,6 +28,20 @@ async function loadGlobalTaskList() {
 if (document.querySelector('#references')) void loadGlobalTaskList();
 
 
+async function loadSpriteGenerator() {
+  const masthead = document.querySelector('link[href$="/project-masthead.css"]');
+  if (!masthead || new URL(masthead.href).origin !== location.origin) return;
+  try {
+    const { installSpriteGenerator } = await import(new URL('sprite-generator.js', masthead.href));
+    await installSpriteGenerator();
+  } catch {
+    // Earlier installed Bible revisions have no Sprite Generator.
+  }
+}
+
+if (document.querySelector('.resources .link-row')) void loadSpriteGenerator();
+
+
 async function loadProjectPhase() {
   if (!document.querySelector('.project-masthead-name')) return;
   const sharedStyle = document.querySelector('link[data-chapter-work][href$="/review.css"]')
