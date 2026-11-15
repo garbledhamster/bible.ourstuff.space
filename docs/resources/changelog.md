@@ -134,3 +134,7 @@ Enabled Sprite Generator in the footer of configured private readers. Create a n
 Added Work queue for open tickets, recorded assignments, and blockers. Marketing brief links to named sections in the source chapter. Open Chapter now uses DM Sans for its title, headings, controls, and working views, with Georgia prose in Editorial brief. The Bible guide links the design skills and research behind these choices.
 
 Checked both views in the reader at 1,440, 390, and 320 pixels, including keyboard navigation, exact ticket links, 200% text size, and custom spacing. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Present chapter data](game-bible-guide.md#present-chapter-data) · [Feedback](feedback.md#2026-11-15t104500-0600--joe--more-ways-to-use-open-chapter)
+
+### 2026-11-15T11:04:19-06:00 · Place sprite parts and combine sheets
+
+Sprite Generator can place registered PNGs across poses, swap an expression by slot, and check placement at close-up and game size. Combine can assemble selected cells into a fixed grid and download the sheet with its frame map. Ran both workflows from the private reader and compared the saved and exported pixels.

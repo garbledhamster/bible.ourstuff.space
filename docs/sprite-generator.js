@@ -1,3 +1,6 @@
+import { installSpriteCombine } from './sprite-combine.js';
+import { installSpritePlacement } from './sprite-placement.js';
+
 const PNG_TYPE = 'image/png';
 const PNG_LIMIT = 8 * 1024 * 1024;
 const PNG_SIGNATURE = [137, 80, 78, 71, 13, 10, 26, 10];
@@ -95,7 +98,7 @@ function makeEditor() {
   return dialog;
 }
 
-export async function installSpriteGenerator(extensions = []) {
+export async function installSpriteGenerator(extensions = [installSpritePlacement, installSpriteCombine]) {
   const footer = document.querySelector('.resources .link-row');
   if (!footer || footer.querySelector('[data-sprite-generator-trigger]')) return;
   const endpoint = new URL('api/sprite-generator', location.href);
