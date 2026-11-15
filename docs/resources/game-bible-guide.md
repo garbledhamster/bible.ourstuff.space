@@ -205,6 +205,14 @@ Use alignment and spacing to show what belongs together. Use size, contrast, and
 
 Read [Joe’s Notes](joes-notes.md) and use [Impeccable](https://github.com/pbakaus/impeccable) to shape the workflow and review the result. Write down the choices that should carry from screen to screen, like where primary actions go, how spacing groups related controls, and how buttons, icons, and feedback look and behave. For a game, decide what players need to see while they play. For an app, decide what someone needs in view to finish the task they opened it for. Link to the project's existing design notes or components when they already explain the choice.
 
+### Present chapter data
+
+Start with what someone wants to find or do in Open Chapter. Put the chapter text, open work, or artifacts first according to that job. Use the project’s Markdown, Task List, and linked artifacts so the reader can trace a decision, assignment, or claim to its source. Preserve the full chapter and show a clear empty state when the project has yet to record the relevant information.
+
+Use Impeccable’s `typeset` and `layout` guidance to give titles, sections, subheadings, prose, and controls a consistent hierarchy. Use Design Wayfinder when a live comparison would settle which information belongs first. For web review, use the Web Interface Guidelines skill to check keyboard controls, visible focus, readable text, and behavior at narrow widths. [Impeccable](https://github.com/pbakaus/impeccable), [Design Wayfinder workflow](game-development-playbook.md#try-one-live-design-decision), [Web Interface Guidelines skill](https://vercel.com/design/guidelines)
+
+Check one real chapter with a long heading, one with little or no content, and a task with a recorded blocker. Open the same work on a wide screen and a phone. Follow an outline link, open a ticket from its ID, and return from an artifact to its place in the chapter. Repeat the keyboard path with large text and user-defined text spacing. [Chapter reader research](chapter-reader-research.md)
+
 ### Make the interface part of the art
 
 I want the menu to show what kind of game I've opened. Draw or generate the art for every button, icon, HUD panel, and menu frame, and save it with the project. Use the same approach for the designed controls and frames in an app. Put the pieces on the sketch and write down the states people need to recognize, such as pressed, selected, disabled, or on and off. Reuse one piece of art anywhere it does the same job.

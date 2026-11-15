@@ -19,6 +19,8 @@ You can switch to any mode at any time. The Work mode lives above the chapters i
 
 Open a chapter and use **Layout** in **Review**. **Default** opens the regular chapter view. **Editorial brief** puts the prose and a section index together. **Illustrative** gives the chapter’s existing images, media, and linked resources more room. **Architect** lets you expand and collapse sections. **Build handoff** puts the task sheet first so you can see what’s remaining or complete. Click a ticket ID on the sheet to open its details.
 
+Use **Work queue** to pick up open work or see what’s waiting. It brings recorded assignments and blockers alongside the ticket. Use **Marketing brief** to jump to sections named for topics such as audience, release scope, and store copy, with the full chapter below.
+
 Switching layouts displays the same chapter and task records. The **Tasks** tab is still available for edits.
 
 ## Start to finish

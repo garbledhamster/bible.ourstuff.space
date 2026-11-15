@@ -31,7 +31,9 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 
 ## Public agent skills
 
-- [Impeccable](https://github.com/pbakaus/impeccable) — shape and review the interface using the [UI & UX Design chapter](game-bible-guide.md#ui--ux-design).
+- [Impeccable](https://github.com/pbakaus/impeccable) — use the typeset and layout guidance to [present chapter data](game-bible-guide.md#present-chapter-data).
+- [Web Interface Guidelines skill](https://vercel.com/design/guidelines) — review keyboard access, focus, typography, and narrow-screen behavior in a working browser.
+- [Chapter reader research](chapter-reader-research.md) — sources and design decisions for reading, working with tasks, and finding marketing material.
 
 - [Phaser agent skills](https://github.com/phaserjs/phaser/tree/master/skills) — subsystem references for coding agents.
 

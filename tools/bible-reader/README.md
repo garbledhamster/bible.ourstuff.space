@@ -36,6 +36,10 @@ Use a Markdown document headed `# Task List` with checklists or task tables unde
 
 Run the updater checks with `python3 -B -m unittest discover -s tools/bible-reader`.
 
+## Choose a chapter layout
+
+In **Open Chapter → Review → Layout**, choose how to read the chapter. [Chapter layout guide](../../docs/resources/project-phases.md#choose-how-to-read-a-chapter)
+
 ## Changelog
 
 Open **Get Started → Changelog** to see project and shared Bible entries together. The shared entries come from the installed checkout, so they follow **Update now** and **Restore previous**. To include project entries, pass `--changelog /reader/ /absolute/project/docs/changelog.md` for the existing reader route. Keep those entries with the project and write dated headings followed by a short summary. The reader shows newest entries first.

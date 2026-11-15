@@ -118,3 +118,11 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:38:53-06:00 · Joe · Finish the chapter layouts
 
 **Paraphrase.** Keep the selectable chapter layouts, polish the reader, and integrate the improvements into the live Bibles.
+
+### 2026-11-15T10:45:00-06:00 · Joe · More ways to use Open Chapter
+
+**Paraphrase.** Make the chapter views more practical for productivity, administration, collaboration, marketing, and design. Improve chapter titles, subheadings, and reading text with help from good online sources.
+
+### 2026-11-15T10:50:00-06:00 · Joe · Reuse design skills
+
+**Paraphrase.** Find design skills we can reuse for this kind of work and give the Bible guidance on using them to present its data.

@@ -74,7 +74,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource 
     pause();
     layout = next;
     showLayout?.(layout);
-    body.scrollTop = 0;
+    body.scrollTop = dialog.scrollTop = 0;
   });
   tabs.append(reviewButton, tasksButton, picker.label, back);
   body.before(tabs);
@@ -98,7 +98,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource 
     if (view === 'tasks') {
       if (!tasks.hasChildNodes()) loadTasks?.(tasks, slug);
     }
-    body.scrollTop = 0;
+    body.scrollTop = dialog.scrollTop = 0;
   }
 
   function render(chapter, next, checklist = []) {

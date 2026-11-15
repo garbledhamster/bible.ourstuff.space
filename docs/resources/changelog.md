@@ -124,3 +124,9 @@ Update now and Restore previous reopen the reader on the selected revision. The 
 ### 2026-11-15T10:38:53-06:00 · Polish the chapter layouts
 
 Separated remaining and completed work on wide screens and stacked the groups on phones. Made ticket links easier to spot and kept task details open when refreshing. The sheet shows the last loaded tasks if a refresh fails. Refined the section index, artifact links, and compact toolbar.
+
+### 2026-11-15T10:55:33-06:00 · Work queue, Marketing brief, and chapter typography
+
+Added Work queue for open tickets, recorded assignments, and blockers. Marketing brief links to named sections in the source chapter. Open Chapter now uses DM Sans for its title, headings, controls, and working views, with Georgia prose in Editorial brief. The Bible guide links the design skills and research behind these choices.
+
+Checked both views in the reader at 1,440, 390, and 320 pixels, including keyboard navigation, exact ticket links, 200% text size, and custom spacing. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Present chapter data](game-bible-guide.md#present-chapter-data) · [Feedback](feedback.md#2026-11-15t104500-0600--joe--more-ways-to-use-open-chapter)

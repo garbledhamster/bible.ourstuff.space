@@ -70,6 +70,8 @@ For animated characters, use [Sprite sheets](../sprite-sheets.md) with the engin
 
 In [UI & UX Design](../game-bible-guide.md#ui--ux-design), identify the buttons, icons, HUD pieces and frames to author and the states users need. In [Engine & Assets](../game-bible-guide.md#engine--assets), use the available art and engine specialists to make or import the files and wire them to the controls. Use the [Dock samples](../island-post/ui-art.md) when a contributor needs to see the handoff from artwork to behavior. Check the real controls and state changes in the sandbox and built workflow. Keep the asset ledger and test results with the project.
 
+When changing what the Bible reader shows, start with [Present chapter data](../game-bible-guide.md#present-chapter-data). Use the design skills linked there to choose the reading order, set the type hierarchy, and verify the result in Open Chapter with real project records.
+
 ## Work the chapters for software
 
 When Joe invokes the Bible for an app, site, or other software project, read the same chapter guide and use its chapter order. Identify the user, the workflow they need, the release scope, and the active chapter. For a new project, start at Vision & Scope. For work in progress, pick up at the last recorded decision or check.
