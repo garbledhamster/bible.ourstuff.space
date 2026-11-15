@@ -175,7 +175,7 @@ I can follow a task or turn through the document, try a rule and know what to lo
 - **Explore** · Sketch several ways through the same screen or workflow. Choose one interaction to test at its smallest size.
 - **Grilling** · Walk through the interface with the creator. Agree on what people need to see, where they act, and which cues or recovery controls matter on each target.
 - **Plan** · Sketch the workflow at target sizes. List each screen, input, and state it must show. Name the authored buttons, frames, icons, and other assets Engine & Assets will need.
-- **Concept Generation** · Show the main interface at full size. Use the detail panels for other screens, meaningful states or a compact layout. Record the fonts, placement and behavior needed to rebuild them. [Chapter concept board](concept-boards.md)
+- **Concept Generation** · For games, use [Impeccable and ImageGen together](#make-the-interface-part-of-the-art) to develop the interface from the game’s visual direction. Show the main interface at full size. Use the detail panels for other screens, meaningful states or a compact layout. Record the fonts, placement and behavior needed to rebuild them. [Chapter concept board](concept-boards.md)
 - **Build** · Build the screens and bind the authored art to the actions and states. Capture representative screens at the intended sizes and link them to the sketch.
 - **Testing** · Watch a first-time user complete and recover from the task. Check layout, readable cues, focus, and the supported inputs. Save screenshots and the build tested.
 - **Maintenance** · Keep the screen record and art links current. When a control or cue changes, repeat the affected first-use and accessibility checks.
@@ -217,6 +217,14 @@ Use Impeccable’s `typeset` and `layout` guidance to give titles, sections, sub
 Check one real chapter with a long heading, one with little or no content, and a task with a recorded blocker. Open the same work on a wide screen and a phone. Follow an outline link, open a ticket from its ID, and return from an artifact to its place in the chapter. Repeat the keyboard path with large text and user-defined text spacing. [Chapter reader research](chapter-reader-research.md)
 
 ### Make the interface part of the art
+
+When developing a new game interface or a new visual direction, use **Impeccable and ImageGen together** during Concept Generation. Start with the game's approved references, playfield and player actions. Use Impeccable to plan what players need to see, the order they see it, how much space the controls can occupy, and how each state should read at the smallest supported size. Ask ImageGen to draw complete interface concepts over a representative gameplay screen. Specify the materials, lettering, icons, control shapes and visual references that belong to this particular game.
+
+Compare the concepts at play size with the same game, screen and starting state. Use Impeccable again to decide what to keep and where the artwork obscures play, makes actions hard to distinguish or weakens feedback. Refine the chosen concept in ImageGen with that feedback. A hockey game might use a screen-printed pinball marquee, dot-matrix scores and a flipper-style apron. A soccer game might take its cues from a particular ground’s scoreboard, matchday signage and touchline equipment. Choose the visual references for each game from its own direction.
+
+Use a representative screen to show progress in reviews, even when the work changes a different part of the game. Label whether it is a concept or a running build. See [Show me progress through the UI](joes-notes.md#show-me-progress-through-the-ui).
+
+Keep the full-screen concept board, prompts and reviewed states with the project. Record what the creator chose and why. Carry the chosen artwork into Engine & Assets as separate pieces with matching state variants. Use live text, real controls, keyboard focus and game-state bindings when building it. Verify the result in the sandbox with actual input on the supported screens.
 
 I want the menu to show what kind of game I've opened. Draw or generate the art for every button, icon, HUD panel, and menu frame, and save it with the project. Use the same approach for the designed controls and frames in an app. Put the pieces on the sketch and write down the states people need to recognize, such as pressed, selected, disabled, or on and off. Reuse one piece of art anywhere it does the same job.
 

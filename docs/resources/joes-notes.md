@@ -11,7 +11,13 @@ Build the interface around symbols, icons, and short keywords unless the game is
 
 ### Put the game’s art in its menus
 
+When we design a new game interface, use Impeccable to figure out how it should work and ImageGen to draw ideas that feel like that game. Put the concepts on an actual game screen so I can see how the controls, art and play fit together. [Interface concept workflow](game-bible-guide.md#make-the-interface-part-of-the-art).
+
 Draw or generate the artwork for buttons, frames, and HUD pieces. Save those pieces with the project and use them in the game. I want to see the art when I open the menu, too. Use code to place the pieces, handle what the player does, and animate or swap the artwork. [See how the Dock does it](island-post/ui-art.md).
+
+### Show me progress through the UI
+
+The UI is how I see the game taking shape. When you show me progress, include the real game screen or a labeled concept that puts the work in context. I want to be able to look at it and tell whether we’re going in a direction I feel good about. Carry the visual choices we agree on into the next review so I can see them take shape as we build. This applies across games. Each one should have its own look.
 
 ### Keep progress up front
 

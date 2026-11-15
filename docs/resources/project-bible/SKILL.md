@@ -68,6 +68,8 @@ For animated characters, use [Sprite sheets](../sprite-sheets.md) with the engin
 
 ## Coordinate interface work
 
+For new or redesigned game UI in Concept Generation, use **Impeccable to direct and review, and ImageGen to draw concepts on the actual game screen**. Derive the visual language from that game. Compare at play size and save the agreed concept, prompts and state examples in the project. Follow [Make the interface part of the art](../game-bible-guide.md#make-the-interface-part-of-the-art).
+
 In [UI & UX Design](../game-bible-guide.md#ui--ux-design), identify the buttons, icons, HUD pieces and frames to author and the states users need. In [Engine & Assets](../game-bible-guide.md#engine--assets), use the available art and engine specialists to make or import the files and wire them to the controls. Use the [Dock samples](../island-post/ui-art.md) when a contributor needs to see the handoff from artwork to behavior. Check the real controls and state changes in the sandbox and built workflow. Keep the asset ledger and test results with the project.
 
 When changing what the Bible reader shows, start with [Present chapter data](../game-bible-guide.md#present-chapter-data). Use the design skills linked there to choose the reading order, set the type hierarchy, and verify the result in Open Chapter with real project records.

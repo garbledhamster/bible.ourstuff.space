@@ -67,6 +67,7 @@ Link the target-size check and the file or state list Engine & Assets will use.
 
 - Main workflow and what the person needs at each step:
 - Sketch or prototype at the intended screen sizes:
+- For game interface concepts, link the Impeccable review, ImageGen concept board and prompts, and record the chosen visual direction:
 - Where frequent actions, status, and recovery appear:
 - Project standards for alignment, spacing, visual hierarchy, labels, and controls:
 - Interface artwork needed for buttons, icons, HUDs, and frames, including the states each needs:
