@@ -21,6 +21,7 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.
 - [Game Development Playbook](game-development-playbook.md) — draft workflow.
 - [Make and wire UI artwork](island-post/ui-art.md) — inspect the Dock’s button and frame files, then play the state changes. [Open the direction asset](island-post/ui/direction-idle.svg).
+- [Resting and pressed button artwork](game-bible-guide.md#generate-resting-and-pressed-button-artwork) — use five matched pairs of game assets as a mockup reference and check the swap at play size.
 - [Island Post worked example](island-post-example.md) — play the Dock and follow its work through the chapters.
 - [Game Quality Control skill source](game-quality-control.md) — readable instructions.
 - [Game Quality Control skill package](game-quality-control.zip) — downloadable ZIP. [Read the agent configuration](game-quality-control-agent.yaml).

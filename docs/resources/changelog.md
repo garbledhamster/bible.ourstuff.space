@@ -172,3 +172,7 @@ Checked placement at 1,440, 390, and 320 pixels, including resizing while open, 
 ### 2026-11-15T14:22:00-06:00 · Open a ticket from highlighted text
 
 Highlight the full ID in chapter text, a project document, or a board that uses the shared viewer. The callout opens at the selection and reads the ticket from the current Bible, including tickets from another chapter. Checked desktop mouse selection and a touch-sized browser, along with direct ticket buttons. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Board guide](concept-boards.md#keep-build-tickets-easy-to-open)
+
+### 2026-11-15T14:28:21-06:00 · Show both faces of an illustrated button
+
+Added five pairs of game assets to the interface guide so future mockup prompts can show what resting and pressed states look like together. Joe’s Notes and the Project Bible skill now carry the rule into concept work. The guide explains how to retain the hit area and accessible name while the artwork swaps. The site build passed, and a phone-width Chrome run confirmed the heading and linked sample render in the reader. [Button artwork samples](game-bible-guide.md#generate-resting-and-pressed-button-artwork) · [Feedback](feedback.md#2026-11-15t142655-0600--joe--generate-both-faces-of-each-button)

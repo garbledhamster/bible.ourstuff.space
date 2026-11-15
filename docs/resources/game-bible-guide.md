@@ -224,13 +224,23 @@ Compare the concepts at play size with the same game, screen and starting state.
 
 Use a representative screen to show progress in reviews, even when the work changes a different part of the game. Label whether it is a concept or a running build. See [Show me progress through the UI](joes-notes.md#show-me-progress-through-the-ui).
 
-Keep the full-screen concept board, prompts and reviewed states with the project. Record what the creator chose and why. Carry the chosen artwork into Engine & Assets as separate pieces with matching state variants. Use live text, real controls, keyboard focus and game-state bindings when building it. Verify the result in the sandbox with actual input on the supported screens.
+Keep the full-screen concept board, prompts and reviewed states with the project. Record what the creator chose and why. Carry the chosen artwork into Engine & Assets as separate pieces with matching state variants. Use real controls, keyboard focus and game-state bindings when building it. Verify the result in the sandbox with actual input on the supported screens.
 
 I want the menu to show what kind of game I've opened. Draw or generate the art for every button, icon, HUD panel, and menu frame, and save it with the project. Use the same approach for the designed controls and frames in an app. Put the pieces on the sketch and write down the states people need to recognize, such as pressed, selected, disabled, or on and off. Reuse one piece of art anywhere it does the same job.
 
-Load that artwork into the interface. Use the engine or web code for layout, live labels, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs.
+Load that artwork into the interface. Use the engine or web code for layout, input, focus, and behavior. Code can animate a lightning flash and swap in a lit frame. The button face and the frame still come from the art files. Keep labels readable and controls usable with the supported inputs.
 
 For each item or object that appears in a menu or inventory and in play, plan two pieces of art. Show a full static illustration in the menu so players can study the details. Use a matching compact sprite or icon that players can recognize at gameplay size. In a fighting game, the inventory can show the sword’s blade, guard, and grip in detail. In the match, players should recognize that same sword in the fighter’s hand. Mark both uses on the sketch and send them to [Engine & Assets](game-bible-guide.md#engine--assets). [See the sword at both sizes](game-bible-guide.md#fighting-game-sword-example).
+
+### Generate resting and pressed button artwork
+
+Generate both faces of every illustrated button from the approved mockup. Ask for separate assets with the same canvas size, outer edge and alignment so the button stays in place when pressed. Draw the words and symbols into the faces when they are part of the approved artwork. Use the sample below in future mockup prompts to show how the two states fit together, and use the new game’s own art direction for the design.
+
+[![Five pairs of actual arcade button assets. Each row shows the same Back, Reset, Lineup, Near Feed, or Far Feed button at rest on the left and pressed on the right.](interface-art/button-states.webp)](interface-art/button-states.webp)
+
+These are faces exported for the game. Open the sheet at full size to see how the rim holds its position while the face sits deeper when pressed.
+
+Put the artwork on a native button or link with an accessible name and visible keyboard focus. Keep changing values like scores in live text. Show the pressed face while the player holds the control and restore the resting face on release or cancel. Keep the hit area fixed. Test the swap and the action at mobile play size using the inputs the game supports, including holding, releasing and cancelling.
 
 ### Try the design on the intended screens
 

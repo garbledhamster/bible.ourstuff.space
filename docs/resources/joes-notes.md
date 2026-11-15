@@ -15,6 +15,8 @@ When we design a new game interface, use Impeccable to figure out how it should 
 
 Draw or generate the artwork for buttons, frames, and HUD pieces. Save those pieces with the project and use them in the game. I want to see the art when I open the menu, too. Use code to place the pieces, handle what the player does, and animate or swap the artwork. [See how the Dock does it](island-post/ui-art.md).
 
+When I press a button, I want to see it press in. Generate both faces from the approved mockup and use them in the game. If the words and symbols are part of the art, put them on both faces. Use the sample when prompting the next mockup so the two states fit together, then try the buttons at the size people will play. [Resting and pressed button samples](game-bible-guide.md#generate-resting-and-pressed-button-artwork).
+
 ### Show me progress through the UI
 
 The UI is how I see the game taking shape. When you show me progress, include the real game screen or a labeled concept that puts the work in context. I want to be able to look at it and tell whether we’re going in a direction I feel good about. Carry the visual choices we agree on into the next review so I can see them take shape as we build. This applies across games. Each one should have its own look.

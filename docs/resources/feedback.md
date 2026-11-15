@@ -152,3 +152,9 @@ The review found that individually valid PNGs could make a draft too large to sa
 ### 2026-11-15T14:15:27-06:00 · Joe · Open a ticket from a reference
 
 **Paraphrase.** Update the project boards, put the callout in the Project Bible 2.0 build context, and let me read a ticket wherever its ID appears. Highlighting the ID is fine on desktop or mobile.
+
+### 2026-11-15T14:26:55-06:00 · Joe · Generate both faces of each button
+
+**Paraphrase.** Regenerate the illustrated buttons as real assets for the game and make matching resting and pressed faces. Put these samples in the shared Bible so agents can use them when they make future mockups.
+
+[Button artwork samples](game-bible-guide.md#generate-resting-and-pressed-button-artwork)
