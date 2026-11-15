@@ -6,6 +6,8 @@ Edit the source in `docs/`. The site and the agent skill use the same chapter gu
 
 Open **Tutorial → Task List** to see the Island Post checklist in chapter order. In a consuming project, keep the current checklist beside its Bible and link it from the reader. See [Set up a project copy](docs/AGENTS.md#set-up-the-project-copy).
 
+The [Chapter 1 gameplay showcase](https://bible.ourstuff.space/read.html?file=/resources/game-bible-guide.md#gameplay-showcase) uses five screenshots from the playable Dock. The [shared template](https://bible.ourstuff.space/read.html?file=/resources/game-bible-template.md#gameplay-showcase) explains how to make one for another game.
+
 Run `npm ci` and `npm run build` with Node.js and Python 3. The build validates the chapter order and the index's local links, renders the notes, template and ticket list from Markdown, and rebuilds both ZIP downloads. Preview the result with `python3 -m http.server 8000 --directory dist`.
 
 The Island Post example lives in `examples/island-post/`. The site build packages its player demo at `/island-post/` and developer Sandbox at `/island-post/sandbox/`. Use `node --test examples/island-post/rules.test.js` to check the shared Dock rules. The Dock ships with light rain, a short score, and two captioned lines for Mina. See the [audio cue list](docs/resources/island-post/verification.md#audio-cues) for the mix, credits, and the remaining phone listening check.

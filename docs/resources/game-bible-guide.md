@@ -60,6 +60,16 @@ Show the creator one sheet with six labeled art-style panels. Use the same scene
 
 Embed the chosen image in this chapter beside the creator's description and the details they want to carry forward. If the conversation pauses, save the latest image as a draft and record what still needs their reaction. Use the chosen image as a reference when you sketch the interface and make the assets.
 
+### Gameplay showcase
+
+When you have a playable build, add five in-game screenshots. Put one large shot on top that shows the most compelling part of the game in context. Place one starshot caption on that image beside the detail you want the reader to notice. Use open space so the words leave the player, action, and important game details visible.
+
+Arrange four smaller shots in a two-by-two grid below it. Use one shot per mechanic and write a short caption under each one that explains what the player does or what happens. Add the showcase when you can capture the mechanics in play.
+
+![Island Post gameplay showcase. The top shot shows the fork, puddle, lower boardwalk, and Mina. The starshot reads “Take the long way. Keep the parcel dry.” Four smaller screenshots show how to collect the parcel, soak it in the puddle, go around on the lower boardwalk, and hand it to Mina.](island-post/evidence/dock-gameplay-showcase.png)
+
+The screenshots come from the playable Dock. [See the Island Post example](island-post-example.md#vision-and-scope) or [try the delivery](../island-post/).
+
 ### Similar Projects
 
 Look for games, apps, products, or services that solve a similar problem, serve a similar audience, or handle one part of the experience well. Include relevant open-source and closed-source examples. For each one, link to what you looked at, say what it has in common with your project, and write down a question you want to carry into a later chapter.

@@ -29,3 +29,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 **Paraphrase.** Let players show off their catches and link friends back to Bryan’s game. Prepare editable posts for X, Facebook, and Instagram, and call attention to sharing when they land a trophy fish. If a catch-related YouTube video is showing, prepare a comment with the catch details and room for the player’s own words. Add the idea to Engagement & Feedback and give the prototype its own chat.
 
 [Follow-up in Engagement & Feedback](game-bible-guide.md#sharing-moments-people-want-to-talk-about)
+
+### 2026-11-14T20:03:07-06:00 · Joe · Gameplay showcase
+
+**Paraphrase.** Put the Island Post showcase in Chapter 1 on bible.ourstuff.space and add its format to the shared template. Use one large in-game screenshot with a starshot, followed by four smaller gameplay shots with short captions that explain each mechanic. [Gameplay showcase](game-bible-guide.md#gameplay-showcase)

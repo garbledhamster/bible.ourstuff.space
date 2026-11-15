@@ -14,6 +14,12 @@ Bring Mina a dry parcel. The short path crosses a puddle; the boardwalk gives yo
 
 **Reference.** The earlier Dock preview proved the short-route decision was playable. The public build keeps that choice and gives the courier, Mina, the Dock, and the controls their own treatment. The [scope brief](island-post/dock-design.md#scope-brief) records what ships and the prediction about how a new player reads the fork.
 
+### Gameplay showcase
+
+![Island Post gameplay showcase. The top shot shows the fork, puddle, lower boardwalk, and Mina. The starshot reads “Take the long way. Keep the parcel dry.” Four smaller screenshots show how to collect the parcel, soak it in the puddle, go around on the lower boardwalk, and hand it to Mina.](island-post/evidence/dock-gameplay-showcase.png)
+
+All five shots come from the [playable Dock](../island-post/).
+
 ## Design Document
 
 **Implemented.** Step onto the parcel, read the fork, and walk to Mina. A puddle soaks a dry parcel on entry. A soaked handoff offers Retry; a dry handoff offers Play Again. The [Dock map and rules](island-post/dock-design.md#dock-map-and-rules) show both paths, the state changes, and where to recover.

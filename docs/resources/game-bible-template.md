@@ -20,6 +20,15 @@ Link the creator’s confirmed moment and the scope decision Design Document wil
 - Show one sheet with six labeled art styles for the same scene. Record what the creator picked and why. Make the next six-panel sheet with variations on that direction until the creator confirms the look. Link the sheets, feedback, and approved style.
 - Embed the chosen image and record the details to carry into UI & UX Design and Engine & Assets. If you pause before the creator confirms it, mark the latest image as a draft and record what still needs their reaction.
 
+### Gameplay showcase
+
+Fill this in when you have a playable build. Use five in-game screenshots and link the build you captured.
+
+- **Main screenshot.** Put one large image at the top. Show the most compelling part of the game with enough of the scene to understand it. Put one starshot caption on that image only. Set it next to the detail it calls out, in open space where it leaves the action visible.
+- **Four mechanic screenshots.** Arrange four smaller shots below in a two-by-two grid. Show one mechanic in each shot and put a short caption beneath it explaining the action or result.
+
+[See the Island Post gameplay showcase](https://bible.ourstuff.space/read.html?file=/resources/island-post-example.md#gameplay-showcase)
+
 ### Research and Source Collection
 
 Start during kickoff. Link the source record, including original notes, text files, PDFs, datasets, videos, recordings, or transcripts where relevant. For each useful source, record its origin and locator, what it contributes, any reuse limits, and which decision it informs. Mark what is queued for review.

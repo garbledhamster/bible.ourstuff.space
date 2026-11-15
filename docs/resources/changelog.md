@@ -35,3 +35,7 @@ Added matching menu illustrations and compact gameplay sprites to the [guide](ga
 ### 2026-11-14T16:03:11-06:00 · Sharing catches
 
 Added [Sharing moments people want to talk about](game-bible-guide.md#sharing-moments-people-want-to-talk-about) to Engagement & Feedback. Bryan’s fishing game illustrates a trophy prompt, editable social drafts, a link back to the game, and a comment for the video the player was watching. The site build validated all 14 chapters. [Joe’s feedback](feedback.md#2026-11-14t160212-0600--joe--sharing-catches)
+
+### 2026-11-14T20:04:12-06:00 · Island Post gameplay showcase
+
+Added the five-shot Island Post showcase to [Chapter 1](game-bible-guide.md#gameplay-showcase) and the [worked example](island-post-example.md#gameplay-showcase). The [template](template.html#vision-and-scope) now calls for one large gameplay screenshot with a starshot and four smaller screenshots with mechanic captions. Built the site and checked the guide, example, and template in Chrome at desktop and phone widths. [Joe’s feedback](feedback.md#2026-11-14t200307-0600--joe--gameplay-showcase)
