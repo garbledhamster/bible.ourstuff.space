@@ -148,3 +148,7 @@ Copy the saved pose and slot context for Codex, stage a PNG from the project wor
 Review a Codex PNG on the same paused pose, then accept it into the draft or discard it. Download an editable bundle to reopen a set in another project. Combine can include rendered poses along with source cells.
 
 The Black Hat design review found overlapping proposal previews, grid controls hidden by the action dock, and exports that could be mistaken for the edited order. The editor now keeps proposal actions beside the comparison, gives Combine controls their own space, labels the previous sheet, and offers a larger preview on phones. Rechecked keyboard focus and the reader at desktop, compact, and phone widths. [Sprite Generator guide](sprite-generator.md) · [Black Hat findings](feedback.md#2026-11-15t113313-0600--codex--sprite-generator-black-hat)
+
+### 2026-11-15T11:38:10-06:00 · Keep sprite drafts saveable and portable
+
+Keep the current draft when a change would exceed its save or bundle limit. Editable bundles preserve the names and anchors the reader accepts, and the copied proposal context identifies the reference PNG and full pose canvas. [Release review](feedback.md#2026-11-15t113810-0600--codex--sprite-generator-release-review)
