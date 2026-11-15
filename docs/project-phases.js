@@ -85,7 +85,7 @@ export async function showProjectPhase() {
   for (const [name, summary] of modes) {
     const label = document.createElement('label');
     label.className = 'bible-mode-option';
-    label.innerHTML = '<input type="radio" name="work-mode"><span><strong></strong><span class="bible-mode-active" hidden>Active</span><span class="bible-mode-summary"></span></span>';
+    label.innerHTML = '<input type="radio" name="work-mode"><span><strong></strong> <span class="bible-mode-active" hidden>Active</span><span class="bible-mode-summary"></span></span>';
     label.querySelector('input').value = name;
     label.querySelector('strong').textContent = name;
     label.querySelector('.bible-mode-summary').textContent = summary;
