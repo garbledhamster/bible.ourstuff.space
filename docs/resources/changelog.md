@@ -36,6 +36,10 @@ Added matching menu illustrations and compact gameplay sprites to the [guide](ga
 
 Added [Sharing moments people want to talk about](game-bible-guide.md#sharing-moments-people-want-to-talk-about) to Engagement & Feedback. Bryan’s fishing game illustrates a trophy prompt, editable social drafts, a link back to the game, and a comment for the video the player was watching. The site build validated all 14 chapters. [Joe’s feedback](feedback.md#2026-11-14t160212-0600--joe--sharing-catches)
 
+### 2026-11-14T19:57:59-06:00 · Start and credits screens
+
+Added separate [Start screen](game-bible-guide.md#start-screen) and [Credits screen](game-bible-guide.md#credits-screen) sections to UI & UX Design, with matching prompts in the [template](game-bible-template.md#ui-and-ux-design). The site build and both Island Post rule tests passed. Checked both sections in the reader at desktop and phone widths. [Feedback](feedback.md)
+
 ### 2026-11-14T20:04:12-06:00 · Island Post gameplay showcase
 
 Added the five-shot Island Post showcase to [Chapter 1](game-bible-guide.md#gameplay-showcase) and the [worked example](island-post-example.md#gameplay-showcase). The [template](template.html#vision-and-scope) now calls for one large gameplay screenshot with a starshot and four smaller screenshots with mechanic captions. Built the site and checked the guide, example, and template in Chrome at desktop and phone widths. [Joe’s feedback](feedback.md#2026-11-14t200307-0600--joe--gameplay-showcase)

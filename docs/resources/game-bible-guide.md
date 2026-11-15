@@ -160,6 +160,14 @@ When I look at a screen, I want everything on it to feel like it was meant to be
 
 Take one core workflow from the Design Document and sketch it from the first screen to the outcome. At each step, ask what the person needs to see, what they'll try next, and what they need to know after they act. Keep frequent actions and important status in view. Put the action next to the thing it acts on, and put a recovery action next to the problem it solves.
 
+### Start screen
+
+Design what players see when they open the game. Use the title, art, and motion to show what kind of game it is, and make the first action easy to find. Sketch what a new player sees and what a returning player sees when they have a saved game. Name where Play, mode selection, and Continue lead. If you use an opening animation, decide how someone can start or skip it. Check the title, controls, and focus at the smallest supported screen size.
+
+### Credits screen
+
+Decide how players open Credits from the menu and where they return when they close it. List contributors and carry required names, source links, and license notices from Engine & Assets and Audio Engineering. Use readable type and make longer credits easy to scroll on a phone. Try opening and leaving Credits with the same inputs players use in the game.
+
 ### Let the layout do some of the explaining
 
 Use alignment and spacing to show what belongs together. Use size, contrast, and position to make the next step easy to spot. Keep the text short. A familiar icon can carry something people recognize, and a short label can help when they'd have to guess. Give people a way to get more detail when they need it. Keep the instructions and labels people need to understand the task or use it with assistive technology.

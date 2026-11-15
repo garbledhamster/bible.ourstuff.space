@@ -68,6 +68,19 @@ Link the target-size check and the file or state list Engine & Assets will use.
 - Checks for supported inputs, accessibility, and a first-time user completing the workflow:
 - For a live design decision, record the chosen behavior, reason, comparison evidence, and the sandbox or playtest check that follows:
 
+### Start screen
+
+- Title, lead art, and any opening animation:
+- First action for a new player and its destination:
+- Continue or resume behavior for a returning player:
+- Phone, desktop, and supported input checks:
+
+### Credits screen
+
+- Menu entry and return destination:
+- Contributors, asset attribution, and required notices:
+- Readability, scrolling, and input checks:
+
 ## Engine and Assets
 
 Link the runnable slice and at-size capture for the Sandbox. Give Audio Engineering the scene events.

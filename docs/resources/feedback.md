@@ -30,6 +30,10 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 
 [Follow-up in Engagement & Feedback](game-bible-guide.md#sharing-moments-people-want-to-talk-about)
 
+### 2026-11-14T19:57:59-06:00 · Joe · Start and credits screens
+
+**Paraphrase.** Plan the start screen and credits screen in dedicated parts of UI & UX Design. Make the start screen show the character of the game. [UI & UX Design](game-bible-guide.md#start-screen)
+
 ### 2026-11-14T20:03:07-06:00 · Joe · Gameplay showcase
 
 **Paraphrase.** Put the Island Post showcase in Chapter 1 on bible.ourstuff.space and add its format to the shared template. Use one large in-game screenshot with a starshot, followed by four smaller gameplay shots with short captions that explain each mechanic. [Gameplay showcase](game-bible-guide.md#gameplay-showcase)
