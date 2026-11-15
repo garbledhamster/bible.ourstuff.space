@@ -12,6 +12,7 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 - [Sprite sheet workflow](sprite-sheets.md) — turn the chosen character into action/direction animations and verify them in the engine.
 - [Interactive objects and asset inventory](game-bible-guide.md#make-objects-the-player-can-use) — give usable objects their own files and prove their fit with the character in the sandbox.
 - [Multiplayer hosting walkthrough](multiplayer-hosting.md) — local players, private remote joins, cloud deployment, and operating checks.
+- [Scaling research notes](scaling-research.md) — sources for the scale trial, with examples from operations, software and games.
 - [Game spec template](game-spec-template.md) — define the release and what proves each chapter is complete.
 - [Preset ticket list](game-tickets/index.html) — browse the starter tickets with blockers, acceptance checks, and evidence.
 - [Download the spec and tickets](game-planning-kit.zip) — the spec, ticket list, and one Markdown file per ticket.

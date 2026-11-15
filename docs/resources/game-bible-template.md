@@ -224,3 +224,17 @@ Append each item when entered, in order, with a timestamp that includes its time
 - Project Feedback Markdown file:
 - What did people or agents say during development or after launch?
 - What follow-up or change to the project, process, or next scope did it inform?
+
+## Scaling
+
+Link the current release or process, the promise in Vision & Scope, and the demand or adoption evidence in Engagement & Feedback. Copy the record below for each increment. Keep the previous records so you can see what changed.
+
+### Scale trial record
+
+- **What will grow:** Unit, audience or location, current size, next size, and evidence people will use it.
+- **What has to keep working:** User outcome, what must stay consistent, and what the next operator can adapt.
+- **Baseline:** Usable results, waiting and rework, and cost or time per unit. Link the evidence and note the measurement period and peak conditions.
+- **Constraint and change:** What limits the outcome, how you checked it, and the smallest change to try. Link the steps, shared dependencies, and operator handoff.
+- **Trial:** Batch or cohort, duration and conditions, owner, decision date, expected result, quality floor, and cost or workload ceiling.
+- **Stop and recover:** Who watches which signals, when they act, and how they protect and recover work in progress. Link the rehearsal.
+- **Result and decision:** Actual results against the limits, tested size and conditions, evidence links, and why you will expand, hold, or back out. Record the next constraint or check and who owns it.

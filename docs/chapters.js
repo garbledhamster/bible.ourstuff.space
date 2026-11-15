@@ -114,6 +114,13 @@ const chapters = [
     'Group repeat reports and flag urgent issues.',
     'Bring a finding and a success check back to scope.',
   ]],
+  ['Scaling', 'scaling', [
+    'Choose what will grow and the outcome to preserve.',
+    'Measure the baseline and find what limits good results.',
+    'Make one change the next operator can use.',
+    'Run a bounded trial with limits and a recovery plan.',
+    'Record whether to expand, hold, or back out, and what to check next.',
+  ]],
 ];
 
 const panels = chapters;
@@ -247,7 +254,7 @@ for (const [number, [title, slug, steps]] of panels.entries()) {
     chapterDialog.showModal();
   });
   actions.append(open);
-  if (slug === 'engagement-and-feedback') {
+  if (number === chapters.length - 1) {
     const restart = document.createElement('a');
     restart.className = 'chapter-link';
     restart.href = '#vision-and-scope';

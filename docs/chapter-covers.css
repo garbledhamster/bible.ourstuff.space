@@ -12,6 +12,7 @@
 :is(#multiplayer-and-multi-user-support, [data-chapter="multiplayer-and-multi-user-support"]) { --cover: #c4caef; --cover-ink: #272b55; }
 :is(#updates-and-dlc, [data-chapter="updates-and-dlc"]) { --cover: #dec5a9; --cover-ink: #443224; }
 :is(#engagement-and-feedback, [data-chapter="engagement-and-feedback"]) { --cover: #d9e894; --cover-ink: #303910; }
+:is(#scaling, [data-chapter="scaling"]) { --cover: #f2b7a9; --cover-ink: #402922; }
 :is(#island-post-example, [data-chapter="island-post-example"]) { --cover: #f5cba7; --cover-ink: #452b24; }
 
 /* Each card spans the shared cover and body rows in the chapter rail. */

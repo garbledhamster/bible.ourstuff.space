@@ -98,4 +98,8 @@ The [capture sheet](island-post/release-kit.md#capture-sheet) pairs the actual f
 
 **Rehearsal.** The [intake record](island-post/operations.md#intake-rehearsal) follows a real finding from the first staged build: the playfield opened, but the courier and controls never became ready. It records the evidence, the fix, the retest, and the release check that came out of it. It also explains where to report a problem and what we still need to learn from players.
 
+## Scaling
+
+**Proposed trial; no expansion tested.** Dock 1.0 gives us one runnable delivery with a route choice. Before making a pack of deliveries, watch first-time players try that choice and see whether they can explain how they kept the parcel dry. If that result holds and players want another delivery, make one more route with the same pickup and handoff rules. Track the effort from map setup to an uncoached playtest, and check whether players can read the route on touch and keyboard. Keep the new route in a separate preview until it passes; the public Dock stays playable. [Use the scale trial record](game-bible-template.md#scaling).
+
 [Return to Vision and Scope](#vision-and-scope) · [Play Island Post](../island-post/)

@@ -78,3 +78,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 **Paraphrase.** Number the Work modes so a new project has a recommended order. Start with 1. Grilling so we can figure out what we’re going to build.
 
 [Work modes](project-phases.md)
+
+### 2026-11-15T08:19:32-06:00 · Joe · A chapter on scaling
+
+**Paraphrase.** Put a Scaling chapter at the end of the Bible. Research the principles businesses, software, and games have in common so the work is repeatable, then review the chapter before implementing it. [Scaling](game-bible-guide.md#scaling)

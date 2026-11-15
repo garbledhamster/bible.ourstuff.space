@@ -80,3 +80,7 @@ Private readers can save a Work mode from the modal under the project name and c
 ### 2026-11-15T07:22:29-06:00 · Numbered Work modes
 
 The private reader shows the recommended order in the Work mode picker and the number beside the active mode. New Bibles start in 1. Grilling and the reader lets you switch to any mode. Verified the order, backward switching, prompt copy, and reload at desktop and phone sizes. [Feedback](feedback.md#entries)
+
+### 2026-11-15T08:20:50-06:00 · Scaling
+
+Added [Chapter 15 · Scaling](game-bible-guide.md#scaling), a [trial record](game-bible-template.md#scaling), and a [starter ticket](game-tickets/15-scaling.md). The draft review sharpened the constraint test, the stop decision, and the game example before integration. The site build checked all 15 chapters. Verified the last chapter, Tasks, Tutorial picker, and reader links in desktop and phone layouts. [Research notes](scaling-research.md) · [Joe’s feedback](feedback.md#entries)

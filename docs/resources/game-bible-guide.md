@@ -2,7 +2,7 @@
 
 I put this guide together for the way I want to build games with people and with agents. I want to be able to open the project, see what we're trying to make, and play enough of it to tell if it's going the way we pictured. That starts with the first idea and goes all the way through helping people play, putting out updates, and figuring out what to work on next.
 
-Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback.
+Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback and includes a proposed scale trial.
 
 Choose a [Work mode](project-phases.md) for what you want to do today. In each chapter, read **Work mode instructions** to see what to focus on and what to leave behind.
 
@@ -838,3 +838,47 @@ Bring a finding back to Vision & Scope with the evidence behind it. Write down w
 ### Complete when
 
 The engagement plan names who talks with whom, why, about what, through which channels and formats, and when and how often. The owner has tried a conversation and follow-up, or rehearsed them if nobody is using the release yet. Link the project's Feedback file and record what the feedback suggests for the project, the development process, or the next scope decision.
+
+## Scaling
+
+You've shipped something that works. Now you want more people to use it, more people to help run it, or more room to build on it. Before you decide what to add, pick one outcome you want to deliver more often and follow it from beginning to end. A shop needs to get the right order to the customer on time. An app needs to get someone through a real task. A game needs to give the player the experience you promised. If you know what a good result looks like at today's size, you have something to compare with as you grow.
+
+### Work mode instructions
+
+- **Grilling** · Decide what to grow, for whom, and what people should still be able to count on. Ask what evidence would make it worth doing.
+- **Plan** · Record the baseline and likely constraint. Pick one increment, a budget and quality floor, and an owner who can stop the pilot.
+- **Build** · Make the smallest change that raises the limit. Give the operator the instructions and controls to run and stop the pilot.
+- **Testing** · Run the pilot under representative conditions. Compare the outcome, workload, and cost with the baseline and rehearse recovery.
+- **Maintenance** · Record whether to expand, hold, or back out. Check where work now piles up before choosing the next increment.
+
+### What to carry forward
+
+1. Bring the shipped version or operating process, the promise from Vision & Scope, and evidence from Engagement & Feedback. If you have interest but no evidence the intended people can get the outcome, test that first.
+2. Keep the plan and result for each round in [Scale trial record](game-bible-template.md#scaling "Copy this record for each increment.") in the project Bible. Put the next open check in the Task List.
+3. Carry a changed promise into Vision & Scope. For the next round, start from the size and process you kept. Save failed trials as evidence of what happened.
+
+### Run one scale trial
+
+1. **Pick what will grow.** Name the change in units you can count: orders per week, simultaneous sessions, levels you can ship per month, or sites another team can operate. Choose one main axis for this round. Write down why the next group needs it and what actual use, repeat orders, playtests, or other observations support that judgment. For a new audience or location, name what makes the outcome work today, what can change locally, and what a new operator needs to deliver it. Test assumptions that may change there. [WHO and ExpandNet's scaling guide](https://www.who.int/publications/i/item/9789241500319) starts with evidence that a pilot works and asks what changes in the new setting.
+2. **Measure the whole path.** Trace one unit from arrival to a usable result, including support, repairs, and returns when they apply. Record current demand, completed outcomes, wait time, defects, and the money or staff time each result takes. Use the same measures for the baseline and trial. Include busy periods and slower cases instead of relying on a daily average.
+
+   For a paid product, compare revenue and variable cost per unit, then ask whether the extra sales cover added fixed costs. [SBA break-even guide](https://legacy.sba.gov/business-guide/plan-your-business/calculate-your-startup-costs/break-even-point) Check cash timing separately so you can pay bills before payments arrive. For a free project, agree on who funds the extra work and the time or money they can spend.
+3. **Change what limits the result.** Find where work waits, fails, or needs the same person to step in. A line of work waiting is a clue. Try relieving the suspected constraint for one controlled batch and check whether more good work gets done or people wait less, including any new queue that shows up later. Start with the simplest change: remove a step, clarify a handoff, or give the limiting step more capacity. If too few people are coming, test how they find you before expanding delivery.
+
+   If the work can run in parallel, write down what each copy needs, what it produces, and who handles exceptions. Ask someone else to run it. Keep shared dependencies in view: another packing bench still needs inventory; another game room still needs the login service. [Toyota's production system](https://global.toyota/en/company/vision-and-philosophy/production-system/) gives examples of following flow between steps and stopping when a defect would pass downstream.
+4. **Try the next size with a way back.** Choose a batch or audience you can support. Give the trial enough time or volume to see the conditions your decision depends on, and decide what counts as enough improvement. Set a floor for the outcome and ceilings for cost, errors, and operator workload that matter to the project. Try ordinary work, a peak, and a likely failure.
+
+   Name who will watch the results during the trial, which signal tells them to act, and how they’ll pause intake, turn off the change, or fall back to the previous process. Rehearse how they’ll take care of orders, saves, or other work already in progress. Use a comparable baseline or an unchanged group where practical. [Google SRE's canary guide](https://sre.google/workbook/canarying-releases/) shows how to limit exposure, compare results, and stop a software rollout.
+5. **Decide and repeat.** Expand by another increment when the outcome and the limits hold and you have enough evidence for that next step. Record the highest volume you tested and the conditions you tested it under. Hold when you need more evidence or a different fix. Pause or back out when a stop condition trips, then take care of the people and work affected. Record what changed, what you measured, who reviewed it, and what now limits the result. The next constraint may be somewhere else.
+
+### What this looks like
+
+- **Business:** Suppose a shop wants to go from 40 to 60 weekly orders. Packing is already waiting on the owner to approve every label. Give a second packer the label checklist and the exception rule, then try one week at the higher cap. The second packer checks each label before dispatch and reports mismatches to the owner. If the stop rule is two address mismatches and the second turns up on Thursday, close new slots at the higher cap, correct the labels, and finish accepted orders using the previous check. Record where the handoff failed before trying again.
+- **Software:** An appointment app wants to go from 20 to 40 concurrent bookings. Check the full journey through confirmation, including the case where two people pick the last slot. If the appointment store is the limit, adding web workers may leave the wait where it was. Test one change with realistic peak traffic and keep a way to slow new arrivals while preserving confirmed bookings.
+- **Game:** To make more levels, time one all the way from design to an uncoached playtest. If the designer spends most of the week fixing unclear art handoffs, test an asset kit and a placement check on one more level before committing to ten. If the goal is bigger fights instead, try one larger wave of enemies and measure whether players can still move and react as intended. [Riot's Swarm engineering write-up](https://www.riotgames.com/en/news/the-tech-behind-swarm) shows how its team tested larger encounters and went back to the bottleneck as load increased.
+
+### Complete when
+
+When you run a trial, the project Bible links the baseline and pilot evidence, records the target and actual result against the agreed limits, and names the owner and the expand, hold, or back-out decision. The operator can show how to stop the trial and recover affected work. Leave any claim beyond the trial conditions unverified. If you choose to stay at the current size, record the reason and what evidence would reopen the decision.
+
+For the sources behind the trial and more examples, see [Scaling research notes](scaling-research.md "Primary sources and examples from business, software, and games.").
