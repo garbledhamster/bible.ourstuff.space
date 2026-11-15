@@ -1,4 +1,4 @@
-#chapter-dialog .ticket-callout {
+section.ticket-callout {
   --ticket-border: #c9bbd2;
   position: fixed;
   inset: auto;
@@ -14,10 +14,10 @@
   color: #34273c;
   color-scheme: light;
   box-shadow: 0 10px 28px #24162d38;
-  font: 1rem/1.5 var(--sans);
+  font: 1rem/1.5 var(--sans, "DM Sans", system-ui, sans-serif);
   overflow-wrap: anywhere;
 }
-#chapter-dialog .ticket-callout::before {
+section.ticket-callout::before {
   content: "";
   position: absolute;
   width: .75rem;
@@ -29,22 +29,22 @@
   transform: translate(-50%, -50%) rotate(45deg);
   pointer-events: none;
 }
-#chapter-dialog .ticket-callout[data-side="right"]::before {
+section.ticket-callout[data-side="right"]::before {
   left: 0;
   top: var(--ticket-pointer);
   border-width: 0 0 1px 1px;
 }
-#chapter-dialog .ticket-callout[data-side="left"]::before {
+section.ticket-callout[data-side="left"]::before {
   left: 100%;
   top: var(--ticket-pointer);
   border-width: 1px 1px 0 0;
 }
-#chapter-dialog .ticket-callout[data-side="bottom"]::before {
+section.ticket-callout[data-side="bottom"]::before {
   left: var(--ticket-pointer);
   top: 0;
   border-width: 1px 0 0 1px;
 }
-#chapter-dialog .ticket-callout[data-side="top"]::before {
+section.ticket-callout[data-side="top"]::before {
   left: var(--ticket-pointer);
   top: 100%;
   border-width: 0 1px 1px 0;
@@ -55,7 +55,7 @@
   overscroll-behavior: contain;
   padding: 1rem clamp(.875rem, 3vw, 1.375rem);
 }
-#chapter-dialog .ticket-callout-close {
+.ticket-callout .ticket-callout-close {
   position: absolute;
   z-index: 1;
   top: .375rem;
@@ -67,14 +67,14 @@
   border-radius: .375rem;
   color: #4e3066;
   background: #fff;
-  font: 400 1.4rem/1 var(--sans);
+  font: 400 1.4rem/1 var(--sans, "DM Sans", system-ui, sans-serif);
 }
 .ticket-callout-heading {
   padding-inline-end: 2.125rem;
 }
-#chapter-dialog .ticket-callout-heading h3 {
+.ticket-callout .ticket-callout-heading h3 {
   color: #281d31;
-  font: 700 var(--chapter-section-size)/1.2 var(--sans);
+  font: 700 var(--chapter-section-size, 1.375rem)/1.2 var(--sans, "DM Sans", system-ui, sans-serif);
   margin: .25rem 0 .75rem;
   text-wrap: pretty;
 }
@@ -105,9 +105,9 @@
   border-top: 1px solid #e4dbe8;
 }
 .ticket-callout-section:last-child { padding-bottom: 0; }
-#chapter-dialog .ticket-callout-section h4 {
+.ticket-callout .ticket-callout-section h4 {
   color: #432953;
-  font: 700 .875rem/1.35 var(--sans);
+  font: 700 .875rem/1.35 var(--sans, "DM Sans", system-ui, sans-serif);
   margin: 0 0 .2rem;
 }
 .ticket-callout-section p { margin: 0 0 .6em; }
@@ -143,5 +143,7 @@
 }
 .ticket-callout img { max-width: 100%; height: auto; }
 .ticket-callout pre { overflow: auto; }
-#chapter-dialog .ticket-callout a { color: #503065; text-underline-offset: .16em; }
-#chapter-dialog .ticket-callout :focus-visible { outline: 2px solid #634479; outline-offset: 2px; }
+.ticket-callout a { color: #503065; text-underline-offset: .16em; }
+.ticket-callout :focus-visible { outline: 2px solid #634479; outline-offset: 2px; }
+
+::highlight(bible-ticket-selection) { background-color: #ead8f5; color: #281d31; }

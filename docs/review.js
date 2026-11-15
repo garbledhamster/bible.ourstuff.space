@@ -1,5 +1,6 @@
 import { chapterLayoutPicker, chapterLayoutView } from './chapter-layouts.js';
 import { createTicketCallout } from './ticket-callout.js';
+import { installTicketSelection } from './ticket-selection.js';
 
 function element(tag, name, value) {
   const output = document.createElement(tag);
@@ -64,7 +65,15 @@ function artifacts(content) {
 
 export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource } = {}) {
   const ticketCallout = createTicketCallout(dialog);
+  installTicketSelection({ chapter: dialog, callout: ticketCallout, taskSource, loadStyles: false });
   dialog.addEventListener('close', () => ticketCallout?.close());
+  body.addEventListener('pointerup', event => {
+    const selection = document.getSelection();
+    // Reader shells handle horizontal drags at window level. Keep a mouse text selection in place.
+    if (event.pointerType === 'mouse' && !selection?.isCollapsed && body.contains(selection?.anchorNode)) {
+      event.stopPropagation();
+    }
+  });
   const tabs = element('nav', 'chapter-work');
   tabs.setAttribute('aria-label', 'Chapter views');
   const reviewButton = button('Review', () => show('review'));

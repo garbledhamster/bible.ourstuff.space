@@ -2,15 +2,18 @@ const inset = 12;
 const gap = 12;
 const pointerInset = 16;
 const clamp = (value, min, max) => Math.max(min, Math.min(value, max));
+const selectionHighlight = 'bible-ticket-selection';
+let nextCalloutId = 0;
 
-export function createTicketCallout(chapter) {
+export function createTicketCallout(host) {
   const card = document.createElement('section');
   if (typeof card.showPopover !== 'function') return null;
   card.className = 'ticket-callout';
-  card.id = 'chapter-ticket-callout';
+  card.id = 'bible-ticket-callout-' + ++nextCalloutId;
   card.popover = 'auto';
   card.setAttribute('role', 'dialog');
-  card.setAttribute('aria-labelledby', 'ticket-callout-title');
+  const titleId = card.id + '-title';
+  card.setAttribute('aria-labelledby', titleId);
 
   const content = document.createElement('div');
   content.className = 'ticket-callout-content';
@@ -23,19 +26,21 @@ export function createTicketCallout(chapter) {
   closeButton.textContent = '×';
   closeButton.setAttribute('aria-label', 'Close ticket');
   card.append(closeButton, content);
-  chapter.append(card);
+  host.append(card);
 
   let trigger;
+  let focusReturn;
   let listeners;
   let observer;
   let frame;
 
   function close(from) {
-    if (trigger && (!from || from.contains(trigger))) card.hidePopover();
+    const node = trigger instanceof Range ? trigger.commonAncestorContainer : trigger;
+    if (node && (!from || from.contains(node))) card.hidePopover();
   }
 
   function closeAndReturn() {
-    const anchor = trigger;
+    const anchor = focusReturn;
     close();
     anchor?.focus({ preventScroll: true });
   }
@@ -55,22 +60,26 @@ export function createTicketCallout(chapter) {
     observer?.disconnect();
     cancelAnimationFrame(frame);
     frame = undefined;
-    trigger?.setAttribute('aria-expanded', 'false');
+    if (trigger instanceof Range) CSS.highlights?.delete(selectionHighlight);
+    else trigger?.setAttribute('aria-expanded', 'false');
     trigger = undefined;
+    focusReturn = undefined;
   });
 
   function position() {
     if (!trigger) return;
     const anchor = trigger.getBoundingClientRect();
-    const chapterBounds = chapter.getBoundingClientRect();
-    const body = trigger.closest('.chapter-detail-body').getBoundingClientRect();
+    const node = trigger instanceof Range ? trigger.commonAncestorContainer : trigger;
+    const element = node instanceof Element ? node : node.parentElement;
+    const hostBounds = host.getBoundingClientRect();
+    const body = element?.closest('.chapter-detail-body')?.getBoundingClientRect() ?? hostBounds;
     const viewport = window.visualViewport;
     const leftEdge = (viewport?.offsetLeft ?? 0) + inset;
     const topEdge = (viewport?.offsetTop ?? 0) + inset;
     const rightEdge = leftEdge + (viewport?.width ?? window.innerWidth) - 2 * inset;
     const bottomEdge = topEdge + (viewport?.height ?? window.innerHeight) - 2 * inset;
-    const visibleTop = Math.max(anchor.top, chapterBounds.top, body.top, topEdge - inset);
-    const visibleBottom = Math.min(anchor.bottom, chapterBounds.bottom, body.bottom, bottomEdge + inset);
+    const visibleTop = Math.max(anchor.top, hostBounds.top, body.top, topEdge - inset);
+    const visibleBottom = Math.min(anchor.bottom, hostBounds.bottom, body.bottom, bottomEdge + inset);
     if (visibleBottom <= visibleTop || anchor.right <= leftEdge - inset || anchor.left >= rightEdge + inset) {
       close();
       return;
@@ -125,9 +134,19 @@ export function createTicketCallout(chapter) {
     close();
     trigger = anchor;
     content.replaceChildren(details);
+    content.querySelector('h3').id = titleId;
+    if (anchor instanceof Range) {
+      focusReturn = document.activeElement;
+      card.showPopover();
+      if (CSS.highlights && typeof Highlight === 'function') {
+        CSS.highlights.set(selectionHighlight, new Highlight(anchor));
+      }
+    } else {
+      focusReturn = anchor;
+      card.showPopover({ source: anchor });
+      anchor.setAttribute('aria-expanded', 'true');
+    }
     content.scrollTop = 0;
-    card.showPopover({ source: anchor });
-    anchor.setAttribute('aria-expanded', 'true');
     position();
     if (!trigger) return;
     closeButton.focus({ preventScroll: true });
@@ -138,9 +157,9 @@ export function createTicketCallout(chapter) {
     window.visualViewport?.addEventListener('resize', schedule, { signal });
     window.visualViewport?.addEventListener('scroll', schedule, { signal });
     observer = new ResizeObserver(schedule);
-    observer.observe(anchor);
+    if (anchor instanceof Element) observer.observe(anchor);
     observer.observe(card);
   }
 
-  return { open, close };
+  return { id: card.id, open, close };
 }

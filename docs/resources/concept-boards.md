@@ -11,6 +11,10 @@ Use **Concept Generation** between [Plan](project-phases.md#plan) and [Build](pr
 
 Use mockups for interfaces and games, storyboards for sequences, and diagrams or document compositions for technical, operational and verification chapters. Label expected results as planned. If a chapter does not apply, record why in the chapter.
 
+## Keep build tickets easy to open
+
+Put the complete ticket ID beside the panel or choice it belongs to. In the Project Bible reader, highlight the full ID in a chapter or project document to read the ticket in place. Use the ticket buttons in Work queue and Build handoff when you’re starting from the task sheet. A project board that runs the shared ticket viewer can use the same selection behavior. [Choose how to read a chapter](project-phases.md#choose-how-to-read-a-chapter)
+
 ## Make approval usable in Build
 
 Keep the approved image and its version. For software UI, record the reference viewport, exact font families and sizes, spacing, component dimensions and positions, colors, controls, and states. For game scenes, record the viewport, camera, scale, positioning, animation and interaction cues. Put the required values in a specification beside the image. Annotate anything that cannot be faithfully reproduced by inspecting the image alone.

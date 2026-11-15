@@ -148,3 +148,7 @@ The review found that individually valid PNGs could make a draft too large to sa
 ### 2026-11-15T14:03:27-06:00 · Joe · Anchor the ticket callout
 
 **Paraphrase.** Use the first mockup. The card should point to the ticket you clicked and move around depending on the space available.
+
+### 2026-11-15T14:15:27-06:00 · Joe · Open a ticket from a reference
+
+**Paraphrase.** Update the project boards, put the callout in the Project Bible 2.0 build context, and let me read a ticket wherever its ID appears. Highlighting the ID is fine on desktop or mobile.

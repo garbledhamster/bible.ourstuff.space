@@ -24,6 +24,8 @@ Use **Work queue** to pick up open work or see what’s waiting. It brings recor
 
 In **Work queue** or **Build handoff**, select a ticket ID to read the ticket in a callout. The pointer stays aimed at the ticket as the card moves to fit the available space. Scroll inside the card for longer tickets. Close it with **×**, Escape, or a click outside the card.
 
+When you see a ticket ID in chapter text or a project document, highlight the complete ID to open the same callout. On a phone, press and hold the text and adjust the selection handles to include the whole ID. The reader looks up the ticket in the current project.
+
 Switching layouts displays the same chapter and task records. The **Tasks** tab is still available for edits.
 
 ## Start to finish

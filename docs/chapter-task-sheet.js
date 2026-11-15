@@ -10,14 +10,14 @@ export function chapterTaskRows(markdown, chapter, chapterTitles = []) {
     const parsed = splitTicketId(task.title, true);
     const id = parsed.id || (/^[A-Z0-9]{4}-[A-Z0-9]{4}$/.test(task.id) ? task.id : '');
     const cancelled = /^(canceled|cancelled)$/i.test(task.status);
-    if (home === chapter) {
+    if (chapter === undefined || home === chapter) {
       rows.push({ ...task, id, title: parsed.text, group: cancelled ? 'cancelled' : task.done ? 'complete' : 'remaining' });
     }
     for (const subtask of task.subtasks) {
       const [title, ...notes] = subtask.text.split(/\r?\n/);
       const statedChapter = chapterKey(notes[0]?.match(/^\s*([^.]+)\./)?.[1] ?? '');
       const subtaskHome = namedChapters.has(statedChapter) ? statedChapter : home;
-      if (subtaskHome !== chapter) continue;
+      if (chapter !== undefined && subtaskHome !== chapter) continue;
       const ticket = splitTicketId(title, true);
       rows.push({ id: ticket.id, title: ticket.text, notes: notes.join('\n'),
         parent: parsed.text, parentId: id, status: cancelled ? task.status : subtask.done ? 'Complete' : 'Open',
@@ -50,11 +50,12 @@ function queueGroup(task) {
     ? 'waiting' : 'open';
 }
 
-function ticketDetails(task, title, source, reader) {
+export function ticketDetails(task, source, reader) {
+  const title = document.createElement('span');
+  title.innerHTML = renderMarkdown(task.title, source, reader);
   const card = document.createDocumentFragment();
   const heading = node('div', '', 'ticket-callout-heading');
   const name = node('h3', title.textContent.trim() || task.title);
-  name.id = 'ticket-callout-title';
   heading.append(node('div', task.id, 'ticket-callout-id'), name);
   const meta = node('div', '', 'ticket-callout-meta');
   if (task.status) meta.append(node('span', task.status, 'ticket-callout-status'));
@@ -150,9 +151,9 @@ function taskRow(task, index, source, reader, queue, ticketCallout) {
     trigger.type = 'button';
     trigger.setAttribute('aria-label', 'Ticket ' + task.id);
     trigger.setAttribute('aria-haspopup', 'dialog');
-    trigger.setAttribute('aria-controls', 'chapter-ticket-callout');
+    trigger.setAttribute('aria-controls', ticketCallout.id);
     trigger.setAttribute('aria-expanded', 'false');
-    trigger.addEventListener('click', () => ticketCallout.open(trigger, ticketDetails(task, title, source, reader)));
+    trigger.addEventListener('click', () => ticketCallout.open(trigger, ticketDetails(task, source, reader)));
     row.append(trigger);
   } else if (task.id) {
     const link = node('a', task.id, 'chapter-ticket-link');
@@ -171,6 +172,17 @@ function taskRow(task, index, source, reader, queue, ticketCallout) {
   return row;
 }
 
+export async function loadTicketSource(reader, taskSource) {
+  const source = taskSource ?? new URL('task-list.md', reader);
+  const response = await fetch(taskSource ?? new URL('api/task-list', reader), { cache: 'no-store' });
+  const fallback = !taskSource && response.status === 404;
+  const snapshot = fallback ? await fetch(source, { cache: 'no-store' }) : response;
+  if (!snapshot.ok) throw new Error('Unable to load tasks.');
+  const markdown = taskSource || fallback ? await snapshot.text() : (await snapshot.json()).markdown;
+  if (typeof markdown !== 'string') throw new Error('Invalid task list.');
+  return { source, markdown };
+}
+
 export function createChapterTaskSheet(chapter, { taskSource, queue = false, ticketCallout } = {}) {
   const sheet = node('section', '', 'chapter-task-sheet');
   const title = queue ? 'Work queue' : 'Chapter task sheet';
@@ -185,9 +197,7 @@ export function createChapterTaskSheet(chapter, { taskSource, queue = false, tic
   const list = node('div', '', 'chapter-sheet-groups');
   sheet.append(bar, status, list);
 
-  const source = taskSource ?? new URL('task-list.md', location.href);
   const reader = new URL('read.html', location.href);
-  const url = taskSource ?? new URL('api/task-list', location.href);
   let loaded = false;
 
   async function refreshTasks(event) {
@@ -197,12 +207,7 @@ export function createChapterTaskSheet(chapter, { taskSource, queue = false, tic
     status.textContent = loaded ? 'Refreshing tasks…' : 'Loading chapter tasks…';
     status.removeAttribute('data-error');
     try {
-      const response = await fetch(url, { cache: 'no-store' });
-      const fallback = !taskSource && response.status === 404;
-      const snapshot = fallback ? await fetch(source, { cache: 'no-store' }) : response;
-      if (!snapshot.ok) throw new Error('Unable to load tasks.');
-      const markdown = taskSource || fallback ? await snapshot.text() : (await snapshot.json()).markdown;
-      if (typeof markdown !== 'string') throw new Error('Invalid task list.');
+      const { source, markdown } = await loadTicketSource(reader, taskSource);
       const titles = [...document.querySelectorAll('#chapter-choices .chapter-choice-title, #chapter-choices .chapter-title')]
         .map(element => element.textContent.trim());
       const chapterRows = chapterTaskRows(markdown, chapter, titles);

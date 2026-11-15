@@ -168,3 +168,7 @@ The Changelog shortcut opens the project and installed shared logs together. Rea
 Select a ticket ID in Work queue or Build handoff to read the recorded status, assignees, blockers, next action, subtasks, and references. The callout points to the selected ID, fits to the space around it, and scrolls for long tickets.
 
 Checked placement at 1,440, 390, and 320 pixels, including resizing while open, keyboard dismissal, and focus return. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Feedback](feedback.md#2026-11-15t140327-0600--joe--anchor-the-ticket-callout)
+
+### 2026-11-15T14:22:00-06:00 · Open a ticket from highlighted text
+
+Highlight the full ID in chapter text, a project document, or a board that uses the shared viewer. The callout opens at the selection and reads the ticket from the current Bible, including tickets from another chapter. Checked desktop mouse selection and a touch-sized browser, along with direct ticket buttons. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Board guide](concept-boards.md#keep-build-tickets-easy-to-open)

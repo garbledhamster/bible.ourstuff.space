@@ -31,3 +31,10 @@ test('shows real task and subtask status, and respects explicitly named subtask 
   assert.equal(rows[3].blockers, 'Sandbox.');
   assert.deepEqual(chapterTaskRows(source, 'vision-and-scope', chapters).map(row => row.id), ['MAIN-0001', 'DONE-0001']);
 });
+
+test('ticket lookup can include records and subtasks from the whole Bible', () => {
+  const rows = chapterTaskRows(source);
+  assert.deepEqual(rows.filter(row => row.id).map(row => row.id),
+    ['MAIN-0001', 'OPEN-0001', 'DONE-0001', 'DONE-0002', 'TABL-0001']);
+  assert.equal(rows.find(row => row.id === 'OPEN-0001').parentId, 'MAIN-0001');
+});

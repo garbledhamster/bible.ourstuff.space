@@ -92,6 +92,12 @@ export async function startReader() {
     document.title = `${article.querySelector('h1').textContent} · ${document.title}`;
     download.href = source.href;
     download.hidden = false;
+    if (markdown) {
+      const taskSource = filename === 'task-list.md' ? source : undefined;
+      void import('./ticket-selection.js').then(({ installTicketSelection }) => {
+        installTicketSelection({ reader, taskSource });
+      }).catch(() => {});
+    }
     if (reader.hash) {
       const fragment = decodeURIComponent(reader.hash.slice(1));
       const renamedHeadings = {
