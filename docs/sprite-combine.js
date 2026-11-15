@@ -1,4 +1,6 @@
-import { planSpriteSheet, renderSpriteSheet, sourceCell } from './sprite-sheet.js';
+import { readSpritePlacementSelection } from './sprite-placement.js';
+import { planPoseFrame } from './sprite-pose-frame.js';
+import { planSpriteSheet, renderSpriteSheet, safeSpriteFilename, sourceCell } from './sprite-sheet.js';
 
 const SOURCE_DEFAULT = { rows: 1, columns: 1, originX: 0, originY: 0 };
 const OUTPUT_DEFAULT = { rows: 1, columns: 1, cellWidth: 1, cellHeight: 1 };
@@ -24,9 +26,18 @@ function makeInspector() {
           <p class="sprite-combine__feedback" data-combine-source-message role="status" hidden></p>
         </fieldset>
       </form>
+      <form data-combine-pose-picker hidden>
+        <fieldset>
+          <legend>Rendered poses</legend>
+          <label>Pose <select data-combine-pose></select></label>
+          <label>Expression <select data-combine-expression></select></label>
+          <button type="submit" data-combine-add-pose>Add pose frame</button>
+          <p data-combine-pose-info role="status"></p>
+        </fieldset>
+      </form>
       <div class="sprite-combine__sequence">
         <h3>Frame order</h3>
-        <p data-combine-empty-order>Select cells from the source preview.</p>
+        <p data-combine-empty-order></p>
         <ol data-frame-order aria-label="Frame order"></ol>
         <p class="sprite-combine__sr-only" data-combine-order-message role="status"></p>
       </div>
@@ -117,10 +128,6 @@ function describeSourceCell(asset, row, column) {
   return `${asset.name} · ${row + 1}, ${column + 1}`;
 }
 
-function safeFilename(name) {
-  return name.replace(/[<>:"/\\|?*\u0000-\u001f]/gu, '-').replace(/[ .]+$/u, '') || 'sprites';
-}
-
 async function decodeSource(asset) {
   const image = new Image();
   image.src = asset.dataUrl;
@@ -167,6 +174,11 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   const sourceCaption = find('[data-combine-source-caption]');
   const sourceMessage = find('[data-combine-source-message]');
   const noSource = find('[data-combine-no-source]');
+  const posePicker = find('[data-combine-pose-picker]');
+  const poseField = find('[data-combine-pose]');
+  const expressionField = find('[data-combine-expression]');
+  const poseButton = find('[data-combine-add-pose]');
+  const poseInfo = find('[data-combine-pose-info]');
   const order = find('[data-frame-order]');
   const emptyOrder = find('[data-combine-empty-order]');
   const orderMessage = find('[data-combine-order-message]');
@@ -191,6 +203,8 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   let assetKey;
   let sourceGridKey;
   let outputGridKey;
+  let poseKey;
+  let poseSelection;
   let queueKey;
   let restoredKey;
   let dragging;
@@ -220,6 +234,10 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   function getOutputGrid() {
     if (getDraft().combine?.grid) return getDraft().combine.grid;
     const first = currentFrames()[0];
+    const placement = getDraft().placement;
+    if (first?.kind === 'pose' && placement) {
+      return { ...OUTPUT_DEFAULT, cellWidth: placement.width, cellHeight: placement.height };
+    }
     const firstAsset = getDraft().assets.find(asset => asset.id === first?.assetId);
     if (firstAsset) {
       const grid = getDraft().combine?.sourceGrids?.[firstAsset.id] ?? SOURCE_DEFAULT;
@@ -337,9 +355,59 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   }
 
   function frameLabel(frame) {
-    if (frame.kind !== 'source') return frame.label ?? 'Rendered pose';
+    if (frame.kind === 'pose') {
+      const placement = getDraft().placement;
+      const pose = placement?.poses.find(entry => entry.id === frame.poseId);
+      const expression = placement?.expressions.find(entry => entry.id === frame.expressionId);
+      const view = placement?.views.find(entry => entry.id === pose?.viewId);
+      return [view?.name, pose?.name ?? 'Missing pose', expression?.name].filter(Boolean).join(' · ');
+    }
     const asset = getDraft().assets.find(asset => asset.id === frame.assetId);
     return asset ? describeSourceCell(asset, frame.row, frame.column) : 'Missing source frame';
+  }
+
+  function selectedPoseFrame() {
+    return { kind: 'pose', poseId: poseField.value, expressionId: expressionField.value || null };
+  }
+
+  function renderPoseInfo() {
+    let message;
+    let invalid = false;
+    try {
+      const { originX, originY } = planPoseFrame(selectedPoseFrame(), getDraft());
+      message = `Origin ${originX}, ${originY} px`;
+    } catch (error) {
+      message = error.message;
+      invalid = true;
+    }
+    if (poseInfo.textContent !== message) poseInfo.textContent = message;
+    poseInfo.classList.toggle('sprite-combine__feedback', invalid);
+    poseButton.disabled = invalid;
+  }
+
+  function renderPosePicker(placement) {
+    posePicker.hidden = !resolveFrame || !placement?.poses.length;
+    emptyOrder.textContent = posePicker.hidden
+      ? 'Select cells from the source preview.'
+      : 'Select source cells or add a pose frame.';
+    if (posePicker.hidden) return;
+
+    const views = new Map(placement.views.map(view => [view.id, view.name]));
+    const poses = placement.poses.map(({ id, name, viewId }) => [id, `${views.get(viewId)} · ${name}`]);
+    const expressions = placement.expressions.map(({ id, name }) => [id, name]);
+    const key = JSON.stringify([poses, expressions]);
+    if (poseKey !== key || poseSelection) {
+      const poseId = poseSelection?.poseId ?? poseField.value;
+      const expressionId = poseSelection?.expressionId ?? expressionField.value;
+      poseSelection = undefined;
+      poseKey = key;
+      poseField.replaceChildren(...poses.map(([id, label]) => new Option(label, id)));
+      expressionField.replaceChildren(new Option('Base parts', ''),
+        ...expressions.map(([id, label]) => new Option(label, id)));
+      if (poses.some(([id]) => id === poseId)) poseField.value = poseId;
+      if (expressions.some(([id]) => id === expressionId)) expressionField.value = expressionId;
+    }
+    renderPoseInfo();
   }
 
   function renderOrder(frames) {
@@ -375,7 +443,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
     const draft = getDraft();
     if (draft?.id !== setId) {
       setId = draft?.id;
-      sourceId = assetKey = sourceGridKey = outputGridKey = queueKey = restoredKey = undefined;
+      sourceId = assetKey = sourceGridKey = outputGridKey = poseKey = poseSelection = queueKey = restoredKey = undefined;
       showMode(false);
       showOutput(null);
       renderAttempt++;
@@ -396,6 +464,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
     }
     const frames = currentFrames();
     renderSource(getAsset(), frames);
+    renderPosePicker(draft.placement);
     renderOrder(frames);
     const grid = getOutputGrid();
     const gridKey = JSON.stringify(grid);
@@ -424,21 +493,25 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
     render();
     try {
       const assets = new Map(draft.assets.map(asset => [asset.id, asset]));
-      const crops = await Promise.all(recipe.frames.map(async frame => {
+      const renderDraft = recipe.placement ? { ...draft, placement: recipe.placement } : draft;
+      const crops = recipe.frames.map(frame => {
         if (frame.kind !== 'source') {
-          if (resolveFrame) return resolveFrame(frame, draft);
+          if (resolveFrame) return planPoseFrame(frame, renderDraft);
           throw new Error('A rendered pose in this recipe is unavailable.');
         }
         const asset = assets.get(frame.assetId);
         if (!asset) throw new Error('A source image is missing. Remove its frame or reimport the PNG.');
-        return sourceCell(asset, recipe.sourceGrids[asset.id] ?? SOURCE_DEFAULT, frame.row, frame.column);
-      }));
-      if (!stillCurrent()) return;
+        return sourceCell(asset, recipe.sourceGrids?.[asset.id] ?? SOURCE_DEFAULT, frame.row, frame.column);
+      });
 
       const plan = planSpriteSheet(recipe.grid, crops);
       const images = new Map();
       await Promise.all(crops.map(async crop => {
-        if (crop.image) return;
+        if (crop.source.kind === 'pose') {
+          const frame = await resolveFrame(crop.source, renderDraft);
+          crop.image = frame.image;
+          return;
+        }
         const asset = assets.get(crop.source.assetId);
         if (!images.has(asset.id)) images.set(asset.id, decodeSource(asset));
         crop.image = await images.get(asset.id);
@@ -484,10 +557,28 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   }
 
   toggle.addEventListener('click', () => {
+    if (!isOpen) poseSelection = readSpritePlacementSelection(preview);
     showMode(!isOpen);
     controls.scrollTop = preview.scrollTop = 0;
     render();
-    if (isOpen && getAsset()) picker.focus({ preventScroll: true });
+    if (isOpen) {
+      if (getAsset()) picker.focus({ preventScroll: true });
+      else if (!posePicker.hidden) poseField.focus({ preventScroll: true });
+    }
+  });
+  posePicker.addEventListener('change', renderPoseInfo);
+  posePicker.addEventListener('submit', event => {
+    event.preventDefault();
+    const frame = selectedPoseFrame();
+    try {
+      planPoseFrame(frame, getDraft());
+      const frames = currentFrames();
+      if (editRecipe(recipe => { recipe.frames = [...frames, frame]; })) {
+        orderMessage.textContent = `Added ${frameLabel(frame)} at position ${frames.length + 1}.`;
+      }
+    } catch (error) {
+      poseInfo.textContent = error.message;
+    }
   });
   picker.addEventListener('change', () => {
     sourceId = picker.value;
@@ -557,7 +648,8 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
       if (!editRecipe(recipe => { recipe.frames = frames.filter((_, position) => position !== index); })) return;
       orderMessage.textContent = `Removed ${frameLabel(removed)}.`;
       const next = order.children[Math.min(index, order.children.length - 1)];
-      (next?.querySelector('[data-frame-remove]') ?? sourceCells.querySelector('[tabindex="0"]') ?? picker).focus();
+      (next?.querySelector('[data-frame-remove]') ?? sourceCells.querySelector('[tabindex="0"]')
+        ?? (!posePicker.hidden ? poseField : picker)).focus();
       return;
     }
     const earlier = action.hasAttribute('data-frame-earlier');
@@ -606,6 +698,9 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
       frames: currentFrames(),
       sourceGrids: getDraft().combine?.sourceGrids ?? {},
     };
+    if (recipe.frames.some(frame => frame.kind === 'pose')) {
+      recipe.placement = getDraft().placement;
+    }
     void combineSheet(recipe, true);
   });
   exportButton.addEventListener('click', async () => {
@@ -622,7 +717,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
       try {
         const png = await pngBlob(result.canvas);
         if (output !== result) return;
-        const filename = safeFilename(getDraft().name);
+        const filename = safeSpriteFilename(getDraft().name);
         const map = new Blob([JSON.stringify(result.frameMap, null, 2) + '\n'], { type: 'application/json' });
         pngLink.download = `${filename}.png`;
         mapLink.download = `${filename}.frames.json`;

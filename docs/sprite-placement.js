@@ -302,7 +302,7 @@ export function installSpritePlacement({ controls, preview, getDraft, updateDraf
   const activeSlots = () => current()?.slots.filter(slot => slot.viewId === viewId) ?? [];
 
   function publishSelection() {
-    const next = Object.freeze({ viewId, poseId, expressionId, slotId, playing });
+    const next = Object.freeze({ viewId, poseId, expressionId, slotId, partId, playing });
     const previous = selections.get(preview);
     if (previous && Object.keys(next).every(key => previous[key] === next[key])) return;
     selections.set(preview, next);
@@ -493,7 +493,8 @@ export function installSpritePlacement({ controls, preview, getDraft, updateDraf
     const registered = field('part', 'part');
     const parts = placement.parts.filter(part => slots.some(slot => slot.id === part.slotId));
     fillSelect(registered, parts, partId);
-    const part = parts.find(entry => entry.id === registered.value);
+    partId = registered.value;
+    const part = parts.find(entry => entry.id === partId);
     inspector.querySelector('[data-edit-part]').hidden = !part;
     if (part) setFields(form('part'), { name: part.name, x: part.x, y: part.y });
   }
@@ -551,7 +552,13 @@ export function installSpritePlacement({ controls, preview, getDraft, updateDraf
     if (draft?.id !== setId) {
       stop();
       setId = draft?.id;
-      viewId = poseId = expressionId = slotId = partId = editExpressionId = '';
+      const selection = draft?.placementSelection;
+      viewId = selection?.viewId ?? '';
+      poseId = selection?.poseId ?? '';
+      expressionId = selection?.expressionId ?? '';
+      slotId = selection?.slotId ?? '';
+      partId = selection?.partId ?? '';
+      editExpressionId = expressionId;
       guides.checked = false;
       form('register').reset();
       showMessage(editStatus, '');
@@ -792,6 +799,7 @@ export function installSpritePlacement({ controls, preview, getDraft, updateDraf
     }
     if (control === field('part', 'part')) {
       partId = control.value;
+      publishSelection();
       const part = current().parts.find(entry => entry.id === partId);
       setFields(form('part'), { name: part.name, x: part.x, y: part.y });
     }
