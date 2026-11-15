@@ -114,6 +114,30 @@
   text-align: left;
 }
 .bible-task-title:hover { text-decoration: underline; text-underline-offset: 3px; }
+.bible-task-title-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 10px;
+  min-width: 0;
+}
+.bible-ticket-id {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.45em;
+  max-width: 100%;
+  padding: 2px 6px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  user-select: text;
+}
+.bible-ticket-id strong { color: var(--ink); }
+.bible-subtask-instruction { min-width: 0; }
+.bible-subtask-instruction .bible-ticket-id { margin-bottom: 4px; }
 .bible-task-row :is(.bible-task-state, .bible-task-owners) { color: var(--muted); font-size: 13px; }
 .bible-task-row[data-status="Waiting"] .bible-task-state { color: #f3cd9f; }
 .bible-task-row[data-status="Ready"] .bible-task-state { color: var(--lime); }

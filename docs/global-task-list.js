@@ -1,6 +1,6 @@
 import { renderMarkdown } from './document-reader.js';
 import { chapterKey, isDone, readTaskList, saveTask, updateMember } from './task-document.js';
-import { editTaskSubtasks } from './task-subtasks.js';
+import { editTaskSubtasks, splitTicketId, ticketIdLabel } from './task-subtasks.js';
 
 const statuses = ['Ready', 'In progress', 'Blocked', 'Hold', 'Complete', 'Cancelled'];
 const markup = `<dialog id="bible-task-list" aria-labelledby="bible-task-list-title">
@@ -135,6 +135,10 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
   const cancelMember = get('cancel-bible-member');
   const cancelTask = get('cancel-bible-task');
   const reader = new URL('read.html', location.href);
+  const showTicketIds = document.documentElement.hasAttribute('data-ticket-id-labels');
+  const taskTicket = element('div');
+  field('title').closest('label').before(taskTicket);
+  taskTicket.hidden = true;
   let doc = readTaskList(initial?.markdown ?? '');
   let revision = initial?.revision;
   let busy = false;
@@ -221,7 +225,11 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
           }
         };
         row.dataset.taskLine = item.start;
-        row.append(checkbox, button(item.title, event => editTask(item, event.currentTarget), '', 'bible-task-title'),
+        const ticket = splitTicketId(item.title, showTicketIds);
+        const title = button(ticket.text, event => editTask(item, event.currentTarget), '', 'bible-task-title');
+        const titleGroup = ticket.id ? element('div', '', 'bible-task-title-group') : title;
+        if (ticket.id) titleGroup.append(title, ticketIdLabel(ticket.id));
+        row.append(checkbox, titleGroup,
           element('span', item.status, 'bible-task-state'),
           element('span', item.members.join(', ') || 'Unassigned', 'bible-task-owners'));
         if (item.blockers) row.append(element('span', 'Blockers: ' + item.blockers, 'bible-task-blockers'));
@@ -390,7 +398,10 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
     const title = endpoint ? (item ? 'Edit task' : 'New task') : 'Task details';
     get('bible-task-editor-title').textContent = title;
     field('title').setCustomValidity('');
-    field('title').value = item?.title ?? '';
+    const ticket = splitTicketId(item?.title ?? '', showTicketIds);
+    field('title').value = ticket.text;
+    taskTicket.replaceChildren(...(ticket.id ? [ticketIdLabel(ticket.id)] : []));
+    taskTicket.hidden = !ticket.id;
     setOptions(field('chapter'), [['', 'Choose chapter'], ...chapterNames()],
       item ? chapterKey(item.chapter) : selectedChapter);
     setOptions(field('status'), distinct([...statuses, item?.status].filter(Boolean)).map(status => [status, status]),
@@ -398,7 +409,7 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
     field('notes').value = item?.notes ?? '';
     field('blockers').value = item?.blockers ?? '';
     field('asset').value = item?.asset ?? '';
-    readSubtasks = editTaskSubtasks(get('bible-task-subtasks'), item?.subtasks, !endpoint);
+    readSubtasks = editTaskSubtasks(get('bible-task-subtasks'), item?.subtasks, !endpoint, showTicketIds);
     get('bible-task-asset').hidden = !endpoint || item?.format === 'checklist';
     for (const name of ['title', 'notes', 'blockers']) field(name).readOnly = !endpoint;
     for (const name of ['chapter', 'status']) field(name).disabled = !endpoint;
@@ -454,12 +465,13 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
   form.onsubmit = async event => {
     event.preventDefault();
     if (!endpoint || busy || memberChange) return;
-    const title = field('title').value.trim();
-    if (!title) {
+    const name = field('title').value.trim();
+    if (!name) {
       field('title').setCustomValidity('Enter a task name.');
       field('title').reportValidity();
       return;
     }
+    const title = splitTicketId(task?.title ?? '', showTicketIds).prefix + name;
     const status = field('status').value;
     const draft = {
       ...task, title, status, chapter: chapterNames().get(field('chapter').value),
