@@ -2,7 +2,16 @@
 
 Start every project in Grilling. Keep the current phase near the top of the project’s Bible, above the chapters. Write it on its own line, for example `**Current phase:** Build`. The reader shows the phase number and name under the project title. Update the line when the work moves to a new phase. For an existing project, use the phase that matches the work and evidence for its current release.
 
-The phase tells you what kind of work you’re doing. The chapter tells you where the decision, task, or result belongs.
+The phase tells you what kind of work you’re doing. The chapter tells you where the decision, task, or result belongs. Each applicable chapter has instructions for all five phases. A single-player project can mark Multiplayer N/A and carry on.
+
+## Start to finish
+
+1. Find or create your project folder and follow the [setup instructions](../AGENTS.md) to initialize the repository, install the shared Bible, and set up the project Bible and task list.
+2. Set the current release and phase at the top of the project Bible. Start at [Vision & Scope](game-bible-guide.md#vision--scope), and work through the chapters that apply in order.
+3. Open **Phase instructions** in each chapter. Record the result at that chapter before depending on it elsewhere. Carry Grilling answers into Plan tasks, attach the Build output to the task, record the Testing result, and link Maintenance changes back to the decisions and evidence they affect.
+4. Use the exit check below to move the release forward. If a new finding changes an earlier decision, reopen that decision and repeat the affected work. Keep the current phase and the next action visible in the Bible.
+
+For example, in Zoo Helper, the visitor queue starts with a decision about what a child should see and hear. Plan turns it into a task with starting conditions and expected results. Build makes the queue playable and resettable. Testing watches a child try it and checks the cue with sound off. Maintenance links any later fix to the observation that prompted it.
 
 ## Phase 1 · Grilling
 

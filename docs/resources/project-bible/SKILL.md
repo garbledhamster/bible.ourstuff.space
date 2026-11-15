@@ -16,7 +16,7 @@ In a project reader, use **Project Bible** as the main heading and put the proje
 
 ## Follow the project phase
 
-Read [Project phases](../project-phases.md) and check the current phase in the project Bible. Start new projects in Grilling. Use Plan to review the whole idea with Ask Edwards’s gestalt lens and turn the decisions in every applicable chapter into build tasks. During Build, run the small checks needed to keep work moving. Run the major checks on the complete candidate in Testing and leave that phase with a product ready to ship. In Maintenance, handle feedback, edits and updates after release or handoff. Update the phase in the project’s own Bible as it moves.
+Read [Project phases](../project-phases.md) and check the current phase in the project Bible. Start new projects in Grilling. Use Plan to review the whole idea with Ask Edwards’s gestalt lens and turn the decisions in every applicable chapter into build tasks. During Build, run the small checks needed to keep work moving. Run the major checks on the complete candidate in Testing and leave that phase with a product ready to ship. In Maintenance, handle feedback, edits and updates after release or handoff. Update the phase in the project’s own Bible as it moves. In each applicable chapter, read **Phase instructions** for the current phase. Save the named output, link it into the next phase, and carry any open dependency forward with an owner.
 
 ## Use the project task list
 

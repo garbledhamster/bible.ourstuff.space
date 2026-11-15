@@ -4,7 +4,7 @@ I put this guide together for the way I want to build games with people and with
 
 Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback.
 
-Start with the [five project phases](project-phases.md). Keep the current phase at the top of your own Bible and use the chapters to organize the work within it.
+Start with the [five project phases](project-phases.md). Keep the current phase at the top of your Bible. In each chapter, open **Phase instructions** to see what to do and what to leave for the next phase.
 
 ### Carry the work through the chapters
 
@@ -17,6 +17,14 @@ Before starting a chapter, read its completion check and link the earlier output
 Embed every image generated for the project in the chapter where it was made or discussed. Save the image in the project and put it next to the decision, asset, or result it illustrates. Give it useful alt text and a short caption explaining its purpose and current status. Link the source or prompt and reuse the same file when a later chapter needs it. Open the rendered chapter to confirm the image loads. For chapters that change the playable build, record what you tried, the result, and what the next chapter can build on.
 
 ## Vision & Scope
+
+### Phase instructions
+
+- **Grilling** · Agree on the audience, target devices, player promise, one representative moment, and what the first release includes. Save the creator’s approved visual reference and one prediction you can observe in play.
+- **Plan** · Open the project folder and initialize or locate Git. Set up the project Bible and task list, map the folders in the README, and turn the agreed scope and prediction into a release brief and first tasks.
+- **Build** · Save the starting revision, chosen art references, and release brief. Keep the runnable candidate and its entry point tied to the milestone in the brief.
+- **Testing** · Watch someone from the intended audience try the representative moment. Record what they did, whether it matched the prediction, and what needs to change.
+- **Maintenance** · Review evidence and feedback before revising the scope. Save the next release brief when the audience, promise, or milestone changes.
 
 ### What to carry forward
 
@@ -104,6 +112,14 @@ I can see the visual direction the creator confirmed and read which details they
 
 ## Design Document
 
+### Phase instructions
+
+- **Grilling** · Walk through the main activity with the creator. Decide what the person can do, what changes, what feedback they get, and how they recover when it goes wrong.
+- **Plan** · Write the rules and starting states in the order the player encounters them. Turn examples and edge cases into tasks with expected results. Mark any decision that blocks a task.
+- **Build** · Implement the agreed rules as parts the sandbox and player scenes can share. Record which rules and recovery paths the build covers.
+- **Testing** · Try the usual path, a failed attempt, and recovery in the integrated candidate. Compare the result with the written rules and repeat affected checks after a fix.
+- **Maintenance** · Record rule changes and why they were made. Keep a repeatable case for the behavior that prompted each fix.
+
 ### What to carry forward
 
 1. Take the chosen moment and release scope from Vision & Scope.
@@ -149,6 +165,14 @@ If you're using a Wayfinder map, link the question here where it affects the wor
 I can follow a task or turn through the document, try a rule and know what to look for, and find the screens or scenes that depend on it. Each open decision has a way to get an answer.
 
 ## UI & UX Design
+
+### Phase instructions
+
+- **Grilling** · Walk through the interface with the creator. Agree on what people need to see, where they act, and which cues or recovery controls matter on each target.
+- **Plan** · Sketch the workflow at target sizes. List each screen, input, and state it must show. Name the authored buttons, frames, icons, and other assets Engine & Assets will need.
+- **Build** · Build the screens and bind the authored art to the actions and states. Capture representative screens at the intended sizes and link them to the sketch.
+- **Testing** · Watch a first-time user complete and recover from the task. Check layout, readable cues, focus, and the supported inputs. Save screenshots and the build tested.
+- **Maintenance** · Keep the screen record and art links current. When a control or cue changes, repeat the affected first-use and accessibility checks.
 
 ### What to carry forward
 
@@ -197,6 +221,14 @@ Use [Design Wayfinder](game-development-playbook.md#try-one-live-design-decision
 We have a sketch or prototype of the main workflow at the intended screen sizes, with project-specific standards for layout, controls, and feedback. We’ve named the artwork and states each control or frame needs, including both views of items that appear in a menu and in play. We know what to check in the sandbox and playtest. A first-time user should be able to find what they need, tell what happened after they act, and get back on track without someone pointing out where to go.
 
 ## Engine & Assets
+
+### Phase instructions
+
+- **Grilling** · Agree on the target and visual direction and identify the first interaction that will prove the engine and key assets fit the project.
+- **Plan** · Choose and pin the engine version. Inventory the runtime assets for that interaction, with sources, states, owners, and what to verify at game size.
+- **Build** · Create or import the assets and wire the first interaction. Record the clean launch command, link the files, and capture how the assets look in the engine.
+- **Testing** · Launch from a clean checkout on the intended device. Exercise the assets at play size, including any alignment, draw order, collision, and state changes the scene needs.
+- **Maintenance** · Record asset replacements and dependency changes. Check the affected scenes and keep the source, credits, and launch instructions current.
 
 ### What to carry forward
 
@@ -265,6 +297,14 @@ Keep the working file or its source where the next contributor can find it. Mark
 Someone can start the game from a clean checkout and show one real interaction with the assets it uses on an intended target. The main runtime assets for the current playable scope come from its visual references, load in the engine, and appear in the chapter with the observed results. For items used in a menu and in play, both assets are named in the ledger and checked side by side at their display sizes. Resolve any missing main asset or failed fit before handing the scene to Development Sandbox. Track smaller remaining assets with their next check.
 
 ## Audio Engineering
+
+### Phase instructions
+
+- **Grilling** · Agree on what the person should hear, which sounds carry information, and what they can see or use with sound off. Decide where music or silence serves the experience.
+- **Plan** · Make a cue and dialogue list for one representative encounter. Record the triggers, stop rules, sources, permissions, and the listening cases to run.
+- **Build** · Produce or source the files and wire them to the real events. Save the mix, caption or visual equivalents, and a repeatable listening case.
+- **Testing** · Listen on the intended devices. Try a normal run, interruption, replay, and sound off. Record whether the words and cues stay clear and the loops stop where expected.
+- **Maintenance** · Update source credits and repeat the affected listening checks after a mix, line, or engine change.
 
 ### What to carry forward
 
@@ -373,6 +413,14 @@ The release has a music plan, including a decision to go without music if that s
 
 ## Development Sandbox
 
+### Phase instructions
+
+- **Grilling** · Decide which mechanics, failures, and recovery paths you need to try before assembling the player scenes.
+- **Plan** · List named starting states, how to enter and reset each case, what to do, and what should happen. Link each case to its rule and required assets.
+- **Build** · Build the developer entry point and exercise the cases through the same rules and inputs used in play. Link the runnable case and its evidence.
+- **Testing** · Repeat the cases on the candidate build. Check reset, interruption, and repeated actions. Save results and any gap that still blocks a scene.
+- **Maintenance** · Add a resettable case for a reported regression and keep development cases usable as the game and its assets change.
+
 ### What to carry forward
 
 1. Bring in the actual rules, runtime art, controls, and sound for the playable scope.
@@ -425,6 +473,14 @@ A contributor can open the dedicated sandbox, play every release mechanic and ea
 
 ## Scene Scripts & Playtests
 
+### Phase instructions
+
+- **Grilling** · Walk through each scene with the creator. Agree on what the person comes in knowing, what they do, and what should carry into the next scene.
+- **Plan** · Write each scene’s entry, actions, dialogue, outcome, and exits. Link the sandbox cases it needs and write the observations to collect in the playtest.
+- **Build** · Assemble scenes from verified pieces. Exercise each handoff through the normal player path and record the candidate and the playtest instructions.
+- **Testing** · Give the intended audience a task and watch what happens. Record where they hesitate, what they learn, and which fixes need a repeat playtest.
+- **Maintenance** · Update scene scripts and replay the changed journey after a fix or content update. Link the result and any new question to the chapter that owns it.
+
 ### What to carry forward
 
 1. Take the passing sandbox cases and the intended scene order from Design Document.
@@ -453,6 +509,14 @@ A player can go from the start of the scene to an outcome, recover where they ne
 
 ## Build & Play the Game
 
+### Phase instructions
+
+- **Grilling** · Agree on how the intended audience will open, install, or return to the game and on what the launch must make available.
+- **Plan** · Write the launch, packaging, and versioning steps. List supported targets, controls, and the first-run, continue, and update paths that apply.
+- **Build** · Produce a versioned candidate with the pieces it needs to run. Save the build, source revision, and launch or install instructions.
+- **Testing** · Open the exact candidate from a fresh browser profile or clean install. Complete the main journey and check saved progress and recovery where supported.
+- **Maintenance** · Rebuild and package updates with their version and source revision. Keep launch instructions current and check the upgrade path from the builds players have.
+
 ### What to carry forward
 
 1. Take the assembled scenes, applicable playtest fixes, and supported targets.
@@ -478,6 +542,14 @@ Start a new game and use the controls you expect players to use. Finish a full t
 I can repeat the build, open or install it on each target we're shipping, and play through the core loop. I have a record of the build that passed and can use it for the manual and screenshots.
 
 ## Demo, Manual & Wiki
+
+### Phase instructions
+
+- **Grilling** · Choose one task a first-time player can try and decide what help they should be able to find if they get stuck.
+- **Plan** · Outline the demo entry and reset, the help topics, and what to capture. Link the scenes and sandbox cases that supply the real controls.
+- **Build** · Build or publish the demo using the verified interaction. Write the help and capture the walkthrough or screenshots from the playable build.
+- **Testing** · Have someone open the demo, try the task, find the relevant help, and return to the task. Check that the images and instructions match the build.
+- **Maintenance** · Update the demo, captures, and help with gameplay changes. Repeat the path from a help page back to the playable task.
 
 ### What to carry forward
 
@@ -522,6 +594,14 @@ Record the passing sandbox cases and the release build, then watch a first-time 
 
 ## Release, Pricing & Marketing
 
+### Phase instructions
+
+- **Grilling** · Decide who the release is for, what they get, where they get it, and whether and how they pay.
+- **Plan** · List the release checks, delivery steps, store or landing page assets, and who handles each step. Record the price, platform, and access decisions.
+- **Build** · Prepare the release candidate, copy, screenshots, and delivery links. Set up price, access, or payment in the release channel when applicable.
+- **Testing** · Verify the exact release link and what a person receives after opening, signing up, or paying. Check the published description against the candidate before shipping.
+- **Maintenance** · Check the shipped links and access when the platform, price, or offer changes. Keep public copy and screenshots in step with the current release.
+
 ### What to carry forward
 
 1. Take the candidate, supported targets, verified demo, and help links.
@@ -548,6 +628,14 @@ The release candidate passes on the targets and access conditions we promised. A
 
 ## Contributor Training
 
+### Phase instructions
+
+- **Grilling** · Decide who will work on the project and what they should be able to change and verify on their first day.
+- **Plan** · Choose one real first task. List the access, setup, files, and checks a contributor needs to finish it.
+- **Build** · Write the quickstart and walk the task from a fresh checkout. Link the runnable build, evidence, and the decisions needed for the work.
+- **Testing** · Have a contributor follow the quickstart and complete the task. Fix the steps where they needed outside help and record the result.
+- **Maintenance** · Keep the quickstart, access steps, and first task current. Repeat the exercise when setup, engine version, or contributor responsibilities change.
+
 ### What to carry forward
 
 1. Take the shipped setup and the chapter links for a real small change.
@@ -569,6 +657,14 @@ Link the rules, scenes, assets, and checks that matter for the task. Include the
 A new contributor can follow the guide, make a small change from a clean starting point, and show how they checked it.
 
 ## Multiplayer & Multi-user Support
+
+### Phase instructions
+
+- **Grilling** · Decide whether the release supports shared play or multiple users. If it is single-player, record the scope and mark the chapter N/A.
+- **Plan** · For shared play, define what each person controls, who owns shared state, and what happens when someone leaves or disconnects. Plan one two-client case and the hosting checks.
+- **Build** · Build the smallest shared encounter and write how to start, join, and recover the service. Prove the encounter in the sandbox before assembling multiplayer scenes.
+- **Testing** · Have two clients join, act together, disconnect, and return on the intended network. Verify shared outcomes and retained progress, and record any measured capacity.
+- **Maintenance** · Check joins and recovery after changes to hosting or shared rules. Maintain the runbook and record incidents and fixes.
 
 ### What to carry forward
 
@@ -623,6 +719,14 @@ Every multiplayer mode promised for the release is playable from joining through
 
 ## Updates & DLC
 
+### Phase instructions
+
+- **Grilling** · Decide what sort of follow-up work belongs here and what promises earlier players keep when you change the game.
+- **Plan** · Choose the affected release, changes, and compatibility checks. Identify the previous build and save or account state to use for comparison.
+- **Build** · Build the update and prepare the release notes. Add any migration or recovery the update needs and link the checks it must pass.
+- **Testing** · Try the previous and new builds from a known starting state. Verify existing progress, new content, and recovery where applicable before shipping the update.
+- **Maintenance** · Record the shipped version, what changed, and how you checked it. Use the same phases again when a larger update needs its own release.
+
 ### What to carry forward
 
 1. Take a shipped revision, existing player state, and an agreed change.
@@ -648,6 +752,14 @@ Tell players what they'll see and what they need to do to use it. If you've move
 The update or rehearsal passes the checks it affects, including the relevant paths for existing players. The manual, wiki, and release notes describe what players get in that version.
 
 ## Engagement & Feedback
+
+### Phase instructions
+
+- **Grilling** · Decide whose experience you need to learn from, when you’ll talk to them, and what you want to find out.
+- **Plan** · Choose the feedback channel, who reads and follows up, and where to keep the timestamped Feedback and Changelog files.
+- **Build** · Set up the feedback path and records. Prepare the questions or observation prompts and run one rehearsal before inviting people.
+- **Testing** · Try giving feedback through the real path. Check that the right person receives it, can trace it to the build, and knows who will follow up.
+- **Maintenance** · Record conversations and follow through on the agreed changes. Link feedback to the decision or fix and carry an unresolved finding into the next release brief.
 
 ### What to carry forward
 

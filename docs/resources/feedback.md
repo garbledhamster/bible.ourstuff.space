@@ -50,3 +50,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T20:24:04-06:00 · Joe · Project phases
 
 **Paraphrase.** Show the current phase at the top of every Bible clone. Start with Grilling, then Plan across all chapters with Ask Edwards’s gestalt lens. Build with minimal testing, run the major checks in Testing until the product is ready to ship, and move to Maintenance for edits and updates. [Project phases](project-phases.md)
+
+### 2026-11-14T22:23:42-06:00 · Joe · Instructions for each project phase
+
+**Paraphrase.** Give every phase dedicated instructions in each chapter. Show what needs to get done and how the work builds from project setup through maintenance. [Project phases](project-phases.md) · [Chapter guide](game-bible-guide.md)
