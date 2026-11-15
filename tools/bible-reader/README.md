@@ -22,6 +22,10 @@ python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/version.py restore d
 
 These commands switch the shared checkout to a detached revision. The backup stays in that clone under `refs/project-bible/backups/`, outside the project files.
 
+## Current phase
+
+Put a line such as `**Current phase:** Build` near the top of the project-owned Bible. Point the reader’s `<link rel="alternate" type="text/markdown">` at that Markdown file and end its title with `Project Bible source`. The updater shows the phase under the project name and opens the five-phase overview. A reader with no recorded phase shows `Phase not set`. Update the project Markdown when the work moves; a shared update or restore does not change it.
+
 ## Editable Task List
 
 To enable editing on a private reader, add `--task-list /reader/ /absolute/project/docs/task-list.md` using an existing reader route. Link to `read.html?file=task-list.md`. The server reads and saves that project file directly, so a browser save is visible in the workspace and an agent edit is visible on reload. Leave this option off for readers that do not need editing.

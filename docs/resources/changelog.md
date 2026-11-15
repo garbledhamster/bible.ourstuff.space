@@ -51,3 +51,8 @@ Added the [side-by-side sword example](game-bible-guide.md#fighting-game-sword-e
 ### 2026-11-14T20:18:07-06:00 · Directional sword swings
 
 Updated the [sword example](game-bible-guide.md#fighting-game-sword-example) with a 48-frame sprite sheet, frame map, and 1× preview. The original inventory illustration is paired with a slash and overhead chop for each of four directions. Checked grip alignment in the export and playback with return to guard on desktop and phone layouts. [Feedback](feedback.md#entries)
+
+
+### 2026-11-14T20:29:18-06:00 · Project phases
+
+Added [the five project phases](project-phases.md) to the shared guide and skill. New Bibles start in Grilling. Private readers show the phase from the project’s own Markdown under the project name and open the five-phase overview. Verified the shared build, the reader tests, and all 12 private readers at phone and desktop widths. [Joe’s feedback](feedback.md#entries)

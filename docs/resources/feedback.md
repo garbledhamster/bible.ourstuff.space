@@ -45,3 +45,8 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T20:18:07-06:00 · Joe · Sword swing sprite sheet
 
 **Paraphrase.** Keep the inventory illustration. Make the gameplay art a full sprite sheet with different directions and sword swings. Look at games like The Mana World for examples. [Fighting-game sword example](game-bible-guide.md#fighting-game-sword-example)
+
+
+### 2026-11-14T20:24:04-06:00 · Joe · Project phases
+
+**Paraphrase.** Show the current phase at the top of every Bible clone. Start with Grilling, then Plan across all chapters with Ask Edwards’s gestalt lens. Build with minimal testing, run the major checks in Testing until the product is ready to ship, and move to Maintenance for edits and updates. [Project phases](project-phases.md)

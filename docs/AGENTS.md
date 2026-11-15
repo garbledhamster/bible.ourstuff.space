@@ -20,8 +20,9 @@ The [Project Bible](https://bible.ourstuff.space/) has a shared chapter guide, t
 
    Add a pointer to the same `SKILL.md` from the project's root `AGENTS.md` so other agents can read it directly. Use the equivalent relative path if the submodule is elsewhere.
 4. Copy the [Bible template](resources/game-bible-template.md) from `docs/bible-upstream/docs/resources/game-bible-template.md` to `docs/game-bible.md` if the project needs a Bible. Keep an existing Project Bible and its decisions. Edit the existing Markdown in place. Use the shared chapter guide to work through the project copy, starting with Vision & Scope for a new game.
-5. Keep the live checklist in the project checkout at `docs/task-list.md` or use the existing checklist path. If you need a new checklist, start with the [Task List template](resources/task-list-template.md) and fill it with work for the current release. Link it beside **Joe’s Notes** in Tutorial or Get Started.
-6. Record the paths in the project’s README. Commit `.gitmodules`, the submodule revision, the skill link, and the project documents you reviewed. A teammate can run `git clone --recurse-submodules <project-url>` to get the project and its skill, or run `git submodule update --init -- docs/bible-upstream` from an existing checkout. Open a new Codex session from the project root after initialization.
+5. Keep the current phase at the top of the project Bible. New projects start with `**Current phase:** Grilling`. See [Project phases](resources/project-phases.md).
+6. Keep the live checklist in the project checkout at `docs/task-list.md` or use the existing checklist path. If you need a new checklist, start with the [Task List template](resources/task-list-template.md) and fill it with work for the current release. Link it beside **Joe’s Notes** in Tutorial or Get Started.
+7. Record the paths in the project’s README. Commit `.gitmodules`, the submodule revision, the skill link, and the project documents you reviewed. A teammate can run `git clone --recurse-submodules <project-url>` to get the project and its skill, or run `git submodule update --init -- docs/bible-upstream` from an existing checkout. Open a new Codex session from the project root after initialization.
 
 For a new project, follow the [Vision & Scope kickoff](resources/game-bible-guide.md) with Project Bible and Grill with Docs.
 

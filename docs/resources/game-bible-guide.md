@@ -4,6 +4,8 @@ I put this guide together for the way I want to build games with people and with
 
 Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback.
 
+Start with the [five project phases](project-phases.md). Keep the current phase at the top of your own Bible and use the chapters to organize the work within it.
+
 ### Carry the work through the chapters
 
 Work through the chapters in order for the current playable scope. Each chapter takes something from the previous one, improves it, and checks the result. Carry the same scene or interaction from the vision art into a design, a UI sketch, engine-ready assets, a sandbox case, and then a playable scene. When testing exposes a gap, return to the chapter that owns it and repeat the affected checks before moving on. Keep the next unmet check visible when work pauses.

@@ -16,6 +16,14 @@
   font: 700 clamp(13px, 2.4vw, 17px)/1.25 var(--sans);
 }
 
+.project-phase-guide {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--muted);
+  font: 600 13px/1.25 var(--sans);
+  text-underline-offset: .2em;
+}
+
 .project-masthead .navigation {
   flex-shrink: 0;
 }
