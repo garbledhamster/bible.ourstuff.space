@@ -137,9 +137,13 @@ export async function showProjectPhase() {
     const summary = modes.find(([name]) => name === activeMode)[1];
     prompt.value = `Use ${activeMode} for ${project.textContent.trim()}. Read the Project Bible skill and follow the ${activeMode} instructions in the chapter we’re discussing. ${summary} Tell me what we should do next.`;
     if (activeMode === 'Explore') {
-      prompt.value += ' Use the Explore playbook. Start from evidence, frame the question, generate distinct ideas before judging them, and compare the strongest options. Save findings, proposals and the next question or test in the owning chapter before handing off.';
+      prompt.value += ' Use the Explore playbook. Start from evidence, frame the question, generate distinct ideas before judging them, and compare the strongest options. Save findings, proposals and the next question or test in a draft section or note linked from the owning chapter.';
+    } else if (activeMode === 'Plan') {
+      prompt.value += ' At the end of Plan, draft the relevant Bible chapters from the Grilling decisions and agreed scope before building.';
+    } else if (activeMode === 'Build') {
+      prompt.value += ' Start from the chapters drafted after Grilling and Plan. Update the owning chapter as each piece is built, with what changed, the working result and the checks you ran.';
     } else {
-      prompt.value += ' Save the decisions or results in the owning chapter as you work.';
+      prompt.value += ' Record the decisions or results and link the evidence in the owning chapter.';
     }
     copyStatus.textContent = '';
     picker.hidden = true;

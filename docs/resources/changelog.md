@@ -104,3 +104,9 @@ The Bible template and Grilling prompt now point to one record for the human and
 Added Explore to the shared reader, agent prompt, template, and all 15 chapter guides. Agents can use it to frame questions, brainstorm distinct alternatives, and choose a small test. Each Work mode explains what to record in the owning chapter before handing off.
 
 [Explore playbook](project-phases.md#explore) · [Chapter guide](game-bible-guide.md)
+
+### 2026-11-15T10:08:03-06:00 · Draft chapters before Build and update them as you go
+
+The Work mode guide, chapter guide, template, skill and prompts now explain when chapter drafting begins. Explore keeps its own purpose and working record.
+
+[Plan](project-phases.md#plan) · [Build](project-phases.md#build)

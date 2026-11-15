@@ -19,10 +19,11 @@ You can switch to any mode at any time. The Work mode lives above the chapters i
 
 1. Find or create your project folder and follow the [setup instructions](../AGENTS.md) to initialize the repository, install the shared Bible, and set up the project Bible and task list.
 2. Set the current release and choose a Work mode. Start at [Vision & Scope](game-bible-guide.md#vision--scope), and work through the chapters that apply in order.
-3. Open **Work mode instructions** in the chapter you’re working on. Fill in what you learn as you go and save it before handing off. Record Explore findings and proposals, Grilling decisions and reasons, Plan tasks and acceptance checks, Build outputs, Testing results, and Maintenance fixes and evidence. Link the relevant task or artifact and name the next action and its owner.
-4. Use the checks below when deciding what work to do next. If a new finding changes an earlier decision, reopen that decision and repeat the affected work. Keep the next action visible in the Bible.
+3. Capture Explore findings as proposals, save the Grilling decisions, and turn them into tasks in Plan. When Grilling and Plan give you an agreed scope, write the first usable draft of the applicable chapters before you start building that scope. Describe what you intend to make and how you’ll check it.
+4. In Build, update the owning chapter as each piece takes shape. Record what you built, what changed from the plan, and what you verified before moving on. Link the relevant task or artifact and name the next action and owner.
+5. Use the checks below when deciding what work to do next. If a new finding changes an earlier decision, reopen that decision and repeat the affected work. Keep the next action visible in the Bible.
 
-For example, in Zoo Helper, the visitor queue starts with a decision about what a child should see and hear. Plan turns it into a task with starting conditions and expected results. Build makes the queue playable and resettable. Testing watches a child try it and checks the cue with sound off. Maintenance links any later fix to the observation that prompted it.
+For example, in Zoo Helper, the visitor queue starts with a decision about what a child should see and hear. Plan turns it into a task with starting conditions and expected results. Before building, write the agreed cue and queue rules into the relevant chapters. As the queue becomes playable and resettable, add the actual behavior, playable build, and sandbox findings. Testing watches a child try it and checks the cue with sound off. Maintenance links any later fix to the observation that prompted it.
 
 ## Explore
 
@@ -31,7 +32,7 @@ Use Explore when you have an early idea, a chapter feels thin, or feedback shows
 1. **Frame the question.** Use the [Double Diamond](https://www.designcouncil.org.uk/resources/the-double-diamond/) to look beyond the first explanation. For example, turn “add a tutorial” into “How might we help a first-time player choose the right queue without stopping play?”
 2. **Generate before judging.** Brainwrite several distinct ideas privately before comparing any. In a group, run [1-2-4-All](https://www.liberatingstructures.com/1-2-4-all): think alone, compare in pairs, combine ideas in fours, then share patterns. A solo agent can draft separate passes from the player, designer, and maintainer viewpoints. Keep one option based on the workflow that already exists.
 3. **Compare and test.** Group related ideas, then compare which address the observed problem, what they cost to try, and what could prove them wrong. Pick the smallest useful test. For the queue, try floor markings, a character cue, and a quieter layout with the next person who plays. Record which cue they notice and what they do with it.
-4. **Update the chapter before handing off.** Save the question, sources, strongest alternatives, recommendation and reason, and the next test or decision with an owner. Label proposals and assumptions so the team can tell them apart from observed results and approved decisions. Bring choices that need the creator into Grilling. Carry accepted outcomes into Plan.
+4. **Save the exploration before handing off.** Record the question, sources, strongest alternatives, recommendation and reason, and the next test or decision with an owner. Keep the findings in a clearly marked draft section or a project note linked from the owning chapter. Label proposals and assumptions so the team can tell them apart from observed results and approved decisions. Bring choices that need the creator into Grilling. Carry accepted outcomes into Plan.
 
 ## Grilling
 
@@ -41,11 +42,11 @@ Explore options and gather enough evidence to discuss them. Work through the app
 
 Use Ask Edwards’s gestalt lens as a project planning exercise. Step back from the chapter views and walk through the whole idea as someone would experience it, from opening it to getting what they came for. Look at how the chapter decisions work together. For example, if a player is supposed to learn which ground is safe by looking at it, the art, movement rules, and feedback need to teach the same thing. Resolve gaps and conflicts that would change the build.
 
-Once the release makes sense as a whole, go back through every applicable chapter and outline all the build tasks you can identify from its decisions. Add them to the existing task list under the chapter they belong to. Say what each task should produce, what it depends on, and how you’ll know it works. Put unanswered decisions beside the tasks they block. Move to Build when the team has a usable task list and can see what to do first.
+Once the release makes sense as a whole, go back through every applicable chapter and outline all the build tasks you can identify from its decisions. Add them to the existing task list under the chapter they belong to. Say what each task should produce, what it depends on, and how you’ll know it works. Put unanswered decisions beside the tasks they block. Before implementation begins, use the Grilling decisions and plan to draft the chapter content for the agreed scope. For each applicable chapter, explain the intended behavior or design, link the work and acceptance checks, and mark anything still open. Then move to Build.
 
 ## Build
 
-Build the full scope agreed in Plan. Use the sandbox and the minimum checks needed to keep building with confidence: confirm a piece works and that the next piece can use it. Assemble the pieces into a complete candidate. Move to Testing when someone can open or install it the way the intended audience will and exercise the whole release.
+Build the full scope agreed in Plan. Use the sandbox and the minimum checks needed to keep building with confidence: confirm a piece works and that the next piece can use it. Update the relevant chapter while each piece is being built. Record how it works, decisions that changed, the artifact someone can open, and the checks you ran. Save those updates before starting dependent work or handing off the task. Assemble the pieces into a complete candidate. Move to Testing when someone can open or install it the way the intended audience will and exercise the whole release.
 
 ## Testing
 

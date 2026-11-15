@@ -4,7 +4,7 @@ I put this guide together for the way I want to build games with people and with
 
 Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback and includes a proposed scale trial.
 
-Choose a [Work mode](project-phases.md) for what you want to do today. In each chapter, read **Work mode instructions** to see what to focus on and what to leave behind.
+Choose a [Work mode](project-phases.md) for what you want to do today. In each chapter, read **Work mode instructions** to see what to focus on and what to leave behind. Keep exploration findings and Grilling answers as working records. After Grilling and Plan, draft the chapters for the agreed scope before building. During Build, update the relevant chapters with what you make, what changes, and what you verify.
 
 ### Carry the work through the chapters
 

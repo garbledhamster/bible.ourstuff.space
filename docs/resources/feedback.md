@@ -102,3 +102,7 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:04:53-06:00 · Joe · Explore and keep chapters current
 
 **Paraphrase.** Give agents an Explore mode with structured brainstorming so they can look for ways to improve an idea. Make it clear when agents fill in chapters. Ship the change through the normal browser and command-line update paths.
+
+### 2026-11-15T10:08:03-06:00 · Joe · When to write the chapters
+
+**Paraphrase.** Explore is for exploring ideas. Write the chapters after Grilling and Plan, before building the agreed work. Update the chapters as the Build work happens.
