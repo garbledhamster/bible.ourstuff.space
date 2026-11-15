@@ -110,3 +110,7 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:28:39-06:00 · Joe · Selectable chapter layouts
 
 **Paraphrase.** Keep the existing view as the default and offer alternate ways to read each chapter. Include a short sheet for completed and remaining work, with clickable ticket numbers.
+
+### 2026-11-15T10:34:24-06:00 · Joe · Update layouts in the in-app browser
+
+**Paraphrase.** Open the chapter layouts in the in-app browser. Update now should load the new view without switching browsers.

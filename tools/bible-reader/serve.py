@@ -3,7 +3,9 @@
 import argparse
 from functools import partial
 from hashlib import sha256
+from html import escape, unescape
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -11,7 +13,7 @@ import re
 import subprocess
 from tempfile import NamedTemporaryFile
 import threading
-from urllib.parse import unquote, urlsplit
+from urllib.parse import unquote, urljoin, urlsplit, urlunsplit
 from urllib.request import urlopen
 
 RELEASE_URL = "https://bible.ourstuff.space/version.json"
@@ -27,6 +29,23 @@ WORK_MODE_LOCK = threading.Lock()
 WORK_MODE_LINE = re.compile(rb"^(\*\*(?:Current phase|Work mode):\*\*[ \t]*)([^\r\n]*)", re.M)
 BIBLE_TITLE = re.compile(rb"^# [^\r\n]+(?:\r?\n|$)")
 REVISION = re.compile(r"[0-9a-f]{40}")
+ASSET_REVISION_PATH = re.compile(r"/_bible/assets/[0-9a-f]{40}(/.*)")
+ASSET_TAG = re.compile(r"<(?:script|link)\b[^>]*>", re.I)
+ASSET_URL = re.compile(r"""(\s(?:src|href)\s*=\s*)(["'])(.*?)\2""", re.I)
+
+
+def reader_html(source, path, revision):
+    """Give each installed release a distinct URL for its module and stylesheet graph."""
+    prefix = f"/_bible/assets/{revision}"
+
+    def update_url(match):
+        url = urlsplit(urljoin(path, unescape(match[3])))
+        if url.scheme or url.netloc or not url.path.lower().endswith((".js", ".mjs", ".css")):
+            return match[0]
+        stamped = urlunsplit(("", "", prefix + url.path, url.query, url.fragment))
+        return match[1] + match[2] + escape(stamped, quote=True) + match[2]
+
+    return ASSET_TAG.sub(lambda tag: ASSET_URL.sub(update_url, tag[0], count=1), source)
 
 
 class UpdateError(Exception):
@@ -176,7 +195,11 @@ class ReaderHandler(SimpleHTTPRequestHandler):
         return None
 
     def translate_path(self, path):
-        decoded = unquote(urlsplit(path).path)
+        path = urlsplit(path).path
+        asset = ASSET_REVISION_PATH.fullmatch(path)
+        if asset:
+            path = asset[1]
+        decoded = unquote(path)
         if any(segment.startswith(".") for segment in decoded.split("/") if segment):
             return str(Path(self.directory) / ".unavailable-reader-path" / "missing")
         if decoded in ("/_bible/updates.js", "/_bible/updates.css", "/_bible/task-list.js"):
@@ -198,6 +221,29 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             if route.endswith("/") and decoded.startswith(route):
                 return str(target.joinpath(*filter(None, decoded[len(route):].split("/"))))
         return super().translate_path(path)
+
+    def send_head(self):
+        path = urlsplit(self.path).path
+        route = unquote(path)
+        if route.endswith("/index.html"):
+            route = route[:-len("index.html")]
+        bible = self.readers.get(route)
+        if bible is None:
+            return super().send_head()
+        index = Path(self.translate_path(path))
+        if index.is_dir():
+            index = index / "index.html"
+        try:
+            revision = bible.installed_revision()
+            content = reader_html(index.read_text(encoding="utf-8"), path, revision).encode("utf-8")
+        except (UpdateError, OSError, UnicodeError, subprocess.SubprocessError):
+            return super().send_head()
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(content)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        return BytesIO(content)
 
     def respond(self, status, payload):
         body = json.dumps(payload, ensure_ascii=False).encode()

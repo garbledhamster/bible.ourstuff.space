@@ -146,8 +146,10 @@ if (title) {
         headers: { 'Content-Type': 'application/json', 'X-Bible-Update': '1' },
         body: JSON.stringify(restoring ? { action, installed, previous } : { action, installed, latest }),
       });
-      show(result, restoring ? 'Previous version restored. Reload the reader.' :
-        'Updated. Reload the reader to load any new styles.');
+      show(result, restoring ? 'Previous version restored. Reopening the reader…' : 'Updated. Reopening the reader…');
+      const reader = new URL(location.href);
+      reader.searchParams.set('bible-revision', result.installed);
+      location.replace(reader);
     } catch (error) {
       status.dataset.state = 'offline';
       status.textContent = error instanceof SyntaxError || error instanceof TypeError
