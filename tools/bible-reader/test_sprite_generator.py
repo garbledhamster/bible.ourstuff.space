@@ -153,6 +153,14 @@ class SpriteGeneratorTest(unittest.TestCase):
         (self.docs / "sprite-library.json").symlink_to(self.home / f"{SET}.json")
         self.assertEqual(self.request("GET", "/sprite-library.json")[0], 404)
 
+    def test_static_directory_index_keeps_sprite_workspace_private(self):
+        project_page = self.docs / "project"
+        project_page.mkdir()
+        route = f"{self.endpoint}/{SET}"
+        self.assertEqual(self.request("POST", route, {"revision": None, "manifest": sample_manifest()})[0], 200)
+        (project_page / "index.html").symlink_to(self.home / f"{SET}.json")
+        self.assertEqual(self.request("GET", "/project/")[0], 404)
+
     def test_unavailable_workspace_identifies_the_project_for_reader_setup(self):
         self.home.rmdir()
         status, payload = self.request("GET", self.endpoint)
