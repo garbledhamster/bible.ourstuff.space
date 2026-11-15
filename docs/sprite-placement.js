@@ -42,13 +42,18 @@ function makePreview() {
   const section = document.createElement('section');
   section.className = 'sprite-placement-preview';
   section.dataset.spritePlacementPreview = '';
+  section.dataset.previewScale = 'close';
   section.setAttribute('aria-label', 'Pose preview');
   section.innerHTML = `
     <div class="sprite-placement__preview-options">
       ${selectField('view', 'View')}
       ${selectField('expression', 'Expression')}
-      <label class="sprite-placement__guides"><input type="checkbox" name="guides"> Show anchors</label>
     </div>
+    <div class="sprite-placement__scale" role="group" aria-label="Preview size">
+      <button type="button" data-preview-size="close" aria-pressed="true">Close-up</button>
+      <button type="button" data-preview-size="game" aria-pressed="false">Game size</button>
+    </div>
+    <label class="sprite-placement__guides"><input type="checkbox" name="guides"> Show anchors</label>
     <div class="sprite-placement__canvases">
       <figure>
         <figcaption>Close-up <span data-frame-size></span></figcaption>
@@ -261,6 +266,14 @@ export function installSpritePlacement({ controls, preview, getDraft, updateDraf
   document.head.append(sheet);
 
   const stage = makePreview();
+  stage.querySelector('.sprite-placement__scale').addEventListener('click', event => {
+    const size = event.target.closest('[data-preview-size]')?.dataset.previewSize;
+    if (!size) return;
+    stage.dataset.previewScale = size;
+    for (const button of stage.querySelectorAll('[data-preview-size]')) {
+      button.setAttribute('aria-pressed', String(button.dataset.previewSize === size));
+    }
+  });
   const inspector = makeInspector();
   preview.prepend(stage);
   controls.prepend(inspector);

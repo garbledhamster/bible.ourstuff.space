@@ -142,3 +142,9 @@ Sprite Generator can place registered PNGs across poses, swap an expression by s
 ### 2026-11-15T11:15:39-06:00 · Review a Codex proposal on the open sprite pose
 
 Copy the saved pose and slot context for Codex, stage a PNG from the project workspace, and compare it with the saved part on the same frame. Accept it into your draft or discard it. Checked the CLI and browser together, including a lost save response and preserving both editors’ work after a revision conflict.
+
+### 2026-11-15T11:30:13-06:00 · Review sprite proposals, transfer sets, and improve compact controls
+
+Review a Codex PNG on the same paused pose, then accept it into the draft or discard it. Download an editable bundle to reopen a set in another project. Combine can include rendered poses along with source cells.
+
+The Black Hat design review found overlapping proposal previews, grid controls hidden by the action dock, and exports that could be mistaken for the edited order. The editor now keeps proposal actions beside the comparison, gives Combine controls their own space, labels the previous sheet, and offers a larger preview on phones. Rechecked keyboard focus and the reader at desktop, compact, and phone widths. [Sprite Generator guide](sprite-generator.md) · [Feedback](feedback.md)

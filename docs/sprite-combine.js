@@ -10,7 +10,10 @@ function makeInspector() {
   section.className = 'sprite-combine__inspector';
   section.hidden = true;
   section.innerHTML = `
-    <button type="button" data-combine-open aria-controls="sprite-combine-settings" aria-expanded="false">Combine &amp; Export</button>
+    <div class="sprite-combine__navigation">
+      <button type="button" data-combine-open aria-controls="sprite-combine-settings" aria-expanded="false">Combine &amp; Export</button>
+      <button type="button" data-combine-jump-output hidden>Output grid</button>
+    </div>
     <div id="sprite-combine-settings" data-combine-settings hidden>
       <form data-source-grid novalidate>
         <label>Source sheet <select data-combine-source></select></label>
@@ -73,6 +76,10 @@ function makeWorkspace() {
   workspace.dataset.combineWorkspace = '';
   workspace.hidden = true;
   workspace.innerHTML = `
+    <div class="sprite-combine__sheet-switch" role="group" aria-label="Sheet preview">
+      <button type="button" data-sheet-mode="source" aria-pressed="true">Source cells</button>
+      <button type="button" data-sheet-mode="output" aria-pressed="false">Combined sheet</button>
+    </div>
     <figure data-combine-source-preview>
       <h3>Source cells</h3>
       <div class="sprite-combine__board">
@@ -91,6 +98,7 @@ function makeWorkspace() {
         </div>
       </div>
       <figcaption data-combine-output-caption></figcaption>
+      <p class="sprite-combine__feedback" data-combine-stale role="status" hidden></p>
     </figure>`;
   return workspace;
 }
@@ -159,6 +167,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
 
   const find = selector => inspector.querySelector(selector) ?? workspace.querySelector(selector);
   const toggle = find('[data-combine-open]');
+  const jumpOutput = find('[data-combine-jump-output]');
   const settings = find('[data-combine-settings]');
   const dock = find('[data-combine-dock]');
   const picker = find('[data-combine-source]');
@@ -190,6 +199,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   const outputPreview = find('[data-combine-output-preview]');
   const outputSheet = find('[data-combine-output-sheet]');
   const outputCaption = find('[data-combine-output-caption]');
+  const staleHint = find('[data-combine-stale]');
   const outputMessage = find('[data-combine-message]');
   const combineButton = find('[data-combine-run]');
   const exportButton = find('[data-combine-export]');
@@ -211,6 +221,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   let output;
   let renderAttempt = 0;
   let combining = false;
+  let outputStale = false;
 
   function editRecipe(edit) {
     return updateDraft(draft => {
@@ -259,13 +270,41 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
     }
   }
 
+  function currentRecipe() {
+    const draft = getDraft();
+    const recipe = {
+      grid: fieldValues(outputFields),
+      frames: currentFrames(),
+      sourceGrids: draft.combine?.sourceGrids ?? {},
+    };
+    if (recipe.frames.some(frame => frame.kind === 'pose')) recipe.placement = draft.placement;
+    return recipe;
+  }
+
+  function updateExportState() {
+    const stale = Boolean(output && JSON.stringify(output.recipe) !== JSON.stringify(currentRecipe()));
+    if (stale !== outputStale) resetDownloads();
+    outputStale = stale;
+    exportButton.textContent = stale ? 'Export previous' : 'Export';
+    showMessage(staleHint, stale ? 'Previous sheet. Combine again to use your latest changes.' : '');
+  }
+
+  function setSheetMode(mode) {
+    workspace.dataset.sheetView = mode;
+    for (const button of workspace.querySelectorAll('[data-sheet-mode]')) {
+      button.setAttribute('aria-pressed', String(button.dataset.sheetMode === mode));
+    }
+  }
+
   function showOutput(result) {
     resetDownloads();
     output?.canvas.remove();
     output = result;
     outputPreview.hidden = !output;
     workspace.classList.toggle('sprite-combine__workspace--paired', Boolean(output));
+    setSheetMode(output ? 'output' : 'source');
     exportButton.disabled = !output;
+    updateExportState();
     if (!output) return;
 
     const { canvas, frameMap: map } = output;
@@ -281,6 +320,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
   function showMode(open) {
     isOpen = open;
     settings.hidden = workspace.hidden = dock.hidden = !open;
+    jumpOutput.hidden = !open;
     dialog.classList.toggle('sprite-combine-active', open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.textContent = open ? 'Back to set' : 'Combine & Export';
@@ -427,7 +467,8 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
         <button type="button" data-frame-later><span aria-hidden="true"></span></button>
         <button type="button" data-frame-remove><span aria-hidden="true"></span></button>
       </div>`;
-      item.querySelector('[data-frame-label]').textContent = label;
+      const title = item.querySelector('[data-frame-label]');
+      title.textContent = title.title = label;
       const earlier = item.querySelector('[data-frame-earlier]');
       const later = item.querySelector('[data-frame-later]');
       earlier.setAttribute('aria-label', `Move frame ${index + 1} earlier`);
@@ -474,6 +515,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
     }
     combineButton.disabled = combining;
     combineButton.textContent = combining ? 'Combining…' : 'Combine';
+    updateExportState();
 
     const previous = combine?.lastCombined;
     const previousKey = JSON.stringify(previous);
@@ -531,7 +573,7 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
           throw new Error('The set is updating. Try Combine again when it’s ready.');
         }
       }
-      showOutput({ canvas, frameMap: plan.frameMap });
+      showOutput({ canvas, frameMap: plan.frameMap, recipe });
     } catch (error) {
       if (stillCurrent()) showMessage(outputMessage, error.message);
     } finally {
@@ -690,18 +732,23 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
       editRecipe(recipe => { recipe.grid = grid; });
     }
   });
+  outputForm.addEventListener('input', updateExportState);
+  jumpOutput.addEventListener('click', () => outputFields.rows.focus());
+  workspace.addEventListener('click', event => {
+    const mode = event.target.closest('[data-sheet-mode]')?.dataset.sheetMode;
+    if (mode) setSheetMode(mode);
+  });
   outputForm.addEventListener('submit', event => {
     event.preventDefault();
     if (combining) return;
-    const recipe = {
-      grid: fieldValues(outputFields),
-      frames: currentFrames(),
-      sourceGrids: getDraft().combine?.sourceGrids ?? {},
-    };
-    if (recipe.frames.some(frame => frame.kind === 'pose')) {
-      recipe.placement = getDraft().placement;
+    const invalid = Object.values(outputFields).find(input => !Number.isSafeInteger(input.valueAsNumber)
+      || input.valueAsNumber < 1);
+    if (invalid) {
+      showMessage(outputMessage, 'Use positive whole numbers for output rows, columns and cell dimensions.');
+      invalid.focus();
+      return;
     }
-    void combineSheet(recipe, true);
+    void combineSheet(currentRecipe(), true);
   });
   exportButton.addEventListener('click', async () => {
     if (!output) return;
@@ -728,12 +775,14 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
         return;
       } finally {
         exportButton.disabled = !output;
-        exportButton.textContent = 'Export';
+        updateExportState();
       }
     }
-    downloads.hidden = false;
-    exportButton.setAttribute('aria-expanded', 'true');
-    pngLink.focus();
+    if (pngLink.hasAttribute('href')) {
+      downloads.hidden = false;
+      exportButton.setAttribute('aria-expanded', 'true');
+      pngLink.focus();
+    }
   });
 
   return render;

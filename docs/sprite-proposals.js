@@ -318,6 +318,8 @@ export function installSpriteProposals({
     const edited = item && !sameRegistration(draftTarget, savedTarget);
     const accepted = item && getDraft()?.assets.some(asset => asset.id === item.id);
     updateComparison(item, selection);
+    const reviewActions = comparison.hidden ? panel : comparison;
+    if (actions.parentElement !== reviewActions) reviewActions.append(status, actions);
     let text = inboxError;
     if (item) {
       if (accepted) text = 'In your draft. Save set to keep this part.';
@@ -420,7 +422,10 @@ export function installSpriteProposals({
       const original = selectedPart(getSaved().manifest, proposal);
       if (!sameRegistration(current, original)) return;
       resolveSpritePose(getDraft(), { poseId: proposal.poseId, expressionId: proposal.expressionId, proposals: [proposal] });
-      if (updateDraft(manifest => addPart(manifest, proposal))) setMessage('Proposal added to your draft.');
+      if (updateDraft(manifest => addPart(manifest, proposal))) {
+        setMessage('Proposal added to your draft.');
+        dialog.querySelector('[data-save]')?.focus();
+      }
     } catch (error) {
       if (active === watch) setMessage(error.message);
     } finally {

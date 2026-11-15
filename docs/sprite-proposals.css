@@ -29,11 +29,19 @@
   background: #211928;
 }
 
+.sprite-generator__preview:has(.sprite-proposals__comparison:not([hidden]))
+  > :is(.sprite-placement-preview, .sprite-generator__source) {
+  display: none;
+}
+
 .sprite-proposals__comparison h3 {
   margin: 0 0 8px;
   overflow-wrap: anywhere;
   font-size: 0.9rem;
 }
+
+.sprite-proposals__comparison .sprite-proposals__actions { margin-top: 10px; }
+.sprite-proposals__comparison .sprite-proposals__status { margin-top: 7px; }
 
 .sprite-proposals__frames {
   display: grid;
@@ -53,18 +61,23 @@
 }
 
 .sprite-proposals__frames [data-proposal-frame] {
-  display: grid;
-  place-items: center;
-  height: clamp(100px, 21dvh, 190px);
-  padding: 6px;
+  position: relative;
+  height: clamp(126px, 34dvh, 340px);
+  overflow: hidden;
   background: repeating-conic-gradient(#35293d 0% 25%, #2a2132 0% 50%) 50% / 16px 16px;
   border-radius: 5px;
 }
 
 .sprite-proposals__frames canvas {
+  position: absolute;
+  inset: 6px;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
   object-fit: contain;
   image-rendering: pixelated;
+}
+
+@media (max-width: 650px) {
+  .sprite-proposals__frames [data-proposal-frame] { height: clamp(110px, 20dvh, 205px); }
 }

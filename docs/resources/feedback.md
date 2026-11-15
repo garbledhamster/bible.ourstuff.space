@@ -126,3 +126,7 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:50:00-06:00 · Joe · Reuse design skills
 
 **Paraphrase.** Find design skills we can reuse for this kind of work and give the Bible guidance on using them to present its data.
+
+### 2026-11-15T11:30:13-06:00 · Joe · Find and fix Sprite Generator design problems
+
+During the Sprite Generator build, Joe asked for a Black Hat review of the working interface, followed by a Green Hat pass to fix the issues it found. (Paraphrase.)

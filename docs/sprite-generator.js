@@ -62,6 +62,7 @@ function makeEditor() {
       </div>
       <div class="sprite-generator__actions">
         <p class="sprite-generator__state" data-state role="status"></p>
+        <button type="button" data-library-jump>Set library</button>
         <button type="button" class="sprite-generator__primary" data-save disabled>Save set</button>
       </div>
       <form method="dialog" class="sprite-generator__dismiss">
@@ -150,6 +151,7 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
   const state = find('[data-state]');
   const save = find('[data-save]');
   const close = find('.close');
+  const libraryJump = find('[data-library-jump]');
   const librarySection = find('[data-library-section]');
   const librarySelect = find('[data-library]');
   const create = find('[data-create]');
@@ -177,6 +179,7 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
   let copyAttempt = null;
   let uncertainSave = null;
   let busy = '';
+  const blocksDismiss = () => Boolean(busy && busy !== 'Loading sets…');
 
   function setMessage(text) {
     message.textContent = text;
@@ -195,7 +198,8 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
     state.title = saved?.revision ?? '';
     const unavailable = Boolean(setupMessage || busy);
     save.disabled = unavailable || !dirty || conflict;
-    close.disabled = Boolean(busy);
+    close.setAttribute('aria-disabled', String(blocksDismiss()));
+    libraryJump.disabled = Boolean(busy);
     createName.disabled = createButton.disabled = unavailable || dirty;
     librarySelect.disabled = unavailable || dirty || !library.sets.length;
     librarySelect.value = saved?.manifest.id ?? '';
@@ -446,7 +450,13 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
     void run('Saving copy…', () => persistDraft(copyAttempt.manifest, null));
   });
 
-  dialog.addEventListener('cancel', event => { if (busy) event.preventDefault(); });
+  libraryJump.addEventListener('click', () => {
+    controls.scrollTop += librarySection.getBoundingClientRect().top - controls.getBoundingClientRect().top;
+    const target = [librarySelect, createName, saveCopy, discard].find(element => !element.disabled && !element.hidden);
+    target?.focus({ preventScroll: true });
+  });
+  close.form.addEventListener('submit', event => { if (blocksDismiss()) event.preventDefault(); });
+  dialog.addEventListener('cancel', event => { if (blocksDismiss()) event.preventDefault(); });
   trigger.addEventListener('click', () => {
     dialog.showModal();
     void run('Loading sets…', refreshLibrary);

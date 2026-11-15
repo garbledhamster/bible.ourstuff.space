@@ -60,8 +60,13 @@ dialog.sprite-generator {
 .sprite-generator__actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 12px;
 }
+
+.sprite-generator .close[aria-disabled="true"] { opacity: .6; cursor: default; }
+.sprite-generator.sprite-combine-active [data-library-jump] { display: none; }
 
 .sprite-generator__state {
   margin: 0;
