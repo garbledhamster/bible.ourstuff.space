@@ -394,13 +394,14 @@ export function installSpriteCombine({ controls, preview, getDraft, isBusy, upda
     }
   }
 
-  function frameLabel(frame) {
+  function frameLabel(frame, includeView = true) {
     if (frame.kind === 'pose') {
       const placement = getDraft().placement;
       const pose = placement?.poses.find(entry => entry.id === frame.poseId);
       const expression = placement?.expressions.find(entry => entry.id === frame.expressionId);
       const view = placement?.views.find(entry => entry.id === pose?.viewId);
-      return [view?.name, pose?.name ?? 'Missing pose', expression?.name].filter(Boolean).join(' · ');
+      return [includeView ? view?.name : null, pose?.name ?? 'Missing pose', expression?.name ?? 'Base parts']
+        .filter(Boolean).join(' · ');
     }
     const asset = getDraft().assets.find(asset => asset.id === frame.assetId);
     return asset ? describeSourceCell(asset, frame.row, frame.column) : 'Missing source frame';
@@ -451,7 +452,7 @@ export function installSpriteCombine({ controls, preview, getDraft, isBusy, upda
   }
 
   function renderOrder(frames) {
-    const labels = frames.map(frameLabel);
+    const labels = frames.map(frame => frameLabel(frame));
     const key = JSON.stringify([frames, labels]);
     if (queueKey === key) return;
     queueKey = key;
@@ -468,7 +469,8 @@ export function installSpriteCombine({ controls, preview, getDraft, isBusy, upda
         <button type="button" data-frame-remove><span aria-hidden="true"></span></button>
       </div>`;
       const title = item.querySelector('[data-frame-label]');
-      title.textContent = title.title = label;
+      title.title = label;
+      title.textContent = frameLabel(frames[index], false);
       const earlier = item.querySelector('[data-frame-earlier]');
       const later = item.querySelector('[data-frame-later]');
       earlier.setAttribute('aria-label', `Move frame ${index + 1} earlier`);

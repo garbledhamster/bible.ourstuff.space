@@ -96,6 +96,8 @@
   font-variant-numeric: tabular-nums;
 }
 
+.sprite-combine__sequence { container-type: inline-size; }
+
 .sprite-combine__sequence li { padding-left: 4px; }
 
 .sprite-combine__sequence li::marker {
@@ -132,6 +134,16 @@
   width: 32px;
   min-height: 32px;
   padding: 0;
+}
+
+@container (max-width: 220px) {
+  .sprite-combine__sequence li > div {
+    grid-template-rows: auto auto;
+    gap: 2px 4px;
+    padding-block: 3px;
+  }
+  .sprite-combine__sequence [data-frame-label] { grid-column: 1 / -1; }
+  .sprite-combine__sequence [data-frame-earlier] { grid-column: 2; }
 }
 
 .sprite-combine__sequence :is([data-frame-earlier], [data-frame-later]) span {
