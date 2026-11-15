@@ -41,3 +41,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T20:05:14-06:00 · Joe · Sword art comparison
 
 **Paraphrase.** Show the full sword illustration next to its matching sprite at the size it would appear in the fight. [Fighting-game sword example](game-bible-guide.md#fighting-game-sword-example)
+
+### 2026-11-14T20:18:07-06:00 · Joe · Sword swing sprite sheet
+
+**Paraphrase.** Keep the inventory illustration. Make the gameplay art a full sprite sheet with different directions and sword swings. Look at games like The Mana World for examples. [Fighting-game sword example](game-bible-guide.md#fighting-game-sword-example)

@@ -1,0 +1,179 @@
+{
+  "image": "sword-spritesheet.png",
+  "frame": {
+    "width": 64,
+    "height": 64,
+    "columns": 6,
+    "rows": 8,
+    "pivot": {
+      "x": 32,
+      "y": 32
+    }
+  },
+  "phases": [
+    "guard",
+    "wind-up",
+    "transition",
+    "strike",
+    "follow-through",
+    "guard"
+  ],
+  "actions": {
+    "slash": {
+      "right": {
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "durationMs": [
+          90,
+          115,
+          55,
+          55,
+          110,
+          0
+        ],
+        "returnToFrame": 0
+      },
+      "left": {
+        "frames": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "durationMs": [
+          90,
+          115,
+          55,
+          55,
+          110,
+          0
+        ],
+        "returnToFrame": 6
+      },
+      "up": {
+        "frames": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "durationMs": [
+          90,
+          115,
+          55,
+          55,
+          110,
+          0
+        ],
+        "returnToFrame": 12
+      },
+      "down": {
+        "frames": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "durationMs": [
+          90,
+          115,
+          55,
+          55,
+          110,
+          0
+        ],
+        "returnToFrame": 18
+      }
+    },
+    "chop": {
+      "right": {
+        "frames": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "durationMs": [
+          90,
+          95,
+          155,
+          60,
+          145,
+          0
+        ],
+        "returnToFrame": 24
+      },
+      "left": {
+        "frames": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "durationMs": [
+          90,
+          95,
+          155,
+          60,
+          145,
+          0
+        ],
+        "returnToFrame": 30
+      },
+      "up": {
+        "frames": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "durationMs": [
+          90,
+          95,
+          155,
+          60,
+          145,
+          0
+        ],
+        "returnToFrame": 36
+      },
+      "down": {
+        "frames": [
+          42,
+          43,
+          44,
+          45,
+          46,
+          47
+        ],
+        "durationMs": [
+          90,
+          95,
+          155,
+          60,
+          145,
+          0
+        ],
+        "returnToFrame": 42
+      }
+    }
+  }
+}

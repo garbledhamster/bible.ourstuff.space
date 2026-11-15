@@ -482,7 +482,7 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   background: #f1edf4;
   font-size: .82em;
 }
-.chapter-detail-body table:has(img[src$="/sword-gameplay.png"]) {
+.chapter-detail-body table:has(img[src$="/sword-spritesheet.png"]) {
   display: table;
   width: min(100%, 540px);
   table-layout: fixed;
@@ -491,7 +491,7 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   margin-block: 1rem;
   font: 600 .875rem/1.35 var(--sans);
 }
-.chapter-detail-body table:has(img[src$="/sword-gameplay.png"]) :is(th, td) {
+.chapter-detail-body table:has(img[src$="/sword-spritesheet.png"]) :is(th, td) {
   padding: clamp(8px, 2vw, 16px);
   text-align: center;
   vertical-align: middle;
@@ -501,7 +501,7 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   background: #f1edf4;
   border-radius: 8px 0 0 8px;
 }
-.chapter-detail-body td:has(img[src$="/sword-gameplay.png"]) {
+.chapter-detail-body td:has(img[src$="/sword-spritesheet.png"]) {
   background: #3e4b5e;
   border-radius: 0 8px 8px 0;
 }
@@ -511,11 +511,11 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   height: auto;
   margin-inline: auto;
 }
-.chapter-detail-body img[src$="/sword-gameplay.png"] {
+.chapter-detail-body img[src$="/sword-spritesheet.png"] {
   display: block;
-  width: 48px;
-  height: 48px;
-  max-width: none;
+  width: 100%;
+  max-width: 384px;
+  height: auto;
   margin-inline: auto;
   image-rendering: pixelated;
 }

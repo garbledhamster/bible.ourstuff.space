@@ -240,17 +240,19 @@ Keep an editable asset inventory spreadsheet for this work. Give each asset a st
 
 Start both pieces from the same master artwork or visual reference. Keep the item's recognizable silhouette, palette, and distinguishing details as you simplify the gameplay sprite or HUD icon. Give the full static illustration and the compact asset their own names and runtime paths in the asset ledger. Link the shared source, where each appears, and its display size.
 
-If the item needs animation, list the strip or atlas frames separately and record the relevant anchor. For the fighting-game sword, put that anchor at the grip and check that the sword stays aligned with the fighter’s hand through its poses. Pack compact frames into an atlas when that helps the engine load them.
+If the item moves in play, plan its gameplay poses and animations by action and facing direction. Export a sprite sheet or atlas with the frame order, timing, return pose, and anchor. For the fighting-game sword, put that anchor at the grip and check that the sword stays aligned with the fighter’s hand through its swings. Pack compact frames into an atlas when that helps the engine load them.
 
 Open the menu and play the scene with both assets loaded. Save a side-by-side capture at their intended display sizes. Check that the full illustration shows the details players need, the compact art reads against the playfield or HUD, and both look like the same item. Link the capture from the ledger and add the sandbox result once you’ve tried it there.
 
 ### Fighting-game sword example
 
-| Inventory illustration | Fight sprite (48 × 48 px) |
+| Inventory illustration | Gameplay sprite sheet |
 | :---: | :---: |
-| ![Painted sword with a silver-blue blade, curved gold guard, and crimson grip](item-art/sword-inventory.webp) | ![Pixel-art sword with the same silver-blue blade, gold guard, and crimson grip](item-art/sword-gameplay.png) |
+| ![Painted sword with a silver-blue blade, curved gold guard, and crimson grip](item-art/sword-inventory.webp) | ![Sword equipment sheet with eight rows of six frames for a slash and an overhead chop in four directions](item-art/sword-spritesheet.png) |
 
-The inventory illustration shows the blade’s blue inset and the wrap on the grip. The sprite keeps those colors and the curved guard so you can recognize the sword during a match. The sprite is shown at 1× for this example. [Art source](item-art/sword-source.md)
+The painted sword shows the blue blade inset, gold guard, and red wrap. Those features carry through the 48 gameplay frames. Each swing starts in guard, winds up, strikes, follows through, and returns to guard. The grip stays at the same point in each 64 × 64 cell so the sword layer can follow the fighter’s hand.
+
+[Play both swings at 1×](item-art/sword-preview.html) · [PNG sprite sheet](item-art/sword-spritesheet.png) · [Frame map and art source](item-art/sword-source.md)
 
 ### Asset locations and readiness
 

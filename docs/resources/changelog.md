@@ -47,3 +47,7 @@ Added the five-shot Island Post showcase to [Chapter 1](game-bible-guide.md#game
 ### 2026-11-14T20:05:14-06:00 · Fighting-game sword example
 
 Added the [side-by-side sword example](game-bible-guide.md#fighting-game-sword-example) to Engine & Assets and linked it from UI & UX Design. Checked both readers at desktop and phone widths with the compact sprite displayed at 48 × 48 pixels. [Feedback](feedback.md#2026-11-14t200514-0600--joe--sword-art-comparison)
+
+### 2026-11-14T20:18:07-06:00 · Directional sword swings
+
+Updated the [sword example](game-bible-guide.md#fighting-game-sword-example) with a 48-frame sprite sheet, frame map, and 1× preview. The original inventory illustration is paired with a slash and overhead chop for each of four directions. Checked grip alignment in the export and playback with return to guard on desktop and phone layouts. [Feedback](feedback.md#entries)
