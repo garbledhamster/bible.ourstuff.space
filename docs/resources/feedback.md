@@ -126,3 +126,15 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:50:00-06:00 · Joe · Reuse design skills
 
 **Paraphrase.** Find design skills we can reuse for this kind of work and give the Bible guidance on using them to present its data.
+
+### 2026-11-15T11:30:13-06:00 · Joe · Find and fix Sprite Generator design problems
+
+During the Sprite Generator build, Joe asked for a Black Hat review of the working interface, followed by a Green Hat pass to fix the issues it found. (Paraphrase.)
+
+### 2026-11-15T11:33:13-06:00 · Codex · Sprite Generator Black Hat
+
+Two independent reviews used the running editor at desktop, compact, and phone sizes. They found that comparison canvases could escape their boards, the Combine dock could cover a focused field, and opening the dialog lost keyboard focus. Users could also mistake the previous export for the edited order. At phone width the two preview sizes were nearly identical, and the saved set picker and frame order took extra scrolling to reach.
+
+### 2026-11-15T11:38:10-06:00 · Codex · Sprite Generator release review
+
+The review found that individually valid PNGs could make a draft too large to save, and that bundle import could reject a long proposal name or a valid anchor. It also found that proposal context identified the registration but omitted the full canvas and reference PNG.

@@ -125,8 +125,30 @@ Update now and Restore previous reopen the reader on the selected revision. The 
 
 Separated remaining and completed work on wide screens and stacked the groups on phones. Made ticket links easier to spot and kept task details open when refreshing. The sheet shows the last loaded tasks if a refresh fails. Refined the section index, artifact links, and compact toolbar.
 
+### 2026-11-15T10:48:26-06:00 · Open Sprite Generator and save a set
+
+Enabled Sprite Generator in the footer of configured private readers. Create a named set, import a PNG, check its transparency and dimensions, and save it to the project workspace. Checked reopening the same PNG in Chrome at desktop and compact widths, separate project libraries on one host, and protection against competing saves. [Private reader setup](https://github.com/garbledhamster/bible.ourstuff.space/blob/main/tools/bible-reader/README.md#sprite-generator)
+
 ### 2026-11-15T10:55:33-06:00 · Work queue, Marketing brief, and chapter typography
 
 Added Work queue for open tickets, recorded assignments, and blockers. Marketing brief links to named sections in the source chapter. Open Chapter now uses DM Sans for its title, headings, controls, and working views, with Georgia prose in Editorial brief. The Bible guide links the design skills and research behind these choices.
 
 Checked both views in the reader at 1,440, 390, and 320 pixels, including keyboard navigation, exact ticket links, 200% text size, and custom spacing. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Present chapter data](game-bible-guide.md#present-chapter-data) · [Feedback](feedback.md#2026-11-15t104500-0600--joe--more-ways-to-use-open-chapter)
+
+### 2026-11-15T11:04:19-06:00 · Place sprite parts and combine sheets
+
+Sprite Generator can place registered PNGs across poses, swap an expression by slot, and check placement at close-up and game size. Combine can assemble selected cells into a fixed grid and download the sheet with its frame map. Ran both workflows from the private reader and compared the saved and exported pixels.
+
+### 2026-11-15T11:15:39-06:00 · Review a Codex proposal on the open sprite pose
+
+Copy the saved pose and slot context for Codex, stage a PNG from the project workspace, and compare it with the saved part on the same frame. Accept it into your draft or discard it. Checked the CLI and browser together, including a lost save response and preserving both editors’ work after a revision conflict.
+
+### 2026-11-15T11:30:13-06:00 · Review sprite proposals, transfer sets, and improve compact controls
+
+Review a Codex PNG on the same paused pose, then accept it into the draft or discard it. Download an editable bundle to reopen a set in another project. Combine can include rendered poses along with source cells.
+
+The Black Hat design review found overlapping proposal previews, grid controls hidden by the action dock, and exports that could be mistaken for the edited order. The editor now keeps proposal actions beside the comparison, gives Combine controls their own space, labels the previous sheet, and offers a larger preview on phones. Rechecked keyboard focus and the reader at desktop, compact, and phone widths. [Sprite Generator guide](sprite-generator.md) · [Black Hat findings](feedback.md#2026-11-15t113313-0600--codex--sprite-generator-black-hat)
+
+### 2026-11-15T11:38:10-06:00 · Keep sprite drafts saveable and portable
+
+Keep the current draft when a change would exceed its save or bundle limit. Editable bundles preserve the names and anchors the reader accepts, and the copied proposal context identifies the reference PNG and full pose canvas. [Release review](feedback.md#2026-11-15t113810-0600--codex--sprite-generator-release-review)

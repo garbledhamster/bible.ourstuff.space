@@ -43,3 +43,42 @@ In **Open Chapter → Review → Layout**, choose how to read the chapter. [Chap
 ## Changelog
 
 Open **Get Started → Changelog** to see project and shared Bible entries together. The shared entries come from the installed checkout, so they follow **Update now** and **Restore previous**. To include project entries, pass `--changelog /reader/ /absolute/project/docs/changelog.md` for the existing reader route. Keep those entries with the project and write dated headings followed by a short summary. The reader shows newest entries first.
+
+## Sprite Generator
+
+Create a writable workspace in the project checkout beside its served files. Choose a different directory for each project, outside the server’s document root, mounts, and shared Bible checkouts. Give the reader route a project name and the path to its workspace.
+
+```sh
+mkdir -p art/sprite-sets
+python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/serve.py \
+  --port 8765 --directory docs --reader /reader/ docs/bible-upstream \
+  --sprite-generator /reader/ "Project name" art/sprite-sets
+```
+
+Load the current `/_bible/updates.js` in a private reader that uses the shared `project-masthead.css`. Existing hosts need to run the current `serve.py` and its sibling modules. Restart the host after changing its command or updating its Python reader code. Use **Update now** to install the shared editor assets, then open **Sprite Generator** in the footer. If the workspace shows an error, check that its folder exists and the host can read and write it. Use the reader at its localhost address.
+
+Enter a set name, choose **Create set**, and use **Import PNG**. The preview shows the original dimensions and transparent area. Choose **Save set**, then use **Saved sets** to reopen it. Each set is a versioned JSON manifest with the original PNG bytes. The reader keeps it in the project workspace, so the set is still there after restoring an older Bible revision. If someone else saves first, the editor keeps your draft and shows that the saved set changed. **Discard draft** reloads the saved set.
+
+The private reader’s `api/sprite-generator` lists the configured project and its saved sets. `GET api/sprite-generator/<id>` returns the manifest and its revision. `POST` to the same set URL with JSON containing `revision` and `manifest` to save. Use `null` as the revision for a new set. The POST requires the reader’s HTTP origin and the `X-Bible-Sprite-Generator: 1` header. Compare with the returned revision before applying a later edit. A stale save returns HTTP 409 and preserves the current set.
+
+### Review a PNG from Codex
+
+Save the set with a registered part. Pause on the pose you want to review and select its slot in the layer list. Choose the expression if you're working on a variation. Select **Copy Codex context** and paste the reference into Codex. The reference includes the set URL, saved revision, pose, slot, expression, canvas dimensions, and the current PNG’s name, ID, dimensions and registration. Open the set URL to find the PNG data in the asset with that ID.
+
+From the project workspace, use the shared reader's `sprite_proposal.py` to inspect the copied slot and stage the PNG file. Replace each angle-bracket value with the matching value from the reference.
+
+```sh
+python3 -B docs/bible-upstream/tools/bible-reader/sprite_proposal.py inspect \
+  --set-url '<setUrl>' --revision '<revision>' --pose '<poseId>' \
+  --slot '<slotId>' --expression '<expressionId>'
+
+python3 -B docs/bible-upstream/tools/bible-reader/sprite_proposal.py stage \
+  --set-url '<setUrl>' --revision '<revision>' --pose '<poseId>' \
+  --slot '<slotId>' --expression '<expressionId>' --png path/to/part.png
+```
+
+Use an empty expression value for the base pose. For a different PNG size, pass both `--x` and `--y` to register the patch relative to the slot's anchor. A same-size PNG uses the saved part's registration when you omit those flags. If the saved revision changed, copy the updated context before staging again.
+
+Watch **Codex proposals** in the open editor. With the proposal's pose and expression selected, **Saved** and **Proposed** show the same frame side by side. **Accept into draft** adds the part alongside any compatible edits you already made. Choose **Save set** to make those changes part of the saved revision, or choose **Discard proposal** to remove a pending proposal. If another editor has saved first, use **Save draft as copy** to keep your work in a new set, then open the latest revision from **Saved sets**. After an interrupted connection, check the save status and try **Save set** again if you still see unsaved changes.
+
+In the built-in Codex browser, Site tools can inspect the selected slot and stage PNG bytes for the same review. Keep the Sprite Generator open on the saved pose with the slot selected.
