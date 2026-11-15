@@ -21,6 +21,11 @@ API = "api/bible-update"
 TASK_API = "api/task-list"
 TASK_LIMIT = 128 * 1024
 TASK_LOCK = threading.Lock()
+WORK_MODE_API = "api/work-mode"
+WORK_MODES = ("Grilling", "Plan", "Build", "Testing", "Maintenance")
+WORK_MODE_LOCK = threading.Lock()
+WORK_MODE_LINE = re.compile(rb"^(\*\*(?:Current phase|Work mode):\*\*[ \t]*)([^\r\n]*)", re.M)
+BIBLE_TITLE = re.compile(rb"^# [^\r\n]+(?:\r?\n|$)")
 REVISION = re.compile(r"[0-9a-f]{40}")
 
 
@@ -128,12 +133,42 @@ class SharedBible:
                     "status": "restored"}
 
 
+def replace_file(path, data):
+    with NamedTemporaryFile(dir=path.parent, delete=False) as output:
+        temporary = Path(output.name)
+        try:
+            output.write(data)
+            output.flush()
+            temporary.chmod(path.stat().st_mode & 0o777)
+            temporary.replace(path)
+        finally:
+            temporary.unlink(missing_ok=True)
+
+
+def work_mode_snapshot(data):
+    title = BIBLE_TITLE.match(data)
+    if title is None:
+        raise ValueError("The Project Bible needs a title.")
+    chapter = re.search(rb"^##[ \t]", data, re.M)
+    opening_end = chapter.start() if chapter else len(data)
+    fields = list(WORK_MODE_LINE.finditer(data, title.end(), opening_end))
+    if len(fields) > 1:
+        raise ValueError("The Project Bible has more than one Work mode.")
+    field = fields[0] if fields else None
+    value = field[2].decode("utf-8").strip() if field else None
+    snapshot = {"mode": value if value in WORK_MODES else None,
+                "revision": sha256(data).hexdigest()}
+    return snapshot, field, title.end()
+
+
 class ReaderHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, readers=None, mounts=None, task_lists=None, changelogs=None, **kwargs):
+    def __init__(self, *args, readers=None, mounts=None, task_lists=None, changelogs=None,
+                 project_bibles=None, **kwargs):
         self.readers = readers or {}
         self.mounts = mounts or {}
         self.task_lists = task_lists or {}
         self.changelogs = changelogs or {}
+        self.project_bibles = project_bibles or {}
         super().__init__(*args, **kwargs)
 
     def list_directory(self, path):
@@ -219,20 +254,67 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             with TASK_LOCK:
                 if self.task_snapshot(path)["revision"] != revision:
                     return self.respond(409, {"message": "The Task List changed. Reload it before applying your edit."})
-                with NamedTemporaryFile(dir=path.parent, delete=False) as output:
-                    temporary = Path(output.name)
-                    try:
-                        output.write(markdown.encode("utf-8"))
-                        output.flush()
-                        temporary.chmod(path.stat().st_mode & 0o777)
-                        temporary.replace(path)
-                    finally:
-                        temporary.unlink(missing_ok=True)
+                replace_file(path, markdown.encode("utf-8"))
                 return self.respond(200, self.task_snapshot(path))
         except (OSError, ValueError):
             return self.respond(503, {"message": "The project Task List is unavailable."})
 
+    def project_bible(self):
+        path = urlsplit(self.path).path
+        return self.project_bibles.get(path[:-len(WORK_MODE_API)]) if path.endswith("/" + WORK_MODE_API) else None
+
+    def read_work_mode(self, path):
+        if not self.local_host():
+            return self.respond(403, {"message": "Open the reader at its private address."})
+        try:
+            snapshot, _, _ = work_mode_snapshot(path.read_bytes())
+            return self.respond(200, snapshot)
+        except (OSError, ValueError):
+            return self.respond(503, {"message": "Couldn’t read the Work mode from this Project Bible."})
+
+    def save_work_mode(self, path):
+        if (not self.local_host()
+                or self.headers.get("Origin") != f'http://{self.headers.get("Host")}'
+                or self.headers.get("X-Bible-Work-Mode") != "1"
+                or self.headers.get_content_type() != "application/json"):
+            return self.respond(403, {"message": "Change the Work mode from its private reader."})
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if not 0 < length <= 256:
+                raise ValueError("Invalid request length")
+            self.connection.settimeout(5)
+            request = json.loads(self.rfile.read(length))
+            mode, revision = request["mode"], request["revision"]
+            if mode not in WORK_MODES or not isinstance(revision, str) or not re.fullmatch(r"[0-9a-f]{64}", revision):
+                raise ValueError("Invalid mode or revision")
+        except (OSError, ValueError, TypeError, KeyError):
+            return self.respond(400, {"message": "Choose a Work mode and try again."})
+        try:
+            with WORK_MODE_LOCK:
+                data = path.read_bytes()
+                snapshot, field, title_end = work_mode_snapshot(data)
+                if snapshot["revision"] != revision:
+                    return self.respond(409, {"message": "The Project Bible changed. Review the current mode and try again."})
+                if snapshot["mode"] == mode:
+                    return self.respond(200, snapshot)
+                if field:
+                    data = data[:field.start(2)] + mode.encode() + data[field.end(2):]
+                else:
+                    newline = b"\r\n" if data[:title_end].endswith(b"\r\n") else b"\n"
+                    separator = b"" if data[:title_end].endswith(b"\n") else newline
+                    rest = data[title_end:]
+                    gap = b"" if rest.startswith(newline) else newline
+                    data = (data[:title_end] + separator + newline + b"**Current phase:** "
+                            + mode.encode() + newline + gap + rest)
+                replace_file(path, data)
+                return self.respond(200, work_mode_snapshot(data)[0])
+        except (OSError, ValueError):
+            return self.respond(503, {"message": "Couldn’t save the Work mode to this Project Bible."})
+
     def do_GET(self):
+        project = self.project_bible()
+        if project is not None:
+            return self.read_work_mode(project)
         task_list = self.task_list()
         if task_list is not None:
             if not self.local_host():
@@ -252,6 +334,9 @@ class ReaderHandler(SimpleHTTPRequestHandler):
             return self.respond(503, {"message": "The shared Bible checkout is unavailable."})
 
     def do_POST(self):
+        project = self.project_bible()
+        if project is not None:
+            return self.save_work_mode(project)
         task_list = self.task_list()
         if task_list is not None:
             return self.save_task_list(task_list)
@@ -296,6 +381,7 @@ def main():
     parser.add_argument("--mount", nargs=2, action="append", default=[], metavar=("URL_PATH", "LOCAL_PATH"))
     parser.add_argument("--task-list", nargs=2, action="append", default=[], metavar=("URL_PATH", "MARKDOWN_FILE"))
     parser.add_argument("--changelog", nargs=2, action="append", default=[], metavar=("URL_PATH", "MARKDOWN_FILE"))
+    parser.add_argument("--project-bible", nargs=2, action="append", default=[], metavar=("URL_PATH", "MARKDOWN_FILE"))
     args = parser.parse_args()
     checkouts = {}
     readers = {}
@@ -311,8 +397,11 @@ def main():
     changelogs = {route: Path(path).resolve() for route, path in args.changelog}
     if not changelogs.keys() <= readers.keys():
         parser.error("--changelog must use an existing --reader URL path")
+    project_bibles = {route: Path(path).resolve() for route, path in args.project_bible}
+    if not project_bibles.keys() <= readers.keys():
+        parser.error("--project-bible must use an existing --reader URL path")
     handler = partial(ReaderHandler, directory=str(args.directory.resolve()), readers=readers,
-                      mounts=mounts, task_lists=task_lists, changelogs=changelogs)
+                      mounts=mounts, task_lists=task_lists, changelogs=changelogs, project_bibles=project_bibles)
     with ThreadingHTTPServer((args.bind, args.port), handler) as server:
         server.serve_forever()
 

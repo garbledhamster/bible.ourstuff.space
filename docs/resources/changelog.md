@@ -72,3 +72,7 @@ Added Tasks across chapters. Private readers save changes to the same Markdown a
 ### 2026-11-14T23:08:23-06:00 · Prop sheets and variants
 
 Added one 4 × 4 sheet per prop and art style, with chair and crate examples in five styles. The guide, template, and skill describe base frames, named variants, and shared anchors. Verified matching frame bounds across all 160 exported cells. [Prop comparison](item-art/props/prop-preview.html) · [Feedback](feedback.md#entries)
+
+### 2026-11-15T07:16:24-06:00 · Work mode picker
+
+Private readers can save a Work mode from the modal under the project name and copy a prompt for that mode. The Project Bible skill reads the project’s saved choice before working on a turn. Checked switching to Grilling, copying the prompt, reloading, and switching back to Build in a Zoo Helper test copy at desktop and phone sizes. [Feedback](feedback.md#entries)

@@ -66,3 +66,9 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T23:08:23-06:00 · Joe · Prop variants and styles
 
 **Paraphrase.** Put one prop on each sheet, with a base and variants in their own frames. Make 4 × 4 examples in 8-, 16-, 32-, 64-, and 128-bit styles, keeping the props in the same positions. A chair can change color or style or have a cat on it. [Prop sheets and variants](game-bible-guide.md#prop-sheets-and-variants)
+
+### 2026-11-15T07:16:24-06:00 · Joe · Select a Work mode
+
+**Paraphrase.** Let me choose the active Work mode in a cloned Bible’s modal. I want to go back to Grilling when I’m revisiting a decision, and I want a prompt I can copy into the chat if the agent needs help switching modes.
+
+[Work modes](project-phases.md)

@@ -3,7 +3,7 @@
 Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide, templates, and example together. Codex discovers the skill from the Bible checkout. Follow the setup instructions below to expose it from a game or app that uses the Bible as a submodule. The skill works from that project’s Bible and checkout when it helps you through a chapter.
 
 - [Set up and update a project Bible](../AGENTS.md) — clone the shared guide and assets into your game repository.
-- [Project phases](project-phases.md) — Grilling, Plan, Build, Testing, and Maintenance.
+- [Work modes](project-phases.md) — Grilling, Plan, Build, Testing, and Maintenance.
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
 - [Work through the Task List](task-list-workflow.md) — pick up tasks, manage blockers and assignees, and record verified changes.
 - [Task List template](task-list-template.md) and [Island Post checklist](island-post/task-list.md).

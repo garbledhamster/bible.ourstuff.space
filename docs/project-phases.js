@@ -1,29 +1,36 @@
-const phases = [
-  ['Grilling', 'Work through the chapters with the creator and record the decisions for the release.'],
-  ['Plan', 'Use Ask Edwards’s gestalt lens to review the whole idea, then outline build tasks from the decisions in every applicable chapter.'],
-  ['Build', 'Build the agreed scope. Run the small checks needed to assemble a complete candidate.'],
-  ['Testing', 'Run the major checks on the complete product. Fix issues and retest until it is ready to show and ship.'],
-  ['Maintenance', 'After release or handoff, collect feedback and make edits, fixes, and updates.'],
+const modes = [
+  ['Grilling', 'Explore options, then work through decisions with the creator and record what you agree on.'],
+  ['Plan', 'Review how the whole release fits together and turn the decisions into build tasks.'],
+  ['Build', 'Build the agreed scope and run the checks needed to assemble a complete candidate.'],
+  ['Testing', 'Try the complete release through its real user journeys and record what passed or needs work.'],
+  ['Maintenance', 'Use feedback from the shipped release to guide fixes and updates, then verify them.'],
 ];
+
+async function readMode(endpoint) {
+  const response = await fetch(endpoint, { cache: 'no-store' });
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error('Couldn’t load the Work mode.');
+  return response.json();
+}
+
+async function readSourceMode(source) {
+  if (!source) return '';
+  try {
+    const response = await fetch(source.href, { cache: 'no-store' });
+    if (!response.ok) return '';
+    const opening = (await response.text()).split(/^##[ \t]/m, 1)[0];
+    const mode = opening.match(/^\*\*(?:Work mode|Current phase):\*\*[ \t]*([^\r\n]*)/m)?.[1].trim();
+    return modes.some(([name]) => name === mode) ? mode : '';
+  } catch {
+    return '';
+  }
+}
 
 export async function showProjectPhase() {
   const project = document.querySelector('.project-masthead-name');
-  if (!project || document.querySelector(".bible-phase")) return;
+  if (!project || document.querySelector('.bible-phase')) return;
   const source = document.querySelector('link[rel="alternate"][type="text/markdown"][title$="Project Bible source"]');
-  let current = -1;
-  let label = 'Phase not set';
-  if (source) {
-    try {
-      const response = await fetch(source.href, { cache: 'no-store' });
-      if (!response.ok) throw new Error('Project Bible unavailable');
-      const opening = (await response.text()).split(/^##[ \t]/m, 1)[0];
-      const phase = opening.match(/^\*\*Current phase:\*\*[ \t]+([^\r\n]+)$/m)?.[1].trim();
-      current = phases.findIndex(([name]) => name === phase);
-      if (current >= 0) label = `Phase ${current + 1} of ${phases.length} · ${phases[current][0]}`;
-    } catch {
-      label = 'Phase unavailable';
-    }
-  }
+  const endpoint = new URL('api/work-mode', location.href);
 
   const stylesheet = document.createElement('link');
   stylesheet.rel = 'stylesheet';
@@ -34,33 +41,180 @@ export async function showProjectPhase() {
   button.type = 'button';
   button.className = 'bible-phase';
   button.setAttribute('aria-haspopup', 'dialog');
-  button.textContent = label;
+  button.textContent = 'Work mode';
 
   const dialog = document.createElement('dialog');
   dialog.className = 'bible-update bible-phases';
   dialog.setAttribute('aria-labelledby', 'bible-phases-title');
   dialog.innerHTML = `
-    <form method="dialog"><button class="close" aria-label="Close project phases" autofocus>×</button></form>
-    <h2 id="bible-phases-title">Project phases</h2>
-    <ol role="list"></ol>`;
-  const list = dialog.querySelector('ol');
-  phases.forEach(([name, summary], index) => {
-    const item = document.createElement('li');
-    const heading = document.createElement('strong');
-    heading.textContent = `${index + 1}. ${name}`;
-    item.append(heading);
-    if (index === current) {
-      item.setAttribute('aria-current', 'step');
-      const flag = document.createElement('span');
-      flag.textContent = 'Current phase';
-      heading.after(flag);
+    <form method="dialog"><button class="close" aria-label="Close Work mode" autofocus>×</button></form>
+    <h2 id="bible-phases-title">Work mode</h2>
+    <section data-picker>
+      <fieldset aria-label="Choose a Work mode" disabled></fieldset>
+      <p role="status"></p>
+      <div class="bible-update-actions">
+        <button type="button" data-current-prompt hidden>Show agent prompt</button>
+        <button type="button" data-save hidden disabled>Set Work mode</button>
+      </div>
+    </section>
+    <section data-confirmation hidden>
+      <p>Paste this into your chat if the agent needs help picking up the selected mode.</p>
+      <label for="bible-work-mode-prompt">Prompt for your agent</label>
+      <textarea id="bible-work-mode-prompt" rows="7" readonly></textarea>
+      <p role="status"></p>
+      <div class="bible-update-actions">
+        <button type="button" data-back>Back</button>
+        <button type="button" data-copy>Copy prompt</button>
+      </div>
+    </section>`;
+
+  const title = dialog.querySelector('h2');
+  const picker = dialog.querySelector('[data-picker]');
+  const fieldset = picker.querySelector('fieldset');
+  const status = picker.querySelector('[role="status"]');
+  const save = picker.querySelector('[data-save]');
+  const currentPrompt = picker.querySelector('[data-current-prompt]');
+  const confirmation = dialog.querySelector('[data-confirmation]');
+  const prompt = confirmation.querySelector('textarea');
+  const copy = confirmation.querySelector('[data-copy]');
+  const copyStatus = confirmation.querySelector('[role="status"]');
+  let snapshot;
+  let activeMode = '';
+  let busy = false;
+
+  for (const [name, summary] of modes) {
+    const label = document.createElement('label');
+    label.className = 'bible-mode-option';
+    label.innerHTML = '<input type="radio" name="work-mode"><span><strong></strong><span class="bible-mode-active" hidden>Active</span><span class="bible-mode-summary"></span></span>';
+    label.querySelector('input').value = name;
+    label.querySelector('strong').textContent = name;
+    label.querySelector('.bible-mode-summary').textContent = summary;
+    fieldset.append(label);
+  }
+
+  function selectedMode() {
+    return fieldset.querySelector('input:checked')?.value;
+  }
+
+  function updateControls() {
+    fieldset.disabled = busy || !snapshot;
+    save.hidden = !snapshot;
+    save.disabled = busy || !selectedMode() || selectedMode() === activeMode;
+    currentPrompt.hidden = !activeMode;
+    currentPrompt.disabled = busy;
+  }
+
+  function showActiveMode() {
+    button.textContent = activeMode ? `Work mode · ${activeMode}` : 'Work mode not set';
+    for (const input of fieldset.querySelectorAll('input')) {
+      input.checked = input.value === activeMode;
+      input.closest('label').querySelector('.bible-mode-active').hidden = !input.checked;
     }
-    const description = document.createElement('p');
-    description.textContent = summary;
-    item.append(description);
-    list.append(item);
+    updateControls();
+  }
+
+  const initial = (async () => {
+    try {
+      snapshot = await readMode(endpoint);
+    } catch {
+      snapshot = null;
+    }
+    activeMode = snapshot ? (snapshot.mode ?? '') : await readSourceMode(source);
+    showActiveMode();
+  })();
+
+  function showPicker() {
+    confirmation.hidden = true;
+    picker.hidden = false;
+    title.textContent = 'Work mode';
+  }
+
+  function showPrompt(saved) {
+    title.textContent = saved ? `Work mode set to ${activeMode}` : `${activeMode} prompt`;
+    const summary = modes.find(([name]) => name === activeMode)[1];
+    prompt.value = `Use ${activeMode} for ${project.textContent.trim()}. Read the Project Bible skill and follow the ${activeMode} instructions in the chapter we’re discussing. ${summary} Tell me what we should do next.`;
+    copyStatus.textContent = '';
+    picker.hidden = true;
+    confirmation.hidden = false;
+    copy.focus();
+  }
+
+  fieldset.addEventListener('change', updateControls);
+  button.addEventListener('click', async () => {
+    await initial;
+    if (dialog.open) return;
+    showPicker();
+    dialog.showModal();
+    if (busy) return;
+    busy = true;
+    status.textContent = 'Checking the saved Work mode…';
+    updateControls();
+    try {
+      snapshot = await readMode(endpoint);
+      if (snapshot) activeMode = snapshot.mode ?? '';
+      else activeMode = await readSourceMode(source);
+      status.textContent = snapshot ? '' : 'Change the Work mode in the project’s private reader or its Markdown file.';
+    } catch (error) {
+      snapshot = null;
+      status.textContent = error.message;
+    } finally {
+      busy = false;
+      showActiveMode();
+    }
   });
+
+  save.addEventListener('click', async () => {
+    const mode = selectedMode();
+    if (save.disabled) return;
+    busy = true;
+    updateControls();
+    status.textContent = 'Saving Work mode…';
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Bible-Work-Mode': '1' },
+        body: JSON.stringify({ mode, revision: snapshot.revision }),
+      });
+      const result = await response.json();
+      if (response.status === 409) {
+        snapshot = await readMode(endpoint);
+        activeMode = snapshot?.mode ?? '';
+        showActiveMode();
+      }
+      if (!response.ok) throw new Error(result.message);
+      snapshot = result;
+      activeMode = result.mode;
+      showActiveMode();
+      status.textContent = '';
+      if (dialog.open) showPrompt(true);
+    } catch (error) {
+      status.textContent = error.message || 'Couldn’t save the Work mode.';
+      if (dialog.open) status.scrollIntoView({ block: 'nearest' });
+    } finally {
+      busy = false;
+      updateControls();
+    }
+  });
+
+  currentPrompt.addEventListener('click', () => showPrompt(false));
+  confirmation.querySelector('[data-back]').addEventListener('click', () => {
+    showPicker();
+    currentPrompt.focus();
+  });
+  copy.addEventListener('click', async () => {
+    try {
+      if (!navigator.clipboard) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(prompt.value);
+      copyStatus.textContent = 'Prompt copied.';
+    } catch {
+      prompt.focus();
+      prompt.select();
+      copyStatus.textContent = document.execCommand('copy')
+        ? 'Prompt copied.' : 'Copy the selected text to paste it into your chat.';
+    }
+  });
+
   document.body.append(dialog);
   project.after(button);
-  button.addEventListener('click', () => dialog.showModal());
+  await initial;
 }

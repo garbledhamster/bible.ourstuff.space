@@ -22,9 +22,11 @@ python3 -B /path/to/bible.ourstuff.space/tools/bible-reader/version.py restore d
 
 These commands switch the shared checkout to a detached revision. The backup stays in that clone under `refs/project-bible/backups/`, outside the project files.
 
-## Current phase
+## Work mode
 
-Put a line such as `**Current phase:** Build` near the top of the project-owned Bible. Point the reader’s `<link rel="alternate" type="text/markdown">` at that Markdown file and end its title with `Project Bible source`. Use **Update now** and reload to pick up the phase display from the installed shared revision. The reader loads that display from the same checkout as its shared Review or masthead stylesheet. Older Mac readers need the current `/_bible/updates.js` once. Later updates and restores use the display from the selected revision. A reader with no recorded phase shows `Phase not set`. Update the project Markdown when the work moves; a shared update or restore preserves the recorded phase.
+To enable editing, add `--project-bible /reader/ /absolute/project/docs/game-bible.md` using an existing reader route. Point the reader’s `<link rel="alternate" type="text/markdown">` at the project Bible and end its title with `Project Bible source`. Use **Update now** and reload to pick up the Work mode picker from the shared checkout. The reader server must also be running a version with the `--project-bible` option.
+
+Open **Work mode** below the project name, choose a mode, and select **Set Work mode**. The reader saves the selection in the project Markdown and shows the agent prompt. The server edits the Work mode line above the chapters and asks you to retry if the file changed since you opened the picker. The reader accepts the existing `**Current phase:** Build` field so earlier shared revisions can still show the saved mode. A reader without editing enabled displays the mode from its Markdown source.
 
 ## Editable Task List
 

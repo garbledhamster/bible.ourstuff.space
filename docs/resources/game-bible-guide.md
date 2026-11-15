@@ -4,7 +4,7 @@ I put this guide together for the way I want to build games with people and with
 
 Use the [Project Bible template](game-bible-template.md) to keep the decisions for your own game. The [Demo](../demo.html) follows one worked project from scope through feedback.
 
-Start with the [five project phases](project-phases.md). Keep the current phase at the top of your Bible. In each chapter, open **Phase instructions** to see what to do and what to leave for the next phase.
+Choose a [Work mode](project-phases.md) for what you want to do today. In each chapter, read **Work mode instructions** to see what to focus on and what to leave behind.
 
 ### Carry the work through the chapters
 
@@ -18,7 +18,7 @@ Embed every image generated for the project in the chapter where it was made or 
 
 ## Vision & Scope
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Agree on the audience, target devices, player promise, one representative moment, and what the first release includes. Save the creator’s approved visual reference and one prediction you can observe in play.
 - **Plan** · Open the project folder and initialize or locate Git. Set up the project Bible and task list, map the folders in the README, and turn the agreed scope and prediction into a release brief and first tasks.
@@ -112,7 +112,7 @@ I can see the visual direction the creator confirmed and read which details they
 
 ## Design Document
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Walk through the main activity with the creator. Decide what the person can do, what changes, what feedback they get, and how they recover when it goes wrong.
 - **Plan** · Write the rules and starting states in the order the player encounters them. Turn examples and edge cases into tasks with expected results. Mark any decision that blocks a task.
@@ -166,7 +166,7 @@ I can follow a task or turn through the document, try a rule and know what to lo
 
 ## UI & UX Design
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Walk through the interface with the creator. Agree on what people need to see, where they act, and which cues or recovery controls matter on each target.
 - **Plan** · Sketch the workflow at target sizes. List each screen, input, and state it must show. Name the authored buttons, frames, icons, and other assets Engine & Assets will need.
@@ -222,7 +222,7 @@ We have a sketch or prototype of the main workflow at the intended screen sizes,
 
 ## Engine & Assets
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Agree on the target and visual direction and identify the first interaction that will prove the engine and key assets fit the project.
 - **Plan** · Choose and pin the engine version. Inventory the runtime assets for that interaction, with sources, states, owners, and what to verify at game size.
@@ -322,7 +322,7 @@ Someone can start the game from a clean checkout and show one real interaction w
 
 ## Audio Engineering
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Agree on what the person should hear, which sounds carry information, and what they can see or use with sound off. Decide where music or silence serves the experience.
 - **Plan** · Make a cue and dialogue list for one representative encounter. Record the triggers, stop rules, sources, permissions, and the listening cases to run.
@@ -437,7 +437,7 @@ The release has a music plan, including a decision to go without music if that s
 
 ## Development Sandbox
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Decide which mechanics, failures, and recovery paths you need to try before assembling the player scenes.
 - **Plan** · List named starting states, how to enter and reset each case, what to do, and what should happen. Link each case to its rule and required assets.
@@ -497,7 +497,7 @@ A contributor can open the dedicated sandbox, play every release mechanic and ea
 
 ## Scene Scripts & Playtests
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Walk through each scene with the creator. Agree on what the person comes in knowing, what they do, and what should carry into the next scene.
 - **Plan** · Write each scene’s entry, actions, dialogue, outcome, and exits. Link the sandbox cases it needs and write the observations to collect in the playtest.
@@ -533,7 +533,7 @@ A player can go from the start of the scene to an outcome, recover where they ne
 
 ## Build & Play the Game
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Agree on how the intended audience will open, install, or return to the game and on what the launch must make available.
 - **Plan** · Write the launch, packaging, and versioning steps. List supported targets, controls, and the first-run, continue, and update paths that apply.
@@ -567,7 +567,7 @@ I can repeat the build, open or install it on each target we're shipping, and pl
 
 ## Demo, Manual & Wiki
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Choose one task a first-time player can try and decide what help they should be able to find if they get stuck.
 - **Plan** · Outline the demo entry and reset, the help topics, and what to capture. Link the scenes and sandbox cases that supply the real controls.
@@ -618,7 +618,7 @@ Record the passing sandbox cases and the release build, then watch a first-time 
 
 ## Release, Pricing & Marketing
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Decide who the release is for, what they get, where they get it, and whether and how they pay.
 - **Plan** · List the release checks, delivery steps, store or landing page assets, and who handles each step. Record the price, platform, and access decisions.
@@ -652,7 +652,7 @@ The release candidate passes on the targets and access conditions we promised. A
 
 ## Contributor Training
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Decide who will work on the project and what they should be able to change and verify on their first day.
 - **Plan** · Choose one real first task. List the access, setup, files, and checks a contributor needs to finish it.
@@ -682,7 +682,7 @@ A new contributor can follow the guide, make a small change from a clean startin
 
 ## Multiplayer & Multi-user Support
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Decide whether the release supports shared play or multiple users. If it is single-player, record the scope and mark the chapter N/A.
 - **Plan** · For shared play, define what each person controls, who owns shared state, and what happens when someone leaves or disconnects. Plan one two-client case and the hosting checks.
@@ -743,7 +743,7 @@ Every multiplayer mode promised for the release is playable from joining through
 
 ## Updates & DLC
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Decide what sort of follow-up work belongs here and what promises earlier players keep when you change the game.
 - **Plan** · Choose the affected release, changes, and compatibility checks. Identify the previous build and save or account state to use for comparison.
@@ -777,7 +777,7 @@ The update or rehearsal passes the checks it affects, including the relevant pat
 
 ## Engagement & Feedback
 
-### Phase instructions
+### Work mode instructions
 
 - **Grilling** · Decide whose experience you need to learn from, when you’ll talk to them, and what you want to find out.
 - **Plan** · Choose the feedback channel, who reads and follows up, and where to keep the timestamped Feedback and Changelog files.

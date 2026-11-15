@@ -14,9 +14,11 @@ description: Use when planning, resuming, or verifying a game or software projec
 
 In a project reader, use **Project Bible** as the main heading and put the project's name directly underneath. Use the shared masthead stylesheet. Link the reader and active chapter when showing the user an update.
 
-## Follow the project phase
+## Follow the project’s Work mode
 
-Read [Project phases](../project-phases.md) and check the current phase in the project Bible. Start new projects in Grilling. Use Plan to review the whole idea with Ask Edwards’s gestalt lens and turn the decisions in every applicable chapter into build tasks. During Build, run the small checks needed to keep work moving. Run the major checks on the complete candidate in Testing and leave that phase with a product ready to ship. In Maintenance, handle feedback, edits and updates after release or handoff. Update the phase in the project’s own Bible as it moves. In each applicable chapter, read **Phase instructions** for the current phase. Save the named output, link it into the next phase, and carry any open dependency forward with an owner.
+At the start of each turn that works on the project, including when resuming a conversation, reread the Work mode at the top of the project’s Bible. It may have changed in the reader since your last turn. Use the mode the owner selected and the chapter they’re working on. A request in chat to use another mode takes precedence for that work. Suggest a switch when it would help, and save a new mode when the owner asks you to change it.
+
+Read [Work modes](../project-phases.md) and the active chapter’s **Work mode instructions**. Older revisions call these **Phase instructions**. In Grilling, explore options and help the creator reach a decision. In Plan, use Ask Edwards’s gestalt lens to review the whole idea and turn decisions into tasks. In Build, assemble the agreed scope and run the checks needed to keep working. In Testing, verify the complete candidate. In Maintenance, use feedback to guide and verify updates. Save the result in the chapter and name the next action.
 
 ## Use the project task list
 

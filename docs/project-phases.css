@@ -17,13 +17,46 @@
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
-dialog.bible-phases { width: min(500px, calc(100% - 24px)); }
-.bible-phases ol { margin: 0; padding: 0; list-style: none; }
-.bible-phases li { padding: 9px 0; border-top: 1px solid var(--line, #594967); }
-.bible-phases li p { margin: 4px 0 0; font-size: 14px; line-height: 1.45; }
-.bible-phases li[aria-current="step"] strong { color: var(--lime, #deedaa); }
-.bible-phases li span {
-  margin-inline-start: 8px;
-  color: var(--muted, #d0c3db);
-  font-size: 12px;
+dialog.bible-phases {
+  width: min(500px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.bible-phases fieldset { display: grid; gap: 6px; margin: 0; padding: 0; border: 0; }
+.bible-mode-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.bible-mode-option:has(input:checked) { border-color: var(--lime, #deedaa); }
+.bible-mode-option:has(input:disabled) { cursor: default; }
+.bible-mode-option:has(input:focus-visible) { outline: 2px solid var(--lime, #deedaa); }
+.bible-mode-option input { margin: .27em 0 0; accent-color: var(--lime, #deedaa); }
+.bible-mode-summary { display: block; margin-top: 2px; font-size: 14px; line-height: 1.4; }
+.bible-mode-active { margin-inline-start: 8px; color: var(--lime, #deedaa); font-size: 12px; }
+.bible-phases section[hidden], .bible-phases button[hidden] { display: none; }
+.bible-phases [role="status"]:empty { min-height: 0; margin: 0; }
+.bible-phases .bible-update-actions { margin-top: 12px; }
+.bible-phases :is([data-save], [data-copy]):enabled {
+  border-color: var(--lime, #deedaa);
+  background: var(--lime, #deedaa);
+  color: #24212a;
+}
+.bible-phases textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid var(--line, #594967);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .24);
+  color: inherit;
+  font: inherit;
+  resize: vertical;
 }
