@@ -6,7 +6,11 @@ export const chapterLayouts = [
   ['illustrative', 'Illustrative'],
   ['architect', 'Architect'],
   ['handoff', 'Build handoff'],
+  ['queue', 'Work queue'],
+  ['marketing', 'Marketing brief'],
 ];
+
+const marketingTopics = /\b(?:audiences?|positioning|messaging|offer|pricing|price|payment|launch|release (?:scope|plans?|evidence|readiness|assets?)|readiness checks|distribution|marketing|campaigns?|store(?:front| copy)|screenshots?|trailers?|press kits?|pitch|promotional|public demo)\b/i;
 
 export function chapterLayoutPicker(onChange) {
   const label = document.createElement('label');
@@ -28,15 +32,17 @@ export function chapterLayoutView(review, gallery, content, chapter, options) {
   review.toggleAttribute('data-has-outline', headings.length > 0);
   const sections = new Map();
   let taskSheet;
+  let workQueue;
+  let marketingIndex;
 
-  function outline() {
+  function outline(entries, title) {
     const index = document.createElement('nav');
     index.className = 'chapter-layout-outline';
-    index.setAttribute('aria-label', 'On this page');
+    index.setAttribute('aria-label', title);
     const label = document.createElement('strong');
-    label.textContent = 'On this page';
+    label.textContent = title;
     const list = document.createElement('ul');
-    for (const heading of headings) {
+    for (const heading of entries) {
       const row = document.createElement('li');
       const link = document.createElement('a');
       link.href = '#' + heading.id;
@@ -55,6 +61,16 @@ export function chapterLayoutView(review, gallery, content, chapter, options) {
     }
     index.append(label, list);
     return index;
+  }
+
+  function marketingReferences() {
+    const entries = original.filter(node =>
+      node.matches?.('h3, h4, h5, h6') && marketingTopics.test(node.textContent));
+    if (entries.length) return outline(entries, 'Marketing references');
+    const empty = document.createElement('p');
+    empty.className = 'chapter-marketing-empty';
+    empty.textContent = 'No marketing sections found in this chapter.';
+    return empty;
   }
 
   function foldSections() {
@@ -85,10 +101,16 @@ export function chapterLayoutView(review, gallery, content, chapter, options) {
     review.dataset.layout = layout;
     if (layout === 'editorial' || layout === 'architect') {
       if (layout === 'architect') foldSections();
-      review.replaceChildren(...(headings.length ? [outline()] : []), content, gallery);
+      review.replaceChildren(...(headings.length ? [outline(headings, 'On this page')] : []), content, gallery);
     } else if (layout === 'handoff') {
       taskSheet ??= createChapterTaskSheet(chapter, options);
       review.replaceChildren(taskSheet, content, gallery);
+    } else if (layout === 'queue') {
+      workQueue ??= createChapterTaskSheet(chapter, { ...options, queue: true });
+      review.replaceChildren(workQueue, content, gallery);
+    } else if (layout === 'marketing') {
+      marketingIndex ??= marketingReferences();
+      review.replaceChildren(marketingIndex, content, gallery);
     } else {
       review.replaceChildren(gallery, content);
     }
