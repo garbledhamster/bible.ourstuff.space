@@ -67,6 +67,8 @@ def inspect_slot(workspace, set_id, request, snapshot=None):
     if not asset or any(type(asset.get(key)) is not int for key in ("width", "height")):
         raise ValueError("Import the registered PNG for the selected slot.")
     return {
+        "canvas": {"width": placement.get("width"), "height": placement.get("height")},
+        "referenceAsset": {"id": asset["id"], "name": asset["name"]},
         "project": workspace.project, "setId": set_id, "setName": manifest["name"], "revision": snapshot["revision"],
         "poseId": pose_id, "poseName": pose.get("name", pose_id),
         "viewId": view["id"], "viewName": view.get("name", view["id"]),

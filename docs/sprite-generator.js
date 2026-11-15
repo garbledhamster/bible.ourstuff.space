@@ -1,3 +1,4 @@
+import { spriteDraftCopyName, spriteDraftFits } from './sprite-bundle-model.js';
 import { installSpriteBundle } from './sprite-bundle.js';
 import { installSpriteCombine } from './sprite-combine.js';
 import { installSpritePlacement } from './sprite-placement.js';
@@ -7,6 +8,11 @@ import { installSpriteProposals } from './sprite-proposals.js';
 const PNG_TYPE = 'image/png';
 const PNG_LIMIT = 8 * 1024 * 1024;
 const PNG_SIGNATURE = [137, 80, 78, 71, 13, 10, 26, 10];
+const DRAFT_LIMIT_ERROR = 'This change would put the set over the 32 MB limit for saving or downloading an editable bundle.';
+
+function checkDraftSize(draft, message) {
+  if (!spriteDraftFits(draft)) throw new Error(message);
+}
 
 async function readPng(file) {
   if (file.size > PNG_LIMIT) throw new Error('Choose a PNG smaller than 8 MB.');
@@ -239,6 +245,11 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
     if (!draft || busy) return false;
     const next = structuredClone(draft);
     edit(next);
+    if (!spriteDraftFits(next)) {
+      setMessage(DRAFT_LIMIT_ERROR);
+      return false;
+    }
+    if (message.textContent === DRAFT_LIMIT_ERROR) setMessage('');
     draft = next;
     dirty = true;
     render();
@@ -281,8 +292,10 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
 
   function importDraft(manifest) {
     if (!canImportDraft()) return false;
+    const next = { ...structuredClone(manifest), id: crypto.randomUUID() };
+    checkDraftSize(next, 'This bundle would put the new set over the 32 MB limit. Export a smaller set and try again.');
     showSnapshot(null);
-    draft = { ...structuredClone(manifest), id: crypto.randomUUID() };
+    draft = next;
     dirty = true;
     setMessage('');
     render();
@@ -376,7 +389,9 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
     if (!selected || !draft) return;
     void run('Importing PNG…', async () => {
       const asset = await readPng(selected);
-      draft.assets.push(asset);
+      const next = { ...draft, assets: [...draft.assets, asset] };
+      checkDraftSize(next, 'This PNG would put the set over the 32 MB limit. Choose a smaller PNG or use a different set.');
+      draft = next;
       activeAsset = asset.id;
       dirty = true;
     });
@@ -443,8 +458,7 @@ export async function installSpriteGenerator(extensions = spriteExtensions) {
   saveCopy.addEventListener('click', () => {
     if (!dirty || !conflict || busy) return;
     if (copyAttempt?.draft !== draft) {
-      const suffix = ' (draft copy)';
-      const name = Array.from(draft.name).slice(0, 120 - suffix.length).join('') + suffix;
+      const name = spriteDraftCopyName(draft.name);
       copyAttempt = { draft, manifest: { ...draft, name, id: crypto.randomUUID() } };
     }
     void run('Saving copy…', () => persistDraft(copyAttempt.manifest, null));

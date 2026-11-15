@@ -40,7 +40,7 @@ def sample_manifest():
 def placed_manifest():
     manifest = sample_manifest()
     manifest["placement"] = {
-        "width": 8, "height": 8,
+        "width": 8, "height": 9,
         "views": [{"id": "front", "name": "Front"}],
         "slots": [{"id": "mouth", "name": "Mouth", "viewId": "front", "anchor": "face"}],
         "parts": [{"id": "idle-mouth", "slotId": "mouth", "assetId": ASSET, "x": -1, "y": 0}],
@@ -122,7 +122,10 @@ class SpriteGeneratorTest(unittest.TestCase):
                      "--pose", "idle", "--slot", "mouth", "--expression", "rest"]
         inspection = subprocess.run([*command, "inspect", *arguments], capture_output=True, text=True)
         self.assertEqual(inspection.returncode, 0, inspection.stderr)
-        self.assertEqual(json.loads(inspection.stdout)["registration"], {"x": -1, "y": 0, "width": 2, "height": 1})
+        context = json.loads(inspection.stdout)
+        self.assertEqual(context["canvas"], {"width": 8, "height": 9})
+        self.assertEqual(context["referenceAsset"], {"id": ASSET, "name": "mask.png"})
+        self.assertEqual(context["registration"], {"x": -1, "y": 0, "width": 2, "height": 1})
 
         staged = subprocess.run([*command, "stage", *arguments, "--png", str(png)], capture_output=True, text=True)
         self.assertEqual(staged.returncode, 0, staged.stderr)

@@ -80,3 +80,49 @@ test('an unfinished pose stays editable while the completed mixed result keeps i
   assert.equal(imported.placement.poses[0].anchors.head, undefined);
   assert.deepEqual(imported.combine.lastCombined.placement.poses[0].anchors.head, { x: 4, y: 2 });
 });
+
+
+test('a 120-character accepted part name survives an editable bundle round trip', async () => {
+  const { readSpriteBundle, writeSpriteBundle } = await import('../../docs/sprite-bundle-model.js');
+  const manifest = fixture();
+  manifest.placement.parts[0].name = '長'.repeat(120);
+  assert.deepEqual(readSpriteBundle(writeSpriteBundle(manifest)), manifest);
+});
+
+test('an authored anchor can share a name with an Object prototype property', async () => {
+  const { readSpriteBundle, writeSpriteBundle } = await import('../../docs/sprite-bundle-model.js');
+  const manifest = fixture();
+  manifest.placement.slots[0].anchor = 'constructor';
+  manifest.placement.poses[0].anchors.constructor = { x: 4, y: 2 };
+  delete manifest.placement.poses[0].anchors.head;
+  assert.deepEqual(readSpriteBundle(writeSpriteBundle(manifest)), manifest);
+});
+
+test('aggregate PNG size leaves room for the saved revision and portable selection', async () => {
+  const { spriteDraftFits, writeSpriteBundle } = await import('../../docs/sprite-bundle-model.js');
+  const manifest = fixture();
+  // Three individual 8 MiB PNGs occupy 32 MiB after base64 encoding, before metadata.
+  const maxPng = 'data:image/png;base64,' + 'A'.repeat(11_184_810) + 'A=';
+  manifest.assets = Array.from({ length: 3 }, (_, index) => ({
+    ...manifest.assets[0], id: `${index}${assetId.slice(1)}`, dataUrl: maxPng,
+  }));
+  assert.equal(spriteDraftFits(manifest), false);
+  manifest.assets.pop();
+  assert.equal(spriteDraftFits(manifest), true);
+
+  const limit = 32 * 1024 * 1024;
+  const bytes = value => Buffer.byteLength(value, 'utf8');
+  manifest.name = '聴'.repeat(120);
+  const needsRevision = JSON.stringify({ revision: '0'.repeat(64), manifest });
+  manifest.assets[0].dataUrl += 'A'.repeat(limit - bytes(needsRevision) + 1);
+  assert.ok(bytes(writeSpriteBundle(manifest)) < limit, 'a plain bundle can fit while its save request does not');
+  assert.equal(spriteDraftFits(manifest), false);
+
+  manifest.assets[0].dataUrl = manifest.assets[0].dataUrl.slice(0, -32);
+  const selection = { viewId: 'front', poseId: 'walk', expressionId: 'smile', slotId: 'mouth', partId: 'happy' };
+  assert.ok(bytes(JSON.stringify({ revision: '0'.repeat(64), manifest })) < limit);
+  assert.ok(bytes(writeSpriteBundle(manifest, selection)) > limit, 'the editor needs room to export the paused selection');
+  assert.equal(spriteDraftFits(manifest), false);
+  manifest.assets[0].dataUrl = manifest.assets[0].dataUrl.slice(0, -512);
+  assert.equal(spriteDraftFits(manifest), true);
+});

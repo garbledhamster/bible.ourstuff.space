@@ -127,7 +127,7 @@ function registerSiteTools({ activeContext, inspect, stage }) {
       const tools = [
         {
           name: 'inspect_active_sprite_slot',
-          description: 'Read the open Sprite Generator set revision and the selected pose, slot, expression, and PNG registration.',
+          description: 'Read the saved Sprite Generator canvas size, set revision, selected pose, slot, expression, reference PNG, and registration.',
           inputSchema: { type: 'object', properties: {}, additionalProperties: false },
           annotations: { readOnlyHint: true },
           execute: async (_input, options) => inspect(activeContext(), toolSignal(options)),
@@ -210,7 +210,9 @@ export function installSpriteProposals({
     const target = selectedPart(saved.manifest, selection ?? {});
     if (!target || !selectedPart(getDraft(), selection)) return null;
     const { poseId, viewId, slotId, expressionId } = selection;
+    const { width, height } = saved.manifest.placement;
     return {
+      canvas: { width, height }, referenceAsset: { id: target.asset.id, name: target.asset.name },
       setUrl: setEndpoint(saved.manifest.id).href, revision: saved.revision,
       poseId, viewId, slotId, expressionId,
     };
@@ -222,8 +224,8 @@ export function installSpriteProposals({
 
   async function inspect(context, signal) {
     if (!context || isBusy()) throw new Error('Pause on a saved pose and select its registered slot.');
-    const { setUrl, ...target } = context;
-    const details = await post(request, proposalUrl(setUrl), { action: 'inspect', ...target }, signal);
+    const { setUrl, revision, poseId, viewId, slotId, expressionId } = context;
+    const details = await post(request, proposalUrl(setUrl), { action: 'inspect', revision, poseId, viewId, slotId, expressionId }, signal);
     return { setUrl, ...details };
   }
 
@@ -232,13 +234,13 @@ export function installSpriteProposals({
       .some(key => input[key] !== context[key])) {
       throw new Error('Inspect the selected slot and its current revision again.');
     }
-    const { setUrl, ...target } = context;
+    const { setUrl, revision, poseId, viewId, slotId, expressionId } = context;
     const { name, pngBase64 } = input;
     const position = Object.hasOwn(input, 'x') || Object.hasOwn(input, 'y') ? { x: input.x, y: input.y } : {};
     if (Object.keys(position).length && ![position.x, position.y].every(Number.isSafeInteger)) {
       throw new Error('Set both registration offsets as whole pixels.');
     }
-    const item = await post(request, proposalUrl(setUrl), { ...target, name, pngBase64, ...position }, signal);
+    const item = await post(request, proposalUrl(setUrl), { revision, poseId, viewId, slotId, expressionId, name, pngBase64, ...position }, signal);
     if (watch?.setUrl === setUrl) void pollSoon(watch);
     return item;
   }

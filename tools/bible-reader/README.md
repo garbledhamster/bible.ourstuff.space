@@ -63,7 +63,7 @@ The private reader’s `api/sprite-generator` lists the configured project and i
 
 ### Review a PNG from Codex
 
-Save the set with a registered part. Pause on the pose you want to review and select its slot in the layer list. Choose the expression if you're working on a variation. Select **Copy Codex context** and paste the reference into Codex. The reference includes the set URL, pose, slot, expression, saved revision, and the current PNG size and registration.
+Save the set with a registered part. Pause on the pose you want to review and select its slot in the layer list. Choose the expression if you're working on a variation. Select **Copy Codex context** and paste the reference into Codex. The reference includes the set URL, saved revision, pose, slot, expression, canvas dimensions, and the current PNG’s name, ID, dimensions and registration. Open the set URL to find the PNG data in the asset with that ID.
 
 From the project workspace, use the shared reader's `sprite_proposal.py` to inspect the copied slot and stage the PNG file. Replace each angle-bracket value with the matching value from the reference.
 

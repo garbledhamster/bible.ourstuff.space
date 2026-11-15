@@ -259,7 +259,7 @@ function button(label, action, value) {
   return node;
 }
 
-export function installSpritePlacement({ controls, preview, getDraft, updateDraft }) {
+export function installSpritePlacement({ controls, preview, getDraft, isBusy, updateDraft }) {
   const sheet = document.createElement('link');
   sheet.rel = 'stylesheet';
   sheet.href = new URL('sprite-placement.css', import.meta.url);
@@ -423,7 +423,7 @@ export function installSpritePlacement({ controls, preview, getDraft, updateDraf
     stop();
     showMessage(editStatus, '');
     if (!updateDraft(draft => mutator(draft.placement ??= frameSettings()))) {
-      showMessage(editStatus, 'Wait for the current set operation to finish.');
+      if (isBusy()) showMessage(editStatus, 'Wait for the current set operation to finish.');
       render();
     }
   }

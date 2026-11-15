@@ -5,6 +5,10 @@ import { planPoseFrame } from './sprite-pose-frame.js';
 import { planSpriteSheet, sourceCell } from './sprite-sheet.js';
 
 export const SPRITE_BUNDLE_LIMIT = 32 * 1024 * 1024;
+// Match the reader's POST body and saved set limit in sprite_store.py.
+const SPRITE_SAVE_LIMIT = 32 * 1024 * 1024;
+const REVISION_PLACEHOLDER = '0'.repeat(64);
+const UTF8 = new TextEncoder();
 const BUNDLE_FORMAT = 'project-bible-sprite-set';
 const BUNDLE_VERSION = 1;
 const PNG_LIMIT = 8 * 1024 * 1024;
@@ -101,12 +105,13 @@ function validatePlacement(placement, assets) {
   'The bundle has invalid pose canvas settings.');
   const views = indexEntries(placement.views, 'views');
   const slots = indexEntries(placement.slots, 'slots');
-  const parts = indexEntries(placement.parts, 'parts');
+  const parts = indexEntries(placement.parts, 'parts', id, 120);
   const poses = indexEntries(placement.poses, 'poses');
   const expressions = indexEntries(placement.expressions, 'expressions');
 
   for (const slot of slots.values()) {
-    ensure(views.has(slot.viewId) && id(slot.anchor), `Slot “${slot.name}” needs a view and anchor.`);
+    ensure(views.has(slot.viewId) && typeof slot.anchor === 'string' && slot.anchor.length > 0,
+      `Slot “${slot.name}” needs a view and anchor.`);
   }
   for (const part of parts.values()) {
     ensure(assets.has(part.assetId), `Missing PNG for part “${part.name}”. Export the bundle with the original PNG.`);
@@ -192,6 +197,57 @@ export function writeSpriteBundle(manifest, selection) {
     ? { ...manifest, placementSelection: { viewId, poseId, expressionId, slotId, partId } }
     : manifest;
   return JSON.stringify({ format: BUNDLE_FORMAT, version: BUNDLE_VERSION, manifest: portable }) + '\n';
+}
+
+export function spriteDraftCopyName(name) {
+  const suffix = ' (draft copy)';
+  return Array.from(name).slice(0, 120 - suffix.length).join('') + suffix;
+}
+
+function serializedBytes(text) {
+  return UTF8.encode(text).length;
+}
+
+function longestSelectionId(entries) {
+  let longest = '';
+  let bytes = 2;
+  for (const entry of Array.isArray(entries) ? entries : []) {
+    const id = entry?.id;
+    if (typeof id !== 'string') continue;
+    const size = serializedBytes(JSON.stringify(id));
+    if (size > bytes) {
+      longest = id;
+      bytes = size;
+    }
+  }
+  return longest;
+}
+
+export function spriteDraftFits(manifest) {
+  let pngBytes = 0;
+  const assets = manifest.assets.map(({ dataUrl, ...asset }) => {
+    // Validated PNG data URLs are ASCII and need no JSON escaping.
+    pngBytes += dataUrl.length;
+    return { ...asset, dataUrl: '' };
+  });
+  if (pngBytes > SPRITE_BUNDLE_LIMIT || pngBytes > SPRITE_SAVE_LIMIT) return false;
+
+  const metadata = { ...manifest, assets };
+  const saveBytes = serializedBytes(JSON.stringify({ revision: REVISION_PLACEHOLDER, manifest: metadata }));
+  if (pngBytes + saveBytes > SPRITE_SAVE_LIMIT) return false;
+
+  // Leave room for a new selection and for the name a conflict copy could use.
+  const copyName = spriteDraftCopyName(metadata.name);
+  if (serializedBytes(JSON.stringify(copyName)) > serializedBytes(JSON.stringify(metadata.name))) metadata.name = copyName;
+  const placement = manifest.placement ?? {};
+  const selection = {
+    viewId: longestSelectionId(placement.views), poseId: longestSelectionId(placement.poses),
+    expressionId: longestSelectionId(placement.expressions), slotId: longestSelectionId(placement.slots),
+    partId: longestSelectionId(placement.parts),
+  };
+  const plainBytes = serializedBytes(writeSpriteBundle(metadata));
+  const selectionBytes = serializedBytes(writeSpriteBundle(metadata, selection));
+  return pngBytes + Math.max(plainBytes, selectionBytes) <= SPRITE_BUNDLE_LIMIT;
 }
 
 export function readSpriteBundle(text) {

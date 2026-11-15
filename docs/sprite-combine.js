@@ -154,7 +154,7 @@ function pngBlob(canvas) {
 }
 
 // resolveFrame can supply a rendered pose using the same native crop, origin and source metadata as an imported cell.
-export function installSpriteCombine({ controls, preview, getDraft, updateDraft }, { resolveFrame } = {}) {
+export function installSpriteCombine({ controls, preview, getDraft, isBusy, updateDraft }, { resolveFrame } = {}) {
   const dialog = controls.closest('dialog');
   const style = document.createElement('link');
   style.rel = 'stylesheet';
@@ -570,7 +570,8 @@ export function installSpriteCombine({ controls, preview, getDraft, updateDraft 
         });
         if (!remembered) {
           restoredKey = previousKey;
-          throw new Error('The set is updating. Try Combine again when it’s ready.');
+          if (isBusy()) throw new Error('The set is updating. Try Combine again when it’s ready.');
+          return;
         }
       }
       showOutput({ canvas, frameMap: plan.frameMap, recipe });
