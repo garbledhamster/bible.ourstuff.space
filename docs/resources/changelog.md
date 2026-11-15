@@ -98,3 +98,9 @@ Made to-spec followed by to-tickets part of the Project Bible skill, guide and J
 The Bible template and Grilling prompt now point to one record for the human and agent rounds. The Project Bible and Auto Grill skills say how to attribute questions, recommendations and answers, preserve follow-ups, and help the owner rejoin or reopen a decision. Checked a revised answer, an owner taking over during agent grilling, and a missing historical answer.
 
 [Grilling work mode](project-phases.md#grilling) · [Auto Grill](auto-grill/SKILL.md)
+
+### 2026-11-15T10:04:53-06:00 · Explore ideas and fill in chapters as work happens
+
+Added Explore to the shared reader, agent prompt, template, and all 15 chapter guides. Agents can use it to frame questions, brainstorm distinct alternatives, and choose a small test. Each Work mode explains what to record in the owning chapter before handing off.
+
+[Explore playbook](project-phases.md#explore) · [Chapter guide](game-bible-guide.md)

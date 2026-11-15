@@ -1,4 +1,5 @@
 const modes = [
+  ['Explore', 'Find where the idea can improve, generate alternatives, and recommend a small test.'],
   ['Grilling', 'Work through decisions with the creator. Keep the questions, recommendations, and attributed human and agent answers in the Bible’s grilling record.'],
   ['Plan', 'Review how the whole release fits together and turn the decisions into build tasks.'],
   ['Build', 'Build the agreed scope and run the checks needed to assemble a complete candidate.'],
@@ -135,6 +136,11 @@ export async function showProjectPhase() {
     title.textContent = saved ? `Work mode set to ${activeMode}` : `${activeMode} prompt`;
     const summary = modes.find(([name]) => name === activeMode)[1];
     prompt.value = `Use ${activeMode} for ${project.textContent.trim()}. Read the Project Bible skill and follow the ${activeMode} instructions in the chapter we’re discussing. ${summary} Tell me what we should do next.`;
+    if (activeMode === 'Explore') {
+      prompt.value += ' Use the Explore playbook. Start from evidence, frame the question, generate distinct ideas before judging them, and compare the strongest options. Save findings, proposals and the next question or test in the owning chapter before handing off.';
+    } else {
+      prompt.value += ' Save the decisions or results in the owning chapter as you work.';
+    }
     copyStatus.textContent = '';
     picker.hidden = true;
     confirmation.hidden = false;

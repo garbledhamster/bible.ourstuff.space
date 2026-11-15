@@ -20,6 +20,7 @@ Embed every image generated for the project in the chapter where it was made or 
 
 ### Work mode instructions
 
+- **Explore** · Compare who the project could serve, what they would come for, and which moment would show the promise.
 - **Grilling** · Agree on the audience, target devices, player promise, one representative moment, and what the first release includes. Save the creator’s approved visual reference and one prediction you can observe in play.
 - **Plan** · Open the project folder and initialize or locate Git. Set up the project Bible and task list, map the folders in the README, and turn the agreed scope and prediction into a release brief and first tasks.
 - **Build** · Save the starting revision, chosen art references, and release brief. Keep the runnable candidate and its entry point tied to the milestone in the brief.
@@ -114,6 +115,7 @@ I can see the visual direction the creator confirmed and read which details they
 
 ### Work mode instructions
 
+- **Explore** · Explore different ways to do the main activity. Compare where each makes the rules clearer or creates friction.
 - **Grilling** · Walk through the main activity with the creator. Decide what the person can do, what changes, what feedback they get, and how they recover when it goes wrong.
 - **Plan** · Write the rules and starting states in the order the player encounters them. Use `to-spec`, then `to-tickets`, and record both in the Project Bible. Give each playable or verifiable slice a task with instructions, subtasks, expected results, and its real blockers. [Plan and work through tasks](task-list-workflow.md)
 - **Build** · Implement the agreed rules as parts the sandbox and player scenes can share. Record which rules and recovery paths the build covers.
@@ -168,6 +170,7 @@ I can follow a task or turn through the document, try a rule and know what to lo
 
 ### Work mode instructions
 
+- **Explore** · Sketch several ways through the same screen or workflow. Choose one interaction to test at its smallest size.
 - **Grilling** · Walk through the interface with the creator. Agree on what people need to see, where they act, and which cues or recovery controls matter on each target.
 - **Plan** · Sketch the workflow at target sizes. List each screen, input, and state it must show. Name the authored buttons, frames, icons, and other assets Engine & Assets will need.
 - **Build** · Build the screens and bind the authored art to the actions and states. Capture representative screens at the intended sizes and link them to the sketch.
@@ -224,6 +227,7 @@ We have a sketch or prototype of the main workflow at the intended screen sizes,
 
 ### Work mode instructions
 
+- **Explore** · Compare the smallest engine or asset experiments that could show where the intended experience breaks down.
 - **Grilling** · Agree on the target and visual direction and identify the first interaction that will prove the engine and key assets fit the project.
 - **Plan** · Choose and pin the engine version. Inventory the runtime assets for that interaction, with sources, states, owners, and what to verify at game size.
 - **Build** · Create or import the assets and wire the first interaction. Record the clean launch command, link the files, and capture how the assets look in the engine.
@@ -324,6 +328,7 @@ Someone can start the game from a clean checkout and show one real interaction w
 
 ### Work mode instructions
 
+- **Explore** · Explore different cues for one moment, including when silence or a visual cue fits better. Try them in context.
 - **Grilling** · Agree on what the person should hear, which sounds carry information, and what they can see or use with sound off. Decide where music or silence serves the experience.
 - **Plan** · Make a cue and dialogue list for one representative encounter. Record the triggers, stop rules, sources, permissions, and the listening cases to run.
 - **Build** · Produce or source the files and wire them to the real events. Save the mix, caption or visual equivalents, and a repeatable listening case.
@@ -439,6 +444,7 @@ The release has a music plan, including a decision to go without music if that s
 
 ### Work mode instructions
 
+- **Explore** · List assumptions and edge cases. Pick the smallest resettable experiment that could change what you build.
 - **Grilling** · Decide which mechanics, failures, and recovery paths you need to try before assembling the player scenes.
 - **Plan** · List named starting states, how to enter and reset each case, what to do, and what should happen. Link each case to its rule and required assets.
 - **Build** · Build the developer entry point and exercise the cases through the same rules and inputs used in play. Link the runnable case and its evidence.
@@ -499,6 +505,7 @@ A contributor can open the dedicated sandbox, play every release mechanic and ea
 
 ### Work mode instructions
 
+- **Explore** · Explore alternate scene orders or prompts. Name what each might teach and where a playtest could distinguish them.
 - **Grilling** · Walk through each scene with the creator. Agree on what the person comes in knowing, what they do, and what should carry into the next scene.
 - **Plan** · Write each scene’s entry, actions, dialogue, outcome, and exits. Link the sandbox cases it needs and write the observations to collect in the playtest.
 - **Build** · Assemble scenes from verified pieces. Exercise each handoff through the normal player path and record the candidate and the playtest instructions.
@@ -535,6 +542,7 @@ A player can go from the start of the scene to an outcome, recover where they ne
 
 ### Work mode instructions
 
+- **Explore** · Compare ways to open, install, and return to the project. Try the one most likely to reveal first-run friction.
 - **Grilling** · Agree on how the intended audience will open, install, or return to the game and on what the launch must make available.
 - **Plan** · Write the launch, packaging, and versioning steps. List supported targets, controls, and the first-run, continue, and update paths that apply.
 - **Build** · Produce a versioned candidate with the pieces it needs to run. Save the build, source revision, and launch or install instructions.
@@ -569,6 +577,7 @@ I can repeat the build, open or install it on each target we're shipping, and pl
 
 ### Work mode instructions
 
+- **Explore** · Try several ways to help a newcomer reach one result. Look for where each example or hint helps.
 - **Grilling** · Choose one task a first-time player can try and decide what help they should be able to find if they get stuck.
 - **Plan** · Outline the demo entry and reset, the help topics, and what to capture. Link the scenes and sandbox cases that supply the real controls.
 - **Build** · Build or publish the demo using the verified interaction. Write the help and capture the walkthrough or screenshots from the playable build.
@@ -620,6 +629,7 @@ Record the passing sandbox cases and the release build, then watch a first-time 
 
 ### Work mode instructions
 
+- **Explore** · Compare plausible audiences, storefronts or distribution routes. Choose a small test for the biggest unknown.
 - **Grilling** · Decide who the release is for, what they get, where they get it, and whether and how they pay.
 - **Plan** · List the release checks, delivery steps, store or landing page assets, and who handles each step. Record the price, platform, and access decisions.
 - **Build** · Prepare the release candidate, copy, screenshots, and delivery links. Set up price, access, or payment in the release channel when applicable.
@@ -654,6 +664,7 @@ The release candidate passes on the targets and access conditions we promised. A
 
 ### Work mode instructions
 
+- **Explore** · Explore ways a new contributor could finish one useful change. Find where the current handoff gets in their way.
 - **Grilling** · Decide who will work on the project and what they should be able to change and verify on their first day.
 - **Plan** · Choose one real first task. List the access, setup, files, and checks a contributor needs to finish it.
 - **Build** · Write the quickstart and walk the task from a fresh checkout. Link the runnable build, evidence, and the decisions needed for the work.
@@ -684,6 +695,7 @@ A new contributor can follow the guide, make a small change from a clean startin
 
 ### Work mode instructions
 
+- **Explore** · Compare single-user and shared workflows against the need. Identify the simplest experiment that tests shared state.
 - **Grilling** · Decide whether the release supports shared play or multiple users. If it is single-player, record the scope and mark the chapter N/A.
 - **Plan** · For shared play, define what each person controls, who owns shared state, and what happens when someone leaves or disconnects. Plan one two-client case and the hosting checks.
 - **Build** · Build the smallest shared encounter and write how to start, join, and recover the service. Prove the encounter in the sandbox before assembling multiplayer scenes.
@@ -745,6 +757,7 @@ Every multiplayer mode promised for the release is playable from joining through
 
 ### Work mode instructions
 
+- **Explore** · Explore what players might need next and how each change affects existing saves, support and updates.
 - **Grilling** · Decide what sort of follow-up work belongs here and what promises earlier players keep when you change the game.
 - **Plan** · Choose the affected release, changes, and compatibility checks. Identify the previous build and save or account state to use for comparison.
 - **Build** · Build the update and prepare the release notes. Add any migration or recovery the update needs and link the checks it must pass.
@@ -779,6 +792,7 @@ The update or rehearsal passes the checks it affects, including the relevant pat
 
 ### Work mode instructions
 
+- **Explore** · Try different ways to ask for and observe feedback. Choose one that helps you understand what actually happened.
 - **Grilling** · Decide whose experience you need to learn from, when you’ll talk to them, and what you want to find out.
 - **Plan** · Choose the feedback channel, who reads and follows up, and where to keep the timestamped Feedback and Changelog files.
 - **Build** · Set up the feedback path and records. Prepare the questions or observation prompts and run one rehearsal before inviting people.
@@ -845,6 +859,7 @@ You've shipped something that works. Now you want more people to use it, more pe
 
 ### Work mode instructions
 
+- **Explore** · Find the first constraint growth would expose. Compare fixes and choose a small trial with a stop condition.
 - **Grilling** · Decide what to grow, for whom, and what people should still be able to count on. Ask what evidence would make it worth doing.
 - **Plan** · Record the baseline and likely constraint. Pick one increment, a budget and quality floor, and an owner who can stop the pilot.
 - **Build** · Make the smallest change that raises the limit. Give the operator the instructions and controls to run and stop the pilot.

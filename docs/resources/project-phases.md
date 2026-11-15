@@ -4,13 +4,14 @@ Choose the Work mode that fits what you want to do now. In a private project rea
 
 A mode tells the agent how to approach the work. A chapter tells you where the decision, task, or result belongs. You can switch from Build back to Grilling to revisit a decision, then return to Build. Use the recorded tasks and evidence to see how far the release has come.
 
-Start a new project in **1. Grilling** to figure out what you’re going to build. Follow this order as the work calls for it:
+Start a new project in **1. Explore** to learn where the idea could improve. Follow this order as the work calls for it:
 
-1. [Grilling](#grilling)
-2. [Plan](#plan)
-3. [Build](#build)
-4. [Testing](#testing)
-5. [Maintenance](#maintenance)
+1. [Explore](#explore)
+2. [Grilling](#grilling)
+3. [Plan](#plan)
+4. [Build](#build)
+5. [Testing](#testing)
+6. [Maintenance](#maintenance)
 
 You can switch to any mode at any time. The Work mode lives above the chapters in the project’s Markdown, for example `**Current phase:** Build`. Keeping that field lets older readers display the saved choice.
 
@@ -18,10 +19,19 @@ You can switch to any mode at any time. The Work mode lives above the chapters i
 
 1. Find or create your project folder and follow the [setup instructions](../AGENTS.md) to initialize the repository, install the shared Bible, and set up the project Bible and task list.
 2. Set the current release and choose a Work mode. Start at [Vision & Scope](game-bible-guide.md#vision--scope), and work through the chapters that apply in order.
-3. Open **Work mode instructions** in each chapter. Record the result at that chapter before depending on it elsewhere. Carry Grilling answers into Plan tasks, attach the Build output to the task, record the Testing result, and link Maintenance changes back to the decisions and evidence they affect.
+3. Open **Work mode instructions** in the chapter you’re working on. Fill in what you learn as you go and save it before handing off. Record Explore findings and proposals, Grilling decisions and reasons, Plan tasks and acceptance checks, Build outputs, Testing results, and Maintenance fixes and evidence. Link the relevant task or artifact and name the next action and its owner.
 4. Use the checks below when deciding what work to do next. If a new finding changes an earlier decision, reopen that decision and repeat the affected work. Keep the next action visible in the Bible.
 
 For example, in Zoo Helper, the visitor queue starts with a decision about what a child should see and hear. Plan turns it into a task with starting conditions and expected results. Build makes the queue playable and resettable. Testing watches a child try it and checks the cue with sound off. Maintenance links any later fix to the observation that prompted it.
+
+## Explore
+
+Use Explore when you have an early idea, a chapter feels thin, or feedback shows the current design could work better. Start in the chapter that owns the question. Read what the project already says, look at the actual work or feedback, and name what you want to improve. Record where each observation came from and what you still need to find out.
+
+1. **Frame the question.** Use the [Double Diamond](https://www.designcouncil.org.uk/resources/the-double-diamond/) to look beyond the first explanation. For example, turn “add a tutorial” into “How might we help a first-time player choose the right queue without stopping play?”
+2. **Generate before judging.** Brainwrite several distinct ideas privately before comparing any. In a group, run [1-2-4-All](https://www.liberatingstructures.com/1-2-4-all): think alone, compare in pairs, combine ideas in fours, then share patterns. A solo agent can draft separate passes from the player, designer, and maintainer viewpoints. Keep one option based on the workflow that already exists.
+3. **Compare and test.** Group related ideas, then compare which address the observed problem, what they cost to try, and what could prove them wrong. Pick the smallest useful test. For the queue, try floor markings, a character cue, and a quieter layout with the next person who plays. Record which cue they notice and what they do with it.
+4. **Update the chapter before handing off.** Save the question, sources, strongest alternatives, recommendation and reason, and the next test or decision with an owner. Label proposals and assumptions so the team can tell them apart from observed results and approved decisions. Bring choices that need the creator into Grilling. Carry accepted outcomes into Plan.
 
 ## Grilling
 

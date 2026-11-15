@@ -98,3 +98,7 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 **Paraphrase.** Include the questions and decisions from the chapters I worked through as well as the ones the agents answered. Show who asked and who answered. Let me work through any of the questions with the agent, and make that part of the shared Bible and skill.
 
 [Grilling work mode](project-phases.md#grilling)
+
+### 2026-11-15T10:04:53-06:00 · Joe · Explore and keep chapters current
+
+**Paraphrase.** Give agents an Explore mode with structured brainstorming so they can look for ways to improve an idea. Make it clear when agents fill in chapters. Ship the change through the normal browser and command-line update paths.

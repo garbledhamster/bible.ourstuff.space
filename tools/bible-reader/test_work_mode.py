@@ -40,13 +40,13 @@ class WorkModeTest(unittest.TestCase):
 
                 status, current = request("GET", "/zoo/")
                 self.assertEqual((status, current["mode"]), (200, "Build"))
-                payload = {"mode": "Grilling", "revision": current["revision"]}
+                payload = {"mode": "Explore", "revision": current["revision"]}
                 self.assertEqual(request("POST", "/other/", payload)[0], 404)
-                self.assertEqual(request("POST", "/zoo/", {**payload, "mode": "Explore"})[0], 400)
+                self.assertEqual(request("POST", "/zoo/", {**payload, "mode": "Unknown"})[0], 400)
                 self.assertEqual(request("POST", "/zoo/", payload, "https://example.org")[0], 403)
                 status, saved = request("POST", "/zoo/", payload)
-                self.assertEqual((status, saved["mode"]), (200, "Grilling"))
-                self.assertEqual(zoo.read_bytes(), original.replace(b"Build", b"Grilling", 1))
+                self.assertEqual((status, saved["mode"]), (200, "Explore"))
+                self.assertEqual(zoo.read_bytes(), original.replace(b"Build", b"Explore", 1))
                 self.assertEqual(request("GET", "/zoo/")[1], saved)
                 with zoo.open("ab") as output:
                     output.write(b"Agent note.\r\n")
@@ -58,4 +58,4 @@ class WorkModeTest(unittest.TestCase):
                 self.assertEqual(request("POST", "/island/", {**current, "mode": "Plan"})[0], 200)
                 self.assertEqual(island.read_bytes(),
                                  b"# Project Bible: Island\n\n**Current phase:** Plan\n\n## Vision\nKeep this too.\n")
-                self.assertEqual(request("GET", "/zoo/")[1]["mode"], "Grilling")
+                self.assertEqual(request("GET", "/zoo/")[1]["mode"], "Explore")
