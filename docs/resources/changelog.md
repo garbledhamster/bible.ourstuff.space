@@ -110,3 +110,9 @@ Added Explore to the shared reader, agent prompt, template, and all 15 chapter g
 The Work mode guide, chapter guide, template, skill and prompts now explain when chapter drafting begins. Explore keeps its own purpose and working record.
 
 [Plan](project-phases.md#plan) · [Build](project-phases.md#build)
+
+### 2026-11-15T10:28:39-06:00 · Choose a layout when reading a chapter
+
+Added Editorial brief, Illustrative, Architect, and Build handoff to the existing Review view. Each layout uses the same chapter text and artifacts. Build handoff reads the project Task List and opens task or subtask details when you click its existing ticket ID. Checked the reader at desktop and phone widths with the Manager’s real chapter and Task List.
+
+[Choose how to read a chapter](project-phases.md#choose-how-to-read-a-chapter)

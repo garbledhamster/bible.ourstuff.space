@@ -4,6 +4,7 @@ import { parseChapterGuide } from './chapter-content.js';
 
 const guideUrl = new URL('./resources/game-bible-guide.md', import.meta.url);
 const readerUrl = new URL('./read.html', import.meta.url);
+const taskSource = new URL('./resources/island-post/task-list.md', import.meta.url);
 let chapterRequest;
 
 function loadChapterContent() {
@@ -134,7 +135,7 @@ const chapterChoices = document.querySelector('#chapter-choices');
 const chapterDialog = document.querySelector('#chapter-dialog');
 const chapterDialogBody = chapterDialog.querySelector('.chapter-detail-body');
 const chapterDialogTitle = chapterDialog.querySelector('h2');
-const work = chapterWork(chapterDialog, chapterDialogBody);
+const work = chapterWork(chapterDialog, chapterDialogBody, { taskSource });
 const chapterDialogNumber = chapterDialog.querySelector('.chapter-number');
 const chapterPrevious = document.querySelector('#chapter-previous');
 const chapterNext = document.querySelector('#chapter-next');
@@ -432,7 +433,7 @@ showLinkedPanel();
 
 const taskLink = document.querySelector('#references [data-global-task-list]');
 void enableGlobalTaskList({
-  source: new URL('./resources/island-post/task-list.md', import.meta.url),
+  source: taskSource,
   chapters: () => chapters.map(([title]) => title),
   links: [taskLink],
   footer: document.querySelector('.resources .link-row'),

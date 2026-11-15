@@ -106,3 +106,7 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:08:03-06:00 · Joe · When to write the chapters
 
 **Paraphrase.** Explore is for exploring ideas. Write the chapters after Grilling and Plan, before building the agreed work. Update the chapters as the Build work happens.
+
+### 2026-11-15T10:28:39-06:00 · Joe · Selectable chapter layouts
+
+**Paraphrase.** Keep the existing view as the default and offer alternate ways to read each chapter. Include a short sheet for completed and remaining work, with clickable ticket numbers.

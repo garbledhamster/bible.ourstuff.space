@@ -1,4 +1,5 @@
 @import url("./chapter-covers.css");
+@import url("./chapter-layouts.css");
 
 :where(.chapter, .chapter-choice, #chapter-dialog) {
   --cover: #c9bcfa;

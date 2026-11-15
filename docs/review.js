@@ -1,3 +1,5 @@
+import { chapterLayoutPicker, chapterLayoutView } from './chapter-layouts.js';
+
 function element(tag, name, value) {
   const output = document.createElement(tag);
   if (name) output.className = name;
@@ -59,14 +61,22 @@ function artifacts(content) {
   return items;
 }
 
-export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
+export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource } = {}) {
   const tabs = element('nav', 'chapter-work');
   tabs.setAttribute('aria-label', 'Chapter views');
   const reviewButton = button('Review', () => show('review'));
   const tasksButton = button('Tasks', () => show('tasks'));
   const back = button('Back to chapters', () => dialog.close());
   back.className = 'back';
-  tabs.append(reviewButton, tasksButton, back);
+  let layout = 'default';
+  let showLayout;
+  const picker = chapterLayoutPicker(next => {
+    pause();
+    layout = next;
+    showLayout?.(layout);
+    body.scrollTop = 0;
+  });
+  tabs.append(reviewButton, tasksButton, picker.label, back);
   body.before(tabs);
   const selections = new Map();
   const taskViews = new Map();
@@ -82,6 +92,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
     view = next;
     review.hidden = view !== 'review';
     tasks.hidden = view !== 'tasks';
+    picker.label.hidden = view !== 'review';
     reviewButton.setAttribute('aria-pressed', String(!review.hidden));
     tasksButton.setAttribute('aria-pressed', String(!tasks.hidden));
     if (view === 'tasks') {
@@ -137,6 +148,8 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
       caption.append(controls);
       if (item.caption) caption.append(element('p', '', item.caption));
       const context = button('See in chapter', () => {
+        const section = item.node.closest('details');
+        if (section) section.open = true;
         item.node.tabIndex = -1;
         item.node.focus({ preventScroll: true });
         item.node.scrollIntoView({ block: 'center' });
@@ -147,7 +160,8 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview } = {}) {
     }
     drawGallery();
     review = element('div');
-    review.append(gallery, content);
+    showLayout = chapterLayoutView(review, gallery, content, chapter, { taskSource });
+    showLayout(layout);
     if (!taskViews.has(chapter)) {
       const panel = element('section', 'chapter-tasks');
       panel.setAttribute('aria-label', 'Chapter tasks');

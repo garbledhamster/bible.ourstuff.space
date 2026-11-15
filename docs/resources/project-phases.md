@@ -15,6 +15,12 @@ Start a new project in **1. Explore** to learn where the idea could improve. Fol
 
 You can switch to any mode at any time. The Work mode lives above the chapters in the project’s Markdown, for example `**Current phase:** Build`. Keeping that field lets older readers display the saved choice.
 
+## Choose how to read a chapter
+
+Open a chapter and use **Layout** in **Review**. **Default** opens the regular chapter view. **Editorial brief** puts the prose and a section index together. **Illustrative** gives the chapter’s existing images, media, and linked resources more room. **Architect** lets you expand and collapse sections. **Build handoff** puts the task sheet first so you can see what’s remaining or complete. Click a ticket ID on the sheet to open its details.
+
+Switching layouts displays the same chapter and task records. The **Tasks** tab is still available for edits.
+
 ## Start to finish
 
 1. Find or create your project folder and follow the [setup instructions](../AGENTS.md) to initialize the repository, install the shared Bible, and set up the project Bible and task list.
