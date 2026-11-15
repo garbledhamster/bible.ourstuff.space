@@ -20,6 +20,8 @@ Read [Project phases](../project-phases.md) and check the current phase in the p
 
 ## Use the project task list
 
+Read [Work through the Task List](../task-list-workflow.md) when picking up or updating tasks. Edit the project’s Markdown file directly. Check the **Blockers** field before starting work, use **In progress** when you pick up a task, and record the result with evidence before marking it **Complete**. Write meaningful verified changes into the project’s Changelog and link the task or its evidence.
+
 - At start, read the checklist recorded in the project README. The default is `docs/task-list.md`. If a project has no checklist, follow the setup instructions and seed it with confirmed work for the active release. In the shared Bible checkout, use [the Island Post checklist](../island-post/task-list.md) for the worked example.
 - Group actionable tasks under their Bible chapter headings, in chapter order. For Markdown checklists, use `- [ ]` for open work and `- [x]` for verified work. Keep an existing editable task table and its asset links where the project uses one. Add a short status such as **Ready**, **In progress**, **Waiting**, or **Later** when it helps. For waiting work, say who or what can unblock it. Link existing tickets and completion evidence from the task.
 - Update the checklist when work starts, a dependency or owner changes, or a check passes. Before handing off, reread the file and update the affected tasks while preserving other contributors’ entries. Keep completed tasks checked with their evidence. Leave unverified tasks open.

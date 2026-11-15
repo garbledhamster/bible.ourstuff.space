@@ -13,6 +13,21 @@ async function loadChapterWork() {
 
 void loadChapterWork();
 
+async function loadGlobalTaskList() {
+  const sharedStyle = document.querySelector('link[data-chapter-work][href$="/review.css"]')
+    ?? document.querySelector('link[href$="/project-masthead.css"]');
+  if (!sharedStyle || new URL(sharedStyle.href).origin !== location.origin) return;
+  try {
+    const { installPrivateTaskList } = await import(new URL('private-task-list.js', sharedStyle.href));
+    await installPrivateTaskList();
+  } catch {
+    // Older checkouts and readers without a configured Task List keep their existing links.
+  }
+}
+
+if (document.querySelector('#references a[href="read.html?file=task-list.md"]')) void loadGlobalTaskList();
+
+
 async function loadProjectPhase() {
   if (!document.querySelector('.project-masthead-name')) return;
   const sharedStyle = document.querySelector('link[data-chapter-work][href$="/review.css"]')

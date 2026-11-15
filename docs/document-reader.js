@@ -35,7 +35,7 @@ function escapeHtml(text) {
   return text.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 }
 
-function renderMarkdown(markdown, source, reader) {
+export function renderMarkdown(markdown, source, reader) {
   const tokens = marked.lexer(markdown.replace(/^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)/, ''));
   resolveDocumentLinks(tokens, source, reader);
   const headings = new Set();

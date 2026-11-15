@@ -1,3 +1,4 @@
+import { enableGlobalTaskList } from './global-task-list.js';
 import { chapterWork } from './review.js';
 import { parseChapterGuide } from './chapter-content.js';
 
@@ -421,3 +422,11 @@ document.fonts.ready.then(() => {
 window.addEventListener('hashchange', showLinkedPanel);
 renderPanelPosition();
 showLinkedPanel();
+
+const taskLink = document.querySelector('#references [data-global-task-list]');
+void enableGlobalTaskList({
+  source: new URL('./resources/island-post/task-list.md', import.meta.url),
+  chapters: () => chapters.map(([title]) => title),
+  links: [taskLink],
+  footer: document.querySelector('.resources .link-row'),
+});

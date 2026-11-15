@@ -1,15 +1,19 @@
+import { chapterKey, readTaskList } from './task-document.js';
+
 const metadata = / <!-- task:([\w-]+) (Answer|Build|Check) ([01]) -->$/;
 const slug = title => title.toLowerCase().replaceAll('&', 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const createId = () => Array.from(crypto.getRandomValues(new Uint8Array(16)), byte =>
   byte.toString(16).padStart(2, '0')).join('');
 const table = ['| Asset | Task | Status | Next action |', '| --- | --- | --- | --- |'];
 const split = line => line.slice(1, -1).split(/(?<!\\)\|/).map(cell => cell.trim());
+const assigneesTag = /\s*<!-- assignees: \[.*?\] -->\s*$/;
 const escapeCell = value => value.trim().replace(/(?<!\\)\|/g, '\\|');
 
 function read(markdown) {
   const lines = markdown.split('\n');
   const rows = [];
   let chapter;
+  const parsed = new Map(readTaskList(markdown).tasks.map(task => [task.start, task]));
   lines.forEach((raw, index) => {
     if (raw.startsWith('## ')) chapter = slug(raw.slice(3));
     if (!chapter || !raw.startsWith('|') || !raw.endsWith('|')) return;
@@ -17,7 +21,7 @@ function read(markdown) {
     if (cells.length !== 4 || cells[0] === 'Asset' || /^:?-+:?$/.test(cells[0])) return;
     const tag = cells[2].match(metadata);
     cells[2] = cells[2].replace(metadata, '');
-    rows.push({ raw, index, chapter, cells, id: tag?.[1], kind: tag?.[2] ?? (chapter.includes('sandbox') || chapter.includes('playtest') ? 'Check' : 'Build'), done: tag?.[3] === '1' });
+    rows.push({ raw, index, chapter, cells, members: parsed.get(index)?.members, id: tag?.[1], kind: tag?.[2] ?? (chapter.includes('sandbox') || chapter.includes('playtest') ? 'Check' : 'Build'), done: tag?.[3] === '1' });
   });
   return { lines, rows };
 }
@@ -48,7 +52,14 @@ export async function chapterTasks(container, chapter, { endpoint, renderBible, 
   addForm.innerHTML = '<input aria-label="New task" placeholder="New task" maxlength="600" required><button>Add task</button>';
   const input = addForm.querySelector('input');
   addForm.hidden = true;
-  container.append(result, list, addForm, legacy);
+  const global = document.createElement('button');
+  global.type = 'button';
+  global.textContent = 'Manage these tasks in Task List';
+  global.hidden = !document.getElementById('bible-task-list');
+  global.onclick = () => document.dispatchEvent(new CustomEvent('open-bible-task-list', {
+    detail: chapterKey(chapterTitle),
+  }));
+  container.append(global, result, list, addForm, legacy);
   let busy = false;
   let expanded;
 
@@ -117,7 +128,7 @@ export async function chapterTasks(container, chapter, { endpoint, renderBible, 
       item.dataset.done = row.done;
       title.textContent = row.cells[1];
       kind.textContent = row.kind;
-      owner.textContent = row.cells[3].match(/^([^·]+) · /)?.[1] ?? 'Unassigned';
+      owner.textContent = (row.members?.join(', ') ?? row.cells[3].match(/^([^·]+) · /)?.[1]) || 'Unassigned';
     };
     update();
     detail.innerHTML = '<label>Task<input name="task" required></label><label>Kind<select name="kind"><option>Answer</option><option>Build</option><option>Check</option></select></label><label>Status<input name="status" required></label><label>Owner, next action and evidence<textarea name="next"></textarea></label><label>Attachment Markdown<input name="asset"></label><div class="task-attachment"></div><p class="task-conflict" hidden></p><button type="submit">Save task</button>';
@@ -126,11 +137,11 @@ export async function chapterTasks(container, chapter, { endpoint, renderBible, 
     const conflict = detail.querySelector('.task-conflict');
     function loadFields() {
       const [asset, task, status, next] = row.cells;
-      for (const [key, value] of Object.entries({ asset, task, status, next, kind: row.kind })) {
+      for (const [key, value] of Object.entries({ asset, task, status, next: next.replace(assigneesTag, ''), kind: row.kind })) {
         controls.namedItem(key).value = value;
       }
       preview.replaceChildren();
-      try { preview.innerHTML = renderBible([asset, next].filter(Boolean).join('\n\n'), source); }
+      try { preview.innerHTML = renderBible([asset, next.replace(assigneesTag, '')].filter(Boolean).join('\n\n'), source); }
       catch { preview.textContent = next; }
     }
     loadFields();
@@ -167,7 +178,9 @@ export async function chapterTasks(container, chapter, { endpoint, renderBible, 
       event.preventDefault();
       const values = ['asset', 'task', 'status', 'next'].map(key => escapeCell(controls.namedItem(key).value.replace(/[\r\n]+/g, ' ')));
       if (!values[1] || !values[2]) return;
-      apply({ ...(latest ?? row), cells: values, kind: controls.namedItem('kind').value });
+      const current = latest ?? row;
+      values[3] = (values[3] + (current.cells[3].match(assigneesTag)?.[0] ?? '')).trim();
+      apply({ ...current, cells: values, kind: controls.namedItem('kind').value });
     };
     return item;
   }

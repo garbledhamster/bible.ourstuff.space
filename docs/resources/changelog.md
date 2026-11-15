@@ -64,3 +64,7 @@ Added work and handoff instructions for Grilling, Plan, Build, Testing, and Main
 ### 2026-11-14T22:49:04-06:00 · Frostbolt spell example
 
 Added a [painted spellbook illustration and gameplay sheet](game-bible-guide.md#frostbolt-spell-example) for Frostbolt. The frame map covers cast, flight, and impact in four directions. The preview plays the exported spell at 1× beside the illustration. [Feedback](feedback.md#entries)
+
+### 2026-11-14T23:00:34-06:00 · Global Task List and blockers
+
+Added Tasks across chapters. Private readers save changes to the same Markdown agents edit. The form has separate Assignees and Blockers fields. Ready to work shows open or ready tasks that have no blocker. Added [task and Changelog instructions](task-list-workflow.md). Checked desktop and phone flows, direct file edits, shared assignments, and protection against stale browser saves. [Feedback](feedback.md#entries)

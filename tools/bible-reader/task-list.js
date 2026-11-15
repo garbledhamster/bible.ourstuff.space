@@ -1,3 +1,4 @@
+const assigneesTag = /\s*<!-- assignees: \[.*?\] -->\s*$/;
 const fields = [
   ['task', 'Task'], ['status', 'Status'], ['next', 'Next action and evidence'],
   ['image', 'Thumbnail path'], ['alt', 'Image description'], ['full', 'Full-size image path'],
@@ -93,7 +94,7 @@ export async function startTaskList(markdown) {
       const [asset, task, savedStatus, next] = active.cells;
       const status = savedStatus.replace(/ <!-- task:[\w-]+ (?:Answer|Build|Check) [01] -->$/, '');
       const match = asset.match(/^(?:\[)?!\[([^\]]*)\]\(([^)]+)\)(?:\]\(([^)]+)\))?$/);
-      const values = { task, status, next, alt: match?.[1] ?? '', image: match?.[2] ?? '', full: match?.[3] ?? '' };
+      const values = { task, status, next: next.replace(assigneesTag, ''), alt: match?.[1] ?? '', image: match?.[2] ?? '', full: match?.[3] ?? '' };
       for (const [name] of fields) controls[name].value = values[name];
       result.hidden = true;
       dialog.showModal();
@@ -113,7 +114,7 @@ export async function startTaskList(markdown) {
       if (!values.task || !values.status) throw new Error('Enter a task and status.');
       if (values.image && !values.alt) throw new Error('Describe the image so readers know what it shows.');
       const lines = snapshot.markdown.split('\n');
-      lines[active.index] = `| ${[imageCell(values), values.task, values.status + (active.cells[2].match(/ <!-- task:[\w-]+ (?:Answer|Build|Check) [01] -->$/)?.[0] ?? ''), values.next].join(' | ')} |`;
+      lines[active.index] = `| ${[imageCell(values), values.task, values.status + (active.cells[2].match(/ <!-- task:[\w-]+ (?:Answer|Build|Check) [01] -->$/)?.[0] ?? ''), (values.next + (active.cells[3].match(assigneesTag)?.[0] ?? '')).trim()].join(' | ')} |`;
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Bible-Task-List': '1' },

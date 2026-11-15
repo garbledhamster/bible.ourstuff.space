@@ -58,3 +58,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T22:49:04-06:00 · Joe · Magic spell example
 
 **Paraphrase.** The sword sheet and playback match what I had in mind. Make another example for a magic spell. [Frostbolt spell example](game-bible-guide.md#frostbolt-spell-example)
+
+### 2026-11-14T23:00:34-06:00 · Joe · Global Task List and blockers
+
+**Paraphrase.** Build the global list into the Bible and let agents edit tasks directly in each clone. Put assignees in their own box, give blockers their own field, and include In progress, Hold, Complete, and Cancelled. Show agents how to pick up unblocked tasks and record verified work in Changelog.
