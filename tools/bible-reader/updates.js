@@ -182,16 +182,23 @@ if (title) {
 }
 
 function addChangelog(title) {
-  const shortcut = document.createElement('button');
-  shortcut.type = 'button';
-  shortcut.textContent = 'Changelog';
+  const references = title.closest('#references');
+  const projectLink = references.querySelector('a[href*="file=changelog.md"]');
+  const shortcut = projectLink ?? document.createElement('a');
+  if (!projectLink) {
+    shortcut.href = new URL('bible-changelog.md', location.href);
+    shortcut.textContent = 'Changelog';
+    const notes = [...references.querySelectorAll('.link-row')].find(row => row.textContent.includes('Joe’s Notes'));
+    const row = notes ?? references.appendChild(document.createElement('p'));
+    row.classList.add('link-row');
+    const separator = document.createElement('span');
+    separator.className = 'separator';
+    separator.setAttribute('aria-hidden', 'true');
+    separator.textContent = '  •  ';
+    row.append(separator, shortcut);
+  }
   shortcut.dataset.bibleChangelog = '';
   shortcut.setAttribute('aria-haspopup', 'dialog');
-
-  const references = title.closest('#references');
-  const notes = [...references.querySelectorAll('.link-row')].find(row => row.textContent.includes('Joe’s Notes'));
-  const row = notes ?? references.appendChild(document.createElement('p'));
-  row.append(' · ', shortcut);
 
   const dialog = document.createElement('dialog');
   dialog.className = 'bible-update bible-changelog';
@@ -204,7 +211,8 @@ function addChangelog(title) {
     <section><h3>Project changes</h3><div data-project></div></section>
     <section><h3>Shared Bible changes</h3><div data-shared></div></section>`;
   document.body.append(dialog);
-  shortcut.addEventListener('click', () => {
+  shortcut.addEventListener('click', event => {
+    event.preventDefault();
     dialog.showModal();
     void showLog(dialog.querySelector('[data-project]'), 'project-changelog.md',
       'No project changes recorded.');

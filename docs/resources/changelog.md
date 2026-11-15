@@ -158,3 +158,7 @@ Keep the current draft when a change would exceed its save or bundle limit. Edit
 Added a seventh Work mode between Plan and Build. Each chapter now describes what to show on the board, with a wide lead outcome and four captioned detail panels. The shared template uses the same grid at desktop sizes and reads in one column on narrow screens. Build starts from the creator’s approved visual and its reproducible specifications.
 
 Verified the Work mode change through the reader API, the shared reader tests and the site build. [Work modes](project-phases.md#concept-generation) · [Board guide](concept-boards.md) · [Feedback](feedback.md#entries)
+
+### 2026-11-15T14:02:27-06:00 · Private Changelog shortcut
+
+The Changelog shortcut opens the project and installed shared logs together. Readers with an existing Changelog link use that same link. Checked both lists in the hockey reader at desktop and phone widths.

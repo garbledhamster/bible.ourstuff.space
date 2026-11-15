@@ -118,9 +118,3 @@ dialog.bible-changelog { width: min(620px, calc(100% - 24px)); }
 .bible-changelog h3 { margin: 1em 0 .4em; }
 .bible-changelog ul { margin: 0; padding-inline-start: 1.25em; }
 .bible-changelog li { margin-block: .55em; line-height: 1.45; }
-#references [data-bible-changelog] {
-  color: inherit;
-  font: inherit;
-  text-decoration: underline;
-  text-underline-offset: .2em;
-}
