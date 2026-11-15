@@ -31,6 +31,8 @@ Choose one cell size large enough for the widest pose. Fix the foot anchor, body
 
 ## Make and inspect the sheet
 
+The [Sprite Generator](sprite-generator.md) lets you check poses and arrange fixed cells when your private Project Bible reader has it enabled.
+
 Generate or draw a coherent strip from one chosen seed frame. For generated art, request the full strip with the exact frame count, facing direction, outfit, palette, scale, and transparent background. Preserve the source and prompt. Inspect every frame: generated sheets can repeat poses, change clothing, drift in size, or paint a checkerboard instead of providing transparency.
 
 Export either a fixed-cell sheet or an image with an atlas JSON describing each frame. A reference sheet with uneven poses, captions, and spacing is useful to look at, but needs explicit frame rectangles before the engine can use it. Normalize with a shared scale and anchor, or preserve the image and use atlas trim metadata to align frames. Resizing each pose independently changes body size during the animation.
