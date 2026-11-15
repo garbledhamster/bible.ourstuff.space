@@ -144,3 +144,7 @@ The review found that individually valid PNGs could make a draft too large to sa
 **Paraphrase.** Give every chapter a visual concept page, using the Conscious Explorer grid with a lead image and four supporting panels. Work in Concept Generation after planning. Save the visuals and the fonts, positions, and screen details needed to build what Joe approves.
 
 [Concept Generation](project-phases.md#concept-generation)
+
+### 2026-11-15T14:03:27-06:00 · Joe · Anchor the ticket callout
+
+**Paraphrase.** Use the first mockup. The card should point to the ticket you clicked and move around depending on the space available.

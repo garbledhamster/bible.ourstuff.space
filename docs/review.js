@@ -1,4 +1,5 @@
 import { chapterLayoutPicker, chapterLayoutView } from './chapter-layouts.js';
+import { createTicketCallout } from './ticket-callout.js';
 
 function element(tag, name, value) {
   const output = document.createElement(tag);
@@ -62,6 +63,8 @@ function artifacts(content) {
 }
 
 export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource } = {}) {
+  const ticketCallout = createTicketCallout(dialog);
+  dialog.addEventListener('close', () => ticketCallout?.close());
   const tabs = element('nav', 'chapter-work');
   tabs.setAttribute('aria-label', 'Chapter views');
   const reviewButton = button('Review', () => show('review'));
@@ -71,6 +74,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource 
   let layout = 'default';
   let showLayout;
   const picker = chapterLayoutPicker(next => {
+    ticketCallout?.close();
     pause();
     layout = next;
     showLayout?.(layout);
@@ -88,7 +92,10 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource 
 
   function show(next) {
     if (!review || !body.contains(review)) return;
-    if (view !== next) pause();
+    if (view !== next) {
+      ticketCallout?.close();
+      pause();
+    }
     view = next;
     review.hidden = view !== 'review';
     tasks.hidden = view !== 'tasks';
@@ -102,6 +109,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource 
   }
 
   function render(chapter, next, checklist = []) {
+    ticketCallout?.close();
     slug = chapter;
     const content = element('div', 'chapter-review-content');
     content.append(...body.childNodes);
@@ -160,7 +168,7 @@ export function chapterWork(dialog, body, { loadTasks, audioPreview, taskSource 
     }
     drawGallery();
     review = element('div');
-    showLayout = chapterLayoutView(review, gallery, content, chapter, { taskSource });
+    showLayout = chapterLayoutView(review, gallery, content, chapter, { taskSource, ticketCallout });
     showLayout(layout);
     if (!taskViews.has(chapter)) {
       const panel = element('section', 'chapter-tasks');

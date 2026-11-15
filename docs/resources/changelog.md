@@ -162,3 +162,9 @@ Verified the Work mode change through the reader API, the shared reader tests an
 ### 2026-11-15T14:02:27-06:00 · Private Changelog shortcut
 
 The Changelog shortcut opens the project and installed shared logs together. Readers with an existing Changelog link use that same link. Checked both lists in the hockey reader at desktop and phone widths.
+
+### 2026-11-15T14:09:11-06:00 · Open ticket details in an anchored callout
+
+Select a ticket ID in Work queue or Build handoff to read the recorded status, assignees, blockers, next action, subtasks, and references. The callout points to the selected ID, fits to the space around it, and scrolls for long tickets.
+
+Checked placement at 1,440, 390, and 320 pixels, including resizing while open, keyboard dismissal, and focus return. [Chapter layouts](project-phases.md#choose-how-to-read-a-chapter) · [Feedback](feedback.md#2026-11-15t140327-0600--joe--anchor-the-ticket-callout)

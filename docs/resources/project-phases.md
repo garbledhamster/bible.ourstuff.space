@@ -18,9 +18,11 @@ You can switch to any mode at any time. The Work mode lives above the chapters i
 
 ## Choose how to read a chapter
 
-Open a chapter and use **Layout** in **Review**. **Default** opens the regular chapter view. **Editorial brief** puts the prose and a section index together. **Illustrative** gives the chapter’s existing images, media, and linked resources more room. **Architect** lets you expand and collapse sections. **Build handoff** puts the task sheet first so you can see what’s remaining or complete. Click a ticket ID on the sheet to open its details.
+Open a chapter and use **Layout** in **Review**. **Default** opens the regular chapter view. **Editorial brief** puts the prose and a section index together. **Illustrative** gives the chapter’s existing images, media, and linked resources more room. **Architect** lets you expand and collapse sections. **Build handoff** puts the task sheet first so you can see what’s remaining or complete.
 
 Use **Work queue** to pick up open work or see what’s waiting. It brings recorded assignments and blockers alongside the ticket. Use **Marketing brief** to jump to sections named for topics such as audience, release scope, and store copy, with the full chapter below.
+
+In **Work queue** or **Build handoff**, select a ticket ID to read the ticket in a callout. The pointer stays aimed at the ticket as the card moves to fit the available space. Scroll inside the card for longer tickets. Close it with **×**, Escape, or a click outside the card.
 
 Switching layouts displays the same chapter and task records. The **Tasks** tab is still available for edits.
 

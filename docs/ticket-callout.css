@@ -1,0 +1,147 @@
+#chapter-dialog .ticket-callout {
+  --ticket-border: #c9bbd2;
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  padding: 0;
+  width: min(29rem, var(--ticket-viewport-width, calc(100vw - 24px)));
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  border: 1px solid var(--ticket-border);
+  border-radius: .625rem;
+  background: #fff;
+  color: #34273c;
+  color-scheme: light;
+  box-shadow: 0 10px 28px #24162d38;
+  font: 1rem/1.5 var(--sans);
+  overflow-wrap: anywhere;
+}
+#chapter-dialog .ticket-callout::before {
+  content: "";
+  position: absolute;
+  width: .75rem;
+  height: .75rem;
+  box-sizing: border-box;
+  border: solid var(--ticket-border);
+  border-width: 0;
+  background: #fff;
+  transform: translate(-50%, -50%) rotate(45deg);
+  pointer-events: none;
+}
+#chapter-dialog .ticket-callout[data-side="right"]::before {
+  left: 0;
+  top: var(--ticket-pointer);
+  border-width: 0 0 1px 1px;
+}
+#chapter-dialog .ticket-callout[data-side="left"]::before {
+  left: 100%;
+  top: var(--ticket-pointer);
+  border-width: 1px 1px 0 0;
+}
+#chapter-dialog .ticket-callout[data-side="bottom"]::before {
+  left: var(--ticket-pointer);
+  top: 0;
+  border-width: 1px 0 0 1px;
+}
+#chapter-dialog .ticket-callout[data-side="top"]::before {
+  left: var(--ticket-pointer);
+  top: 100%;
+  border-width: 0 1px 1px 0;
+}
+.ticket-callout-content {
+  max-height: clamp(0px, calc(var(--ticket-height, 80dvh) - 2px), 34rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1rem clamp(.875rem, 3vw, 1.375rem);
+}
+#chapter-dialog .ticket-callout-close {
+  position: absolute;
+  z-index: 1;
+  top: .375rem;
+  right: .375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid #c9bbd2;
+  border-radius: .375rem;
+  color: #4e3066;
+  background: #fff;
+  font: 400 1.4rem/1 var(--sans);
+}
+.ticket-callout-heading {
+  padding-inline-end: 2.125rem;
+}
+#chapter-dialog .ticket-callout-heading h3 {
+  color: #281d31;
+  font: 700 var(--chapter-section-size)/1.2 var(--sans);
+  margin: .25rem 0 .75rem;
+  text-wrap: pretty;
+}
+.ticket-callout-id {
+  color: #4e3066;
+  font-size: .875rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.ticket-callout-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .375rem .875rem;
+  margin-bottom: .875rem;
+  color: #504158;
+  font-size: .875rem;
+}
+.ticket-callout-status {
+  padding: .15em .55em;
+  border-radius: .25rem;
+  background: #efe5f6;
+  color: #432953;
+  font-weight: 700;
+}
+.ticket-callout-section {
+  padding-block: .7rem;
+  border-top: 1px solid #e4dbe8;
+}
+.ticket-callout-section:last-child { padding-bottom: 0; }
+#chapter-dialog .ticket-callout-section h4 {
+  color: #432953;
+  font: 700 .875rem/1.35 var(--sans);
+  margin: 0 0 .2rem;
+}
+.ticket-callout-section p { margin: 0 0 .6em; }
+.ticket-callout-section :last-child { margin-bottom: 0; }
+.ticket-callout-section ul { padding-inline-start: 1.2em; margin-block: .2em 0; }
+.ticket-callout-section .ticket-callout-checks { list-style: none; padding-inline-start: 0; }
+.ticket-callout-checks li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .5em; }
+.ticket-callout-checks li + li { margin-top: .25em; }
+.ticket-callout-check-state {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.ticket-callout-check-mark {
+  display: grid;
+  place-items: center;
+  width: .9em;
+  height: .9em;
+  margin-top: .3em;
+  border: 1px solid #886a98;
+  border-radius: .15em;
+  color: #4e3066;
+}
+.ticket-callout-check-mark[data-complete]::after {
+  content: "";
+  width: .28em;
+  height: .48em;
+  border: solid currentColor;
+  border-width: 0 .125em .125em 0;
+  transform: translateY(-.04em) rotate(45deg);
+}
+.ticket-callout img { max-width: 100%; height: auto; }
+.ticket-callout pre { overflow: auto; }
+#chapter-dialog .ticket-callout a { color: #503065; text-underline-offset: .16em; }
+#chapter-dialog .ticket-callout :focus-visible { outline: 2px solid #634479; outline-offset: 2px; }

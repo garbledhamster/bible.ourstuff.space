@@ -50,7 +50,66 @@ function queueGroup(task) {
     ? 'waiting' : 'open';
 }
 
-function taskRow(task, index, source, reader, queue) {
+function ticketDetails(task, title, source, reader) {
+  const card = document.createDocumentFragment();
+  const heading = node('div', '', 'ticket-callout-heading');
+  const name = node('h3', title.textContent.trim() || task.title);
+  name.id = 'ticket-callout-title';
+  heading.append(node('div', task.id, 'ticket-callout-id'), name);
+  const meta = node('div', '', 'ticket-callout-meta');
+  if (task.status) meta.append(node('span', task.status, 'ticket-callout-status'));
+  if (task.members?.length) meta.append(node('span', task.members.join(', ')));
+  heading.append(meta);
+  card.append(heading);
+
+  function section(label) {
+    const part = node('section', '', 'ticket-callout-section');
+    part.append(node('h4', label));
+    card.append(part);
+    return part;
+  }
+
+  if (task.parent) {
+    section('Parent ticket').append(node('p', [task.parentId, task.parent].filter(Boolean).join(' · ')));
+  }
+  const blockers = recordedBlocker(task);
+  if (blockers) appendMarkdown(section('Blockers'), blockers, source, reader);
+  // The task parser maps the editable Next action field, including any notes, to notes.
+  if (task.notes) appendMarkdown(section(task.parent ? 'Notes' : 'Next action'), task.notes, source, reader);
+
+  if (task.subtasks?.length) {
+    const list = node('ul', '', 'ticket-callout-checks');
+    for (const subtask of task.subtasks) {
+      const item = node('li');
+      const mark = node('span', '', 'ticket-callout-check-mark');
+      mark.setAttribute('aria-hidden', 'true');
+      mark.toggleAttribute('data-complete', subtask.done);
+      const label = node('div');
+      const state = node('span', subtask.done ? 'Complete. ' : 'Open. ', 'ticket-callout-check-state');
+      const [summary] = subtask.text.split(/\r?\n/);
+      label.append(state);
+      appendMarkdown(label, summary, source, reader);
+      item.append(mark, label);
+      list.append(item);
+    }
+    section('Subtasks').append(list);
+  }
+
+  const references = [...title.querySelectorAll('a')];
+  if (task.asset || references.length) {
+    const resources = section('References');
+    for (const link of references) {
+      const line = node('p');
+      line.append(link.cloneNode(true));
+      resources.append(line);
+    }
+    appendMarkdown(resources, task.asset, source, reader);
+  }
+  if (card.childElementCount === 1) card.append(node('p', 'No additional details recorded.'));
+  return card;
+}
+
+function taskRow(task, index, source, reader, queue, ticketCallout) {
   const row = node('li', '', 'chapter-ticket-row');
   const details = node('details');
   details.id = 'chapter-task-ticket-' + index;
@@ -80,13 +139,22 @@ function taskRow(task, index, source, reader, queue) {
     const links = node('p', 'References ');
     references.forEach((link, index) => {
       if (index) links.append(' · ');
-      links.append(link);
+      links.append(link.cloneNode(true));
     });
     details.append(links);
   }
   if (details.childElementCount === 1) details.append(node('p', 'No additional notes for this ticket.'));
 
-  if (task.id) {
+  if (task.id && ticketCallout) {
+    const trigger = node('button', task.id, 'chapter-ticket-link');
+    trigger.type = 'button';
+    trigger.setAttribute('aria-label', 'Ticket ' + task.id);
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.setAttribute('aria-controls', 'chapter-ticket-callout');
+    trigger.setAttribute('aria-expanded', 'false');
+    trigger.addEventListener('click', () => ticketCallout.open(trigger, ticketDetails(task, title, source, reader)));
+    row.append(trigger);
+  } else if (task.id) {
     const link = node('a', task.id, 'chapter-ticket-link');
     link.href = '#' + details.id;
     link.setAttribute('aria-label', 'Ticket ' + task.id);
@@ -103,7 +171,7 @@ function taskRow(task, index, source, reader, queue) {
   return row;
 }
 
-export function createChapterTaskSheet(chapter, { taskSource, queue = false } = {}) {
+export function createChapterTaskSheet(chapter, { taskSource, queue = false, ticketCallout } = {}) {
   const sheet = node('section', '', 'chapter-task-sheet');
   const title = queue ? 'Work queue' : 'Chapter task sheet';
   sheet.setAttribute('aria-label', title);
@@ -154,7 +222,7 @@ export function createChapterTaskSheet(chapter, { taskSource, queue = false } = 
         if (tasks.length) {
           const entries = node('ul');
           for (const task of tasks) {
-            const row = taskRow(task, ++index, source, reader, queue);
+            const row = taskRow(task, ++index, source, reader, queue, ticketCallout);
             const details = row.querySelector('details');
             details.open = openTickets.has(details.dataset.ticket);
             entries.append(row);
@@ -165,6 +233,7 @@ export function createChapterTaskSheet(chapter, { taskSource, queue = false } = 
         }
         groups.append(section);
       }
+      ticketCallout?.close(list);
       list.replaceChildren(groups);
       loaded = true;
       status.textContent = rows.length ? (event ? 'Tasks refreshed.' : '')
