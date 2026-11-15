@@ -45,6 +45,7 @@ function taskRow(task, index, source, reader) {
   const row = node('li', '', 'chapter-ticket-row');
   const details = node('details');
   details.id = 'chapter-task-ticket-' + index;
+  details.dataset.ticket = JSON.stringify([task.id, task.title, task.parent ?? '']);
   const summary = node('summary');
   const title = node('span');
   title.innerHTML = renderMarkdown(task.title, source, reader);
@@ -59,7 +60,15 @@ function taskRow(task, index, source, reader) {
   appendMarkdown(details, task.blockers && '**Blockers:** ' + task.blockers, source, reader);
   appendMarkdown(details, task.notes, source, reader);
   appendMarkdown(details, task.asset, source, reader);
-  if (title.querySelector('a')) appendMarkdown(details, task.title, source, reader);
+  const references = [...title.querySelectorAll('a')];
+  if (references.length) {
+    const links = node('p', 'References ');
+    references.forEach((link, index) => {
+      if (index) links.append(' · ');
+      links.append(link);
+    });
+    details.append(links);
+  }
   if (details.childElementCount === 1) details.append(node('p', 'No additional notes for this ticket.'));
 
   if (task.id) {
@@ -88,17 +97,19 @@ export function createChapterTaskSheet(chapter, { taskSource } = {}) {
   bar.append(heading, refresh);
   const status = node('p', '', 'chapter-sheet-status');
   status.setAttribute('role', 'status');
-  const list = node('div');
+  const list = node('div', '', 'chapter-sheet-groups');
   sheet.append(bar, status, list);
 
   const source = taskSource ?? new URL('task-list.md', location.href);
   const reader = new URL('read.html', location.href);
   const url = taskSource ?? new URL('api/task-list', location.href);
 
-  async function refreshTasks() {
-    if (refresh.disabled) return;
-    refresh.disabled = true;
-    status.textContent = 'Loading chapter tasks…';
+  async function refreshTasks(event) {
+    if (refresh.getAttribute('aria-disabled') === 'true') return;
+    refresh.setAttribute('aria-disabled', 'true');
+    list.setAttribute('aria-busy', 'true');
+    status.textContent = list.hasChildNodes() ? 'Refreshing tasks…' : 'Loading chapter tasks…';
+    status.removeAttribute('data-error');
     try {
       const response = await fetch(url, { cache: 'no-store' });
       const fallback = !taskSource && response.status === 404;
@@ -109,28 +120,39 @@ export function createChapterTaskSheet(chapter, { taskSource } = {}) {
       const titles = [...document.querySelectorAll('#chapter-choices .chapter-choice-title, #chapter-choices .chapter-title')]
         .map(element => element.textContent.trim());
       const rows = chapterTaskRows(markdown, chapter, titles);
-      list.replaceChildren();
+      const openTickets = new Set([...list.querySelectorAll('details[open]')].map(item => item.dataset.ticket));
+      const groups = document.createDocumentFragment();
       let index = 0;
       for (const [group, label] of [['remaining', 'Remaining'], ['complete', 'Completed'], ['cancelled', 'Cancelled']]) {
         const tasks = rows.filter(row => row.group === group);
         if (group === 'cancelled' && !tasks.length) continue;
         const section = node('section', '', 'chapter-sheet-group');
+        section.dataset.group = group;
         section.append(node('h4', label + ' · ' + tasks.length));
         if (tasks.length) {
           const entries = node('ul');
-          for (const task of tasks) entries.append(taskRow(task, ++index, source, reader));
+          for (const task of tasks) {
+            const row = taskRow(task, ++index, source, reader);
+            const details = row.querySelector('details');
+            details.open = openTickets.has(details.dataset.ticket);
+            entries.append(row);
+          }
           section.append(entries);
-        } else {
-          section.append(node('p', group === 'remaining' ? 'No remaining tasks in this chapter.' : 'No completed tasks in this chapter.'));
+        } else if (rows.length) {
+          section.append(node('p', group === 'remaining' ? 'Nothing left to do in this chapter.' : 'No completed tasks yet.'));
         }
-        list.append(section);
+        groups.append(section);
       }
-      status.textContent = rows.length ? '' : 'No tasks are recorded for this chapter.';
+      list.replaceChildren(groups);
+      status.textContent = rows.length ? (event ? 'Tasks refreshed.' : '') : 'No tasks are recorded for this chapter.';
     } catch {
-      status.textContent = 'Couldn’t load chapter tasks. Use Refresh tasks to try again.';
-      list.replaceChildren();
+      status.dataset.error = '';
+      status.textContent = list.hasChildNodes()
+        ? 'Couldn’t refresh. Showing the last loaded tasks.'
+        : 'Couldn’t load chapter tasks. Select Refresh tasks to try again.';
     } finally {
-      refresh.disabled = false;
+      list.removeAttribute('aria-busy');
+      refresh.removeAttribute('aria-disabled');
     }
   }
 

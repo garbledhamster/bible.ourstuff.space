@@ -114,3 +114,7 @@ Joe asked that agents use to-spec and to-tickets for settled project plans, then
 ### 2026-11-15T10:34:24-06:00 · Joe · Update layouts in the in-app browser
 
 **Paraphrase.** Open the chapter layouts in the in-app browser. Update now should load the new view without switching browsers.
+
+### 2026-11-15T10:38:53-06:00 · Joe · Finish the chapter layouts
+
+**Paraphrase.** Keep the selectable chapter layouts, polish the reader, and integrate the improvements into the live Bibles.

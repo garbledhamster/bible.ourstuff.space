@@ -120,3 +120,7 @@ Added Editorial brief, Illustrative, Architect, and Build handoff to the existin
 ### 2026-11-15T10:34:24-06:00 · Reopen the reader with fresh assets after updating
 
 Update now and Restore previous reopen the reader on the selected revision. The private reader gives that revision its own script and stylesheet URLs so embedded browsers load the new chapter views.
+
+### 2026-11-15T10:38:53-06:00 · Polish the chapter layouts
+
+Separated remaining and completed work on wide screens and stacked the groups on phones. Made ticket links easier to spot and kept task details open when refreshing. The sheet shows the last loaded tasks if a refresh fails. Refined the section index, artifact links, and compact toolbar.
