@@ -152,3 +152,29 @@
 .inline-media { display: block; margin-block: .4rem .7rem; }
 .inline-media audio { display: block; width: min(100%, 19rem); height: 36px; }
 .inline-media video { display: block; width: min(100%, 34rem); max-height: 48dvh; }
+
+.task-subtask-list {
+  display: grid;
+  gap: .55rem;
+  list-style: none;
+  margin: 0 0 .65rem;
+  padding: 0;
+}
+
+.task-subtask-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: .6rem;
+  align-items: start;
+}
+
+.task-subtask-list input[type="checkbox"] {
+  width: auto;
+  margin: .45rem 0 0;
+}
+
+.task-subtask-list textarea {
+  min-width: 0;
+  width: 100%;
+  resize: vertical;
+}

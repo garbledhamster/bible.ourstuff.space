@@ -88,3 +88,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 **Paraphrase.** When I keep choosing the recommended answer, offer to have a separate agent grill the acting agent through the rest of the session. Wait for my choice, and give me the Bible with the agents’ decisions so I can review them. Make this a skill I can use outside the Bible too.
 
 [Auto Grill](auto-grill/SKILL.md)
+
+## 2026-11-15T08:42:55-06:00 · Plan side projects in the Bible
+
+Joe asked that agents use to-spec and to-tickets for settled project plans, then put the spec, build instructions and subtasks in the Project Bible so the next agent can pick up the work there. Paraphrased. [Joe’s Notes](joes-notes.md#plan-side-projects-in-the-bible)

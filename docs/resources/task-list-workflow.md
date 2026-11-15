@@ -2,7 +2,16 @@
 
 Open **Tasks** in the Bible footer to see work across chapters. Use **Ready to work** to find open or ready tasks with an empty Blockers field. Use the chapter and assignee filters to narrow the list. Each private reader with task editing enabled saves this view to its project's `task-list.md`.
 
+## Turn an agreed plan into work
+
+1. Use `to-spec` to write the player or user problem, the agreed solution, the implementation decisions, and what proves the result. Save the spec in the project’s Bible and link it from the owning chapter.
+2. Use `to-tickets` to give each playable or verifiable slice its own ticket. Add that ticket to the Bible’s Task List. Keep any existing outside issue link on the same task so agents can find the discussion from the Bible.
+3. Write what the next agent should build, what they should read or look at, what truly blocks them, and how to verify the result. Put concrete steps in subtasks. Mark independent work as Ready and name the dependency for blocked work.
+4. For a small side project, start with a slice that works from setup through result. Add the next slices through the same flow. Use references and prototypes to explain the work, and keep the Bible current when the plan changes.
+
 ## Pick up, update, and finish a task
+
+Open a task and use **Add subtask** for each build instruction or check. Edit or check the steps and choose **Save task**. The parent task stays open until you verify the whole slice.
 
 1. Read the project’s Task List and owning Bible chapter. Pick a task you can act on. If it has a blocker, check whether the named task, decision, or evidence has landed before clearing the blocker. Leave someone else’s in-progress work with them unless you are assigned to collaborate.
 2. Set the task to **In progress** and add your name to **Assignees**. Keep the other assignees. Use the description and next action to record what you did, what you checked, and what someone can pick up next.

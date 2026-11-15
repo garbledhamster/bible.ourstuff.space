@@ -115,7 +115,7 @@ I can see the visual direction the creator confirmed and read which details they
 ### Work mode instructions
 
 - **Grilling** · Walk through the main activity with the creator. Decide what the person can do, what changes, what feedback they get, and how they recover when it goes wrong.
-- **Plan** · Write the rules and starting states in the order the player encounters them. Turn examples and edge cases into tasks with expected results. Mark any decision that blocks a task.
+- **Plan** · Write the rules and starting states in the order the player encounters them. Use `to-spec`, then `to-tickets`, and record both in the Project Bible. Give each playable or verifiable slice a task with instructions, subtasks, expected results, and its real blockers. [Plan and work through tasks](task-list-workflow.md)
 - **Build** · Implement the agreed rules as parts the sandbox and player scenes can share. Record which rules and recovery paths the build covers.
 - **Testing** · Try the usual path, a failed attempt, and recovery in the integrated candidate. Compare the result with the written rules and repeat affected checks after a fix.
 - **Maintenance** · Record rule changes and why they were made. Keep a repeatable case for the behavior that prompted each fix.

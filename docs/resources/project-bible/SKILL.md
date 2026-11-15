@@ -22,6 +22,11 @@ For a new project, start in **1. Grilling** to decide what to build. Read the [r
 
 ## Use the project task list
 
+When the plan for a feature or side project is settled, use `to-spec` and then `to-tickets` in that order. Save the spec in the owning Project Bible chapter or link its project-owned document from the chapter. Publish the tickets in that Bible's Task List, with links to the spec, current evidence, and any outside tracker the team uses. Agents start from the Bible task.
+
+Give each independently playable or verifiable slice its own task. Put concrete build and verification steps under that task as subtasks. Write them as instructions someone coming into the project can act on. Use the real blockers, and leave a task open until its check has evidence. Update the Bible when a design choice, reference, blocker, or check changes. [Plan and work through tasks](../task-list-workflow.md)
+
+
 Read [Work through the Task List](../task-list-workflow.md) when picking up or updating tasks. Edit the project’s Markdown file directly. Check the **Blockers** field before starting work, use **In progress** when you pick up a task, and record the result with evidence before marking it **Complete**. Write meaningful verified changes into the project’s Changelog and link the task or its evidence.
 
 - At start, read the checklist recorded in the project README. The default is `docs/task-list.md`. If a project has no checklist, follow the setup instructions and seed it with confirmed work for the active release. In the shared Bible checkout, use [the Island Post checklist](../island-post/task-list.md) for the worked example.

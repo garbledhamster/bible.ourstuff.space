@@ -5,10 +5,35 @@ const tableDivider = '| --- | --- | --- | --- |';
 
 export const chapterKey = title => title.toLowerCase().replaceAll('&', 'and')
   .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const subtasksTag = /\s*<!-- subtasks: (\[.*?\]) -->/;
+
+export function splitTaskSubtasks(value) {
+  const match = value.match(subtasksTag);
+  if (match) {
+    try {
+      const list = JSON.parse(match[1]);
+      if (Array.isArray(list) && list.every(item => typeof item?.text === 'string' && typeof item.done === 'boolean')) {
+        return { notes: value.replace(match[0], '').trim(), subtasks: list };
+      }
+    } catch {
+      // Keep an unrecognized comment in the original text.
+    }
+  }
+  return { notes: value, subtasks: [] };
+}
+
+export function formatTaskSubtasks(subtasks = []) {
+  if (!subtasks.length) return '';
+  const json = JSON.stringify(subtasks).replaceAll('|', '\\u007c')
+    .replaceAll('<', '\\u003c').replaceAll('>', '\\u003e');
+  return '<!-- subtasks: ' + json + ' -->';
+}
+
 const blockersPattern = /(?:^| · |\n)\*\*Blockers:\*\*[ \t]*(.*)$/;
 function readDescription(value) {
-  const match = value.match(blockersPattern);
-  return { notes: match ? value.slice(0, match.index).trim() : value, blockers: match?.[1] ?? '' };
+  const { notes, subtasks } = splitTaskSubtasks(value);
+  const match = notes.match(blockersPattern);
+  return { notes: match ? notes.slice(0, match.index).trim() : notes, blockers: match?.[1] ?? '', subtasks };
 }
 export const isDone = status => /^(done|complete|completed)$/i.test(status);
 const splitCells = line => line.trim().slice(1, -1).split(/(?<!\\)\|/).map(value => value.trim());
@@ -113,10 +138,11 @@ export function readTaskList(markdown) {
 function taskLines(task, format) {
   const blocked = task.blockers?.trim().replace(/\r?\n/g, ' ');
   const assignment = task.members.length || task.explicit ? formatMembers(task.members) : '';
+  const subtasks = formatTaskSubtasks(task.subtasks);
   if (format === 'table') {
     const tag = task.id ? ` <!-- task:${task.id} ${task.kind} ${Number(task.done)} -->` : '';
     return ['| ' + [task.asset ?? '', task.title, task.status + tag, [task.notes, blocked && '**Blockers:** ' + blocked].filter(Boolean).join(' · ')]
-      .map(escapeCell).map((value, index) => index === 3 && assignment ? [value, assignment].filter(Boolean).join(' ') : value)
+      .map(escapeCell).map((value, index) => index === 3 ? [value, subtasks, assignment].filter(Boolean).join(' ') : value)
       .join(' | ') + ' |'];
   }
   const result = [`- [${task.done ? 'x' : ' '}] ${task.title.trim()}`, ''];
@@ -124,6 +150,7 @@ function taskLines(task, format) {
   const status = `  **${task.status.replaceAll('*', '')}**`;
   result.push(notes[0] ? status + ' · ' + notes[0] : status, ...notes.slice(1).map(line => '  ' + line));
   if (blocked) result.push('  **Blockers:** ' + blocked);
+  if (subtasks) result.push('  ' + subtasks);
   if (assignment) result.push('  ' + assignment);
   return result;
 }

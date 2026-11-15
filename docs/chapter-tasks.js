@@ -1,4 +1,5 @@
-import { chapterKey, readTaskList } from './task-document.js';
+import { chapterKey, formatTaskSubtasks, readTaskList, splitTaskSubtasks } from './task-document.js';
+import { editTaskSubtasks } from './task-subtasks.js';
 
 const metadata = / <!-- task:([\w-]+) (Answer|Build|Check) ([01]) -->$/;
 const slug = title => title.toLowerCase().replaceAll('&', 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -21,14 +22,18 @@ function read(markdown) {
     if (cells.length !== 4 || cells[0] === 'Asset' || /^:?-+:?$/.test(cells[0])) return;
     const tag = cells[2].match(metadata);
     cells[2] = cells[2].replace(metadata, '');
-    rows.push({ raw, index, chapter, cells, members: parsed.get(index)?.members, id: tag?.[1], kind: tag?.[2] ?? (chapter.includes('sandbox') || chapter.includes('playtest') ? 'Check' : 'Build'), done: tag?.[3] === '1' });
+    const { notes, subtasks } = splitTaskSubtasks(cells[3]);
+    cells[3] = notes;
+    rows.push({ raw, index, chapter, cells, subtasks, members: parsed.get(index)?.members, id: tag?.[1], kind: tag?.[2] ?? (chapter.includes('sandbox') || chapter.includes('playtest') ? 'Check' : 'Build'), done: tag?.[3] === '1' });
   });
   return { lines, rows };
 }
 
-function serialize({ cells, id, kind, done }) {
+function serialize({ cells, id, kind, done, subtasks }) {
   const [asset, task, status, next] = cells;
-  return '| ' + [asset, task, status + ' <!-- task:' + id + ' ' + kind + ' ' + Number(done) + ' -->', next].join(' | ') + ' |';
+  const notes = [next.replace(assigneesTag, ''), formatTaskSubtasks(subtasks), next.match(assigneesTag)?.[0]?.trim()]
+    .filter(Boolean).join(' ');
+  return '| ' + [asset, task, status + ' <!-- task:' + id + ' ' + kind + ' ' + Number(done) + ' -->', notes].join(' | ') + ' |';
 }
 
 async function snapshot(endpoint) {
@@ -131,15 +136,18 @@ export async function chapterTasks(container, chapter, { endpoint, renderBible, 
       owner.textContent = (row.members?.join(', ') ?? row.cells[3].match(/^([^·]+) · /)?.[1]) || 'Unassigned';
     };
     update();
-    detail.innerHTML = '<label>Task<input name="task" required></label><label>Kind<select name="kind"><option>Answer</option><option>Build</option><option>Check</option></select></label><label>Status<input name="status" required></label><label>Owner, next action and evidence<textarea name="next"></textarea></label><label>Attachment Markdown<input name="asset"></label><div class="task-attachment"></div><p class="task-conflict" hidden></p><button type="submit">Save task</button>';
+    detail.innerHTML = '<label>Task<input name="task" required></label><label>Kind<select name="kind"><option>Answer</option><option>Build</option><option>Check</option></select></label><label>Status<input name="status" required></label><label>Owner, next action and evidence<textarea name="next"></textarea></label><label>Attachment Markdown<input name="asset"></label><fieldset class="task-subtasks"><legend>Subtasks</legend></fieldset><div class="task-attachment"></div><p class="task-conflict" hidden></p><button type="submit">Save task</button>';
     const controls = detail.elements;
+    const subtaskFields = detail.querySelector('.task-subtasks');
     const preview = detail.querySelector('.task-attachment');
+    let readSubtasks;
     const conflict = detail.querySelector('.task-conflict');
     function loadFields() {
       const [asset, task, status, next] = row.cells;
       for (const [key, value] of Object.entries({ asset, task, status, next: next.replace(assigneesTag, ''), kind: row.kind })) {
         controls.namedItem(key).value = value;
       }
+      readSubtasks = editTaskSubtasks(subtaskFields, row.subtasks);
       preview.replaceChildren();
       try { preview.innerHTML = renderBible([asset, next.replace(assigneesTag, '')].filter(Boolean).join('\n\n'), source); }
       catch { preview.textContent = next; }
@@ -180,7 +188,7 @@ export async function chapterTasks(container, chapter, { endpoint, renderBible, 
       if (!values[1] || !values[2]) return;
       const current = latest ?? row;
       values[3] = (values[3] + (current.cells[3].match(assigneesTag)?.[0] ?? '')).trim();
-      apply({ ...current, cells: values, kind: controls.namedItem('kind').value });
+      apply({ ...current, cells: values, subtasks: readSubtasks(), kind: controls.namedItem('kind').value });
     };
     return item;
   }

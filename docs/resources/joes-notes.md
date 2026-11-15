@@ -1,5 +1,10 @@
 # Joe’s Notes
 
+### Plan side projects in the Bible
+
+Once we know what we want to build, I want the agent to use `to-spec`, then `to-tickets`, and put both in the project’s Bible. Give each piece we can play or verify its own task. Put the build instructions, reference, and checks under that task so another agent can pick it up without having to read our whole chat. When a decision or check changes, update the task in the Bible so the next agent starts from where we actually are. [Plan and work through tasks](task-list-workflow.md)
+
+
 ### Use symbols and keywords in games
 
 Build the interface around symbols, icons, and short keywords unless the game is text-based or relies on text to play. Let players hover, focus, or press and hold to see what something means. Put longer explanations in How to Play and in the descriptions for individual items.

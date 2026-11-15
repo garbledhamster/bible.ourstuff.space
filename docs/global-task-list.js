@@ -1,5 +1,6 @@
 import { renderMarkdown } from './document-reader.js';
 import { chapterKey, isDone, readTaskList, saveTask, updateMember } from './task-document.js';
+import { editTaskSubtasks } from './task-subtasks.js';
 
 const statuses = ['Ready', 'In progress', 'Blocked', 'Hold', 'Complete', 'Cancelled'];
 const markup = `<dialog id="bible-task-list" aria-labelledby="bible-task-list-title">
@@ -60,6 +61,7 @@ const markup = `<dialog id="bible-task-list" aria-labelledby="bible-task-list-ti
     </fieldset>
     <label>Blockers<input name="blockers" placeholder="Task, decision, or evidence needed"></label>
     <label>Description and next action<textarea name="notes" rows="3"></textarea></label>
+    <fieldset id="bible-task-subtasks" class="task-subtasks"><legend>Subtasks</legend></fieldset>
     <label id="bible-task-asset">Attachment Markdown<input name="asset"></label>
     <div id="bible-task-evidence"></div>
     <p id="bible-task-save-status" role="status" hidden></p>
@@ -379,6 +381,7 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
     ([...memberRows.querySelectorAll('input')].find(control => control.value === next) ?? addMember).focus();
   }
 
+  let readSubtasks;
   function editTask(item, control) {
     if (busy || loading) return;
     opener = control;
@@ -395,6 +398,7 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
     field('notes').value = item?.notes ?? '';
     field('blockers').value = item?.blockers ?? '';
     field('asset').value = item?.asset ?? '';
+    readSubtasks = editTaskSubtasks(get('bible-task-subtasks'), item?.subtasks, !endpoint);
     get('bible-task-asset').hidden = !endpoint || item?.format === 'checklist';
     for (const name of ['title', 'notes', 'blockers']) field(name).readOnly = !endpoint;
     for (const name of ['chapter', 'status']) field(name).disabled = !endpoint;
@@ -461,7 +465,7 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
       ...task, title, status, chapter: chapterNames().get(field('chapter').value),
       notes: field('notes').value.trim(), asset: field('asset').value.trim(), blockers: field('blockers').value.trim(),
       done: status === task?.status ? task.done : isDone(status),
-      members: [...assigned], explicit: true,
+      members: [...assigned], explicit: true, subtasks: readSubtasks(),
     };
     if (await commit(saveTask(doc, task, draft))) {
       editor.close();

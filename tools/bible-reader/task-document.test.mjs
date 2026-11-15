@@ -54,3 +54,26 @@ test('keeps blockers separate from notes for both task formats', () => {
     assert.equal(doc.tasks[index].notes, task.notes);
   }
 });
+
+test('saves independent subtask checks through both task formats', () => {
+  let doc = readTaskList(source);
+  for (const index of [0, 1]) {
+    const parent = doc.tasks[index];
+    const subtasks = [{ text: 'Try left | right', done: false }, { text: 'Verify score', done: true }];
+    doc = readTaskList(saveTask(doc, parent, { ...parent, subtasks, blockers: 'Wait for [art](art.md)' }));
+    const task = doc.tasks[index];
+    assert.deepEqual(task.subtasks, subtasks);
+    assert.equal(task.done, parent.done);
+    assert.equal(task.notes, parent.notes.trim());
+    assert.equal(task.blockers, 'Wait for [art](art.md)');
+    doc = readTaskList(saveTask(doc, task, { ...task, subtasks: [] }));
+    assert.deepEqual(doc.tasks[index].subtasks, []);
+  }
+});
+
+test('preserves unknown subtask markup as plain task notes', () => {
+  const text = ' <!-- subtasks: ["unknown"] -->';
+  const doc = readTaskList(source.replace('Agent · Check [fit](fit.md)', 'Check' + text));
+  assert.match(doc.tasks[0].notes, /subtasks: \["unknown"\]/);
+  assert.deepEqual(doc.tasks[0].subtasks, []);
+});

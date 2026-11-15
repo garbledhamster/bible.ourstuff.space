@@ -88,3 +88,7 @@ Added [Chapter 15 · Scaling](game-bible-guide.md#scaling), a [trial record](gam
 ### 2026-11-15T08:24:44-06:00 · Auto Grill
 
 Added [Auto Grill](auto-grill/SKILL.md) as a standalone skill and linked it from the Project Bible skill and resource index. An accepted streak can prompt a switch offer. Once the owner chooses agent grilling, a separate interviewer works through the agreed scope with the acting agent, which records its decisions for review. Checked the trigger, acceptance, decline, direct request, timeout, interrupted streak and unavailable tools. Verified that the shared site build finds the skill.
+
+## 2026-11-15T08:42:55-06:00 · Bible specs, tickets, and subtasks
+
+Made to-spec followed by to-tickets part of the Project Bible skill, guide and Joe’s Notes. Added editable subtasks to Chapter Tasks and the global Task List. Verified saving and reloading a checked subtask in Chromium, the Markdown round trip for both task formats, the reader endpoint tests, and the site build. [Task List workflow](task-list-workflow.md#turn-an-agreed-plan-into-work) · [Feedback](feedback.md)
