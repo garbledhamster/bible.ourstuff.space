@@ -264,6 +264,20 @@ List the objects the player can use and give each its own asset and engine objec
 
 Keep an editable asset inventory spreadsheet for this work. Give each asset a stable name and record its owning chapter, scene or action, source and runtime paths, dimensions at source and game size, and status. For an interactive object, record or link its origin, collision, approach and exit, pose anchor, draw order, and matching animation. Link a preview and the sandbox result from the row. Keep live coordinates in the game data and link to them where possible. The sprite sheet or atlas supplies frames to the engine. The spreadsheet helps contributors find the files and see which pieces fit and which still need a test.
 
+### Prop sheets and variants
+
+Give each prop its own sheet. Put the base prop in the first frame, then put one complete variant in each remaining frame. Name the variants by what changes. A chair can have a different paint color, a carved back and cushion, or a sleeping cat occupying its seat. A crate can be painted, reinforced, or left open. Keep decorative and interactive props on their own sheets so the game can place them independently.
+
+Use fixed cells and a shared ground anchor. When you generate the same sheet in another art style, keep each variant in the same slot, at the same scale, facing the same way. A tree, chair, or crate should stay put when the game swaps its sprite. Select appearance variants through the level or item data. Tie states that affect play, like an occupied seat, to the game rule that selects their frame. Keep a cat as its own game object when it needs to move or respond independently.
+
+The chair and crate below each have a base and 15 variants. Their 4 × 4 layouts use the same frame order and 128 × 128 cells in the 8-, 16-, 32-, 64-, and 128-bit style examples.
+
+| Chair variants | Crate variants |
+| :---: | :---: |
+| ![Four rows of chair variants, including wood and painted finishes, upholstered seats, and chairs with sleeping cats](item-art/props/chair-128-spritesheet.png) | ![Four rows of crate variants, including painted, reinforced, open, filled, and snowy crates](item-art/props/crate-128-spritesheet.png) |
+
+[Compare all five styles and inspect frames at 1×](item-art/props/prop-preview.html) · [Frame map and art sources](item-art/props/prop-source.md)
+
 ### Create and wire the interface assets
 
 1. Walk the screens with the UI & UX Design sketch. List the artwork, its states, and the places that use it. Make or generate the pieces against the project's art direction. Keep the source and the files the build loads together or link them from the asset ledger.

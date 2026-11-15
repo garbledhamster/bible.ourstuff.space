@@ -505,13 +505,16 @@ dialog h3, dialog h4 { margin: 0 0 2px; color: var(--lime); font-size: 12px; fon
   background: #3e4b5e;
   border-radius: 0 8px 8px 0;
 }
-.chapter-detail-body img[src*="/item-art/"][src$="-inventory.webp"] {
+.chapter-detail-body td:has(img[src*="/item-art/props/"][src$="-spritesheet.png"]):first-child {
+  border-radius: 8px 0 0 8px;
+}
+.chapter-detail-body td img[src*="/item-art/"][src$="-inventory.webp"] {
   display: block;
   width: min(100%, 220px);
   height: auto;
   margin-inline: auto;
 }
-.chapter-detail-body img[src*="/item-art/"][src$="-spritesheet.png"] {
+.chapter-detail-body td img[src*="/item-art/"][src$="-spritesheet.png"] {
   display: block;
   width: 100%;
   max-width: 384px;

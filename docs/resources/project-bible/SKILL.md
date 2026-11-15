@@ -44,6 +44,8 @@ For a design question, use Ask Schell when available. Link the [player predictio
 
 For interactive objects, follow [Make objects the player can use](../game-bible-guide.md#make-objects-the-player-can-use). Make separate world objects and link them, their animation fit, and their sandbox evidence in an editable asset inventory spreadsheet. Verify approach, collision, pose alignment, draw order, and exit at play size in the dedicated sandbox before scene assembly.
 
+For decorative or interactive prop variants, follow [Prop sheets and variants](../game-bible-guide.md#prop-sheets-and-variants). Pack one prop per sheet with a base frame and named variants. Keep slots, scale, and ground anchors aligned across style versions.
+
 Save and embed every generated project image in the chapter where it was made or discussed, beside its context. Include alt text, caption, status, and a source or prompt link. Reuse the file across chapters and check the rendered reader.
 
 

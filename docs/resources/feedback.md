@@ -62,3 +62,7 @@ Append every item in the order it was entered. Use an ISO 8601 date and time wit
 ### 2026-11-14T23:00:34-06:00 · Joe · Global Task List and blockers
 
 **Paraphrase.** Build the global list into the Bible and let agents edit tasks directly in each clone. Put assignees in their own box, give blockers their own field, and include In progress, Hold, Complete, and Cancelled. Show agents how to pick up unblocked tasks and record verified work in Changelog.
+
+### 2026-11-14T23:08:23-06:00 · Joe · Prop variants and styles
+
+**Paraphrase.** Put one prop on each sheet, with a base and variants in their own frames. Make 4 × 4 examples in 8-, 16-, 32-, 64-, and 128-bit styles, keeping the props in the same positions. A chair can change color or style or have a cat on it. [Prop sheets and variants](game-bible-guide.md#prop-sheets-and-variants)

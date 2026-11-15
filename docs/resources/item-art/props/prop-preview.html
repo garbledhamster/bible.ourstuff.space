@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prop sheets · Project Bible</title>
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../../../document-reader.css">
+<link rel="stylesheet" href="../preview.css">
+<style>
+  .prop-views .asset-stage { height: clamp(130px, 42vw, 320px); }
+  .prop-views img { image-rendering: pixelated; }
+  .asset-controls label { min-width: 0; max-width: 100%; }
+  .asset-controls select { width: 100%; min-width: 0; }
+  #variant-control[hidden], .prop-frame[hidden], .prop-sheet[hidden] { display: none; }
+  .prop-views[data-view="frame"] { column-gap: 8px; }
+  .prop-views[data-view="frame"] .asset-stage { height: 160px; padding-inline: 0; }
+  @media (max-width: 319px) {
+    .prop-views[data-view="frame"] { grid-template-columns: 1fr; }
+  }
+</style>
+<script type="module" src="prop-preview.js"></script>
+</head>
+<body>
+<main class="document-reader">
+<nav aria-label="Document navigation">
+  <a href="../../../read.html?file=/resources/game-bible-guide.md#prop-sheets-and-variants">← Prop sheets and variants</a>
+</nav>
+<article class="chapter-detail-body asset-example">
+<h1>Prop sheets</h1>
+<div class="asset-controls">
+  <label><span id="prop-label">Prop</span><select id="prop" aria-labelledby="prop-label" disabled></select></label>
+  <label><span id="style-label">Style</span><select id="style" aria-labelledby="style-label" disabled></select></label>
+  <label><span id="compare-label">Compare with</span><select id="compare" aria-labelledby="compare-label" disabled></select></label>
+  <label><span id="view-label">View</span><select id="view" aria-labelledby="view-label" disabled><option value="sheet">4 × 4 sheet</option><option value="frame">Frame at 1×</option></select></label>
+  <label id="variant-control" hidden><span id="variant-label">Frame</span><select id="variant" aria-labelledby="variant-label" disabled></select></label>
+</div>
+<div class="asset-views prop-views" data-view="sheet">
+  <figure>
+    <figcaption id="first-style">8-bit style</figcaption>
+    <div class="asset-stage asset-stage--fight">
+      <img class="prop-sheet" id="first-sheet" alt="">
+      <canvas class="prop-frame" id="first-frame" width="128" height="128" role="img" hidden></canvas>
+    </div>
+  </figure>
+  <figure>
+    <figcaption id="second-style">128-bit style</figcaption>
+    <div class="asset-stage asset-stage--fight">
+      <img class="prop-sheet" id="second-sheet" alt="">
+      <canvas class="prop-frame" id="second-frame" width="128" height="128" role="img" hidden></canvas>
+    </div>
+  </figure>
+</div>
+<p class="asset-meta" id="status" role="status"></p>
+<p class="asset-meta"><a id="first-download" download hidden>Download left sheet</a> · <a id="second-download" download hidden>Download right sheet</a> · <a href="prop-frames.json" download>Download frame map</a></p>
+</article>
+</main>
+</body>
+</html>

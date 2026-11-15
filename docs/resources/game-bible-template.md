@@ -94,6 +94,7 @@ Link the runnable slice and at-size capture for the Sandbox. Give Audio Engineer
 - Maps, characters, objects, interface, art, and sound:
 - Vision or UI reference → authored runtime file → scene or state → result at play size. Embed the source images and representative engine capture.
 - Asset locations and readiness:
+- Props. Link one sheet per prop with its base frame, named appearance variants and states, cell size, and ground anchor. If the same sheet is drawn in multiple art styles, use the same frame order, scale, and position:
 - Interactive objects and editable asset inventory spreadsheet. Link separate runtime assets, game size, collision and interaction points, matching character actions, and readiness evidence:
 - UI asset ledger linking editable sources, build files, controls, states, and the sandbox cases that exercise them:
 - Menu and gameplay art for each item. Link the shared reference, inventory illustration, gameplay sprite or sheet, and the side-by-side check at their display sizes. For animated items, record the required actions and directions, frame order, timing, return pose, and anchor:

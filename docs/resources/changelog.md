@@ -68,3 +68,7 @@ Added a [painted spellbook illustration and gameplay sheet](game-bible-guide.md#
 ### 2026-11-14T23:00:34-06:00 · Global Task List and blockers
 
 Added Tasks across chapters. Private readers save changes to the same Markdown agents edit. The form has separate Assignees and Blockers fields. Ready to work shows open or ready tasks that have no blocker. Added [task and Changelog instructions](task-list-workflow.md). Checked desktop and phone flows, direct file edits, shared assignments, and protection against stale browser saves. [Feedback](feedback.md#entries)
+
+### 2026-11-14T23:08:23-06:00 · Prop sheets and variants
+
+Added one 4 × 4 sheet per prop and art style, with chair and crate examples in five styles. The guide, template, and skill describe base frames, named variants, and shared anchors. Verified matching frame bounds across all 160 exported cells. [Prop comparison](item-art/props/prop-preview.html) · [Feedback](feedback.md#entries)
