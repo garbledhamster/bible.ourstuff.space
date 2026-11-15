@@ -488,9 +488,9 @@ export function mountGlobalTaskList({ source, endpoint, chapters, initial, docum
   };
 }
 
-export async function enableGlobalTaskList({ source, endpoint, chapters, links, footer }) {
+export async function enableGlobalTaskList({ source, endpoint, chapters, links, footer, documentUrl = links[0]?.href }) {
   const initial = endpoint ? await readSnapshot(endpoint) : undefined;
-  const open = mountGlobalTaskList({ source, endpoint, chapters, initial, documentUrl: links[0].href });
+  const open = mountGlobalTaskList({ source, endpoint, chapters, initial, documentUrl });
   for (const link of links) {
     link.setAttribute('aria-haspopup', 'dialog');
     link.addEventListener('click', event => {

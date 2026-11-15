@@ -25,7 +25,7 @@ async function loadGlobalTaskList() {
   }
 }
 
-if (document.querySelector('#references a[href="read.html?file=task-list.md"]')) void loadGlobalTaskList();
+if (document.querySelector('#references')) void loadGlobalTaskList();
 
 
 async function loadProjectPhase() {
