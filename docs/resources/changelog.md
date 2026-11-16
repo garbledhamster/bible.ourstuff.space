@@ -177,6 +177,14 @@ Highlight the full ID in chapter text, a project document, or a board that uses 
 
 Added five pairs of game assets to the interface guide so future mockup prompts can show what resting and pressed states look like together. Joe’s Notes and the Project Bible skill now carry the rule into concept work. The guide explains how to retain the hit area and accessible name while the artwork swaps. The site build passed, and a phone-width Chrome run confirmed the heading and linked sample render in the reader. [Button artwork samples](game-bible-guide.md#generate-resting-and-pressed-button-artwork) · [Feedback](feedback.md#2026-11-15t142655-0600--joe--generate-both-faces-of-each-button)
 
+### 2026-11-16T09:28:04-06:00 · Contributor questionnaire rounds
+
+Added individual questionnaire rounds, contributor answer history, and a coordinator’s review and follow-up steps to [Contributor Training](game-bible-guide.md#coordinate-contributors-in-rounds). The [template](template.html#contributor-training) now prompts for the coordinator, decisions, follow-up owners, and first-task evidence. The local build checked the guide and template against the canonical chapter order.
+
 ### 2026-11-16T09:37:00-06:00 · Project Bible 2.0 public tutorial
 
 Added four tutorial paths under the public guide’s existing Tutorial menu. The lessons walk through solo work, work with agents, the Desktop Manager, and the Browser Client with screenshots from sample libraries. Checked all four paths at desktop and phone widths. [Project Bible 2.0 tutorial](/read.html?file=/resources/tutorial/index.md)
+
+### 2026-11-16T10:26:01-06:00 · Standardize Project Bible questionnaires
+
+Added [questionnaire style and layout checks](game-bible-guide.md#style-project-bible-questionnaires) to Contributor Training and linked them from the shared skill. The site build validated all 15 chapters. In Chrome, the template link led through questionnaire rounds to the style section at 1280 and 390 pixels. [Feedback](feedback.md#2026-11-16t102601-0600--joe--use-the-bible-style-for-questionnaires)

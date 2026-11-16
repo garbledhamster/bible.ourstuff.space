@@ -68,6 +68,8 @@ For animated characters, use [Sprite sheets](../sprite-sheets.md) with the engin
 
 ## Coordinate interface work
 
+When building or revising any Project Bible questionnaire, use the [questionnaire style and verification defaults](../game-bible-guide.md#style-project-bible-questionnaires).
+
 For new or redesigned game UI in Concept Generation, use **Impeccable to direct and review, and ImageGen to draw concepts on the actual game screen**. Derive the visual language from that game. Compare at play size and save the agreed concept, prompts and state examples in the project. Follow [Make the interface part of the art](../game-bible-guide.md#make-the-interface-part-of-the-art).
 
 Use the [matched button reference](../game-bible-guide.md#generate-resting-and-pressed-button-artwork) in mockup prompts. Generate resting and pressed faces from the approved concept, wire them to real controls, and check the state swap with actual input at mobile play size.

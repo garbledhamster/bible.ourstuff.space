@@ -158,3 +158,9 @@ The review found that individually valid PNGs could make a draft too large to sa
 **Paraphrase.** Regenerate the illustrated buttons as real assets for the game and make matching resting and pressed faces. Put these samples in the shared Bible so agents can use them when they make future mockups.
 
 [Button artwork samples](game-bible-guide.md#generate-resting-and-pressed-button-artwork)
+
+### 2026-11-16T10:26:01-06:00 · Joe · Use the Bible style for questionnaires
+
+**Paraphrase.** Use the Project Bible style and the updated form layout for future Bible questionnaires.
+
+[Questionnaire style](game-bible-guide.md#style-project-bible-questionnaires)
