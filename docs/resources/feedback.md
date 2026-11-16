@@ -164,3 +164,7 @@ The review found that individually valid PNGs could make a draft too large to sa
 **Paraphrase.** Use the Project Bible style and the updated form layout for future Bible questionnaires.
 
 [Questionnaire style](game-bible-guide.md#style-project-bible-questionnaires)
+
+### 2026-11-16T11:27:12-06:00 · Joe · Open each Bible on its mission
+
+**Paraphrase.** Put a short mission and numbered principles ahead of the chapters. Keep the mission editable as the project changes and give it the first card in the public reader.

@@ -66,7 +66,8 @@ const sections = chapters.map(chapter => {
     .map(previousSlug => `<span id="${previousSlug}"></span>`).join('');
   return { slug, html: `<section id="${slug}">${legacyAnchor}\n${marked.parser(tokens)}</section>\n` };
 });
-if (Object.keys(guide).join() !== sections.map(section => section.slug).join()) {
+if (sections[0]?.slug !== 'mission') throw new Error('The Bible template must start with Mission.');
+if (Object.keys(guide).join() !== sections.filter(section => section.slug !== 'mission').map(section => section.slug).join()) {
   throw new Error('The template chapters must match the guide chapters in order.');
 }
 const introduction = marked.parser(marked.lexer(intro).slice(1));

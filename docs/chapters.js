@@ -124,7 +124,7 @@ const chapters = [
   ]],
 ];
 
-const panels = chapters;
+const panels = ['mission', ...chapters.map(([, slug]) => slug)];
 
 const rail = document.querySelector('#rail');
 const previous = document.querySelector('#prev');
@@ -179,7 +179,7 @@ function moveOpenChapter(direction) {
   const index = openChapterIndex + direction;
   if (index < 0 || index >= chapters.length) return;
   renderOpenChapter(index, work.view);
-  showPanel(index);
+  showPanel(index + 1);
 }
 
 chapterPrevious.addEventListener('click', () => moveOpenChapter(-1));
@@ -194,7 +194,7 @@ chapterDialog.addEventListener('keydown', (event) => {
 chapterDialog.addEventListener('close', () => {
   chapterDrag = undefined;
   work.pause();
-  rail.children[openChapterIndex].querySelector('button.chapter-link').focus({ preventScroll: true });
+  rail.children[openChapterIndex + 1].querySelector('button.chapter-link').focus({ preventScroll: true });
 });
 
 chapterDialog.addEventListener('pointerdown', (event) => {
@@ -232,7 +232,7 @@ function appendChapterActions(container, steps) {
   container.append(list);
 }
 
-for (const [number, [title, slug, steps]] of panels.entries()) {
+for (const [number, [title, slug, steps]] of chapters.entries()) {
   const card = document.createElement('article');
   card.className = 'chapter';
   card.id = slug;
@@ -263,8 +263,8 @@ for (const [number, [title, slug, steps]] of panels.entries()) {
     restart.addEventListener('click', (event) => {
       event.preventDefault();
       history.replaceState(null, '', restart.href);
-      showPanel(0);
-      const heading = rail.children[0].querySelector('h3');
+      showPanel(1);
+      const heading = rail.children[1].querySelector('h3');
       heading.tabIndex = -1;
       heading.focus();
     });
@@ -285,7 +285,7 @@ for (const [number, [title, slug, steps]] of panels.entries()) {
     event.preventDefault();
     history.replaceState(null, '', choice.href);
     drawer.close();
-    showPanel(number);
+    showPanel(number + 1);
     const heading = card.querySelector('h3');
     heading.tabIndex = -1;
     heading.focus({preventScroll: true});
@@ -294,8 +294,8 @@ for (const [number, [title, slug, steps]] of panels.entries()) {
 }
 
 function renderPanelPosition() {
-  position.parentElement.dataset.chapter = panels[current][1];
-  position.textContent = `${String(current + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`;
+  position.parentElement.dataset.chapter = panels[current];
+  position.textContent = current === 0 ? 'Mission' : `${String(current).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')}`;
   previous.disabled = current === 0;
   next.disabled = current === panels.length - 1;
 }
@@ -359,11 +359,11 @@ function updateReferenceSeparators() {
 document.querySelector('#quick').addEventListener('click', () => {
   drawer.showModal();
   for (const [number, choice] of [...chapterChoices.children].entries()) {
-    if (number === current) choice.setAttribute('aria-current', 'location');
+    if (number + 1 === current) choice.setAttribute('aria-current', 'location');
     else choice.removeAttribute('aria-current');
   }
   const firstChoice = chapterChoices.firstElementChild;
-  chapterChoices.scrollLeft = chapterChoices.children[current].offsetLeft - firstChoice.offsetLeft;
+  chapterChoices.scrollLeft = chapterChoices.children[Math.max(0, current - 1)].offsetLeft - firstChoice.offsetLeft;
   updateReferenceSeparators();
 });
 for (const button of document.querySelectorAll('[data-info-dialog]')) {
@@ -416,7 +416,7 @@ function showLinkedPanel() {
     '#player-manual-and-wiki': '#demo-manual-and-wiki',
   };
   const fragment = renamedChapters[location.hash] ?? location.hash;
-  const number = panels.findIndex(([, slug]) => fragment === '#' + slug);
+  const number = panels.findIndex((slug) => fragment === '#' + slug);
   if (number !== -1) showPanel(number);
 }
 

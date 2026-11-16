@@ -12,6 +12,10 @@ For each chapter, record the earlier input, the expected player experience or de
 
 Start in **1. Explore** using the [Work modes](project-phases.md) page. In the [chapter guide](game-bible-guide.md), read **Work mode instructions** in each applicable chapter. After Grilling and Plan, draft the chapters and link a [concept board](concept-boards.md) from each applicable chapter. During Build, link what you made and show how it compares with the approved concept.
 
+Under **Mission**, write one short paragraph about why the project exists and where it’s going. Follow it with a numbered list of principles that guide people and agents working on the project. Update both as the project changes.
+
+## Mission
+
 ## Vision and Scope
 
 Link the creator’s confirmed moment and the scope decision Design Document will use.

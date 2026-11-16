@@ -188,3 +188,7 @@ Added four tutorial paths under the public guide’s existing Tutorial menu. The
 ### 2026-11-16T10:26:01-06:00 · Standardize Project Bible questionnaires
 
 Added [questionnaire style and layout checks](game-bible-guide.md#style-project-bible-questionnaires) to Contributor Training and linked them from the shared skill. The site build validated all 15 chapters. In Chrome, the template link led through questionnaire rounds to the style section at 1280 and 390 pixels. [Feedback](feedback.md#2026-11-16t102601-0600--joe--use-the-bible-style-for-questionnaires)
+
+### 2026-11-16T11:27:12-06:00 · Open the public guide with Mission
+
+Mission appears before Vision & Scope in the public guide. The shared template gives new Bibles a Mission section above their chapters. Verified the guide at desktop and phone widths, including opening a chapter, using the picker, and following a chapter link. [Mission card](../guide.html#mission) · [Template](template.html#mission)

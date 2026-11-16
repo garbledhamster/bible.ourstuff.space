@@ -1,3 +1,7 @@
+#mission { --cover: #dbc6eb; --cover-ink: #382145; }
+.mission-card .chapter-body { padding: clamp(12px, 2vw, 24px); }
+.mission-card .chapter-body > p { margin: 0 0 10px; line-height: 1.55; }
+
 :is(#vision-and-scope, [data-chapter="vision-and-scope"]) { --cover: #e8b8f0; --cover-ink: #331e3b; }
 :is(#design-document, [data-chapter="design-document"]) { --cover: #e8a88b; --cover-ink: #40241e; }
 :is(#ui-and-ux-design, [data-chapter="ui-and-ux-design"]) { --cover: #efbbd6; --cover-ink: #412539; }

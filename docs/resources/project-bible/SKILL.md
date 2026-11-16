@@ -12,6 +12,8 @@ description: Use when planning, resuming, or verifying a game or software projec
 3. For setup or refresh, follow the project's documented command or the shared Bible's `docs/AGENTS.md`. Initialize a pinned submodule on a fresh checkout. Refresh an existing copy when the user wants newer resources and the submodule is clean. Record the new shared revision with the project.
 4. Compare the project's records with its source, runnable build, or deployment. Save project decisions, evidence, and progress in the project’s Bible and existing tracker. The skill and shared checkout hold reusable instructions and samples. Read project state from the project on each invocation.
 
+Keep the project’s purpose and direction in a short paragraph under **Mission**, at the same heading level as the chapters. Follow it with numbered principles people and agents can use to make decisions. Keep it before the first chapter and update it when the project changes.
+
 In a project reader, use **Project Bible** as the main heading and put the project's name directly underneath. Use the shared masthead stylesheet. Link the reader and active chapter when showing the user an update.
 
 ## Follow the project’s Work mode
