@@ -186,7 +186,10 @@ Link the first-change exercise and a contributor’s result. Carry that setup in
 
 - Setup, first task, and verification instructions:
 - Decisions and references a contributor needs:
-- If using [questionnaire rounds](../read.html?file=/resources/game-bible-guide.md#coordinate-contributors-in-rounds), record the coordinator, agreed channel, confirmed decisions, and owners of open follow-ups. Keep questionnaire access and individual answers in the private coordination record.
+- If using [questionnaire rounds](../read.html?file=/resources/game-bible-guide.md#coordinate-contributors-in-rounds), start here for the form, shared context, and verification. Record the coordinator and agreed channel.
+- Link to each exact round in this Bible (including recipient variants, question text, choices, note prompts, and explanations):
+- Approved context shared with contributors, confirmed decisions, and owners of open follow-ups:
+- Keep individual access links and submissions in the authorized private records.
 - Evidence that the contributor completed and checked the first task:
 
 ## Multiplayer and Multi-user Support

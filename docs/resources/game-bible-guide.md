@@ -720,18 +720,20 @@ When I bring somebody into a project, I want to give them a real piece of the ga
 
 Use short, individual questionnaires when several contributors need to weigh in on the same decisions and you need to hear from each person before choosing what to do. Use the [Project Bible questionnaire style](#style-project-bible-questionnaires) when building the form.
 
-1. **Set up the first round.** Name the coordinator and who can make decisions. Agree on the channel contributors should use. If an agent coordinates an authorized exchange, have it introduce itself as an agent and use the agreed channel and scope. Give each contributor their own questionnaire with the questions everyone needs to answer. Add questions about their role or constraints where that helps. Send one round at a time.
-2. **Keep answers easy to revisit.** Give each contributor a way to reopen and read their own answers from earlier rounds. Give the coordinator one place to see who has replied, what is still pending, the summaries, and the decisions. Keep individual access links and raw answers private to the contributor and authorized reviewers. Share only summaries appropriate for the audience and approved where required.
-3. **Write the next round from the answers.** Recap where people agree and label proposals, open questions, and confirmed decisions. Ask fresh follow-ups about what is still open. If everyone agrees to try a practice handoff but gives different times, keep the handoff in the recap and ask which time works and who can run it. Keep earlier answers available when the new round opens.
-4. **Give each decision and task a home.** Record the confirmed choices in the relevant Bible chapters. Give each open question or follow-up a person responsible for it. Agree on a first task a contributor can complete and the evidence they will bring back, such as a working change and the result of its check.
+1. **Set up the round.** Name the coordinator and who can make decisions. Agree on the channel contributors should use. If an agent coordinates an authorized exchange, have it introduce itself as an agent and use the agreed channel and scope. Give each contributor a form with the shared questions and any questions their role calls for. Send one round at a time.
+2. **Give everyone enough context to answer.** In each form, include a factual update on what the coordinator is doing and a brief account of what each contributor is working on. If a role or next step is still open, say so. Label peer summaries as shared project context and explain that they show what teammates are working on and how their work relates to the round. Share the approved context with everyone involved, with detail suited to each role. Distinguish reported progress, proposals, open questions, and confirmed decisions.
+3. **Save the exact round in the owning Bible.** Before sending, save the round as shown, including the exact question text, choices, note prompts, explanations, and recipient variants. Link it from the relevant chapter. Keep individual access links and submissions in the authorized private records. Give contributors a way to revisit their own answers, and give the coordinator one authorized place to see replies, pending responses, summaries, and decisions.
+4. **Carry the answers forward.** As replies come in, enter confirmed decisions in the relevant Bible chapters and record who owns each open follow-up. Ask the next round about what is still open. If everyone agrees to try a practice handoff but gives different times, keep the handoff in the recap and ask which time works and who can run it. Share the updated, approved context with the group and keep earlier answers available to their authors. Agree on a first task and the evidence the contributor will bring back.
 
 ### Style Project Bible questionnaires
 
 Use the Project Bible reader’s dark plum palette, Instrument Serif headings, DM Sans body text, and lime accents on every web questionnaire for the Bible. Carry the style through the introduction, questions, review before sending, submitted answers and history, and coordinator review.
 
-- Put the question and choices ahead of supporting controls. Move round or history selectors and tighten padding and gaps before reducing body text. Let long choices wrap and let the page scroll. Keep touch targets easy to tap.
-- When a prior-round peer summary is available, use a distinct callout with the peer’s name and round in the title. Keep its disclosure usable by touch and keyboard.
-- At 100% zoom, walk the real respondent and coordinator flows on desktop and on a short phone viewport. Record which task elements fit before scrolling. Check long labels, touch targets, keyboard focus, and reflow at increased zoom.
+- Make the recipient’s name the strongest label on their form. Put the project and round below it, with a realistic time estimate that includes reading the context, answering, and reviewing before sending. Time a walkthrough of the actual round and allow for the choices and notes it asks people to consider.
+- Put the question and choices ahead of supporting controls. Keep a short **Why we’re asking** note beneath each question, with its choices and optional note prompt. Explain what the answer will help the team decide or do. For example: “We’re deciding where to put the intake line so people waiting for repairs don’t block the work tables.”
+- Give shared project context its own heading and a short caption. When a prior-round peer summary is available, use a distinct callout with the peer’s name and round in the title. Keep the recipient’s name more prominent, and make the callout usable by touch and keyboard.
+- Move round or history selectors and tighten padding and gaps before reducing body text. Let long choices wrap and let the page scroll. Keep touch targets easy to tap.
+- At 100% zoom, walk the real respondent and coordinator flows on desktop and on a short phone viewport. Confirm that the recipient is clear at a glance and check the context label, estimated time, and explanation beneath each question. Record which task elements fit before scrolling. Check long labels, touch targets, keyboard focus, and reflow at increased zoom.
 
 ### Setup, first task, and verification
 
@@ -743,7 +745,7 @@ Link the rules, scenes, assets, and checks that matter for the task. Include the
 
 ### Complete when
 
-A new contributor can follow the guide, make a small change from a clean starting point, and show how they checked it. When the team uses questionnaire rounds, the coordinator can show the confirmed decisions, who owns any open follow-up, and the evidence from the contributor’s first task.
+A new contributor can follow the guide, make a small change from a clean starting point, and show how they checked it. When the team uses questionnaire rounds, the coordinator can open the exact round from its chapter, show what context the contributors received, and point to recorded decisions and owners for open follow-ups.
 
 ## Multiplayer & Multi-user Support
 

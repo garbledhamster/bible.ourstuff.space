@@ -68,9 +68,11 @@ In [Audio Engineering](../game-bible-guide.md#audio-engineering), plan the music
 
 For animated characters, use [Sprite sheets](../sprite-sheets.md) with the engine's sprite, loader, and animation references. Plan a complete role-appropriate action set, including base idle/blinking and a few character-specific idle habits, rather than stopping at a walking strip. Track action/direction coverage, timing, interruption, and return poses; cosmetic idle motion must preserve player control and game rules. Keep the source, frame map, exported sheet, and rendered evidence together. For multiplayer or multi-user software, read [Multiplayer & Multi-user Support](../game-bible-guide.md#multiplayer--multi-user-support) and its hosting walkthrough. The chapter sits before Updates & DLC, but a multiplayer vision requires early shared-state design and a two-player Sandbox proof before scene assembly and release. Record N/A for a single-player release. Verify current provider instructions at setup time and distinguish written guidance from a deployed, tested service.
 
-## Coordinate interface work
+## Run questionnaire rounds
 
-When building or revising any Project Bible questionnaire, use the [questionnaire style and verification defaults](../game-bible-guide.md#style-project-bible-questionnaires).
+When building or revising a Project Bible questionnaire, follow [Coordinate contributors in rounds](../game-bible-guide.md#coordinate-contributors-in-rounds) for form content, sharing, and Bible records. Apply the [questionnaire style and verification defaults](../game-bible-guide.md#style-project-bible-questionnaires) before handing off the form. Save and link the exact round in the owning Bible before sending, and carry confirmed decisions and follow-up owners back as replies arrive. Keep access links and individual submissions in the authorized private records.
+
+## Coordinate interface work
 
 For new or redesigned game UI in Concept Generation, use **Impeccable to direct and review, and ImageGen to draw concepts on the actual game screen**. Derive the visual language from that game. Compare at play size and save the agreed concept, prompts and state examples in the project. Follow [Make the interface part of the art](../game-bible-guide.md#make-the-interface-part-of-the-art).
 

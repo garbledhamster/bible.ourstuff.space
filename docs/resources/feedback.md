@@ -168,3 +168,9 @@ The review found that individually valid PNGs could make a draft too large to sa
 ### 2026-11-16T11:27:12-06:00 · Joe · Open each Bible on its mission
 
 **Paraphrase.** Put a short mission and numbered principles ahead of the chapters. Keep the mission editable as the project changes and give it the first card in the public reader.
+
+### 2026-11-16T12:56:25-06:00 · Joe · Give each questionnaire a clear owner and shared context
+
+**Paraphrase from a questionnaire review.** Make it obvious whose form it is. Show what teammates and the coordinator are working on, give people an idea of how long the round takes, and explain below each question why it matters. Keep the rounds in each project’s Bible.
+
+[Questionnaire rounds](game-bible-guide.md#coordinate-contributors-in-rounds)

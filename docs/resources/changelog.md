@@ -192,3 +192,9 @@ Added [questionnaire style and layout checks](game-bible-guide.md#style-project-
 ### 2026-11-16T11:27:12-06:00 · Open the public guide with Mission
 
 Mission appears before Vision & Scope in the public guide. The shared template gives new Bibles a Mission section above their chapters. Verified the guide at desktop and phone widths, including opening a chapter, using the picker, and following a chapter link. [Mission card](../guide.html#mission) · [Template](template.html#mission)
+
+### 2026-11-16T12:56:25-06:00 · Share project context in questionnaire rounds
+
+Contributor Training now puts the recipient’s name first and gives each round a coordinator update, a summary of each contributor’s work, an estimated time, and a short reason under each question. Save the exact round in the owning Bible and record confirmed decisions and follow-up owners there. Share approved context with everyone involved and keep individual links and submissions private.
+
+An independent sample round checked the form, sharing, and record steps. The site build passed, and Chrome followed the template and guide links at 1,280 and 390 pixels. [Contributor Training](game-bible-guide.md#coordinate-contributors-in-rounds) · [Feedback](feedback.md#2026-11-16t125625-0600--joe--give-each-questionnaire-a-clear-owner-and-shared-context)
