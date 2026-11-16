@@ -176,3 +176,7 @@ Highlight the full ID in chapter text, a project document, or a board that uses 
 ### 2026-11-15T14:28:21-06:00 · Show both faces of an illustrated button
 
 Added five pairs of game assets to the interface guide so future mockup prompts can show what resting and pressed states look like together. Joe’s Notes and the Project Bible skill now carry the rule into concept work. The guide explains how to retain the hit area and accessible name while the artwork swaps. The site build passed, and a phone-width Chrome run confirmed the heading and linked sample render in the reader. [Button artwork samples](game-bible-guide.md#generate-resting-and-pressed-button-artwork) · [Feedback](feedback.md#2026-11-15t142655-0600--joe--generate-both-faces-of-each-button)
+
+### 2026-11-16T09:37:00-06:00 · Project Bible 2.0 public tutorial
+
+Added four tutorial paths under the public guide’s existing Tutorial menu. The lessons walk through solo work, work with agents, the Desktop Manager, and the Browser Client with screenshots from sample libraries. Checked all four paths at desktop and phone widths. [Project Bible 2.0 tutorial](/read.html?file=/resources/tutorial/index.md)

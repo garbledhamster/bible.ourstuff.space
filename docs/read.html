@@ -9,13 +9,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&amp;family=Instrument+Serif&amp;display=swap">
 <script type="module">
 import { startReader } from './document-reader.js';
+const file = new URLSearchParams(location.search).get('file');
+if (file?.startsWith('/resources/tutorial/')) {
+  document.querySelector('#reader-home').href = 'guide.html';
+}
 startReader();
 </script>
 </head>
 <body>
 <main class="document-reader">
 <nav aria-label="Document navigation">
-<a href="./">← Project Bible</a>
+<a id="reader-home" href="./">← Project Bible</a>
 <a id="download" download hidden>Download file</a>
 </nav>
 <article id="document" class="chapter-detail-body" aria-busy="true">Opening file…</article>
