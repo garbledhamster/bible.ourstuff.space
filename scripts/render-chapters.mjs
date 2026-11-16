@@ -50,7 +50,7 @@ if (new Set(coverColors).size !== coverColors.length) {
 }
 
 const notes = (await read('resources/joes-notes.md')).trim().split(/\n(?=### )/);
-await render('index.html', 'NOTES',
+await render('guide.html', 'NOTES',
   notes.slice(1).map(note => `<section>\n${marked.parse(note)}</section>\n`).join(''));
 
 const [intro, ...chapters] = (await read('resources/game-bible-template.md')).trim().split(/\n(?=## )/);
