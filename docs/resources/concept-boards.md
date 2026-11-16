@@ -11,6 +11,14 @@ Use **Concept Generation** between [Plan](project-phases.md#plan) and [Build](pr
 
 Use mockups for interfaces and games, storyboards for sequences, and diagrams or document compositions for technical, operational and verification chapters. Label expected results as planned. If a chapter does not apply, record why in the chapter.
 
+## Keep full-resolution artwork
+
+Save the original full-resolution file with the owning chapter and link to it from the image preview. A preview can be smaller on the page; opening it should let someone inspect the artwork at its original size.
+
+For browser screenshots, set the browser to the intended CSS viewport and capture at a device pixel ratio of 2. A 1,440 × 900 CSS viewport should produce a 2,880 × 1,800 image. Capture the phone at its own viewport, then show both views side by side when they help explain the same responsive design. Keep the individual captures available at full size.
+
+For generated art, diagrams, and other Bible graphics, author or export at the native resolution and aspect ratio the scene, page, or placement needs. Keep the original artwork or editable source when available. If a source is too small to show the needed detail, recapture, re-export, or regenerate it at the right size. Enlarging a small file doesn’t add detail.
+
 ## Keep build tickets easy to open
 
 Put the complete ticket ID beside the panel or choice it belongs to. In the Project Bible reader, highlight the full ID in a chapter or project document to read the ticket in place. Use the ticket buttons in Work queue and Build handoff when you’re starting from the task sheet. A project board that runs the shared ticket viewer can use the same selection behavior. [Choose how to read a chapter](project-phases.md#choose-how-to-read-a-chapter)

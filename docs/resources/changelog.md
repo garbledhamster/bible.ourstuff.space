@@ -198,3 +198,9 @@ Mission appears before Vision & Scope in the public guide. The shared template g
 Contributor Training now puts the recipient’s name first and gives each round a coordinator update, a summary of each contributor’s work, an estimated time, and a short reason under each question. Save the exact round in the owning Bible and record confirmed decisions and follow-up owners there. Share approved context with everyone involved and keep individual links and submissions private.
 
 An independent sample round checked the form, sharing, and record steps. The site build passed, and Chrome followed the template and guide links at 1,280 and 390 pixels. [Contributor Training](game-bible-guide.md#coordinate-contributors-in-rounds) · [Feedback](feedback.md#2026-11-16t125625-0600--joe--give-each-questionnaire-a-clear-owner-and-shared-context)
+
+### 2026-11-16T14:37:00-06:00 · Share the questionnaire layout and full-resolution artwork standard
+
+Added a [questionnaire layout reference](questionnaire-layout.md) with a fictional desktop and phone example, an open round picker, the summary controls, and the bottom Start action. Contributor Training, the agent resource index, and the Project Bible skill link to it. [Full-resolution artwork](concept-boards.md#keep-full-resolution-artwork) now explains how to capture browser screens at 2× and retain the originals for other Bible graphics.
+
+The site build validated all 15 chapters and 27 local resource links. Checked the guide and index links, artwork anchor, and all four image files in Chrome at 1,440 × 900 and 390 × 760. The desktop captures are 2,880 × 1,800. [Feedback](feedback.md#2026-11-16t143400-0600--joe--share-the-questionnaire-layout-and-keep-full-resolution-artwork)

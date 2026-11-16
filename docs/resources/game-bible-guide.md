@@ -14,7 +14,7 @@ Start with what you want the player to experience in one moment. Name what they'
 
 Before starting a chapter, read its completion check and link the earlier output you'll use. In the project Bible, record the output someone can open or run, the expected result, what you observed, and the build or device when it matters. Name the next action and who owns it. For a decision chapter, the output can be a written decision with a reason. For a build chapter, link the working artifact and the check that exercised it. Mark unfinished checks open and return to the earliest one the next piece depends on. If a chapter does not apply to this release, record why.
 
-Embed every image generated for the project in the chapter where it was made or discussed. Save the image in the project and put it next to the decision, asset, or result it illustrates. Give it useful alt text and a short caption explaining its purpose and current status. Link the source or prompt and reuse the same file when a later chapter needs it. Open the rendered chapter to confirm the image loads. For chapters that change the playable build, record what you tried, the result, and what the next chapter can build on.
+Embed every image generated for the project in the chapter where it was made or discussed. Save the image in the project and put it next to the decision, asset, or result it illustrates. Give it useful alt text and a short caption explaining its purpose and current status. Link the source or prompt and reuse the same file when a later chapter needs it. Follow [Keep full-resolution artwork](concept-boards.md#keep-full-resolution-artwork) when making and saving those visuals. Open the rendered chapter to confirm the image loads. For chapters that change the playable build, record what you tried, the result, and what the next chapter can build on.
 
 ## Vision & Scope
 
@@ -726,6 +726,8 @@ Use short, individual questionnaires when several contributors need to weigh in 
 4. **Carry the answers forward.** As replies come in, enter confirmed decisions in the relevant Bible chapters and record who owns each open follow-up. Ask the next round about what is still open. If everyone agrees to try a practice handoff but gives different times, keep the handoff in the recap and ask which time works and who can run it. Share the updated, approved context with the group and keep earlier answers available to their authors. Agree on a first task and the evidence the contributor will bring back.
 
 ### Style Project Bible questionnaires
+
+Use the [questionnaire layout reference](questionnaire-layout.md) for the round picker, conversation, and bottom action on desktop and phone.
 
 Use the Project Bible reader’s dark plum palette, Instrument Serif headings, DM Sans body text, and lime accents on every web questionnaire for the Bible. Carry the style through the introduction, questions, review before sending, submitted answers and history, and coordinator review.
 

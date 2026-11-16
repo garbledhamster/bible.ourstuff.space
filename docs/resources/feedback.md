@@ -174,3 +174,9 @@ The review found that individually valid PNGs could make a draft too large to sa
 **Paraphrase from a questionnaire review.** Make it obvious whose form it is. Show what teammates and the coordinator are working on, give people an idea of how long the round takes, and explain below each question why it matters. Keep the rounds in each project’s Bible.
 
 [Questionnaire rounds](game-bible-guide.md#coordinate-contributors-in-rounds)
+
+### 2026-11-16T14:34:00-06:00 · Joe · Share the questionnaire layout and keep full-resolution artwork
+
+**Paraphrase.** Make the approved round picker and conversation layout a resource every Bible can find. Keep the primary Start action at the bottom. Save future Bible graphics at full resolution, with clear desktop and phone views when the layout changes between them.
+
+[Questionnaire layout](questionnaire-layout.md) · [Full-resolution artwork](concept-boards.md#keep-full-resolution-artwork)
