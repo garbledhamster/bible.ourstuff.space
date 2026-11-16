@@ -14,13 +14,13 @@ The built-in **Grilling** session picker lists sessions across the Bible. A crew
 
 ## Put shared context in a conversation
 
-Use a clear heading such as **Shared project update** and a sentence that says why the contributor is seeing it. Keep the reader’s dark plum background, Instrument Serif headings, DM Sans body text, and lime for the primary action and selected state.
+Use a clear heading such as **Shared project update** and a sentence that says why the contributor is seeing it. Match the Project Bible 2.0 reader. Use its dark masthead, lavender chapter titles, pale paper, dark ink, and thin lavender rules. Keep Instrument Serif for display titles and DM Sans for controls and form text. Use deep purple for the primary action and gold to mark the selected round.
 
 | Whose update | Placement | What the reader sees |
 | --- | --- | --- |
-| Recipient | Left, green/slate | Their name, **Your Round 1 summary**, and a short recap. |
-| Teammate | Right, lavender | Their name, the round, and a recap of relevant work or answers. |
-| Coordinator | Right, amber | Their name, **Coordinator update**, and what they’re working on for this round. |
+| Recipient | Left, pale sage | Their name, **Your Round 1 summary**, and a short recap. |
+| Teammate | Right, pale lavender | Their name, the round, and a recap of relevant work or answers. |
+| Coordinator | Right, pale amber | Their name, **Coordinator update**, and what they’re working on for this round. |
 
 Give each item a readable title and preview. Clicking or tapping its header expands the detail inline, so the reader keeps their place. Use a focusable disclosure control that exposes its open or closed state. Keep names and roles visible; the colors help readers scan.
 

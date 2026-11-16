@@ -729,7 +729,7 @@ Use short, individual questionnaires when several contributors need to weigh in 
 
 Use the [questionnaire layout reference](questionnaire-layout.md) for the round picker, conversation, and bottom action on desktop and phone.
 
-Use the Project Bible reader’s dark plum palette, Instrument Serif headings, DM Sans body text, and lime accents on every web questionnaire for the Bible. Carry the style through the introduction, questions, review before sending, submitted answers and history, and coordinator review.
+Match the Project Bible 2.0 reader on every web questionnaire for the Bible. Use dark masthead chrome, a lavender title band, pale paper, dark ink, purple primary actions, and gold selected states. Keep Instrument Serif for display titles and DM Sans for controls and form text. Carry the style through the introduction, questions, review before sending, submitted answers and history, and coordinator review.
 
 - Make the recipient’s name the strongest label on their form. Put the project and round below it, with a realistic time estimate that includes reading the context, answering, and reviewing before sending. Time a walkthrough of the actual round and allow for the choices and notes it asks people to consider.
 - Put the question and choices ahead of supporting controls. Keep a short **Why we’re asking** note beneath each question, with its choices and optional note prompt. Explain what the answer will help the team decide or do. For example: “We’re deciding where to put the intake line so people waiting for repairs don’t block the work tables.”
