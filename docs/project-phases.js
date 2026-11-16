@@ -1,7 +1,7 @@
 const modes = [
   ['Explore', 'Find where the idea can improve, generate alternatives, and recommend a small test.'],
   ['Grilling', 'Work through decisions with the creator. Keep the questions, recommendations, and attributed human and agent answers in the Bible’s grilling record.'],
-  ['Plan', 'Review how the whole release fits together and turn the decisions into build tasks.'],
+  ['Plan', 'Use Auto Plan to review how the whole release fits together and turn the decisions into chapter tasks for its current lifecycle level and stage.'],
   ['Concept Generation', 'Show what each chapter should produce in a reviewable visual board before implementation.'],
   ['Build', 'Build the agreed scope and run the checks needed to assemble a complete candidate.'],
   ['Testing', 'Try the complete release through its real user journeys and record what passed or needs work.'],
@@ -140,9 +140,9 @@ export async function showProjectPhase() {
     if (activeMode === 'Explore') {
       prompt.value += ' Use the Explore playbook. Start from evidence, frame the question, generate distinct ideas before judging them, and compare the strongest options. Save findings, proposals and the next question or test in a draft section or note linked from the owning chapter.';
     } else if (activeMode === 'Plan') {
-      prompt.value += ' Draft the relevant Bible chapters from the Grilling decisions and agreed scope, then carry them into Concept Generation.';
+      prompt.value += ' Draft the relevant Bible chapters from the Grilling decisions and agreed scope. Prepare the Concept Generation handoff and keep chapter tasks separate from development tickets.';
     } else if (activeMode === 'Concept Generation') {
-      prompt.value += ' Create a concept page for each applicable chapter with one wide lead image above four captioned detail panels. Use mockups, storyboards, diagrams or document compositions that show the agreed outcome. Link the full-size visuals, sources, exact visual specifications and the owning build tickets. Record what the creator approved before building it.';
+      prompt.value += ' Create a concept page for each applicable chapter with one wide lead image above four captioned detail panels. Use mockups, storyboards, diagrams or document compositions that show the agreed outcome. Link the full-size visuals, sources, exact visual specifications and the owning chapter tasks. Link development tickets when they exist. Record what the creator approved before building it.';
     } else if (activeMode === 'Build') {
       prompt.value += ' Start from the chapter plans and approved concept pages. Compare the implemented result with their visuals and specifications. Update the owning chapter with what changed, the working result and the checks you ran.';
     } else {

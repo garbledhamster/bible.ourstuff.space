@@ -204,3 +204,9 @@ An independent sample round checked the form, sharing, and record steps. The sit
 Added a [questionnaire layout reference](questionnaire-layout.md) with a fictional desktop and phone example, an open round picker, the summary controls, and the bottom Start action. Contributor Training, the agent resource index, and the Project Bible skill link to it. [Full-resolution artwork](concept-boards.md#keep-full-resolution-artwork) now explains how to capture browser screens at 2× and retain the originals for other Bible graphics.
 
 The site build validated all 15 chapters and 27 local resource links. Checked the guide and index links, artwork anchor, and all four image files in Chrome at 1,440 × 900 and 390 × 760. The desktop captures are 2,880 × 1,800. [Feedback](feedback.md#2026-11-16t143400-0600--joe--share-the-questionnaire-layout-and-keep-full-resolution-artwork)
+
+### 2026-11-16T14:53:30-06:00 · Auto Plan
+
+Added [Auto Plan](auto-plan/SKILL.md) to the Project Bible's Plan workflow. It carries Grilling decisions into chapter tasks for the release's lifecycle level and stage, then prepares Concept Generation. Development tickets have their own workflow.
+
+Checked a fictional release with an open owner decision and an existing assigned task. The site build passed, the resource links worked at desktop and phone widths, and the three download archives matched their public sources.

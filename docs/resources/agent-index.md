@@ -7,6 +7,7 @@ Clone the Bible to get the [Project Bible skill](project-bible/SKILL.md), guide,
 - [Chapter concept boards](concept-boards.md) — show one lead outcome and four supporting panels before Build, and [keep full-resolution artwork](concept-boards.md#keep-full-resolution-artwork).
 - [Questionnaire layout](questionnaire-layout.md) — see the round picker, shared conversation, and bottom action on desktop and phone.
 - [Auto Grill](auto-grill/SKILL.md) — offer an agent interview after a run of recommended answers, or use it when the owner asks agents to finish the grilling session.
+- [Auto Plan](auto-plan/SKILL.md) — turn Grilling decisions into chapter plans and prepare Concept Generation. [Download Auto Plan](https://bible.ourstuff.space/resources/auto-plan.zip) or use it from the shared checkout.
 - [Joe’s Notes](joes-notes.md) — quick design notes for games and software.
 - [Work through the Task List](task-list-workflow.md) — pick up tasks, manage blockers and assignees, and record verified changes.
 - [Task List template](task-list-template.md) and [Island Post checklist](island-post/task-list.md).

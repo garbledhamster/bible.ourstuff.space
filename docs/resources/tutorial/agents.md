@@ -19,7 +19,7 @@ In the Desktop Manager, open the chapter and choose **Work mode**. Choose the mo
 
 ## Work through decisions and tickets
 
-In **Explore**, give the agent a real example and ask it to bring you evidence and options. In **Grilling**, answer the key questions and have the agent save your decisions where they belong. In **Plan**, have it turn those decisions into a short spec and ordered tickets. Then point it to one ready ticket, its acceptance check, and any limits on what it can change.
+In **Explore**, give the agent a real example and ask it to bring you evidence and options. In **Grilling**, answer the key questions and have the agent save your decisions where they belong. In **Plan**, use [Auto Plan](../auto-plan/SKILL.md) to draft the chapters, plan their tasks, and prepare Concept Generation. When you’re ready to implement, use the [development ticket workflow](../task-list-workflow.md#turn-an-agreed-plan-into-work) and give the agent one ready ticket with its acceptance check.
 
 Have the agent return the exact chapter or ticket it updated and the result it verified. Read the change in your Bible. If you accept a different decision, put it in the owning chapter so the next agent starts there. A suggestion in chat stays a proposal until you decide to use it.
 

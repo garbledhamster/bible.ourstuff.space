@@ -118,7 +118,7 @@ I can see the visual direction the creator confirmed and read which details they
 
 - **Explore** · Explore different ways to do the main activity. Compare where each makes the rules clearer or creates friction.
 - **Grilling** · Walk through the main activity with the creator. Decide what the person can do, what changes, what feedback they get, and how they recover when it goes wrong.
-- **Plan** · Write the rules and starting states in the order the player encounters them. Use `to-spec`, then `to-tickets`, and record both in the Project Bible. Give each playable or verifiable slice a task with instructions, subtasks, expected results, and its real blockers. [Plan and work through tasks](task-list-workflow.md)
+- **Plan** · Write the rules and starting states in the order the player encounters them. Record the chapter tasks, expected results, and blockers. When the team is ready to break settled scope into implementation slices, follow the [development ticket workflow](task-list-workflow.md#turn-an-agreed-plan-into-work).
 - **Concept Generation** · Show the main workflow as people experience it. Use the four panels for the normal path, a choice, a failure and its recovery. [Chapter concept board](concept-boards.md)
 - **Build** · Implement the agreed rules as parts the sandbox and player scenes can share. Record which rules and recovery paths the build covers.
 - **Testing** · Try the usual path, a failed attempt, and recovery in the integrated candidate. Compare the result with the written rules and repeat affected checks after a fix.
@@ -577,7 +577,7 @@ A player can go from the start of the scene to an outcome, recover where they ne
 
 - **Explore** · Compare ways to open, install, and return to the project. Try the one most likely to reveal first-run friction.
 - **Grilling** · Agree on how the intended audience will open, install, or return to the game and on what the launch must make available.
-- **Plan** · Write the launch, packaging, and versioning steps. List supported targets, controls, and the first-run, continue, and update paths that apply.
+- **Plan** · Use [Auto Plan](auto-plan/SKILL.md) to map the launch decisions to chapter tasks for the current release stage. Draft the launch, packaging, and versioning steps. List supported targets, controls, and the first-run, continue, and update paths that apply.
 - **Concept Generation** · Show the normal launch or install path and the scene or screen that proves the built product works. Visualize the other target or recovery states when they affect the handoff. [Chapter concept board](concept-boards.md)
 - **Build** · Produce a versioned candidate with the pieces it needs to run. Save the build, source revision, and launch or install instructions.
 - **Testing** · Open the exact candidate from a fresh browser profile or clean install. Complete the main journey and check saved progress and recovery where supported.

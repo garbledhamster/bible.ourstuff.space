@@ -22,6 +22,9 @@ async function render(path, label, content) {
 await rm(output, { recursive: true, force: true });
 // Publish the same UI art the Dock loads, including the linked sample folder.
 await cp(source, output, { recursive: true, dereference: true });
+execFileSync('python3', ['scripts/package-resources.py'], {
+  cwd: new URL('../', import.meta.url), stdio: 'inherit',
+});
 const revision = execFileSync('git', ['rev-parse', 'HEAD'], {
   cwd: new URL('../', import.meta.url), encoding: 'utf8',
 }).trim();

@@ -16,6 +16,10 @@ Start a new project in **1. Explore** to learn where the idea could improve. Fol
 
 You can switch to any mode at any time. The Work mode lives above the chapters in the project’s Markdown, for example `**Current phase:** Build`. Keeping that field lets older readers display the saved choice.
 
+## Lifecycle level and stage
+
+Record the Bible’s **Lifecycle level** as Identification, Planning, Staging, Building / Execution, or Closing. Record its **Stage** as the current milestone or progress within that level. For example, a release can be at Planning, with the release definition in progress, while the team uses Grilling to resolve one more decision. Use the actual release and evidence to set these fields. Changing Work mode does not change them.
+
 ## Choose how to read a chapter
 
 Open a chapter and use **Layout** in **Review**. **Default** opens the regular chapter view. **Editorial brief** puts the prose and a section index together. **Illustrative** gives the chapter’s existing images, media, and linked resources more room. **Architect** lets you expand and collapse sections. **Build handoff** puts the task sheet first so you can see what’s remaining or complete.
@@ -53,15 +57,15 @@ Explore options and gather enough evidence to discuss them. Work through the app
 
 ## Plan
 
-Use Ask Edwards’s gestalt lens as a project planning exercise. Step back from the chapter views and walk through the whole idea as someone would experience it, from opening it to getting what they came for. Look at how the chapter decisions work together. For example, if a player is supposed to learn which ground is safe by looking at it, the art, movement rules, and feedback need to teach the same thing. Resolve gaps and conflicts that would change the build.
+Use [Auto Plan](auto-plan/SKILL.md) to walk the release as someone would experience it, from opening it to getting what they came for. Check how the chapter decisions work together. If a player learns which ground is safe by looking at it, the art, movement rules, and feedback need to teach the same thing.
 
-Once the release makes sense as a whole, outline the build tasks for every applicable chapter. Add them to the existing task list under their chapters. Say what each task should produce, what it depends on, and how you’ll know it works. Put unanswered decisions beside the tasks they block. Draft the chapter content from the Grilling decisions and agreed scope. Then move to Concept Generation.
+Draft the applicable chapters from the Grilling decisions and agreed scope. Update their existing Task List entries for the current lifecycle level and stage. Record what each task should produce, who owns it, what it depends on, and how to check it. Put unanswered decisions beside the work they block. Keep these chapter tasks separate from implementation tickets. Prepare a Concept Generation brief for each chapter that can advance, and name what still needs a decision.
 
 ## Concept Generation
 
 Show the creator what they are going to get while the work can still change easily. Give every applicable chapter its own concept page. Use one wide lead image above four smaller, captioned panels in two columns. The lead shows the chapter’s main outcome in context. The four panels show related screens, scenes, states, or production details that explain how that outcome works. Use the [chapter concept board guide](concept-boards.md) and [board template](concept-board-template.html).
 
-Use full-size, finished-looking mockups for the app screens or game scenes people will see. For chapters that cover technical or operational work, visualize the relevant state, diagram, runbook, package, or observation sheet. Mark anything that needs empirical evidence as a planned result. Keep the originals in the project chapter, link every panel to the full-size artifact, and record provenance, what is under review, and the owning ticket.
+Use full-size, finished-looking mockups for the app screens or game scenes people will see. For chapters that cover technical or operational work, visualize the relevant state, diagram, runbook, package, or observation sheet. Mark anything that needs empirical evidence as a planned result. Keep the originals in the project chapter, link every panel to the full-size artifact, and record provenance, what is under review, and the owning chapter task. Add implementation ticket links when the team has created them.
 
 Record the exact type, spacing, positions, behavior, asset treatment, and supported sizes needed to reproduce any approved visual. Use measurements and stated values with the mockup. Record the creator’s approval by board or panel, the revision it applies to, and the next ticket. Move approved scope into Build and keep unresolved visual decisions beside the work they block.
 

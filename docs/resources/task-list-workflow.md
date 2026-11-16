@@ -2,6 +2,10 @@
 
 Open **Tasks** in the Bible footer to see work across chapters. Use **Ready to work** to find open or ready tasks with an empty Blockers field. Use the chapter and assignee filters to narrow the list. Each private reader with task editing enabled saves this view to its project's `task-list.md`.
 
+## Plan chapter work
+
+Use [Auto Plan](auto-plan/SKILL.md) to add or update tasks for the Bible’s current lifecycle level and stage. Keep the source decision, desired chapter output, assignee, blockers, and completion check together. A chapter task can ask for a launch brief or a concept board before there is a development ticket to implement it. Keep an existing ticket link when it helps someone follow the work.
+
 ## Turn an agreed plan into work
 
 1. Use `to-spec` to write the player or user problem, the agreed solution, the implementation decisions, and what proves the result. Save the spec in the project’s Bible and link it from the owning chapter.

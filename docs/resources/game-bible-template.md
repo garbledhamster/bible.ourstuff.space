@@ -4,6 +4,10 @@ Game:
 
 **Current phase:** Explore
 
+**Lifecycle level:** Identification
+
+**Stage:** Initial exploration
+
 Current chapter:
 Next decision or check:
 Grilling record (link to questions, recommendations, attributed answers and decisions):

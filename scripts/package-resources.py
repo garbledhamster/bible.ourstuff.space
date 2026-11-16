@@ -20,4 +20,5 @@ package("game-quality-control.zip", [
     ("game-quality-control/SKILL.md", RESOURCES / "game-quality-control.md"),
     ("game-quality-control/agents/openai.yaml", RESOURCES / "game-quality-control-agent.yaml"),
 ])
-print("Packaged the planning kit and quality-control skill from the published sources.")
+package("auto-plan.zip", [("auto-plan/SKILL.md", RESOURCES / "auto-plan" / "SKILL.md")])
+print("Packaged the planning kit, Auto Plan, and Game Quality Control from the published sources.")
