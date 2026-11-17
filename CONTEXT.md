@@ -2,6 +2,10 @@
 
 ## Language
 
+**Build**
+
+A framework for turning ideas into working projects, with Portfolio Bibles for coordinating work and Project Bibles for individual projects.
+
 **Portfolio**
 
 Projects and ongoing work coordinated together toward shared goals.
