@@ -1,8 +1,10 @@
-# Project Bible 2.0 Tutorial
+# Portfolio Bible and Project Bible Tutorial
+
+Portfolio Bible is the top layer for seeing your projects and coordinating work across them. Each project has its own Project Bible.
 
 A Project Bible brings the decisions, plans, tasks, and evidence for one project into the same place. When you come back to the work, open the current chapter and look for what you've decided, what you've checked, and what you need to do next.
 
-The [public guide](/guide.html) teaches the chapters. Your own Bible lives in a working folder. The Desktop Manager opens that folder through a library on your computer or on another host. The Browser Client connects to a library you have access to. An agent can work alongside you in the same Bible when you give it access to the same folder or connect it to the library through MCP.
+The [public guide](/guide.html) teaches the chapters. Your own Bible lives in a working folder. Portfolio Bible opens that folder through a library on your computer or on another host. In the library, the masthead says Portfolio Bible. When you open a project, it says Project Bible with the project’s name. The Browser Client connects to a library you have access to. An agent can work alongside you in the same Bible when you give it access to the same folder or connect it to the library through MCP.
 
 ## Choose a tutorial
 

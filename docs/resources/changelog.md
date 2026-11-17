@@ -210,3 +210,8 @@ The site build validated all 15 chapters and 27 local resource links. Checked th
 Added [Auto Plan](auto-plan/SKILL.md) to the Project Bible's Plan workflow. It carries Grilling decisions into chapter tasks for the release's lifecycle level and stage, then prepares Concept Generation. Development tickets have their own workflow.
 
 Checked a fictional release with an open owner decision and an existing assigned task. The site build passed, the resource links worked at desktop and phone widths, and the three download archives matched their public sources.
+
+
+## 2026-11-17T11:59:38-06:00 · Portfolio Bible branding
+
+Named the top layer Portfolio Bible and retained Project Bible for each project. Updated the public entry page, manager link and tutorial, and recorded the terms in the glossary.
